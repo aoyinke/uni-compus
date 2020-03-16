@@ -1,0 +1,64 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.9.2",
+	"appid": "touristappid",
+	"projectname": "unit-Compaus",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"name": "index",
+					"query": "",
+					"id": 0,
+					"pathName": "pages/index/index"
+				},
+				{
+					"name": "self",
+					"query": "",
+					"id": 1,
+					"pathName": "pages/self/self"
+				},
+				{
+					"name": "changePerson",
+					"query": "",
+					"id": 2,
+					"pathName": "pages/changePerson/changePerson"
+				},
+				{
+					"name": "personDetail",
+					"query": "",
+					"id": 3,
+					"pathName": "pages/personalDetail/personalDetail"
+				},
+				{
+					"name": "group",
+					"query": "",
+					"id": 4,
+					"pathName": "pages/group/group"
+				}
+			]
+		}
+	}
+}

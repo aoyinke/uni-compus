@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/self/self",
+    "pages/changePerson/changePerson",
+    "pages/personalDetail/personalDetail",
+    "pages/group/group",
+    "static/activityDetail/activityDetail",
+    "pages/publishActivity/publishActivity"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tarBar/index.png",
+        "selectedIconPath": "static/tarBar/selecetdIndex.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/group/group",
+        "iconPath": "static/tarBar/partner.png",
+        "selectedIconPath": "static/tarBar/partner_icon.png",
+        "text": "小组"
+      },
+      {
+        "pagePath": "pages/self/self",
+        "iconPath": "static/tarBar/self.png",
+        "selectedIconPath": "static/tarBar/self.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap34.json"
+}
