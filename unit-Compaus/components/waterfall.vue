@@ -4,7 +4,8 @@
 			<view class="peopleFall-item" v-for="(item,index) in peopleList" :key="index" ref="peopleItem" :style="{top:peopleItemStyles[index].top,right:peopleItemStyles[index].right,left:peopleItemStyles[index].left}">
 				<image class="peopleFall-item-img" :src="item.src" mode="" :style="{height:imgStyle[index].height}"></image>
 				<view class="peopleFall-item-desc">
-					<text class="text-line-2">{{item.cardText}}</text>
+					<text class="peopleFall-item-groupName">{{item.groupName}}</text>
+					<text class="text-line-2">{{item.introduction}}</text>
 					<view class="peopleFall-item-tag">
 						<random-color-tag :content="tag" v-for="(tag,idx) in item.tag" :key="idx"></random-color-tag>
 					</view>
@@ -34,64 +35,64 @@
 				peopleViewHeight:0,
 				peopleList: [{
 					src: "../static/test/waterfull/1.jpg",
-					cardTitle: "我是第一张图片",
-					cardText: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
+					introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 					loveNum:0,
-					tag:['nb','无与伦比','技术宅']
+					tag:['nb','无与伦比','技术宅'],
+					groupName:"轻松一校"
 				}, {
 					src: "../static/test/waterfull/2.jpg",
-					cardTitle: "我是第二张图片",
-					cardText: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
+					groupName:"轻松一校",
+					introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 					loveNum:0
 				}, {
 					src: "../static/test/waterfull/3.jpg",
-					cardTitle: "我是第三张图片",
-					cardText: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
+					groupName:"轻松一校",
+					introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 					loveNum:0
 				}, {
 					src: "../static/test/waterfull/4.jpg",
-					cardTitle: "我是第四张图片",
-					cardText: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
+					groupName:"轻松一校",
+					introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 					loveNum:0
 				}, {
 					src: "../static/test/waterfull/5.jpg",
-					cardTitle: "我是第五张图片",
-					cardText: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
+					groupName:"轻松一校",
+					introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 					loveNum:0
 				}, {
 					src: "../static/test/waterfull/6.jpg",
-					cardTitle: "我是第六张图片",
-					cardText: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
+					groupName:"轻松一校",
+					introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 					loveNum:0
 				}, {
 					src: "../static/test/waterfull/7.jpg",
-					cardTitle: "我是第七张图片",
-					cardText: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
+					groupName:"轻松一校",
+					introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 					loveNum:0
 				}, {
 					src: "../static/test/waterfull/8.jpg",
-					cardTitle: "我是第八张图片",
-					cardText: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
+					groupName:"轻松一校",
+					introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 					loveNum:0
 				}, {
 					src: "../static/test/waterfull/9.jpg",
-					cardTitle: "我是第九张图片",
-					cardText: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
+					groupName:"轻松一校",
+					introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 					loveNum:0
 				}, {
 					src: "../static/test/waterfull/10.jpg",
-					cardTitle: "我是第十张图片",
-					cardText: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
+					groupName:"轻松一校",
+					introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 					loveNum:0
 				}, {
 					src: "../static/test/waterfull/11.jpg",
-					cardTitle: "我是第十一张图片",
-					cardText: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
+					groupName:"轻松一校",
+					introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 					loveNum:0
 				}, {
 					src: "../static/test/waterfull/12.jpg",
-					cardTitle: "我是第十二张图片",
-					cardText: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
+					groupName:"轻松一校",
+					introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 					loveNum:0
 				}]
 
@@ -170,6 +171,11 @@
 			}
 			&-tag{
 				display: flex;
+				
+			}
+			&-groupName{
+				font-weight: bold;
+				margin-bottom: 20upx;
 				
 			}
 		}

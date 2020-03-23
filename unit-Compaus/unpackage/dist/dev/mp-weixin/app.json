@@ -5,7 +5,7 @@
     "pages/changePerson/changePerson",
     "pages/personalDetail/personalDetail",
     "pages/group/group",
-    "static/activityDetail/activityDetail",
+    "pages/activityDetail/activityDetail",
     "pages/publishActivity/publishActivity",
     "pages/findPeople/findPeople",
     "pages/login/login"
@@ -53,5 +53,5 @@
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar"
   },
-  "sitemapLocation": "sitemap3.json"
+  "sitemapLocation": "sitemap52.json"
 }

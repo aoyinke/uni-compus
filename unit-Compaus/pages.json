@@ -23,7 +23,7 @@
 				"backgroundColor": "darkgray"
 			}
 		}, {
-			"path": "static/activityDetail/activityDetail",
+			"path": "pages/activityDetail/activityDetail",
 			"style": {}
 		}, {
 			"path": "pages/publishActivity/publishActivity",
@@ -81,10 +81,15 @@
 				"query": "" //启动参数，在页面的onLoad函数里面得到
 			},
 			{
-					"name": "publish", //模式名称
-					"path": "pages/publishActivity/publishActivity", //启动页面，必选
-					"query": "" //启动参数，在页面的onLoad函数里面得到
-				},
+				"name": "activityDetail", //模式名称
+				"path": "pages/activityDetail/activityDetail", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			},
+			{
+				"name": "publish", //模式名称
+				"path": "pages/publishActivity/publishActivity", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			},
 			{
 				"name": "findPeople", //模式名称
 				"path": "pages/findPeople/findPeople", //启动页面，必选

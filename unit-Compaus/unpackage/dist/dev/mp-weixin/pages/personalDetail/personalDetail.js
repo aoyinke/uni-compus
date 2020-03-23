@@ -382,7 +382,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _uniIcons = _interopRequireDefault(__webpack_require__(/*! @/components/uni-icons/uni-icons.vue */ 44));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var tapBar = function tapBar() {return __webpack_require__.e(/*! import() | components/tapBar */ "components/tapBar").then(__webpack_require__.bind(null, /*! @/components/tapBar.vue */ 112));};var _default =
+var _uniIcons = _interopRequireDefault(__webpack_require__(/*! @/components/uni-icons/uni-icons.vue */ 44));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var tapBar = function tapBar() {return __webpack_require__.e(/*! import() | components/tapBar */ "components/tapBar").then(__webpack_require__.bind(null, /*! @/components/tapBar.vue */ 114));};var _default =
 {
   data: function data() {
     return {

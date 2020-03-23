@@ -1,27 +1,11 @@
 <template>
 	<view>
 		<block v-for="(item,idx) in content" :key="idx">
-			<view class="groupNotification">
-				<view class="groupTopBar">
-					<view class="groupTopBar-left">
-						<view class="groupLogo">
-							<image :src="item.grouplogo" mode="scaleToFill"></image>
-						</view>
-						<view class="groupName">
-							<text class="groupName-first">{{item.groupName}}</text>
-							<text class="groupName-last">{{item.activityStartTime}}</text>
-						</view>
-					</view>
-					<view class="groupTopBar-right">
-						<view class="notiDetail">
-							<button type="primary" size="mini">关注</button>
-							<image src="../static/index/more.png" mode="scaleToFill"></image>
-						</view>
-					</view>
-				</view>
+			<view class="groupNotification" @tap="toDetail(item.groupLogo,item.groupName,item.activityStartTime)">
+				<user-top-bar :groupLogo="item.groupLogo" :groupName="item.groupName" :activityStartTime="item.activityStartTime"></user-top-bar>
 
 				<template v-if="item.activityPropagate.type=='img'">
-					<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" class="swiper">
+					<swiper :indicator-dots="true"  class="swiper">
 						<swiper-item v-for="(img,id) in item.activityPropagate.src" :key="id">
 							<view class="swiper-item">
 								<image :src="img" mode=""></image>
@@ -72,6 +56,7 @@
 </template>
 
 <script>
+	import userTopBar from '@/components/userTopBar.vue'
 	export default {
 		data() {
 			return {
@@ -83,7 +68,18 @@
 		},
 		mounted() {
 			
-		}
+		},
+		components: {
+			userTopBar
+		},
+		methods: {
+			toDetail(groupLogo,groupName,activityStartTime) {
+				uni.navigateTo({
+					url:'@/pages/activityDetail/activityDetail'
+				})
+				uni.$emit('getDetailInfo',{groupLogo:groupLogo,groupName:groupName,activityStartTime:activityStartTime})
+			}
+		},
 		
 	}
 </script>

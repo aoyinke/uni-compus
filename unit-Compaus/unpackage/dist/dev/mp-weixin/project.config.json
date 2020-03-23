@@ -27,7 +27,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 1,
 			"list": [
 				{
 					"name": "index",
@@ -36,45 +36,51 @@
 					"pathName": "pages/index/index"
 				},
 				{
-					"name": "publish",
+					"name": "activityDetail",
 					"query": "",
 					"id": 1,
+					"pathName": "pages/activityDetail/activityDetail"
+				},
+				{
+					"name": "publish",
+					"query": "",
+					"id": 2,
 					"pathName": "pages/publishActivity/publishActivity"
 				},
 				{
 					"name": "findPeople",
 					"query": "",
-					"id": 2,
+					"id": 3,
 					"pathName": "pages/findPeople/findPeople"
 				},
 				{
 					"name": "login",
 					"query": "",
-					"id": 3,
+					"id": 4,
 					"pathName": "pages/login/login"
 				},
 				{
 					"name": "self",
 					"query": "",
-					"id": 4,
+					"id": 5,
 					"pathName": "pages/self/self"
 				},
 				{
 					"name": "changePerson",
 					"query": "",
-					"id": 5,
+					"id": 6,
 					"pathName": "pages/changePerson/changePerson"
 				},
 				{
 					"name": "personDetail",
 					"query": "",
-					"id": 6,
+					"id": 7,
 					"pathName": "pages/personalDetail/personalDetail"
 				},
 				{
 					"name": "group",
 					"query": "",
-					"id": 7,
+					"id": 8,
 					"pathName": "pages/group/group"
 				}
 			]
