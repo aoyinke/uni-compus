@@ -24,10 +24,10 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.groupNotification.data-v-82b1d906 {
+.groupNotification.data-v-cb86a4d0 {
   border-bottom: 10rpx solid #EEEEEE;
 }
-.groupNotification .groupTopBar.data-v-82b1d906 {
+.groupNotification .groupTopBar.data-v-cb86a4d0 {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -46,7 +46,7 @@
     height: 100rpx;
     border: 0.5px solid #EEEEEE;
 }
-.groupNotification .groupTopBar .groupTopBar-left.data-v-82b1d906 {
+.groupNotification .groupTopBar .groupTopBar-left.data-v-cb86a4d0 {
       display: -webkit-box;
       display: -webkit-flex;
       display: flex;
@@ -58,12 +58,12 @@
               align-items: center;
       margin: 20rpx;
 }
-.groupNotification .groupTopBar .groupTopBar-left .groupLogo image.data-v-82b1d906 {
+.groupNotification .groupTopBar .groupTopBar-left .groupLogo image.data-v-cb86a4d0 {
         height: 80rpx;
         width: 80rpx;
         border-radius: 50%;
 }
-.groupNotification .groupTopBar .groupTopBar-left .groupName.data-v-82b1d906 {
+.groupNotification .groupTopBar .groupTopBar-left .groupName.data-v-cb86a4d0 {
         display: -webkit-box;
         display: -webkit-flex;
         display: flex;
@@ -78,28 +78,28 @@
         -webkit-flex-wrap: nowrap;
                 flex-wrap: nowrap;
 }
-.groupNotification .groupTopBar .groupTopBar-left .groupName .groupName-first.data-v-82b1d906 {
+.groupNotification .groupTopBar .groupTopBar-left .groupName .groupName-first.data-v-cb86a4d0 {
           font-weight: bold;
 }
-.groupNotification .groupTopBar .groupTopBar-left .groupName .groupName-last.data-v-82b1d906 {
+.groupNotification .groupTopBar .groupTopBar-left .groupName .groupName-last.data-v-cb86a4d0 {
           color: darkgray;
           font-size: 20rpx;
 }
-.groupNotification .groupTopBar .groupTopBar-right .notiDetail button.data-v-82b1d906 {
+.groupNotification .groupTopBar .groupTopBar-right .notiDetail button.data-v-cb86a4d0 {
       color: #fff;
-      background-color: #FFF8DC;
+      background-color: #191970;
 }
-.groupNotification .groupTopBar .groupTopBar-right .notiDetail image.data-v-82b1d906 {
+.groupNotification .groupTopBar .groupTopBar-right .notiDetail image.data-v-cb86a4d0 {
       width: 60rpx;
       height: 60rpx;
 }
-.groupNotification .swiper-item image.data-v-82b1d906 {
+.groupNotification .swiper-item image.data-v-cb86a4d0 {
     width: 100%;
 }
-.groupNotification .footer.data-v-82b1d906 {
+.groupNotification .footer.data-v-cb86a4d0 {
     border-top: 0.5rpx solid #EEEEEE;
 }
-.groupNotification .footer .mutation.data-v-82b1d906 {
+.groupNotification .footer .mutation.data-v-cb86a4d0 {
       display: -webkit-box;
       display: -webkit-flex;
       display: flex;
@@ -111,7 +111,7 @@
               align-items: center;
       margin-top: 10rpx;
 }
-.groupNotification .footer .mutation .mutation-left.data-v-82b1d906 {
+.groupNotification .footer .mutation .mutation-left.data-v-cb86a4d0 {
         display: -webkit-box;
         display: -webkit-flex;
         display: flex;
@@ -122,33 +122,33 @@
         -webkit-align-items: center;
                 align-items: center;
 }
-.groupNotification .footer .mutation .mutation-left .like.data-v-82b1d906 {
+.groupNotification .footer .mutation .mutation-left .like.data-v-cb86a4d0 {
           margin-left: 10rpx !important;
 }
-.groupNotification .footer .mutation .mutation-right .share.data-v-82b1d906 {
+.groupNotification .footer .mutation .mutation-right .share.data-v-cb86a4d0 {
         margin-right: 10rpx;
 }
-.groupNotification .footer .mutation .mutation-left .tag.data-v-82b1d906,
-      .groupNotification .footer .mutation .mutation-right .tag.data-v-82b1d906 {
+.groupNotification .footer .mutation .mutation-left .tag.data-v-cb86a4d0,
+      .groupNotification .footer .mutation .mutation-right .tag.data-v-cb86a4d0 {
         margin-left: 30rpx;
 }
-.groupNotification .footer .mutation .mutation-left .tag image.data-v-82b1d906,
-        .groupNotification .footer .mutation .mutation-right .tag image.data-v-82b1d906 {
+.groupNotification .footer .mutation .mutation-left .tag image.data-v-cb86a4d0,
+        .groupNotification .footer .mutation .mutation-right .tag image.data-v-cb86a4d0 {
           width: 50rpx;
           height: 50rpx;
 }
-.groupNotification .footer .commentDetail.data-v-82b1d906 {
+.groupNotification .footer .commentDetail.data-v-cb86a4d0 {
       margin-top: 30rpx;
 }
-.groupNotification .footer .commentDetail .activityInfo .activityInfo-left.data-v-82b1d906 {
+.groupNotification .footer .commentDetail .activityInfo .activityInfo-left.data-v-cb86a4d0 {
         color: darkgray;
         margin-left: 10rpx;
 }
-.groupNotification .footer .commentDetail .activityInfo .activityInfo-right.data-v-82b1d906 {
+.groupNotification .footer .commentDetail .activityInfo .activityInfo-right.data-v-cb86a4d0 {
         color: darkgray;
         margin-left: 15rpx;
 }
-.groupNotification .footer .commentDetail .commentDetail-P .commentDetail-P-left.data-v-82b1d906 {
+.groupNotification .footer .commentDetail .commentDetail-P .commentDetail-P-left.data-v-cb86a4d0 {
         font-weight: 800;
         margin-left: 10rpx;
 }

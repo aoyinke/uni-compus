@@ -4,11 +4,12 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false
+		"urlCheck": false,
+		"es6": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.2",
-	"appid": "touristappid",
+	"appid": "wx9a27842ce15e1186",
 	"projectname": "unit-Compaus",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
@@ -26,7 +27,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 2,
 			"list": [
 				{
 					"name": "index",
@@ -35,27 +36,45 @@
 					"pathName": "pages/index/index"
 				},
 				{
-					"name": "self",
+					"name": "publish",
 					"query": "",
 					"id": 1,
+					"pathName": "pages/publishActivity/publishActivity"
+				},
+				{
+					"name": "findPeople",
+					"query": "",
+					"id": 2,
+					"pathName": "pages/findPeople/findPeople"
+				},
+				{
+					"name": "login",
+					"query": "",
+					"id": 3,
+					"pathName": "pages/login/login"
+				},
+				{
+					"name": "self",
+					"query": "",
+					"id": 4,
 					"pathName": "pages/self/self"
 				},
 				{
 					"name": "changePerson",
 					"query": "",
-					"id": 2,
+					"id": 5,
 					"pathName": "pages/changePerson/changePerson"
 				},
 				{
 					"name": "personDetail",
 					"query": "",
-					"id": 3,
+					"id": 6,
 					"pathName": "pages/personalDetail/personalDetail"
 				},
 				{
 					"name": "group",
 					"query": "",
-					"id": 4,
+					"id": 7,
 					"pathName": "pages/group/group"
 				}
 			]

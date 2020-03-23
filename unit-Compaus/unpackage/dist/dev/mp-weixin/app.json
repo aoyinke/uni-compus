@@ -6,7 +6,9 @@
     "pages/personalDetail/personalDetail",
     "pages/group/group",
     "static/activityDetail/activityDetail",
-    "pages/publishActivity/publishActivity"
+    "pages/publishActivity/publishActivity",
+    "pages/findPeople/findPeople",
+    "pages/login/login"
   ],
   "subPackages": [],
   "window": {
@@ -26,7 +28,13 @@
         "pagePath": "pages/index/index",
         "iconPath": "static/tarBar/index.png",
         "selectedIconPath": "static/tarBar/selecetdIndex.png",
-        "text": "首页"
+        "text": "社区"
+      },
+      {
+        "pagePath": "pages/findPeople/findPeople",
+        "iconPath": "static/findPeople/1.jpg",
+        "selectedIconPath": "static/findPeople/2.jpg",
+        "text": "找人"
       },
       {
         "pagePath": "pages/group/group",
@@ -42,6 +50,8 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap34.json"
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar"
+  },
+  "sitemapLocation": "sitemap3.json"
 }

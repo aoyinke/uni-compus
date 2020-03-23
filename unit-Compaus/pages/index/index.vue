@@ -1,6 +1,16 @@
 <template>
 	<view class="container">
-		<uni-nav-bar left-icon="back" left-text="返回"  title="社区"></uni-nav-bar>
+		<uni-nav-bar >
+			<view slot="nav-bar-left">
+				<image :src="leftIcon" mode=""></image>
+			</view>
+			<slot>
+				<view class="default">
+					<uni-search-bar placeholder="输入关键词" @confirm="search" ></uni-search-bar>
+				
+				</view>
+			</slot>
+		</uni-nav-bar>
 		<view class="main">
 			<tapBar :tap-bars="tarBars" :tap-index="tapIndex" @taptab="tabtap"></tapBar>
 			<view class="uni-tab-bar">
@@ -26,10 +36,34 @@
 	export default {
 		data() {
 			return {
+				leftIcon:"../../static/index/pencil.png",
 				swiperHeight: 0,
 				tapIndex: 0,
 				newsList: [{
 					content: [{
+						grouplogo: "../static/test/avatar.png",
+						groupName: "比赛大佬组",
+						activityStartTime: "17小时前",
+						activityPropagate: {
+							type: "img",
+							src: ['../static/test/1.jpg', '../static/test/timg.jpg', '../static/test/3.png']
+						},
+						hotNum: 80,
+						commentNum: 6,
+						commentDetail: [{
+							commentor: "天堂屠夫",
+							commentContent: "nb....."
+						},
+						{
+							commentor: "天堂屠夫",
+							commentContent: "tnb....."
+						},
+						{
+							commentor: "天堂屠夫",
+							commentContent: "cznb....."
+						}]
+					},
+					{
 						grouplogo: "../static/test/avatar.png",
 						groupName: "比赛大佬组",
 						activityStartTime: "17小时前",
@@ -138,7 +172,6 @@
 			}
 		},
 		components: {
-			uniNavBar,
 			activity,
 			tapBar
 		},
@@ -155,5 +188,11 @@
 </script>
 
 <style lang="scss" scoped>
-
+	.nav-bar-left{
+		image{
+			width: 70upx;
+			height: 70upx;
+			margin: auto;
+		}
+	}
 </style>

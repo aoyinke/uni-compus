@@ -28,13 +28,13 @@
 				<text>热门赞助活动</text>
 			</view>
 		</view>
-		<swiper :current="tapIndex">
+		<swiper class="swiper-box" :current="tapIndex" :style="{height:swiperHeight + 'px'}" @change="tabChange">
 			<swiper-item v-for="(items,index) in groupDetail" :key="index">
-				<scroll-view scroll-y class="list">
+				<scroll-view scroll-y class="list" :style="{height:swiperHeight + 'px'}">
 					<block v-for="(item,indx) in items.content" :key="indx">
-						<view class="swiper-item">
+						<view class="content">
 							<view class="group-logo">
-								<image :src="item.groupLogo" mode="wsidthFix"></image>
+								<image :src="item.groupLogo" mode="widthFix"></image>
 							</view>
 							<view class="group-info">
 								<view class="group-username">
@@ -49,8 +49,6 @@
 
 								</view>
 								<view class="group-info-bottom"></view>
-
-
 							</view>
 							<view class="group-chat">
 								<uni-tag text="和他们聊聊" type="success" :circle="true" size="small"></uni-tag>
@@ -70,6 +68,7 @@
 	export default {
 		data() {
 			return {
+				swiperHeight:0,
 				tapIndex: 0,
 				user: {
 					groupInfo: {
@@ -132,12 +131,15 @@
 		methods: {
 			tap(index) {
 				this.tapIndex = index
-			}
+			},
+			tabChange(e) {
+				this.tapIndex = e.detail.current
+			},
 		},
 		onLoad() {
 			let swiperHeight = uni.getSystemInfo({
 				success: res => {
-					let height = res.windowHeight - uni.upx2px(100)
+					let height = res.windowHeight - uni.upx2px(230)
 					this.swiperHeight = height
 				}
 			})
@@ -198,7 +200,7 @@
 		flex-direction: row;
 		height: 100upx;
 		box-shadow: 3upx 3upx 5upx 5upx #EEEEEE;
-
+		
 		.tab {
 			font-size: 26upx;
 			font-weight: 400;
@@ -206,14 +208,14 @@
 
 	}
 
-	.swiper-item {
-		height: 100%;
+	.content {
+		
 		display: flex;
 		justify-content: space-around;
 		margin: 30upx 10upx;
 		width: 100%;
 		flex-wrap: wrap;
-
+		
 		.group-logo {
 			height: 100%;
 			background-color: #fff;

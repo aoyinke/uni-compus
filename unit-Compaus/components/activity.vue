@@ -138,7 +138,7 @@
 				.notiDetail {
 					button {
 						color: #fff;
-						background-color:#FFF8DC;
+						background-color:#191970;
 					}
 
 					image {

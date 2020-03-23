@@ -24,7 +24,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.header.data-v-5a707c8e {
+.header.data-v-6d46bd58 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -36,27 +36,27 @@
           align-items: center;
   margin: 30rpx;
 }
-.header .user_avatar image.data-v-5a707c8e {
+.header .user_avatar image.data-v-6d46bd58 {
     height: 120rpx;
     width: 120rpx;
     border-radius: 50%;
 }
-.header .user_info.data-v-5a707c8e {
+.header .user_info.data-v-6d46bd58 {
     -webkit-padding-end: 400rpx;
             padding-inline-end: 400rpx;
 }
-.header .user_info .user_name text.data-v-5a707c8e {
+.header .user_info .user_name text.data-v-6d46bd58 {
       font-weight: bold;
 }
-.header .user_info .user_visits text.data-v-5a707c8e {
+.header .user_info .user_visits text.data-v-6d46bd58 {
       color: lightgray;
       font-size: 20rpx;
 }
-.header .user_detail image.data-v-5a707c8e {
+.header .user_detail image.data-v-6d46bd58 {
     height: 30rpx;
     width: 30rpx;
 }
-.main .userActivityNum.data-v-5a707c8e {
+.main .userActivityNum.data-v-6d46bd58 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -67,7 +67,7 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.main .userActivityNum .userActivityNum-detail.data-v-5a707c8e {
+.main .userActivityNum .userActivityNum-detail.data-v-6d46bd58 {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -82,29 +82,29 @@
     -webkit-justify-content: center;
             justify-content: center;
 }
-.main .userActivityNum .userActivityNum-detail .userActivityNum-detail-right.data-v-5a707c8e {
+.main .userActivityNum .userActivityNum-detail .userActivityNum-detail-right.data-v-6d46bd58 {
       color: darkgray;
 }
-.main .navBar.data-v-5a707c8e {
+.main .navBar.data-v-6d46bd58 {
   margin: 10rpx;
   border: 1rpx solid #EEEEEE;
   box-shadow: 3rpx 3rpx 5rpx 5rpx #EEEEEE;
 }
-.navIcon.data-v-5a707c8e {
+.navIcon.data-v-6d46bd58 {
   height: 45rpx;
   width: 45rpx;
   margin-bottom: -10rpx;
 }
-.navBar-detail image.data-v-5a707c8e {
+.navBar-detail image.data-v-6d46bd58 {
   height: 30rpx;
   width: 30rpx;
   color: lightgray;
   margin-right: 20rpx;
 }
-.userSetup.data-v-5a707c8e,
-.userHis.data-v-5a707c8e,
-.userConcern.data-v-5a707c8e,
-.userGroup.data-v-5a707c8e {
+.userSetup.data-v-6d46bd58,
+.userHis.data-v-6d46bd58,
+.userConcern.data-v-6d46bd58,
+.userGroup.data-v-6d46bd58 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -119,20 +119,20 @@
   line-height: 50rpx;
   margin: 50rpx 0;
 }
-.userSetup .navBar-left text.data-v-5a707c8e,
-  .userHis .navBar-left text.data-v-5a707c8e,
-  .userConcern .navBar-left text.data-v-5a707c8e,
-  .userGroup .navBar-left text.data-v-5a707c8e {
+.userSetup .navBar-left text.data-v-6d46bd58,
+  .userHis .navBar-left text.data-v-6d46bd58,
+  .userConcern .navBar-left text.data-v-6d46bd58,
+  .userGroup .navBar-left text.data-v-6d46bd58 {
     font-size: 30rpx;
     margin-left: 10rpx;
     font-weight: 500;
 }
-swiper.data-v-5a707c8e {
+swiper.data-v-6d46bd58 {
   margin: 20rpx 10rpx;
   height: 150rpx;
   border-radius: 50rpx;
 }
-swiper .swiper-item image.data-v-5a707c8e {
+swiper .swiper-item image.data-v-6d46bd58 {
     width: 100%;
 }
 

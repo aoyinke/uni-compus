@@ -6,22 +6,20 @@
 					<view class="swiper-tab-list" :class="{'active':tapIndex==index}" @tap="tabItem(index)">
 						{{tab.name}}
 						<view class="swiper-tab-inline"></view>
-		
-		
 					</view>
 				</block>
 			</scroll-view>
 		</view>
-		
+
 	</view>
-	
+
 </template>
 
 <script>
 	export default {
 		data() {
 			return {
-				
+
 
 			}
 		},
@@ -30,12 +28,12 @@
 		},
 		methods: {
 			tabItem(index) {
-				this.$emit('taptab',index)
+				this.$emit('taptab', index)
 			}
 		},
 		props: {
 			tapBars: Array,
-			tapIndex:Number
+			tapIndex: Number
 		}
 	}
 </script>
@@ -43,15 +41,25 @@
 <style lang="scss" scoped>
 	.uni-swiper-tab {
 		border-bottom: 1upx solid #EEEEEE;
+
+	}
+
+	.tab {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-direction: row;
 	}
 
 	.swiper-tab-list {
 		color: #969696;
 		font-weight: bold;
 
+
 	}
 
 	.uni-tab-bar {
+
 		.active {
 			color: #343434;
 

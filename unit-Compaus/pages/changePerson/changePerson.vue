@@ -1,7 +1,7 @@
 <template>
-	<view>
+	<view class="container">
+		<uni-nav-bar left-icon="back" left-text="返回"  title="修改个人信息" @clickLeft="clickLeft"></uni-nav-bar>
 		<view class="changePerson">
-		<uni-nav-bar left-icon="back" left-text="返回" right-text="菜单" title="导航栏组件"></uni-nav-bar>
 			<view class="changePerson_avatar">
 				<view class="change_choice">
 					<text>头像</text>
@@ -108,7 +108,15 @@
 		},
 			
 		components:{
-			uniNavBar
+			
+		},
+		methods:{
+			clickLeft(){
+				uni.navigateBack({
+					animationDuration:300,
+					animationType:'pop-out'
+				})
+			}
 		}
 	}
 </script>

@@ -1,5 +1,6 @@
 <template>
 	<view class="personalDetail">
+		<uni-nav-bar left-icon="back" title="详情页" @clickLeft="clickLeft"></uni-nav-bar>
 		<view class="tapBar">
 			<view class="tapBar-bg">
 				<image :src="userInfo.userBg" mode="scaleToFill"></image>
@@ -26,7 +27,32 @@
 			</view>
 
 			<view class="userDetail">
-				<tap-bar :tap-bars="content"></tap-bar>
+				<tap-bar :tap-bars="content" :tap-index="tapIndex" @taptab="tabtap"></tap-bar>
+				<swiper :current="tapIndex" @change="tabChange" class="swiper-box">
+					<swiper-item>
+						<view class="swiper-item">
+							<view class="accountInfo">
+								<view class="accountInfo-account">
+									<text>账号信息</text>
+								</view>
+								<view class="accountInfo-account-num">
+									<text>仓鼠Id: {{userInfo.userId}}</text>
+								</view>
+								<view class="accountInfo-bottom"></view>
+									
+								
+							</view>
+						</view>
+					</swiper-item>
+					<swiper-item>
+						<view class="swiper-item">
+							
+						</view>
+					</swiper-item>
+					<swiper-item>
+						<view class="swiper-item"></view>
+					</swiper-item>
+				</swiper>
 			</view>
 		</view>
 	</view>
@@ -34,16 +60,19 @@
 
 <script>
 	import tapBar from '@/components/tapBar.vue'
+	import uniNavBar from '@/components/uni-icons/uni-icons.vue' 
 	export default {
 		data() {
 			return {
+				tapIndex:0,
 				userInfo: {
 					avatar: '../../static/test/timg.jpg',
 					good: "11k",
 					like: "11",
 					follower: "12",
 					userBg: '../../static/test/1.jpg',
-					userName: "天堂屠夫"
+					userName: "天堂屠夫",
+					userId:"1351058003"
 				},
 				content: [{
 						name: "主页"
@@ -52,12 +81,26 @@
 						name: "社团"
 					}, {
 						name: "动态"
+					},
+					{
+						name: "文章"
 					}
 				]
 			};
 		},
 		components: {
 			tapBar
+		},
+		methods:{
+			clickLeft(){
+				uni.navigateBack({
+					animationDuration:300,
+					animationType:'pop-out'
+				})
+			},
+			tabtap(index) {
+				this.tapIndex = index
+			}
 		}
 	}
 </script>
@@ -76,8 +119,8 @@
 		.userAvatar {
 			z-index: 100;
 			position: absolute;
-			top: 10%;
-			right: 34%;
+			top: 25%;
+			right: 38%;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -126,6 +169,19 @@
 		}
 		.userDetail{
 			margin-top: 40upx;
+			.swiper-item{
+				.accountInfo{
+					margin: 20upx 10upx;
+					.accountInfo-account-num{
+						text{
+							color: darkgray;
+						}
+					}
+					.accountInfo-bottom{
+						border-bottom: 2upx solid #EEEEEE;
+					}
+				}
+			}
 		}
 	}
 	
