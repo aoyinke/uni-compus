@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
-    "user-top-bar": "/components/userTopBar"
+    "user-top-bar": "/components/activity/userTopBar",
+    "comment-item": "/components/commentBar/commentBar",
+    "mutation": "/components/activity/mutation"
   }
 }

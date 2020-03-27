@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "user-top-bar": "/components/userTopBar"
-  },
-  "component": true
-}

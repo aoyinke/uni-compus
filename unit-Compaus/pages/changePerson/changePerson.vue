@@ -1,16 +1,14 @@
 <template>
 	<view class="container">
-		<uni-nav-bar left-icon="back" left-text="返回"  title="修改个人信息" @clickLeft="clickLeft"></uni-nav-bar>
+		<uni-nav-bar left-icon="back" left-text="返回" title="修改个人信息" @clickLeft="clickLeft"></uni-nav-bar>
 		<view class="changePerson">
-			<view class="changePerson_avatar">
+			<view class="changePerson_avatar" @click="changePerson_avatar">
 				<view class="change_choice">
 					<text>头像</text>
 				</view>
-				<view class="avatar middle">
-					<image src="../../static/test/1.jpg" mode=""></image>
-				</view>
-				<view class="change">
-					<image src="../../static/self/pencil.png" mode=""></image>
+				<view class="changePerson_right">
+					<image :src="userInfo.avatar" mode=""></image>
+					<text class="eosfont">&#xe662;</text>
 				</view>
 			</view>
 
@@ -18,113 +16,229 @@
 				<view class="change_choice">
 					<text>昵称</text>
 				</view>
-				<view class="userName middle">
-					<text>{{userInfo.userName}}</text>
-				</view>
-				<view class="change">
-					<image src="../../static/self/pencil.png" mode=""></image>
+				<view class="changePerson_right">
+					<input type="text" v-model="userInfo.userName" />
+					<text class="eosfont">&#xe662;</text>
 				</view>
 			</view>
 
-			<view class="changePerson_sex">
+			<view class="changePerson_sex" @click="changePerson_sex">
 				<view class="change_choice">
 					<text>性别</text>
 				</view>
-				<view class="userSex middle">
+				<view class="changePerson_right">
 					<text>{{userInfo.userSex}}</text>
-				</view>
-				<view class="change">
-					<image src="../../static/self/pencil.png" mode=""></image>
+					<text class="eosfont">&#xe662;</text>
 				</view>
 			</view>
 
-			<view class="changePerson_birthday">
+			<view class="changePerson_birthday" @click="changePerson_birthday">
 				<view class="change_choice">
 					<text>生日</text>
 				</view>
-				<view class="userBirthday middle">
+				<view class="changePerson_right">
 					<text>{{userInfo.userBirthday}}</text>
-				</view>
-				<view class="change">
-					<image src="../../static/self/pencil.png" mode=""></image>
+					<text class="eosfont">&#xe662;</text>
 				</view>
 			</view>
 
-			<view class="changePerson_loveState">
+			<view class="changePerson_loveState" @click="changePerson_loveState">
 				<view class="change_choice">
 					<text>情感</text>
 				</view>
-				<view class="loveState middle">
+				<view class="changePerson_right">
 					<text>{{userInfo.loveState}}</text>
-				</view>
-				<view class="change">
-					<image src="../../static/self/pencil.png" mode=""></image>
+					<text class="eosfont">&#xe662;</text>
 				</view>
 			</view>
 
-			<view class="changePerson_job">
+			<view class="changePerson_job" @click="changePerson_job">
 				<view class="change_choice">
 					<text>职业</text>
 				</view>
-				<view class="userJob middle">
+				<view class="changePerson_right">
 					<text>{{userInfo.job}}</text>
-				</view>
-				<view class="change">
-					<image src="../../static/self/pencil.png" mode=""></image>
+					<text class="eosfont">&#xe662;</text>
 				</view>
 			</view>
 
-			<view class="changePerson_hometown">
+			<view class="changePerson_hometown" @click="changePerson_hometown">
 				<view class="change_choice">
 					<text>家乡</text>
 				</view>
-				<view class="userName middle">
+				<view class="changePerson_right">
 					<text>{{userInfo.hometown}}</text>
-				</view>
-				<view class="change">
-					<image src="../../static/self/pencil.png" mode=""></image>
+					<text class="eosfont">&#xe662;</text>
 				</view>
 			</view>
 		</view>
-		<button type="primary" size="32">完成</button>
+		<button type="primary" size="32" @click="submitChangedInfo">完成</button>
+		<chunLei-modal v-model="chunLeiModal.value" :type="chunLeiModal.type" :mData="chunLeiModal.mData" navMask @onConfirm="onConfirm">
+		</chunLei-modal>
+		<w-picker :mode="picker.mode" startYear="2016" endYear="2030" :defaultVal="defaultVal" :current="true" @confirm="onConfirmPicker"
+		 ref="picker" themeColor="#f00" :selectList="selectList1">
+		</w-picker>
 	</view>
 </template>
 
 <script>
 	import uniNavBar from '@/components/uni-icons/uni-icons.vue'
+	import wPicker from "@/components/w-picker/w-picker.vue";
+
 	export default {
 		data() {
 			return {
+				picker: {
+					mode: 'date'
+				},
+				selectList1: [],
+				defaultVal: ['2018', '12', '31'],
+				chunLeiModal: {
+					value: false,
+					type: 'default',
+					mData: {}
+				},
 				userInfo: {
 					userName: "天堂屠夫",
 					hometown: "江苏省-常州市-天宁区",
 					job: "学生",
 					loveState: "恋爱中",
 					userSex: "男",
-					avatar: "static/test/avatar.png",
+					avatar: "../../static/test/avatar.png",
 					userBirthday: "2000-8-28"
 				}
 			};
 		},
-			
-		components:{
-			
+
+		components: {
+			wPicker
 		},
-		methods:{
-			clickLeft(){
+		methods: {
+			onConfirm(item) {
+
+			},
+			onConfirmPicker() {},
+			clickLeft() {
 				uni.navigateBack({
-					animationDuration:300,
-					animationType:'pop-out'
+					animationDuration: 300,
+					animationType: 'pop-out'
 				})
+			},
+			submitChangedInfo() {
+				console.log(this.userInfo)
+			},
+
+			changePerson_avatar() {
+				uni.chooseImage({
+					count: 1,
+					sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+					success: (res) => {
+
+						this.userInfo.avatar = res.tempFilePaths
+					}
+				})
+			},
+			changePerson_sex() {
+				this.chunLeiModal = {
+					value: true,
+					type: "select",
+					mData: [{
+						title: "男",
+						icon: "../../static/personDetail/man.png"
+					}, {
+						title: "女",
+						icon: "../../static/personDetail/woman.png"
+					}]
+				}
+				this.onConfirm = (item) => {
+					this.userInfo.userSex = item.title
+
+				}
+			},
+			changePerson_birthday() {
+				this.$refs.picker.show()
+				this.onConfirmPicker = (item) => {
+					this.userInfo.userBirthday = item.result
+				}
+			},
+			changePerson_hometown() {
+				this.picker = {
+					mode: "region"
+				}
+				this.$refs.picker.show()
+				this.onConfirmPicker = (item) => {
+					this.userInfo.hometown = item.result
+				}
+			},
+			changePerson_job() {
+				this.chunLeiModal = {
+					value: true,
+					type: "select",
+					mData: [{
+							title: "学生汪",
+
+						}, {
+							title: "IT汪",
+
+						},
+						{
+							title: "手艺汪",
+
+						},
+						{
+							title: "商务汪",
+						},
+						{
+							title: "家里蹲",
+						},
+						{
+							title: "公务员",
+						}
+					]
+				}
+				this.onConfirm = (item)=>{this.userInfo.job=item.title}
+			},
+			changePerson_loveState(){
+				this.chunLeiModal = {
+					value: true,
+					type: "select",
+					mData:[{
+						title:"单身汪"
+					},
+					{
+						title:"恋爱中"
+					},
+					{
+						title:"呵~我不会让你知道的"
+					}]
+				}
+				this.onConfirm = (item)=>{this.userInfo.loveState=item.title}
 			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	.change {
-		width: 30upx;
-		height: 30upx;
+	.eosfont {
+		font-size: 42upx !important;
+		margin-left: 20upx !important;
+	}
+
+	.changePerson_right {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		image {
+			height: 80upx;
+			width: 80upx;
+			border-radius: 50%;
+			margin-right: 20upx;
+		}
+
+		input {
+			text-align: right;
+		}
 
 	}
 
@@ -164,9 +278,5 @@
 		height: 80upx;
 		border-radius: 50%;
 
-	}
-
-	.middle {
-		margin-right: -260upx;
 	}
 </style>

@@ -53,34 +53,17 @@
 		},
 		methods: {
 			clickLeft() {
-				uni.navigateBack({
-					animationDuration: 300,
-					animationType: 'pop-out'
+				uni.navigateTo({
+					url:"../index/index",
+					animationType:'fade-in',
+					animationDuration:500
 				})
 			}
 		},
 		onLoad(options) {
 			
 			
-			// #ifdef APP-PLUS
-			uni.login({
-				success:(res)=>{
-					console.log(JSON.stringify(res))
-					uni.request({
-						url:"",
-						method:"POST",
-						header:{},
-						data:{},
-						success() {
-							
-						}
-					})
-				},
-				fail() {
-					
-				}
-			})
-			// #endif
+			
 		}
 	}
 </script>

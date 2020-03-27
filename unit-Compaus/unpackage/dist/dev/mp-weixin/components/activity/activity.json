@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "user-top-bar": "/components/activity/userTopBar",
+    "mutation": "/components/activity/mutation"
+  },
+  "component": true
+}

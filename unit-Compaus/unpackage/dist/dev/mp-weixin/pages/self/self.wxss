@@ -47,6 +47,7 @@
 }
 .header .user_info .user_name text.data-v-6d46bd58 {
       font-weight: bold;
+      width: 150rpx;
 }
 .header .user_info .user_visits text.data-v-6d46bd58 {
       color: lightgray;

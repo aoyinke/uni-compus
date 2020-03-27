@@ -30,4 +30,14 @@
 .textarea.data-v-081d3294 {
   margin-top: 20rpx;
 }
+.mutation .hotNum.data-v-081d3294 {
+  color: darkgray;
+  font-size: 26rpx;
+  margin-left: 10rpx;
+  margin-right: 30rpx;
+}
+.mutation .commentNum.data-v-081d3294 {
+  color: darkgray;
+  font-size: 26rpx;
+}
 

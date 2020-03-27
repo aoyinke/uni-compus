@@ -32,28 +32,7 @@
 			<swiper-item v-for="(items,index) in groupDetail" :key="index">
 				<scroll-view scroll-y class="list" :style="{height:swiperHeight + 'px'}">
 					<block v-for="(item,indx) in items.content" :key="indx">
-						<view class="content">
-							<view class="group-logo">
-								<image :src="item.groupLogo" mode="widthFix"></image>
-							</view>
-							<view class="group-info">
-								<view class="group-username">
-									<text>{{item.groupName}}</text>
-								</view>
-								<view class="group-intro">
-									<text>{{item.intro}}</text>
-									<view class="group-intro-tag">
-										<uni-tag text="强大" type="primary" :circle="true" size="small"></uni-tag>
-										<uni-tag text="优秀" type="primary" :circle="true" size="small"></uni-tag>
-									</view>
-
-								</view>
-								<view class="group-info-bottom"></view>
-							</view>
-							<view class="group-chat">
-								<uni-tag text="和他们聊聊" type="success" :circle="true" size="small"></uni-tag>
-							</view>
-						</view>
+						<group-item :groupLogo = "item.groupLogo" :groupName = "item.groupName" :intro="item.intro" :tag="item.tag"></group-item>
 					</block>
 				</scroll-view>
 			</swiper-item>
@@ -63,7 +42,7 @@
 
 <script>
 	import uniSearchBar from '@/components/uni-search-bar/uni-search-bar.vue'
-	import uniTag from "@/components/uni-tag/uni-tag.vue"
+	import groupItem from '@/components/group/group-item.vue'
 
 	export default {
 		data() {
@@ -80,27 +59,32 @@
 					content: [{
 							groupName: "轻松一校项目组",
 							groupLogo: "../../static/test/avatar.png",
-							intro: "轻松一校项目组是地球上最强大的组织之一，它负责..."
+							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
+							tag:['强大','优秀']
 						},
 						{
 							groupName: "轻松一校项目组",
 							groupLogo: "../../static/test/avatar.png",
-							intro: "轻松一校项目组是地球上最强大的组织之一，它负责..."
+							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
+							tag:['强大','优秀']
 						},
 						{
 							groupName: "轻松一校项目组",
 							groupLogo: "../../static/test/avatar.png",
-							intro: "轻松一校项目组是地球上最强大的组织之一，它负责..."
+							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
+							tag:['强大','优秀']
 						},
 						{
 							groupName: "轻松一校项目组",
 							groupLogo: "../../static/test/avatar.png",
-							intro: "轻松一校项目组是地球上最强大的组织之一，它负责..."
+							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
+							tag:['强大','优秀']
 						},
 						{
 							groupName: "轻松一校项目组",
 							groupLogo: "../../static/test/avatar.png",
-							intro: "轻松一校项目组是地球上最强大的组织之一，它负责..."
+							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
+							tag:['强大','优秀']
 						}
 					]
 				},
@@ -108,7 +92,8 @@
 					content: [{
 							groupName: "轻松一校项目组",
 							groupLogo: "../../static/test/avatar.png",
-							intro: "轻松一校项目组是地球上最强大的组织之一，它负责..."
+							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
+							tag:['强大','优秀']
 						},
 						{
 							groupName: "轻松一校项目组",
@@ -126,7 +111,7 @@
 		},
 		components: {
 			uniSearchBar,
-			uniTag
+			groupItem
 		},
 		methods: {
 			tap(index) {
@@ -136,13 +121,16 @@
 				this.tapIndex = e.detail.current
 			},
 		},
-		onLoad() {
+		async onLoad() {
 			let swiperHeight = uni.getSystemInfo({
 				success: res => {
 					let height = res.windowHeight - uni.upx2px(230)
 					this.swiperHeight = height
 				}
 			})
+			let res = await this.request('groups/')
+			console.log(res[1].data.data.records)
+			
 		}
 
 	}

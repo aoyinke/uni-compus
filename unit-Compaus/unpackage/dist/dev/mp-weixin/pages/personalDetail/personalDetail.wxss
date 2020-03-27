@@ -119,6 +119,9 @@
       -webkit-box-pack: center;
       -webkit-justify-content: center;
               justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
 }
 .main .showBar .showBar-item .showBar-item-first.data-v-64301b18 {
         font-weight: bold;

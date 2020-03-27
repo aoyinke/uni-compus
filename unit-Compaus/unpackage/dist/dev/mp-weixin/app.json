@@ -51,7 +51,8 @@
     ]
   },
   "usingComponents": {
-    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar"
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "chun-lei-modal": "/components/chunLei-modal/chunLei-modal"
   },
-  "sitemapLocation": "sitemap52.json"
+  "sitemapLocation": "sitemap1.json"
 }

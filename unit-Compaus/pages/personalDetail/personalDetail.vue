@@ -101,6 +101,9 @@
 			tabtap(index) {
 				this.tapIndex = index
 			}
+		},
+		async onLoad() {
+			let res = await this.request('me/',{uid:1}) 
 		}
 	}
 </script>
@@ -156,6 +159,7 @@
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
+				align-items: center;
 				.showBar-item-first{
 					font-weight: bold;
 				}

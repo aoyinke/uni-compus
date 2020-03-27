@@ -2,25 +2,48 @@ import Vue from 'vue'
 import App from './App'
 
 import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue'
+import chunLeiModal from '@/components/chunLei-modal/chunLei-modal.vue'
+import TabMask from '@/components/chunLei-modal/tabMask'
 
 Vue.config.productionTip = false
-Vue.component('uniNavBar',uniNavBar)
-// Vue.prototype.checkLogin = function(backpage,backtype){
-// 	var SUID = uni.getStorageSync('SUID');
-// 	var SRAND = uni.getStorageSync('SRAND')
-// 	var SNAME = uni.getStorageSync('SNAME')
-// 	var SFACE = uni.getStorageSync('SFACE')
-// 	if(SUID == '' || SRAND=='' SNAME == '' || SFACE == ''){
-// 		uni.redirectTo({
-// 			url:"../login/login?backpage="+backpage+"&backtype"+backtype
-// 		})
-// 		return false
-// 	}
-// 	reutrn [SUID,SRAND,SNAME,SFACE]
-// }
+Vue.component('uniNavBar', uniNavBar)
+Vue.component('chunLei-modal',chunLeiModal);
+
+let tabMask = new TabMask({opacity:0.6})
+Vue.prototype.tabMask = tabMask
+
+Vue.prototype.checkLogin = function(backpage, backtype) {
+	var SUID = uni.getStorageSync('SUID'); //本地持久化存储
+	var SRAND = uni.getStorageSync('SRAND');
+	var SNAME = uni.getStorageSync('SNAME');
+	var SAVATAR = uni.getStorageSync('SFACE');
+	if (SUID == '' || SRAND == '' || SAVATAR == '') {
+		//#ifndef MP-WEIXIN
+		uni.redirectTo({
+			url: '../login/login?backpage=' + backpage + '&backtype=' + backtype
+		});
+		return false;
+		// #endif
+
+		uni.login({
+			provider: 'weixin',
+			success(loginRes) {
+				console.log(loginRes)
+				uni.getUserInfo({
+					success(res) {
+						console.log(res)
+					}
+				})
+			}
+		})
+		return false;
+	}
+	return [SUID, SRAND, SNAME, SAVATAR]; //已经登录返回数组 [用户 id, 用户随机码, 用户昵称, 用户表情]，以供后续使用用户信息
+}
+
 App.mpType = 'app'
 
 const app = new Vue({
-    ...App
+	...App
 })
 app.$mount()

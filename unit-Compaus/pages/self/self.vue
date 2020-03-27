@@ -3,24 +3,30 @@
 		<uni-nav-bar title="我">
 
 		</uni-nav-bar>
-		<navigator url="../personalDetail/personalDetail" animation-type="pop-out" animation-duration="300">
-			<view class="header">
-				<view class="user_avatar">
-					<image src="../../static/test/avatar.png" mode=""></image>
-				</view>
-				<view class="user_info">
-					<view class="user_name">
+
+		<view class="header" @click="toDetail">
+			<view class="user_avatar">
+				<image :src="userActivityInfo.avatar" mode=""></image>
+			</view>
+			<view class="user_info">
+				<view class="user_name">
+					<template v-if="userInfo.userName">
 						<text>{{userActivityInfo.username}}</text>
-					</view>
-					<view class="user_visits">
-						<text>总访客 {{userActivityInfo.total_visits}}</text>
-					</view>
+					</template>
+					<template v-else>
+						<text>未登陆~</text>
+					</template>
+
 				</view>
-				<view class="user_detail">
-					<text class="eosfont">&#xe7df;</text>
+				<view class="user_visits">
+					<text>总访客 {{userActivityInfo.total_visits}}</text>
 				</view>
 			</view>
-		</navigator>
+			<view class="user_detail">
+				<text class="eosfont">&#xe7df;</text>
+			</view>
+		</view>
+
 		<view class="main">
 			<view class="userActivityNum">
 				<view class="userActivityNum-detail">
@@ -101,7 +107,8 @@
 						num2: 0,
 						num3: 0,
 						num4: 0
-					}
+					},
+					avatar: "../../static/test/1.jpg"
 				},
 				advertisements: [
 					'../../static/test/1.jpg', '../../static/test/timg.jpg', '../../static/test/3.png'
@@ -110,13 +117,58 @@
 			}
 		},
 		methods: {
+			open() {
+				this.$refs.popup.open()
+			},
 			navtoChangePerson() {
-				uni.navigateTo({
-					url: "../changePerson/changePerson",
-					"animationType": "fade-in",
-					"animationDuration": 300
-				})
+				let isLogin = this.checkLogin('../self/self', '2')
+				console.log(isLogin)
+				if (!isLogin) {
+					uni.showModal({
+						content: '是否要保存为草稿?',
+						cancelText: '不保存',
+						confirmText: '保存',
+						success: res => {
+							if (res.confirm) {
+								console.log('保存');
+							} else {
+								console.log('不保存');
+							}
+							this.isget = true;
+							uni.navigateBack({
+								delta: 1
+							});
+						},
+
+					})
+					this.open()
+				} else {
+					uni.navigateTo({
+						url: "../changePerson/changePerson",
+						"animationType": "fade-in",
+						"animationDuration": 300
+					})
+				}
+
+			},
+			toDetail() {
+				let isLogin = this.checkLogin('../self/self', '2')
+				if (!isLogin) {
+					uni.setStorageSync('storage_key', 'hello');
+					uni.navigateTo({
+						url: '../personalDetail/personalDetail',
+						"animationType": "fade-in",
+						"animationDuration": 300
+
+					})
+				}
+
 			}
+		},
+		async onLoad() {
+			let res = await this.request('me/', {
+				uid: 1
+			})
 		}
 	}
 </script>
@@ -137,6 +189,7 @@
 		.user_info {
 			.user_name text {
 				font-weight: bold;
+				width: 150upx;
 			}
 
 			.user_visits text {
