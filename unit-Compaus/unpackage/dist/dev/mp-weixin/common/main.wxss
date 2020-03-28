@@ -6,6 +6,10 @@
 }
 
 /*通用 */
+.icon-active{
+	-webkit-animation: iconActive linear 1s;
+	        animation: iconActive linear 1s;
+}
 .text-line-2{
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -1531,7 +1535,7 @@ radio-group label, checkbox-group label{
             transform: translateY(50%);
 }
 @font-face {font-family: "eosfont";
-  src:url('http://at.alicdn.com/t/font_1686590_1c85ntc28hc.ttf') format('truetype');
+  src:url('http://at.alicdn.com/t/font_1686590_vlwx93n61bh.ttf') format('truetype');
 }
 .eosfont {
   font-family: "eosfont" !important;

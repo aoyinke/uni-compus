@@ -1,15 +1,7 @@
 <template>
 	<view class="personalDetail">
 		<uni-nav-bar left-icon="back" title="详情页" @clickLeft="clickLeft"></uni-nav-bar>
-		<view class="tapBar">
-			<view class="tapBar-bg">
-				<image :src="userInfo.userBg" mode="scaleToFill"></image>
-			</view>
-			<view class="userAvatar">
-				<image :src="userInfo.avatar" mode="scaleToFill"></image>
-				<text>{{userInfo.userName}}</text>
-			</view>
-		</view>
+		<person-show-with-bg :userAvatar="userInfo.avatar" :userBg="userInfo.userBg" :userName="userInfo.userName"></person-show-with-bg>
 		<view class="main">
 			<view class="showBar">
 				<view class="showBar-item left">
@@ -60,7 +52,7 @@
 
 <script>
 	import tapBar from '@/components/tapBar.vue'
-	import uniNavBar from '@/components/uni-icons/uni-icons.vue' 
+	import personShowWithBg from '@/components/common/personShowWithBg.vue'
 	export default {
 		data() {
 			return {
@@ -89,7 +81,8 @@
 			};
 		},
 		components: {
-			tapBar
+			tapBar,
+			personShowWithBg
 		},
 		methods:{
 			clickLeft(){
@@ -112,41 +105,7 @@
 	*{
 		background-color: #EEEEEE;
 	}
-	.tapBar {
-
-		.tapBar-bg image {
-			width: 100%;
-
-		}
-
-		.userAvatar {
-			z-index: 100;
-			position: absolute;
-			top: 25%;
-			right: 38%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-
-			image {
-				height: 150upx;
-				width: 150upx;
-				border-radius: 50%;
-			}
-
-			text {
-				color: #fff;
-				font-weight: bold;
-				text-shadow: 10upx 10upx 3upx dimgray;
-			}
-
-
-
-
-
-		}
-	}
+	
 	.main{
 		border-radius: 10upx;
 		box-shadow: 3upx 3upx 5upx 5upx #EEEEEE;

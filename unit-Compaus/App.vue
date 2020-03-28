@@ -49,7 +49,8 @@
 			
 		},
 		globalData: {  
-            denglu: 0
+            denglu: 0,
+			alreadyInDetail:false
         }
 		
 

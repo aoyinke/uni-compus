@@ -26,15 +26,15 @@
 /* 文章场景相关 */
 .like.data-v-f6447900 {
   font-size: 50rpx !important;
+  -webkit-transition: width height 1s linear;
+  transition: width height 1s linear;
 }
-.isStore.data-v-f6447900 {
+.like.data-v-f6447900:hover {
   width: 60rpx;
   height: 60rpx;
-  -webkit-transform: rotate(30deg);
-          transform: rotate(30deg);
-  -webkit-transition: -webkit-transform 1s linear;
-  transition: -webkit-transform 1s linear;
-  transition: transform 1s linear;
-  transition: transform 1s linear, -webkit-transform 1s linear;
+}
+.icon-active.data-v-f6447900 {
+  width: 50rpx;
+  height: 50rpx;
 }
 

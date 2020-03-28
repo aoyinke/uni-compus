@@ -5,7 +5,15 @@
 	src: url('~@/static/uni.ttf') format('truetype');
 }
 
+@-ms-keyframes iconActive{
+	from{height: 60upx;width: 60upx;background: #007AFF;}
+	to{height: 90upx;width: 90upx;background: #09BB07;}
+}
 /*通用 */
+.icon-active{
+	animation: iconActive linear 1s;
+}
+
 .text-line-2{
 	overflow: hidden;
 	text-overflow: ellipsis;

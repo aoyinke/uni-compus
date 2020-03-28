@@ -26,8 +26,8 @@
 			<text class="hotNum">{{activityDetail.hotNum}}热度</text>
 			<text class="commentNum">{{activityDetail.commentNum}}评论</text>
 		</view>
-		
-		
+
+
 		<view class="commentArea">
 			<text>热门评论</text>
 
@@ -36,6 +36,14 @@
 				 :likeNum="commentor.likeNum"></comment-item>
 			</block>
 		</view>
+		
+		<view class="commentBottom">
+			<view class="commentView" @click="gocomment">
+				<text>发布评论...</text>
+			</view>
+			<ygc-comment ref="ygcComment" :placeholder="'发布评论'" @pubComment="pubComment" :maskState="maskState" @cancelComment="cancelComment"></ygc-comment>
+		</view>
+		
 	</view>
 </template>
 
@@ -43,9 +51,11 @@
 	import userTopBar from '@/components/activity/userTopBar.vue'
 	import commentItem from '@/components/commentBar/commentBar.vue'
 	import mutation from '@/components/activity/mutation.vue'
+	import ygcComment from '@/components/ygc-comment/ygc-comment.vue';
 	export default {
 		data() {
 			return {
+				maskState:0,
 				activityId: "",
 				activityDetail: {
 					groupName: '轻松一校',
@@ -55,8 +65,8 @@
 					imgs: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg',
 						'../../static/test/waterfull/3.jpg'
 					],
-					hotNum:75,
-					commentNum:38
+					hotNum: 75,
+					commentNum: 38
 				},
 				commentors: [{
 						commentorAvatar: "../../static/test/waterfull/1.jpg",
@@ -79,10 +89,16 @@
 				]
 			};
 		},
+		// computed:{
+		// 	gocomment:function(){
+		// 		return this.maskState = 1
+		// 	}
+		// },
 		components: {
 			userTopBar,
 			commentItem,
-			mutation
+			mutation,
+			ygcComment
 		},
 		onLoad(option) {
 			this.activityId = option.activityId
@@ -94,6 +110,17 @@
 					animationType: 'pop-out'
 				})
 			},
+			pubComment(item){
+				console.log(item)
+				this.maskState = 0
+			},
+			gocomment(){
+				this.maskState = 1
+
+			},
+			cancelComment(){
+				this.maskState = 0
+			}
 		},
 	}
 </script>
@@ -109,16 +136,38 @@
 		margin-top: 20upx;
 
 	}
-	.mutation{
-		.hotNum{
+
+	.mutation {
+		.hotNum {
 			color: darkgray;
 			font-size: 26upx;
 			margin-left: 10upx;
-			margin-right:30upx;
+			margin-right: 30upx;
 		}
-		.commentNum{
+
+		.commentNum {
 			color: darkgray;
 			font-size: 26upx;
 		}
+	}
+	
+	.commentBottom{
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		height: 100upx;
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		border: 1px solid #EEEEEE;
+		.commentView{
+			margin: 20upx 0;
+			width: 80%;
+			background-color:lightgray;
+			border-radius: 20upx;
+			text-align: center;
+			
+		}
+		
 	}
 </style>

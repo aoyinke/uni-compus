@@ -8,7 +8,8 @@
     "pages/activityDetail/activityDetail",
     "pages/publishActivity/publishActivity",
     "pages/findPeople/findPeople",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/personShow/personShow"
   ],
   "subPackages": [],
   "window": {
@@ -54,5 +55,5 @@
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "chun-lei-modal": "/components/chunLei-modal/chunLei-modal"
   },
-  "sitemapLocation": "sitemap1.json"
+  "sitemapLocation": "sitemap56.json"
 }

@@ -4,7 +4,7 @@
 			<text class="eosfont like" @click="store">&#xe66c;</text>
 		</template>
 		<template v-else>
-			<image src="../../../static/common/like.png" mode="" class="isStore" @click="cancelStore"></image>
+			<image src="../../../static/common/like.png" mode="" class="icon-active" @click="cancelStore"></image>
 		</template>
 	</view>
 </template>
@@ -43,14 +43,19 @@
 <style lang="scss" scoped>
 	.like {
 		font-size: 50upx !important;
-
-
+		transition: width height 1s linear;
 	}
-
-	.isStore {
+	.like:hover{
 		width: 60upx;
 		height: 60upx;
-		transform: rotate(30deg);
-		transition: transform 1s linear;
+	}
+
+	.icon-active {
+
+			width: 50upx;
+			height: 50upx;
+	
+		
+		
 	}
 </style>

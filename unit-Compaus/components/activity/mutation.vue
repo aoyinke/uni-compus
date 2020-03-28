@@ -5,15 +5,15 @@
 				<like-icon :activityId="activityId"></like-icon>
 			</view>
 			<view class="comment tag">
-				<image src="../../static/index/chat.png" mode=""></image>
+				<chat-icon></chat-icon>
 			</view>
 			<view class="good tag">
-				<image src="../../static/index/good.png" mode=""></image>
+				<good-icon></good-icon>
 			</view>
 		</view>
 		<view class="mutation-right">
 			<view class="share tag">
-				<image src="../../static/index/share.png" mode=""></image>
+				<share-icon></share-icon>
 			</view>
 		</view>
 	</view>
@@ -21,17 +21,23 @@
 
 <script>
 	import likeIcon from '@/components/common/commonIcon/likeIcon.vue'
+	import chatIcon from '@/components/common/commonIcon/chatIcon.vue'
+	import goodIcon from '@/components/common/commonIcon/goodIcon.vue'
+	import shareIcon from'@/components/common/commonIcon/shareIcon.vue'
 	export default {
 		data() {
 			return {
-				activityId:1
+				activityId: 1
 			};
 		},
-		components:{
-			likeIcon
+		components: {
+			likeIcon,
+			chatIcon,
+			goodIcon,
+			shareIcon
 		},
-		props:{
-			
+		props: {
+
 		}
 	}
 </script>
@@ -45,32 +51,17 @@
 
 		.mutation-left {
 			display: flex;
-			justify-content: space-between;
+			justify-content: space-around;
 			align-items: center;
+			width: 30%;
 
-			.like {
-				margin-left: 10upx !important;
-			}
 		}
 
 		.mutation-right {
 			.share {
-				margin-right: 10upx;
+				margin-right: 30upx;
 			}
 		}
 
-		.mutation-left,
-		.mutation-right {
-			.tag {
-				margin-left: 30upx;
-
-				image {
-					width: 50upx;
-					height: 50upx;
-				}
-
-			}
-
-		}
 	}
 </style>

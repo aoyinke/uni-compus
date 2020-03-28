@@ -36,51 +36,57 @@
 					"pathName": "pages/index/index"
 				},
 				{
-					"name": "activityDetail",
+					"name": "personShow",
 					"query": "",
 					"id": 1,
+					"pathName": "pages/personShow/personShow"
+				},
+				{
+					"name": "activityDetail",
+					"query": "",
+					"id": 2,
 					"pathName": "pages/activityDetail/activityDetail"
 				},
 				{
 					"name": "publish",
 					"query": "",
-					"id": 2,
+					"id": 3,
 					"pathName": "pages/publishActivity/publishActivity"
 				},
 				{
 					"name": "findPeople",
 					"query": "",
-					"id": 3,
+					"id": 4,
 					"pathName": "pages/findPeople/findPeople"
 				},
 				{
 					"name": "login",
 					"query": "",
-					"id": 4,
+					"id": 5,
 					"pathName": "pages/login/login"
 				},
 				{
 					"name": "self",
 					"query": "",
-					"id": 5,
+					"id": 6,
 					"pathName": "pages/self/self"
 				},
 				{
 					"name": "changePerson",
 					"query": "",
-					"id": 6,
+					"id": 7,
 					"pathName": "pages/changePerson/changePerson"
 				},
 				{
 					"name": "personDetail",
 					"query": "",
-					"id": 7,
+					"id": 8,
 					"pathName": "pages/personalDetail/personalDetail"
 				},
 				{
 					"name": "group",
 					"query": "",
-					"id": 8,
+					"id": 9,
 					"pathName": "pages/group/group"
 				}
 			]
