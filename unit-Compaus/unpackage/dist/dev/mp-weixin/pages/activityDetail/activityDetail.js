@@ -99,7 +99,7 @@ var components = {
   "uni-nav-bar": () =>
     __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 25)),
   "ygc-comment": () =>
-    __webpack_require__.e(/*! import() | components/ygc-comment/ygc-comment */ "components/ygc-comment/ygc-comment").then(__webpack_require__.bind(null, /*! @/components/ygc-comment/ygc-comment.vue */ 170))
+    __webpack_require__.e(/*! import() | components/ygc-comment/ygc-comment */ "components/ygc-comment/ygc-comment").then(__webpack_require__.bind(null, /*! @/components/ygc-comment/ygc-comment.vue */ 172))
 }
 var render = function() {
   var _vm = this
@@ -138,7 +138,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var userTopBar = function userTopBar() {return __webpack_require__.e(/*! import() | components/activity/userTopBar */ "components/activity/userTopBar").then(__webpack_require__.bind(null, /*! @/components/activity/userTopBar.vue */ 177));};var commentItem = function commentItem() {return __webpack_require__.e(/*! import() | components/commentBar/commentBar */ "components/commentBar/commentBar").then(__webpack_require__.bind(null, /*! @/components/commentBar/commentBar.vue */ 184));};var mutation = function mutation() {return __webpack_require__.e(/*! import() | components/activity/mutation */ "components/activity/mutation").then(__webpack_require__.bind(null, /*! @/components/activity/mutation.vue */ 191));};var ygcComment = function ygcComment() {return __webpack_require__.e(/*! import() | components/ygc-comment/ygc-comment */ "components/ygc-comment/ygc-comment").then(__webpack_require__.bind(null, /*! @/components/ygc-comment/ygc-comment.vue */ 170));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var userTopBar = function userTopBar() {return __webpack_require__.e(/*! import() | components/activity/userTopBar */ "components/activity/userTopBar").then(__webpack_require__.bind(null, /*! @/components/activity/userTopBar.vue */ 179));};var commentItem = function commentItem() {return __webpack_require__.e(/*! import() | components/commentBar/commentBar */ "components/commentBar/commentBar").then(__webpack_require__.bind(null, /*! @/components/commentBar/commentBar.vue */ 186));};var mutation = function mutation() {return __webpack_require__.e(/*! import() | components/activity/mutation */ "components/activity/mutation").then(__webpack_require__.bind(null, /*! @/components/activity/mutation.vue */ 193));};var ygcComment = function ygcComment() {return __webpack_require__.e(/*! import() | components/ygc-comment/ygc-comment */ "components/ygc-comment/ygc-comment").then(__webpack_require__.bind(null, /*! @/components/ygc-comment/ygc-comment.vue */ 172));};var _default =
 
 
 

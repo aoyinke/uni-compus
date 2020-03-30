@@ -24,17 +24,38 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.tapBar.data-v-02189468 {
+.tapBar.data-v-1ab6bbd4 {
   position: relative;
-  height: 300rpx;
+  height: 30vh;
 }
-.tapBar .tapBar-bg image.data-v-02189468 {
+.tapBar .tapBar-bg.data-v-1ab6bbd4 {
+    height: 100%;
+}
+.tapBar .tapBar-bg image.data-v-1ab6bbd4 {
+      width: 100%;
+      height: 100%;
+}
+.tapBar .showFollower.data-v-1ab6bbd4 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    position: fixed;
+    -webkit-box-pack: space-evenly;
+    -webkit-justify-content: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
     width: 100%;
+    top: 38%;
 }
-.tapBar .userAvatar.data-v-02189468 {
+.tapBar .showFollower text.data-v-1ab6bbd4 {
+      color: #fff;
+}
+.tapBar .userAvatar.data-v-1ab6bbd4 {
     z-index: 100;
     position: absolute;
-    top: 25%;
+    top: 30%;
     right: 38%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -50,14 +71,71 @@
     -webkit-flex-direction: column;
             flex-direction: column;
 }
-.tapBar .userAvatar image.data-v-02189468 {
+.tapBar .userAvatar image.data-v-1ab6bbd4 {
       height: 150rpx;
       width: 150rpx;
       border-radius: 50%;
 }
-.tapBar .userAvatar text.data-v-02189468 {
+.tapBar .userAvatar text.data-v-1ab6bbd4 {
       color: #fff;
       font-weight: bold;
       text-shadow: 10rpx 10rpx 3rpx dimgray;
+}
+.naviGator.data-v-1ab6bbd4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.naviGator-chatAndFollow.data-v-1ab6bbd4 {
+    margin-top: 20rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-box-pack: space-evenly;
+    -webkit-justify-content: space-evenly;
+            justify-content: space-evenly;
+    width: 60%;
+}
+.naviGator-navBar.data-v-1ab6bbd4 {
+    margin-top: 40rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-justify-content: space-around;
+            justify-content: space-around;
+    width: 100%;
+}
+.naviGator-navBar-artivles.data-v-1ab6bbd4 {
+      color: gainsboro;
+      font-size: 30rpx;
+}
+.naviGator-navBar-collections.data-v-1ab6bbd4 {
+      color: gainsboro;
+      font-size: 30rpx;
+}
+.active.data-v-1ab6bbd4 {
+  color: black;
+  font-size: 35rpx;
+  font-weight: bold;
+}
+.active .naviGator-navBar-bottom.data-v-1ab6bbd4 {
+    border-bottom: 1rpx solid black;
+    height: 20rpx;
 }
 

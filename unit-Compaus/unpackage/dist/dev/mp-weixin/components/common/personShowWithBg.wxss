@@ -34,7 +34,7 @@
 .tapBar .userAvatar.data-v-02189468 {
     z-index: 100;
     position: absolute;
-    top: 25%;
+    top: 30%;
     right: 38%;
     display: -webkit-box;
     display: -webkit-flex;

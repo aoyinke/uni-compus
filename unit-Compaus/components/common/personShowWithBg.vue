@@ -11,25 +11,24 @@
 </template>
 
 <script>
-	
 	export default {
 		data() {
 			return {
-			
+
 			};
 		},
-		props:{
-			userBg:{
-				type:String,
-				required:true
+		props: {
+			userBg: {
+				type: String
+
 			},
-			userAvatar:{
-				type:String,
-				required:true
+			userAvatar: {
+				type: String
+
 			},
-			userName:{
-				type:String,
-				required:true
+			userName: {
+				type: String
+
 			}
 		}
 	}
@@ -39,15 +38,16 @@
 	.tapBar {
 		position: relative;
 		height: 300upx;
+
 		.tapBar-bg image {
 			width: 100%;
-			
+
 		}
 
 		.userAvatar {
 			z-index: 100;
 			position: absolute;
-			top: 25%;
+			top: 30%;
 			right: 38%;
 			display: flex;
 			justify-content: center;

@@ -86,6 +86,7 @@
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
+    margin-right: 20rpx;
 }
 .groupTopBar .groupTopBar-right .notiDetail button.data-v-ba5411a0 {
       color: #fff;

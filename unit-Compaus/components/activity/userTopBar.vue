@@ -1,6 +1,6 @@
 <template>
 	<view class="groupTopBar">
-		<view class="groupTopBar-left">
+		<view class="groupTopBar-left" @click="toUserDetail">
 			<view class="groupLogo">
 				<image :src="groupLogo" mode="scaleToFill"></image>
 			</view>
@@ -11,7 +11,7 @@
 		</view>
 		<view class="groupTopBar-right">
 			<view class="notiDetail">
-				<button type="primary" size="mini">关注</button>
+				<button type="primary" size="mini" :disabled="isdisabled" @click="followerUser" v-if="!isdisabled">关注</button>
 				<text class="eosfont" @tap="toDetail(activityId)">&#xe7e0;</text>
 			</view>
 		</view>
@@ -22,7 +22,7 @@
 	export default {
 		data() {
 			return {
-
+				isdisabled:false
 			};
 		},
 		props: {
@@ -47,11 +47,24 @@
 			activityId:{
 				type:String,
 				required:true
+			},
+			userId:{
+				type:Number,
 			}
 		},
 		methods:{
 			toDetail(activityId){
 				this.$emit('toActivityDetail',activityId)
+			},
+			toUserDetail(){
+				uni.navigateTo({
+					url:"/pages/personShow/personShow",
+					animationDuration:500,
+					animationType:'auto'
+				})
+			},
+			followerUser(){
+				this.isdisabled = true
 			}
 		}
 	}
@@ -104,6 +117,7 @@
 		.groupTopBar-right {
 			.notiDetail {
 				display: flex;
+				margin-right:20upx;
 				button {
 					color: #fff;
 					background-color: #191970;

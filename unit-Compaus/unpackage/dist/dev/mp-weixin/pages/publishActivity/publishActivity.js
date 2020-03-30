@@ -136,7 +136,24 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -174,7 +191,14 @@ var _default =
 {
   data: function data() {
     return {
-      isSubmit: true };
+      showGroupList: false,
+      groupActive: 0,
+      isSubmit: true,
+      ImgShow: false,
+      title: "",
+      groupList: [],
+      videoSrc: "",
+      publishImgList: [] };
 
   },
   methods: {
@@ -183,7 +207,40 @@ var _default =
         animationDuration: 300,
         animationType: 'pop-out' });
 
-    } } };exports.default = _default;
+    },
+    showGroup: function showGroup() {
+      this.showGroupList = true;
+    },
+    chooseGroup: function chooseGroup(img, name, groupID) {
+      this.groupActive = groupID;
+    },
+    chooseImg: function chooseImg() {
+      var self = this;
+      uni.chooseImage({
+        count: 9, //默认9
+        sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+        success: function success(res) {
+          self.publishImgList = JSON.stringify(res.tempFilePaths);
+          console.log(self.publishImgList);
+        } });
+
+    },
+    chooseVideo: function chooseVideo() {
+      var self = this;
+      uni.chooseVideo({
+        count: 1,
+        sourceType: ['camera', 'album'],
+        success: function success(res) {
+          self.videoSrc = res.tempFilePath;
+          console.log(self.videoSrc);
+        } });
+
+    } },
+
+  created: function () {var _created = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var groupList;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                this.request('groups/'));case 2:groupList = _context.sent;
+              this.groupList = groupList[1].data.data.records;
+              console.log(this.groupList);case 5:case "end":return _context.stop();}}}, _callee, this);}));function created() {return _created.apply(this, arguments);}return created;}() };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

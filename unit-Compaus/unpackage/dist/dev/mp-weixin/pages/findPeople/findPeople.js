@@ -134,7 +134,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var waterFall = function waterFall() {return Promise.all(/*! import() | components/waterfall */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/waterfall")]).then(__webpack_require__.bind(null, /*! @/components/waterfall.vue */ 198));};var tapBar = function tapBar() {return __webpack_require__.e(/*! import() | components/tapBar */ "components/tapBar").then(__webpack_require__.bind(null, /*! @/components/tapBar.vue */ 138));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var waterFall = function waterFall() {return Promise.all(/*! import() | components/waterfall */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/waterfall")]).then(__webpack_require__.bind(null, /*! @/components/waterfall.vue */ 200));};var tapBar = function tapBar() {return __webpack_require__.e(/*! import() | components/tapBar */ "components/tapBar").then(__webpack_require__.bind(null, /*! @/components/tapBar.vue */ 133));};var _default =
 
 
 

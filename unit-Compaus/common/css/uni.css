@@ -13,7 +13,9 @@
 .icon-active{
 	animation: iconActive linear 1s;
 }
-
+.box-active{
+	box-shadow: 5upx 5upx 5upx 5upx darkgray;
+}
 .text-line-2{
 	overflow: hidden;
 	text-overflow: ellipsis;

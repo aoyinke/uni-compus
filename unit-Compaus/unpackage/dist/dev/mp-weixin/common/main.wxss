@@ -10,6 +10,9 @@
 	-webkit-animation: iconActive linear 1s;
 	        animation: iconActive linear 1s;
 }
+.box-active{
+	box-shadow: 5rpx 5rpx 5rpx 5rpx darkgray;
+}
 .text-line-2{
 	overflow: hidden;
 	text-overflow: ellipsis;
