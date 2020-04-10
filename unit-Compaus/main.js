@@ -12,6 +12,15 @@ Vue.component('chunLei-modal',chunLeiModal);
 let tabMask = new TabMask({opacity:0.6})
 Vue.prototype.tabMask = tabMask
 
+Array.prototype.find = function (element,dataStore){
+    for( var i = 0 ; i < this.dataStore.length ; i ++ ){
+            if( this.dataStore[i] == element ){
+                return i;
+            }
+        }
+    return -1;
+}
+
 Vue.prototype.checkLogin = function(backpage, backtype) {
 	var SUID = uni.getStorageSync('SUID'); //本地持久化存储
 	var SRAND = uni.getStorageSync('SRAND');
@@ -25,17 +34,7 @@ Vue.prototype.checkLogin = function(backpage, backtype) {
 		return false;
 		// #endif
 
-		uni.login({
-			provider: 'weixin',
-			success(loginRes) {
-				console.log(loginRes)
-				uni.getUserInfo({
-					success(res) {
-						console.log(res)
-					}
-				})
-			}
-		})
+		
 		return false;
 	}
 	return [SUID, SRAND, SNAME, SAVATAR]; //已经登录返回数组 [用户 id, 用户随机码, 用户昵称, 用户表情]，以供后续使用用户信息

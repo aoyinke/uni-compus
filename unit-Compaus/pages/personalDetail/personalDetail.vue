@@ -58,11 +58,11 @@
 			return {
 				tapIndex:0,
 				userInfo: {
-					avatar: '../../static/test/timg.jpg',
+					avatar: '../../static/test/waterfull/1.jpg',
 					good: "11k",
 					like: "11",
 					follower: "12",
-					userBg: '../../static/test/1.jpg',
+					userBg: '../../static/test/waterfull/2.jpg',
 					userName: "天堂屠夫",
 					userId:"1351058003"
 				},

@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///C:/Users/DELL/Desktop/unit-Compaus/main.js"],"names":[],"mappings":";;;;;;;;;;AAAA,wCAAmB,iD","file":"1.js","sourcesContent":["import 'uni-pages';import '@dcloudio/uni-stat';"],"sourceRoot":""}

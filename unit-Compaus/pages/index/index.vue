@@ -42,12 +42,12 @@
 				tapIndex: 0,
 				newsList: [{
 						content: [{
-								groupLogo: "../../static/test/avatar.png",
+								groupLogo: "../../static/test/waterfull/1.jpg",
 								groupName: "比赛大佬组",
 								activityStartTime: "17小时前",
 								activityPropagate: {
 									type: "img",
-									src: ['../../static/test/1.jpg', '../../static/test/timg.jpg', '../../static/test/3.png']
+									src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg']
 								},
 								hotNum: 80,
 								commentNum: 6,
@@ -66,12 +66,12 @@
 								]
 							},
 							{
-								groupLogo: "../../static/test/avatar.png",
+								groupLogo: "../../static/test/waterfull/1.jpg",
 								groupName: "比赛大佬组",
 								activityStartTime: "17小时前",
 								activityPropagate: {
 									type: "img",
-									src: ['../../static/test/1.jpg', '../../static/test/timg.jpg', '../../static/test/3.png']
+									src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg']
 								},
 								hotNum: 80,
 								commentNum: 6,
@@ -90,12 +90,12 @@
 								]
 							},
 							{
-								groupLogo: "../../static/test/avatar.png",
+								groupLogo: "../../static/test/waterfull/1.jpg",
 								groupName: "比赛大佬组",
 								activityStartTime: "17小时前",
 								activityPropagate: {
 									type: "img",
-									src: ['../../static/test/1.jpg', '../../static/test/timg.jpg', '../../static/test/3.png']
+									src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg']
 								},
 								hotNum: 80,
 								commentNum: 6,
@@ -117,12 +117,12 @@
 					},
 					{
 						content: [{
-							groupLogo: "../../static/test/avatar.png",
+							groupLogo: "../../static/test/waterfull/1.jpg",
 							groupName: "比赛大佬组",
 							activityStartTime: "17小时前",
 							activityPropagate: {
 								type: "img",
-								src: ['../../static/test/1.jpg', '../../static/test/timg.jpg', '../../static/test/3.png']
+								src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg']
 							},
 							hotNum: 80,
 							commentNum: 6,
@@ -192,6 +192,8 @@
 			topublish(){
 				let isLogin = this.checkLogin('../index/index','2')
 				if(!isLogin){
+					
+				}else{
 					uni.navigateTo({
 						url:"../publishActivity/publishActivity",
 						animationType:"slide-in-left",

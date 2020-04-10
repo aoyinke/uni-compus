@@ -95,9 +95,9 @@ var components = {
   "uni-nav-bar": () =>
     Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 25)),
   "uni-search-bar": () =>
-    __webpack_require__.e(/*! import() | components/uni-search-bar/uni-search-bar */ "components/uni-search-bar/uni-search-bar").then(__webpack_require__.bind(null, /*! @/components/uni-search-bar/uni-search-bar.vue */ 119)),
+    __webpack_require__.e(/*! import() | components/uni-search-bar/uni-search-bar */ "components/uni-search-bar/uni-search-bar").then(__webpack_require__.bind(null, /*! @/components/uni-search-bar/uni-search-bar.vue */ 126)),
   activity: () =>
-    __webpack_require__.e(/*! import() | components/activity/activity */ "components/activity/activity").then(__webpack_require__.bind(null, /*! @/components/activity/activity.vue */ 126))
+    __webpack_require__.e(/*! import() | components/activity/activity */ "components/activity/activity").then(__webpack_require__.bind(null, /*! @/components/activity/activity.vue */ 133))
 }
 var render = function() {
   var _vm = this
@@ -199,15 +199,15 @@ var _uniNavBar = _interopRequireDefault(__webpack_require__(/*! @/components/uni
 //
 //
 //
-var activity = function activity() {return __webpack_require__.e(/*! import() | components/activity/activity */ "components/activity/activity").then(__webpack_require__.bind(null, /*! @/components/activity/activity.vue */ 126));};var tapBar = function tapBar() {return __webpack_require__.e(/*! import() | components/tapBar */ "components/tapBar").then(__webpack_require__.bind(null, /*! @/components/tapBar.vue */ 133));};var _default = { data: function data() {return { leftIcon: "../../static/index/pencil.png", swiperHeight: 0, tapIndex: 0, newsList: [{ content: [{ groupLogo: "../../static/test/avatar.png", groupName: "比赛大佬组", activityStartTime: "17小时前", activityPropagate: { type: "img", src: ['../../static/test/1.jpg', '../../static/test/timg.jpg', '../../static/test/3.png'] }, hotNum: 80, commentNum: 6, commentDetail: [{ commentor: "天堂屠夫", commentContent: "nb....." }, { commentor: "天堂屠夫", commentContent: "tnb....." }, { commentor: "天堂屠夫", commentContent: "cznb....." }] },
+var activity = function activity() {return __webpack_require__.e(/*! import() | components/activity/activity */ "components/activity/activity").then(__webpack_require__.bind(null, /*! @/components/activity/activity.vue */ 133));};var tapBar = function tapBar() {return __webpack_require__.e(/*! import() | components/tapBar */ "components/tapBar").then(__webpack_require__.bind(null, /*! @/components/tapBar.vue */ 140));};var _default = { data: function data() {return { leftIcon: "../../static/index/pencil.png", swiperHeight: 0, tapIndex: 0, newsList: [{ content: [{ groupLogo: "../../static/test/waterfull/1.jpg", groupName: "比赛大佬组", activityStartTime: "17小时前", activityPropagate: { type: "img", src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg'] }, hotNum: 80, commentNum: 6, commentDetail: [{ commentor: "天堂屠夫", commentContent: "nb....." }, { commentor: "天堂屠夫", commentContent: "tnb....." }, { commentor: "天堂屠夫", commentContent: "cznb....." }] },
 
         {
-          groupLogo: "../../static/test/avatar.png",
+          groupLogo: "../../static/test/waterfull/1.jpg",
           groupName: "比赛大佬组",
           activityStartTime: "17小时前",
           activityPropagate: {
             type: "img",
-            src: ['../../static/test/1.jpg', '../../static/test/timg.jpg', '../../static/test/3.png'] },
+            src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg'] },
 
           hotNum: 80,
           commentNum: 6,
@@ -226,12 +226,12 @@ var activity = function activity() {return __webpack_require__.e(/*! import() | 
 
 
         {
-          groupLogo: "../../static/test/avatar.png",
+          groupLogo: "../../static/test/waterfull/1.jpg",
           groupName: "比赛大佬组",
           activityStartTime: "17小时前",
           activityPropagate: {
             type: "img",
-            src: ['../../static/test/1.jpg', '../../static/test/timg.jpg', '../../static/test/3.png'] },
+            src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg'] },
 
           hotNum: 80,
           commentNum: 6,
@@ -253,12 +253,12 @@ var activity = function activity() {return __webpack_require__.e(/*! import() | 
 
       {
         content: [{
-          groupLogo: "../../static/test/avatar.png",
+          groupLogo: "../../static/test/waterfull/1.jpg",
           groupName: "比赛大佬组",
           activityStartTime: "17小时前",
           activityPropagate: {
             type: "img",
-            src: ['../../static/test/1.jpg', '../../static/test/timg.jpg', '../../static/test/3.png'] },
+            src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg'] },
 
           hotNum: 80,
           commentNum: 6,
@@ -328,6 +328,8 @@ var activity = function activity() {return __webpack_require__.e(/*! import() | 
     topublish: function topublish() {
       var isLogin = this.checkLogin('../index/index', '2');
       if (!isLogin) {
+
+      } else {
         uni.navigateTo({
           url: "../publishActivity/publishActivity",
           animationType: "slide-in-left" });
@@ -431,9 +433,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   "uni-status-bar": () =>
-    __webpack_require__.e(/*! import() | components/uni-status-bar/uni-status-bar */ "components/uni-status-bar/uni-status-bar").then(__webpack_require__.bind(null, /*! @/components/uni-status-bar/uni-status-bar.vue */ 140)),
+    __webpack_require__.e(/*! import() | components/uni-status-bar/uni-status-bar */ "components/uni-status-bar/uni-status-bar").then(__webpack_require__.bind(null, /*! @/components/uni-status-bar/uni-status-bar.vue */ 147)),
   "uni-icons": () =>
-    Promise.all(/*! import() | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/components/uni-icons/uni-icons.vue */ 48))
+    Promise.all(/*! import() | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/components/uni-icons/uni-icons.vue */ 49))
 }
 var render = function() {
   var _vm = this
@@ -470,7 +472,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniStatusBar = function uniStatusBar() {return __webpack_require__.e(/*! import() | components/uni-status-bar/uni-status-bar */ "components/uni-status-bar/uni-status-bar").then(__webpack_require__.bind(null, /*! ../uni-status-bar/uni-status-bar.vue */ 140));};var uniIcons = function uniIcons() {return Promise.all(/*! import() | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! ../uni-icons/uni-icons.vue */ 48));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniStatusBar = function uniStatusBar() {return __webpack_require__.e(/*! import() | components/uni-status-bar/uni-status-bar */ "components/uni-status-bar/uni-status-bar").then(__webpack_require__.bind(null, /*! ../uni-status-bar/uni-status-bar.vue */ 147));};var uniIcons = function uniIcons() {return Promise.all(/*! import() | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! ../uni-icons/uni-icons.vue */ 49));};var _default =
 
 
 

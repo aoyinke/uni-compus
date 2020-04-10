@@ -754,7 +754,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2343,7 +2343,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 152:
+/***/ 159:
 /*!******************************************************************************************************!*\
   !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/components/w-picker/city-data/province.js ***!
   \******************************************************************************************************/
@@ -2493,7 +2493,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 153:
+/***/ 160:
 /*!**************************************************************************************************!*\
   !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/components/w-picker/city-data/city.js ***!
   \**************************************************************************************************/
@@ -4007,7 +4007,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 154:
+/***/ 161:
 /*!**************************************************************************************************!*\
   !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/components/w-picker/city-data/area.js ***!
   \**************************************************************************************************/
@@ -16560,7 +16560,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 155:
+/***/ 162:
 /*!********************************************************************************************!*\
   !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/components/w-picker/w-picker.js ***!
   \********************************************************************************************/
@@ -22959,7 +22959,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -22980,14 +22980,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -23063,7 +23063,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -23498,6 +23498,48 @@ module.exports = g;
 
 "use strict";
 
+
+/***/ }),
+
+/***/ 40:
+/*!********************************************************************!*\
+  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/util.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = confirmLogin;function confirmLogin(provider) {
+  uni.getSetting({
+    success: function success(res) {
+      console.log(res.authSetting);
+      if (!res.authSetting['scope.userInfo']) {
+        uni.openSetting({
+          success: function success(res) {
+            console.log(res.authSetting);
+          } });
+
+      } else {
+        uni.getUserInfo({
+          success: function success(res) {
+            var avatar = res.userInfo.avatarUrl;
+            var gender = res.userInfo.gender;
+            var nickName = res.userInfo.nickName;
+            var province = res.userInfo.province;
+            console.log(res.userInfo);
+            uni.setStorageSync('SUID', avatar);
+            uni.setStorageSync('SRAND', avatar);
+            uni.setStorageSync('SNAME', avatar);
+            uni.setStorageSync('SFACE', avatar);
+
+          } });
+
+      }
+    } });
+
+
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
@@ -24388,7 +24430,7 @@ main();
 
 /***/ }),
 
-/***/ 53:
+/***/ 54:
 /*!******************************************************************************************!*\
   !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/components/uni-icons/icons.js ***!
   \******************************************************************************************/
@@ -24513,7 +24555,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "uni-app" }, "pages/self/self": {}, "pages/changePerson/changePerson": {}, "pages/personalDetail/personalDetail": {}, "pages/group/group": { "backgroundColor": "darkgray" }, "pages/activityDetail/activityDetail": {}, "pages/publishActivity/publishActivity": {}, "pages/findPeople/findPeople": {}, "pages/login/login": {}, "pages/personShow/personShow": {} }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8", "navigationStyle": "custom" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "uni-app" }, "pages/self/self": {}, "pages/changePerson/changePerson": {}, "pages/personalDetail/personalDetail": {}, "pages/group/group": { "backgroundColor": "darkgray" }, "pages/activityDetail/activityDetail": {}, "pages/publishActivity/publishActivity": {}, "pages/findPeople/findPeople": {}, "pages/login/login": {}, "pages/personShow/personShow": {}, "pages/interestsTag/interestsTag": {} }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8", "navigationStyle": "custom" } };exports.default = _default;
 
 /***/ }),
 

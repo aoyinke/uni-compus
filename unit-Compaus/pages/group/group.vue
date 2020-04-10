@@ -58,31 +58,31 @@
 				groupDetail: [{
 					content: [{
 							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/avatar.png",
+							groupLogo: "../../static/test/waterfull/1.jpg",
 							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
 							tag:['强大','优秀']
 						},
 						{
 							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/avatar.png",
+							groupLogo: "../../static/test/waterfull/1.jpg",
 							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
 							tag:['强大','优秀']
 						},
 						{
 							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/avatar.png",
+							groupLogo: "../../static/test/waterfull/1.jpg",
 							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
 							tag:['强大','优秀']
 						},
 						{
 							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/avatar.png",
+							groupLogo: "../../static/test/waterfull/1.jpg",
 							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
 							tag:['强大','优秀']
 						},
 						{
 							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/avatar.png",
+							groupLogo: "../../static/test/waterfull/1.jpg",
 							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
 							tag:['强大','优秀']
 						}
@@ -91,18 +91,18 @@
 				{
 					content: [{
 							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/avatar.png",
+							groupLogo: "../../static/test/waterfull/1.jpg",
 							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
 							tag:['强大','优秀']
 						},
 						{
 							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/avatar.png",
+							groupLogo: "../../static/test/waterfull/1.jpg",
 							intro: "轻松一校项目组是地球上最强大的组织之一，它负责..."
 						},
 						{
 							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/avatar.png",
+							groupLogo: "../../static/test/waterfull/1.jpg",
 							intro: "轻松一校项目组是地球上最强大的组织之一，它负责..."
 						}
 					]

@@ -13,7 +13,7 @@ var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 9));
 
 
 
-var _tabMask = _interopRequireDefault(__webpack_require__(/*! @/components/chunLei-modal/tabMask */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var uniNavBar = function uniNavBar() {return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 25));};var chunLeiModal = function chunLeiModal() {return Promise.all(/*! import() | components/chunLei-modal/chunLei-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/chunLei-modal/chunLei-modal")]).then(__webpack_require__.bind(null, /*! @/components/chunLei-modal/chunLei-modal.vue */ 112));};
+var _tabMask = _interopRequireDefault(__webpack_require__(/*! @/components/chunLei-modal/tabMask */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var uniNavBar = function uniNavBar() {return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 25));};var chunLeiModal = function chunLeiModal() {return Promise.all(/*! import() | components/chunLei-modal/chunLei-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/chunLei-modal/chunLei-modal")]).then(__webpack_require__.bind(null, /*! @/components/chunLei-modal/chunLei-modal.vue */ 119));};
 
 _vue.default.config.productionTip = false;
 _vue.default.component('uniNavBar', uniNavBar);
@@ -21,6 +21,15 @@ _vue.default.component('chunLei-modal', chunLeiModal);
 
 var tabMask = new _tabMask.default({ opacity: 0.6 });
 _vue.default.prototype.tabMask = tabMask;
+
+Array.prototype.find = function (element, dataStore) {
+  for (var i = 0; i < this.dataStore.length; i++) {
+    if (this.dataStore[i] == element) {
+      return i;
+    }
+  }
+  return -1;
+};
 
 _vue.default.prototype.checkLogin = function (backpage, backtype) {
   var SUID = uni.getStorageSync('SUID'); //本地持久化存储
@@ -35,16 +44,6 @@ _vue.default.prototype.checkLogin = function (backpage, backtype) {
 
 
 
-    uni.login({
-      provider: 'weixin',
-      success: function success(loginRes) {
-        console.log(loginRes);
-        uni.getUserInfo({
-          success: function success(res) {
-            console.log(res);
-          } });
-
-      } });
 
     return false;
   }

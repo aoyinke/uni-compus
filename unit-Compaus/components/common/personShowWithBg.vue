@@ -36,9 +36,9 @@
 
 <style lang="scss" scoped>
 	.tapBar {
+		
+		height: 38vh;
 		position: relative;
-		height: 300upx;
-
 		.tapBar-bg image {
 			width: 100%;
 

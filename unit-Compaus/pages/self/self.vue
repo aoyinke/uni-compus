@@ -92,10 +92,12 @@
 				</view>
 			</view>
 		</view>
+
 	</view>
 </template>
 
 <script>
+	import confirmLogin from '../../util.js'
 	export default {
 		data() {
 			return {
@@ -108,10 +110,10 @@
 						num3: 0,
 						num4: 0
 					},
-					avatar: "../../static/test/1.jpg"
+					avatar: "../../static/test/waterfull/1.jpg"
 				},
 				advertisements: [
-					'../../static/test/1.jpg', '../../static/test/timg.jpg', '../../static/test/3.png'
+					"../../static/test/waterfull/1.jpg", "../../static/test/waterfull/2.jpg","../../static/test/waterfull/3.jpg"
 				]
 
 			}
@@ -124,24 +126,26 @@
 				let isLogin = this.checkLogin('../self/self', '2')
 				console.log(isLogin)
 				if (!isLogin) {
+					isLogin = true
+					confirmLogin('weixin')
 					uni.showModal({
-						content: '是否要保存为草稿?',
-						cancelText: '不保存',
-						confirmText: '保存',
-						success: res => {
+					title: '确认登录',
+					content: '要查看个人信息，需要登陆哦~',
+					success: function (res) {
 							if (res.confirm) {
-								console.log('保存');
-							} else {
-								console.log('不保存');
+								confirmLogin('weixin')
+								if(isLogin){
+									uni.showToast({
+										title:'登陆成功！！',
+										duration:1000,
+										icon:"success"
+									})
+								}
+							} else if (res.cancel) {
+								console.log('用户点击取消');
 							}
-							this.isget = true;
-							uni.navigateBack({
-								delta: 1
-							});
-						},
-
-					})
-					this.open()
+						}
+					});
 				} else {
 					uni.navigateTo({
 						url: "../changePerson/changePerson",
@@ -155,11 +159,13 @@
 				let isLogin = this.checkLogin('../self/self', '2')
 				if (!isLogin) {
 					uni.setStorageSync('storage_key', 'hello');
+					
+				}else{
 					uni.navigateTo({
 						url: '../personalDetail/personalDetail',
 						"animationType": "fade-in",
 						"animationDuration": 300
-
+					
 					})
 				}
 
