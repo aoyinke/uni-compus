@@ -2,8 +2,8 @@
   "navigationBarTitleText": "uni-app",
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
-    "uni-search-bar": "/components/uni-search-bar/uni-search-bar",
     "activity": "/components/activity/activity",
-    "tap-bar": "/components/tapBar"
+    "tap-bar": "/components/tapBar",
+    "top-bar": "/components/index/topBar"
   }
 }

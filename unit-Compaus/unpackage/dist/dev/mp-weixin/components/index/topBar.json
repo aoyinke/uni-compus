@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "avtar": "/components/uni-compus-components/uniCompus-avatar"
+  }
+}

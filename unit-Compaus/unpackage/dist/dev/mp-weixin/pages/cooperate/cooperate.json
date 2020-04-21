@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "group-card": "/components/uni-compus-components/uniCompus-card",
+    "card-width-img": "/components/uni-compus-components/uniCompus-card-widthImg"
+  }
+}

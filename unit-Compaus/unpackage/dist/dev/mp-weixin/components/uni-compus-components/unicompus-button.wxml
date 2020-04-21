@@ -1,0 +1,1 @@
+<button class="button data-v-52371e61" style="{{'background:'+(background)+';'}}" type="primary" size="{{size}}">{{content}}</button>

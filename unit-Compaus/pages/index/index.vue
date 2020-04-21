@@ -1,19 +1,17 @@
 <template>
 	<view class="container">
 		<uni-nav-bar>
+
 			<view slot="left" class="nav-bar-left" @tap="topublish">
 				<image :src="leftIcon" mode=""></image>
 			</view>
 
-			<slot>
-				<view class="default">
-					<uni-search-bar placeholder="输入关键词" @confirm="search"></uni-search-bar>
 
-				</view>
-			</slot>
 		</uni-nav-bar>
 		<view class="main">
+			<topBar></topBar>
 			<tapBar :tap-bars="tarBars" :tap-index="tapIndex" @taptab="tabtap"></tapBar>
+
 			<view class="uni-tab-bar">
 				<swiper class="swiper-box" :style="{height:swiperHeight + 'px'}" :current="tapIndex" @change="tabChange">
 					<swiper-item v-for="(items,index) in newsList" :key="index">
@@ -34,6 +32,7 @@
 	import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
 	import activity from "@/components/activity/activity.vue"
 	import tapBar from "@/components/tapBar.vue"
+	import topBar from '@/components/index/topBar.vue'
 	export default {
 		data() {
 			return {
@@ -47,7 +46,9 @@
 								activityStartTime: "17小时前",
 								activityPropagate: {
 									type: "img",
-									src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg']
+									src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg',
+										'../../static/test/waterfull/3.jpg'
+									]
 								},
 								hotNum: 80,
 								commentNum: 6,
@@ -71,7 +72,9 @@
 								activityStartTime: "17小时前",
 								activityPropagate: {
 									type: "img",
-									src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg']
+									src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg',
+										'../../static/test/waterfull/3.jpg'
+									]
 								},
 								hotNum: 80,
 								commentNum: 6,
@@ -95,7 +98,9 @@
 								activityStartTime: "17小时前",
 								activityPropagate: {
 									type: "img",
-									src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg']
+									src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg',
+										'../../static/test/waterfull/3.jpg'
+									]
 								},
 								hotNum: 80,
 								commentNum: 6,
@@ -122,7 +127,9 @@
 							activityStartTime: "17小时前",
 							activityPropagate: {
 								type: "img",
-								src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg']
+								src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg',
+									'../../static/test/waterfull/3.jpg'
+								]
 							},
 							hotNum: 80,
 							commentNum: 6,
@@ -178,9 +185,9 @@
 			return {
 				title: '轻松一校小程序',
 				path: '/pages/index/index'
-				
+
 			}
-		
+
 		},
 		methods: {
 			tabChange(e) {
@@ -189,28 +196,29 @@
 			tabtap(index) {
 				this.tapIndex = index
 			},
-			topublish(){
-				let isLogin = this.checkLogin('../index/index','2')
-				if(!isLogin){
-					
-				}else{
+			topublish() {
+				let isLogin = this.checkLogin('../index/index', '2')
+				if (!isLogin) {
+
+				} else {
 					uni.navigateTo({
-						url:"../publishActivity/publishActivity",
-						animationType:"slide-in-left",
-						
+						url: "../publishActivity/publishActivity",
+						animationType: "slide-in-left",
+
 					})
 				}
-				
+
 			}
 		},
 		components: {
 			activity,
-			tapBar
+			tapBar,
+			topBar
 		},
 		onLoad() {
 			uni.getSystemInfo({
 				success: (res) => {
-					let height = res.windowHeight - uni.upx2px(100)
+					let height = res.windowHeight - uni.upx2px(161.4)
 					this.swiperHeight = height
 				}
 			})
@@ -221,14 +229,16 @@
 
 <style lang="scss" scoped>
 	.nav-bar-left {
-		margin-left: 40upx;
+		margin-left: 80upx;
+
 		image {
 			width: 70upx;
 			height: 70upx;
 			margin: auto;
 		}
 	}
-	.default{
+
+	.default {
 		width: 100%;
 	}
 </style>

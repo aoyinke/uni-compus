@@ -1,3 +1,10 @@
+.config-unactive-text{
+	color:darkgray;
+	font-size: 30rpx;
+}
+.config-block-bottom{
+	border-bottom: 1rpx solid lightgray;
+}
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;

@@ -160,7 +160,7 @@
 /* 透明度 */
 /* 文章场景相关 */
 .nav-bar-left.data-v-7dbd003a {
-  margin-left: 40rpx;
+  margin-left: 80rpx;
 }
 .nav-bar-left image.data-v-7dbd003a {
     width: 70rpx;
