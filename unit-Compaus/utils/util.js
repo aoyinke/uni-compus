@@ -1,7 +1,10 @@
-export default function confirmLogin(provider) {
+const util = require('util')
+import {host,port} from './config.js'
+
+function confirmLogin(provider) {
 	uni.getSetting({
 			success(res) {
-				console.log(res.authSetting)
+				
 				if (!res.authSetting['scope.userInfo']) {
 					uni.openSetting({
 						success(res) {
@@ -28,3 +31,26 @@ export default function confirmLogin(provider) {
 		
 	})
 }
+
+
+function wxLogin(){
+	let url = "http://%s:%s"
+	uni.login({
+	  provider: 'weixin',
+	  success: function (loginRes) {
+	    uni.request({
+	    	url:util.format(url,host,port),
+			data:loginRes.code,
+			method:"POST"
+	    }).then(res=>{
+			console.log(res)
+		})
+		
+	  },
+	  fail() {
+	  	console.log("请求登录失败")
+	  }
+	});
+}
+
+export {confirmLogin,wxLogin}

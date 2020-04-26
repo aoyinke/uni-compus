@@ -11,7 +11,10 @@
     "pages/login/login",
     "pages/personShow/personShow",
     "pages/interestsTag/interestsTag",
-    "pages/cooperate/cooperate"
+    "pages/cooperate/cooperate",
+    "pages/chatPages/chatPages",
+    "pages/chatDetail/chatDetail",
+    "pages/coopertateDetail/coopertateDetail"
   ],
   "subPackages": [],
   "window": {
@@ -64,5 +67,5 @@
     "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
     "uni-compus-button": "/components/uni-compus-components/unicompus-button"
   },
-  "sitemapLocation": "sitemap71.json"
+  "sitemapLocation": "sitemap33.json"
 }

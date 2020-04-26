@@ -1,0 +1,1 @@
+<view class="data-v-172b992b"><view class="chatOtherLeft data-v-172b992b"><view class="otherAvatar data-v-172b992b"><image src="{{otherAvatar}}" mode class="data-v-172b992b"></image></view><view class="otherMsg textMsg data-v-172b992b"><text class="data-v-172b992b">{{otherMsg}}</text></view></view></view>

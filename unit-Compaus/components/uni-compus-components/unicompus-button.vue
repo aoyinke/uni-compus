@@ -1,5 +1,6 @@
 <template>
-	<button type="primary" :size="size" class="button" :style="{'background':background}">{{content}}</button>
+	<button type="primary" :disabled="isDisabled" :size="size" class="button" 
+	:style="{'background': isDisabled ? '#ced6e0' : background }">{{content}}</button>
 </template>
 
 <script>
@@ -17,6 +18,10 @@
 			background:{
 				default:"blue",
 				type:String
+			},
+			isDisabled:{
+				type:Boolean,
+				default:false
 			}
 		}
 	}

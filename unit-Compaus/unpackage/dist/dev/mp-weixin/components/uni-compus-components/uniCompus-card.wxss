@@ -26,25 +26,33 @@
 /* 文章场景相关 */
 .container .title {
   border-bottom: 1px solid #ecf0f1;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 .container .title text {
-    margin-left: 20rpx;
-    font-size: 40rpx;
-    font-weight: 500;
+  margin-left: 20rpx;
+  font-size: 40rpx;
+  font-weight: 500;
 }
 .container .showBar {
   margin-top: 20rpx;
 }
-.container .showBar .showBar-cards {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: space-evenly;
-    -webkit-justify-content: space-evenly;
-            justify-content: space-evenly;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
+.container .showBar .scrollCard {
+  white-space: nowrap;
+  width: 100%;
+}
+.container .showBar .scrollCard .showBar-cards {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
 }
 

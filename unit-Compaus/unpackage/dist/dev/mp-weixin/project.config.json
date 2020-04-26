@@ -27,7 +27,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"name": "index",
@@ -36,69 +36,87 @@
 					"pathName": "pages/index/index"
 				},
 				{
-					"name": "cooperate",
+					"name": "coopertateDetail",
 					"query": "",
 					"id": 1,
+					"pathName": "pages/coopertateDetail/coopertateDetail"
+				},
+				{
+					"name": "chatDetail",
+					"query": "",
+					"id": 2,
+					"pathName": "pages/chatDetail/chatDetail"
+				},
+				{
+					"name": "chatPages",
+					"query": "",
+					"id": 3,
+					"pathName": "pages/chatPages/chatPages"
+				},
+				{
+					"name": "cooperate",
+					"query": "",
+					"id": 4,
 					"pathName": "pages/cooperate/cooperate"
 				},
 				{
 					"name": "interestTag",
 					"query": "",
-					"id": 2,
+					"id": 5,
 					"pathName": "pages/interestsTag/interestsTag"
 				},
 				{
 					"name": "personShow",
 					"query": "",
-					"id": 3,
+					"id": 6,
 					"pathName": "pages/personShow/personShow"
 				},
 				{
 					"name": "activityDetail",
 					"query": "",
-					"id": 4,
+					"id": 7,
 					"pathName": "pages/activityDetail/activityDetail"
 				},
 				{
 					"name": "publish",
 					"query": "",
-					"id": 5,
+					"id": 8,
 					"pathName": "pages/publishActivity/publishActivity"
 				},
 				{
 					"name": "findPeople",
 					"query": "",
-					"id": 6,
+					"id": 9,
 					"pathName": "pages/findPeople/findPeople"
 				},
 				{
 					"name": "login",
 					"query": "",
-					"id": 7,
+					"id": 10,
 					"pathName": "pages/login/login"
 				},
 				{
 					"name": "self",
 					"query": "",
-					"id": 8,
+					"id": 11,
 					"pathName": "pages/self/self"
 				},
 				{
 					"name": "changePerson",
 					"query": "",
-					"id": 9,
+					"id": 12,
 					"pathName": "pages/changePerson/changePerson"
 				},
 				{
 					"name": "personDetail",
 					"query": "",
-					"id": 10,
+					"id": 13,
 					"pathName": "pages/personalDetail/personalDetail"
 				},
 				{
 					"name": "group",
 					"query": "",
-					"id": 11,
+					"id": 14,
 					"pathName": "pages/group/group"
 				}
 			]

@@ -36,35 +36,35 @@
           flex-wrap: wrap;
 }
 .content .group-logo.data-v-1fb8dbba {
-    height: 100%;
-    background-color: #fff;
+  height: 100%;
+  background-color: #fff;
 }
 .content .group-logo image.data-v-1fb8dbba {
-      width: 80rpx;
-      height: 80rpx;
-      border-radius: 50%;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
 }
 .content .group-info.data-v-1fb8dbba {
-    width: 60%;
+  width: 60%;
 }
 .content .group-info .group-username.data-v-1fb8dbba {
-      font-weight: bold;
-      font-size: 30rpx;
+  font-weight: bold;
+  font-size: 30rpx;
 }
 .content .group-info .group-intro .group-intro-tag.data-v-1fb8dbba {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: row;
-              flex-direction: row;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
 }
 .content .group-info .group-intro text.data-v-1fb8dbba {
-      color: darkgray;
+  color: darkgray;
 }
 .content .group-info .group-info-bottom.data-v-1fb8dbba {
-      height: 50rpx;
-      border-bottom: 3rpx solid #EEEEEE;
+  height: 50rpx;
+  border-bottom: 3rpx solid #EEEEEE;
 }
 

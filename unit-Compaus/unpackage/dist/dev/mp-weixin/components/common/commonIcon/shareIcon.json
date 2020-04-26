@@ -1,6 +1,6 @@
 {
-  "component": true,
   "usingComponents": {
-    "chunLei-modal": "/components/chunLei-modal/chunLei-modal"
-  }
+    "chun-lei-modal": "/components/chunLei-modal/chunLei-modal"
+  },
+  "component": true
 }

@@ -1,6 +1,4 @@
 {
-  "component": true,
-  "usingComponents": {
-    "avatar": "/components/uni-compus-components/uniCompus-avatar"
-  }
+  "usingComponents": {},
+  "component": true
 }

@@ -137,6 +137,9 @@
 					this.swiperHeight = height
 				}
 			})
+		},
+		onReachBottom(){
+			console.log("asdasd")
 		}
 	}
 </script>

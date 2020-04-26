@@ -37,25 +37,25 @@
   margin: 30rpx;
 }
 .header .user_avatar image.data-v-6d46bd58 {
-    height: 120rpx;
-    width: 120rpx;
-    border-radius: 50%;
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 50%;
 }
 .header .user_info.data-v-6d46bd58 {
-    -webkit-padding-end: 400rpx;
-            padding-inline-end: 400rpx;
+  -webkit-padding-end: 400rpx;
+          padding-inline-end: 400rpx;
 }
 .header .user_info .user_name text.data-v-6d46bd58 {
-      font-weight: bold;
-      width: 150rpx;
+  font-weight: bold;
+  width: 150rpx;
 }
 .header .user_info .user_visits text.data-v-6d46bd58 {
-      color: lightgray;
-      font-size: 20rpx;
+  color: lightgray;
+  font-size: 20rpx;
 }
 .header .user_detail image.data-v-6d46bd58 {
-    height: 30rpx;
-    width: 30rpx;
+  height: 30rpx;
+  width: 30rpx;
 }
 .main .userActivityNum.data-v-6d46bd58 {
   display: -webkit-box;
@@ -69,27 +69,28 @@
           align-items: center;
 }
 .main .userActivityNum .userActivityNum-detail.data-v-6d46bd58 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-            justify-content: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
 }
 .main .userActivityNum .userActivityNum-detail .userActivityNum-detail-right.data-v-6d46bd58 {
-      color: darkgray;
+  color: darkgray;
 }
 .main .navBar.data-v-6d46bd58 {
   margin: 10rpx;
   border: 1rpx solid #EEEEEE;
-  box-shadow: 3rpx 3rpx 5rpx 5rpx #EEEEEE;
+  -webkit-box-shadow: 3rpx 3rpx 5rpx 5rpx #EEEEEE;
+          box-shadow: 3rpx 3rpx 5rpx 5rpx #EEEEEE;
 }
 .navIcon.data-v-6d46bd58 {
   height: 45rpx;
@@ -121,12 +122,12 @@
   margin: 50rpx 0;
 }
 .userSetup .navBar-left text.data-v-6d46bd58,
-  .userHis .navBar-left text.data-v-6d46bd58,
-  .userConcern .navBar-left text.data-v-6d46bd58,
-  .userGroup .navBar-left text.data-v-6d46bd58 {
-    font-size: 30rpx;
-    margin-left: 10rpx;
-    font-weight: 500;
+.userHis .navBar-left text.data-v-6d46bd58,
+.userConcern .navBar-left text.data-v-6d46bd58,
+.userGroup .navBar-left text.data-v-6d46bd58 {
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  font-weight: 500;
 }
 swiper.data-v-6d46bd58 {
   margin: 20rpx 10rpx;
@@ -134,6 +135,6 @@ swiper.data-v-6d46bd58 {
   border-radius: 50rpx;
 }
 swiper .swiper-item image.data-v-6d46bd58 {
-    width: 100%;
+  width: 100%;
 }
 

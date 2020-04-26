@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "chat-bottom-bar": "/components/uni-compus-components/uniCompus-chatDetailBottom",
+    "chat-user-right": "/components/uni-compus-components/uniCompus-chatUser-right",
+    "chat-other-left": "/components/uni-compus-components/uniCompus-chatOther-left"
+  }
+}

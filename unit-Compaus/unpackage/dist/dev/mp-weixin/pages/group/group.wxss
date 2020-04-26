@@ -40,43 +40,43 @@ page.data-v-3cd088d4 {
   margin: 20rpx 0;
 }
 .groupInfo .groupInfo-prepare.data-v-3cd088d4,
-  .groupInfo .groupInfo-already.data-v-3cd088d4,
-  .groupInfo .groupInfo-recommend.data-v-3cd088d4 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-            justify-content: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-            flex-direction: column;
-    border-right: 2rpx solid #EEEEEE;
-    width: 33%;
+.groupInfo .groupInfo-already.data-v-3cd088d4,
+.groupInfo .groupInfo-recommend.data-v-3cd088d4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  border-right: 2rpx solid #EEEEEE;
+  width: 33%;
 }
 .groupInfo .groupInfo-prepare .first.data-v-3cd088d4,
-    .groupInfo .groupInfo-already .first.data-v-3cd088d4,
-    .groupInfo .groupInfo-recommend .first.data-v-3cd088d4 {
-      font-weight: 700;
-      font-size: 30rpx;
+.groupInfo .groupInfo-already .first.data-v-3cd088d4,
+.groupInfo .groupInfo-recommend .first.data-v-3cd088d4 {
+  font-weight: 700;
+  font-size: 30rpx;
 }
 .groupInfo .groupInfo-prepare .second.data-v-3cd088d4,
-    .groupInfo .groupInfo-already .second.data-v-3cd088d4,
-    .groupInfo .groupInfo-recommend .second.data-v-3cd088d4 {
-      font-size: 20rpx;
-      color: darkgray;
+.groupInfo .groupInfo-already .second.data-v-3cd088d4,
+.groupInfo .groupInfo-recommend .second.data-v-3cd088d4 {
+  font-size: 20rpx;
+  color: darkgray;
 }
 .groupInfo .groupInfo-recommend.data-v-3cd088d4 {
-    border: none !important;
-    margin-left: none !important;
+  border: none !important;
+  margin-left: none !important;
 }
 .groupInfo .groupInfo-recommend image.data-v-3cd088d4 {
-      width: 50rpx;
-      height: 50rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
 .group-detail-tab.data-v-3cd088d4 {
   display: -webkit-box;
@@ -93,11 +93,12 @@ page.data-v-3cd088d4 {
   -webkit-flex-direction: row;
           flex-direction: row;
   height: 100rpx;
-  box-shadow: 3rpx 3rpx 5rpx 5rpx #EEEEEE;
+  -webkit-box-shadow: 3rpx 3rpx 5rpx 5rpx #EEEEEE;
+          box-shadow: 3rpx 3rpx 5rpx 5rpx #EEEEEE;
 }
 .group-detail-tab .tab.data-v-3cd088d4 {
-    font-size: 26rpx;
-    font-weight: 400;
+  font-size: 26rpx;
+  font-weight: 400;
 }
 .content.data-v-3cd088d4 {
   display: -webkit-box;
@@ -111,36 +112,36 @@ page.data-v-3cd088d4 {
           flex-wrap: wrap;
 }
 .content .group-logo.data-v-3cd088d4 {
-    height: 100%;
-    background-color: #fff;
+  height: 100%;
+  background-color: #fff;
 }
 .content .group-logo image.data-v-3cd088d4 {
-      width: 80rpx;
-      height: 80rpx;
-      border-radius: 50%;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
 }
 .content .group-info.data-v-3cd088d4 {
-    width: 60%;
+  width: 60%;
 }
 .content .group-info .group-username.data-v-3cd088d4 {
-      font-weight: bold;
-      font-size: 30rpx;
+  font-weight: bold;
+  font-size: 30rpx;
 }
 .content .group-info .group-intro .group-intro-tag.data-v-3cd088d4 {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: row;
-              flex-direction: row;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
 }
 .content .group-info .group-intro text.data-v-3cd088d4 {
-      color: darkgray;
+  color: darkgray;
 }
 .content .group-info .group-info-bottom.data-v-3cd088d4 {
-      height: 50rpx;
-      border-bottom: 3rpx solid #EEEEEE;
+  height: 50rpx;
+  border-bottom: 3rpx solid #EEEEEE;
 }
 .active text.data-v-3cd088d4 {
   border-bottom: 5rpx solid #5F9EA0;

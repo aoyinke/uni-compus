@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
-    "chunLei-modal": "/components/chunLei-modal/chunLei-modal",
+    "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
     "w-picker": "/components/w-picker/w-picker"
   }
 }

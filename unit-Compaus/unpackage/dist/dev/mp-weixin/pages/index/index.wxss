@@ -125,7 +125,8 @@
   z-index: 998;
 }
 .uni-navbar--shadow.data-v-77baabe0 {
-  box-shadow: 0 1px 6px #ccc;
+  -webkit-box-shadow: 0 1px 6px #ccc;
+          box-shadow: 0 1px 6px #ccc;
 }
 .uni-navbar--border.data-v-77baabe0 {
   border-bottom-width: 1rpx;
@@ -163,9 +164,9 @@
   margin-left: 80rpx;
 }
 .nav-bar-left image.data-v-7dbd003a {
-    width: 70rpx;
-    height: 70rpx;
-    margin: auto;
+  width: 70rpx;
+  height: 70rpx;
+  margin: auto;
 }
 .default.data-v-7dbd003a {
   width: 100%;

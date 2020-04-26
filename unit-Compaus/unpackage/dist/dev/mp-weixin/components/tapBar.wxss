@@ -49,10 +49,10 @@
   color: #343434;
 }
 .uni-tab-bar .active .swiper-tab-inline.data-v-7844c7b9 {
-    border-bottom: 6rpx solid #FEDE33;
-    width: 70rpx;
-    margin: auto;
-    border-top: 6rpx solid #FEDE33;
-    border-radius: 20rpx;
+  border-bottom: 6rpx solid #FEDE33;
+  width: 70rpx;
+  margin: auto;
+  border-top: 6rpx solid #FEDE33;
+  border-radius: 20rpx;
 }
 

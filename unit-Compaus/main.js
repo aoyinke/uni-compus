@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import App from './App'
 import store from './store'
+import request from '@/utils/request.js'
+
 
 import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue'
 import chunLeiModal from '@/components/chunLei-modal/chunLei-modal.vue'
 import TabMask from '@/components/chunLei-modal/tabMask'
 import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue'
+
 Vue.config.productionTip = false
 Vue.component('uniNavBar', uniNavBar);
 Vue.component('chunLei-modal',chunLeiModal);
@@ -13,7 +16,7 @@ Vue.component('uniCompusButton',uniCompusButton);
 
 //把vuex定义成全局组件
 Vue.prototype.$store = store
-
+Vue.prototype.request = request
 
 Array.prototype.find = function (element,dataStore){
     for( var i = 0 ; i < this.dataStore.length ; i ++ ){

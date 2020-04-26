@@ -25,22 +25,37 @@
 /* 透明度 */
 /* 文章场景相关 */
 .contaier.data-v-d671bb0a {
-  width: 400rpx;
-  height: 300rpx;
   margin: 20rpx;
+  border: 1px solid #f1f2f6;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 300rpx;
+  margin-left: 40rpx;
 }
 .contaier .coverImg.data-v-d671bb0a {
-    width: 100%;
+  position: relative;
 }
 .contaier .coverImg image.data-v-d671bb0a {
-      width: 100%;
-      height: 150rpx;
+  width: 100%;
+  height: 150rpx;
+}
+.contaier .coverImg .pic-cover.data-v-d671bb0a {
+  width: 100%;
+  height: 150rpx;
+  top: 0px;
+  left: 0px;
+  background-color: black;
+  opacity: 0.4;
+  position: absolute;
 }
 .contaier .content .title.data-v-d671bb0a {
-    font-weight: 500;
-    font-size: .5em;
+  font-weight: 700;
+  font-size: 1em;
+  letter-spacing: 2px;
 }
-.contaier.data-v-d671bb0a:hover {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+.contaier .content .partners.data-v-d671bb0a {
+  font-size: 22rpx;
 }
 

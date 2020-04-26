@@ -16,7 +16,7 @@
 				<swiper class="swiper-box" :style="{height:swiperHeight + 'px'}" :current="tapIndex" @change="tabChange">
 					<swiper-item v-for="(items,index) in newsList" :key="index">
 						<scroll-view scroll-y class="list">
-							<activity :content="items.content"></activity>
+							<activity :activityInfo="items.content"></activity>
 						</scroll-view>
 					</swiper-item>
 				</swiper>
@@ -33,6 +33,7 @@
 	import activity from "@/components/activity/activity.vue"
 	import tapBar from "@/components/tapBar.vue"
 	import topBar from '@/components/index/topBar.vue'
+
 	export default {
 		data() {
 			return {
@@ -42,6 +43,7 @@
 				newsList: [{
 						content: [{
 								groupLogo: "../../static/test/waterfull/1.jpg",
+								description: "宣城市教体局4月24日通知称，为坚守校园安全防线，2020年“五一”5天假期总体要求是“不出市、不聚集”，全市中小学幼儿园教职员工和学生一律不得离开宣城市范围，不参加人员聚集性活动，减少与外人接触。确有特殊情况需要出市的，必须提前报备，回宣后按规定检测、隔离，隔离期满持复课（复工）证明后方可返校。各校要向家长发出温馨提示，建议家长为了孩子的安全考虑，“五一”假期尽量不出本市，严格做好自我防护。",
 								groupName: "比赛大佬组",
 								activityStartTime: "17小时前",
 								activityPropagate: {

@@ -1,8 +1,9 @@
 <script>
 	import Vue from 'vue'
-	
+	import {wxLogin} from '@/utils/util.js'
 	export default {
 		onLaunch: function(option) {
+			wxLogin()
 			uni.getSystemInfo({
 				success: function(e) {
 					Vue.prototype.statusBar = e.statusBarHeight
@@ -60,4 +61,5 @@
 <style>
 	@import './common/css/uni.css';
 	@import url("./common/css/iconfont.css");
+	@import url("./common/css/common.scss");
 </style>

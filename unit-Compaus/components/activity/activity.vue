@@ -1,22 +1,25 @@
 <template>
 	<view>
-		<block v-for="(item,idx) in content" :key="idx">
+		<block v-for="(item,idx) in activityInfo" :key="idx">
 			<view class="groupNotification">
-				<user-top-bar :groupLogo="item.groupLogo" :groupName="item.groupName" :activityStartTime="item.activityStartTime" activityId="1"></user-top-bar>
-
-				<template v-if="item.activityPropagate.type=='img'">
-					<swiper :indicator-dots="true"  class="swiper">
-						<swiper-item v-for="(img,id) in item.activityPropagate.src" :key="id" @click="previewImg(id,item.activityPropagate.src)">
-							<view class="swiper-item">
-								<image :src="img" mode=""></image>
-							</view>
-						</swiper-item>
-					</swiper>
-				</template>
-				<template>
-					<view></view>
-				</template>
-
+				<user-top-bar :groupLogo="item.groupLogo" :groupName="item.groupName" :activityStartTime="item.activityStartTime"
+				 activityId="1"></user-top-bar>
+				<goDetail>
+					<template v-if="item.activityPropagate.type=='img'">
+						<swiper :indicator-dots="true" class="swiper">
+							<swiper-item v-for="(img,id) in item.activityPropagate.src" :key="id" >
+								<view class="swiper-item">
+									<image :src="img" mode=""></image>
+								</view>
+							</swiper-item>
+						</swiper>
+					</template>
+					<template v-if="item.description">
+						<view class="description text-line-4">
+							<text>{{item.description}}</text>
+						</view>
+					</template>
+				</goDetail>
 				<view class="footer">
 					<mutation></mutation>
 					<view class="commentDetail">
@@ -40,44 +43,44 @@
 <script>
 	import userTopBar from '@/components/activity/userTopBar.vue'
 	import mutation from '@/components/activity/mutation.vue'
+	import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue'
 	export default {
 		data() {
 			return {
-				
+
 			}
 		},
-		props:{
-			content:Array
+		props: {
+			activityInfo: Array
 		},
 		mounted() {
-			
+
 		},
 		components: {
 			userTopBar,
-			mutation
+			mutation,
+			goDetail
 		},
 		methods: {
-			toDetail(groupLogo,groupName,activityStartTime) {
+			toDetail(groupLogo, groupName, activityStartTime) {
 				uni.navigateTo({
-					url:'@/pages/activityDetail/activityDetail'
+					url: '@/pages/activityDetail/activityDetail'
 				})
-				uni.$emit('getDetailInfo',{groupLogo:groupLogo,groupName:groupName,activityStartTime:activityStartTime})
-			},
-			previewImg(id,src){
-				console.log(src)
-				uni.previewImage({
-					current:0,
-					urls:src
+				uni.$emit('getDetailInfo', {
+					groupLogo: groupLogo,
+					groupName: groupName,
+					activityStartTime: activityStartTime
 				})
 			}
 		},
-		
+
 	}
 </script>
 
 <style lang="scss" scoped>
 	.groupNotification {
 		border-bottom: 10upx solid #EEEEEE;
+
 		.groupTopBar {
 			display: flex;
 			justify-content: space-between;
@@ -125,7 +128,7 @@
 				.notiDetail {
 					button {
 						color: #fff;
-						background-color:#191970;
+						background-color: #191970;
 					}
 
 					image {
@@ -136,11 +139,13 @@
 			}
 
 		}
-		.swiper-item{
-			image{
+
+		.swiper-item {
+			image {
 				width: 100%;
 			}
 		}
+
 		.footer {
 			border-top: 0.5upx solid #EEEEEE;
 
@@ -148,7 +153,8 @@
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				margin-top:10upx;
+				margin-top: 10upx;
+
 				.mutation-left {
 					display: flex;
 					justify-content: space-between;
@@ -205,5 +211,10 @@
 				}
 			}
 		}
+	}
+
+	.description {
+		margin: 0 15upx;
+		font-weight: 500;
 	}
 </style>

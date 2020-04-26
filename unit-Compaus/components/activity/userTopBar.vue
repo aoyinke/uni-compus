@@ -65,6 +65,9 @@
 			},
 			followerUser(){
 				this.isdisabled = true
+				uni.showToast({
+					title:"已关注该用户"
+				})
 			}
 		}
 	}

@@ -30,7 +30,8 @@
   height: 40rpx;
   color: #fff;
   text-align: center;
-  box-shadow: 2rpx 2rpx 2rpx 2rpx #EEEEEE;
+  -webkit-box-shadow: 2rpx 2rpx 2rpx 2rpx #EEEEEE;
+          box-shadow: 2rpx 2rpx 2rpx 2rpx #EEEEEE;
   margin-right: 10rpx;
 }
 

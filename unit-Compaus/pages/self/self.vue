@@ -97,7 +97,7 @@
 </template>
 
 <script>
-	import confirmLogin from '../../util.js'
+	import {confirmLogin} from '@/utils/util.js'
 	export default {
 		data() {
 			return {

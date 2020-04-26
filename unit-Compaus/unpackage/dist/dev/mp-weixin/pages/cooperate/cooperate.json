@@ -1,7 +1,10 @@
 {
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "uni-card": "/components/uni-card/uni-card",
     "group-card": "/components/uni-compus-components/uniCompus-card",
-    "card-width-img": "/components/uni-compus-components/uniCompus-card-widthImg"
+    "card-width-img": "/components/uni-compus-components/uniCompus-card-widthImg",
+    "avatar": "/components/uni-compus-components/uniCompus-avatar"
   }
 }

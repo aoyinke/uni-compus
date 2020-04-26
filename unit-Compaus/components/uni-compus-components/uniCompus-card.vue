@@ -4,58 +4,68 @@
 			<text>{{title}}</text>
 		</view>
 		<view class="showBar">
-			<view class="showBar-cards">
-				<avatar v-for="(group,idx) in myGroups" :imgSrc="group.src" :name="group.name" :circle="group.circle"></avatar>
-			</view>
-			<slot></slot>
+			<scroll-view scroll-x="true" scroll-left="120" :style="{height:scrollHeight}" class="scrollCard" enable-flex="true">
+				<view class="showBar-cards">
+					<slot></slot>
+					<slot name="card"></slot>
+				</view>
+			</scroll-view>
 		</view>
 	</view>
 </template>
 
 <script>
-	import avatar from './uniCompus-avatar.vue'
+	
 	export default {
 		data() {
 			return {
-				
+
 			};
 		},
-		props:{
+		props: {
 			title:{
 				type:String,
 				required:true
 			},
-			myGroups:{
-				type:Array,
-				required:true
+			scrollHeight:{
+				type:String,
+				default:"175px"
 			}
-			
+
 		},
-		components:{
-			avatar
+		components: {
+			
 		}
 	}
 </script>
 
 <style lang="scss">
-	.container{
-		.title{
+	.container {
+		.title {
 			border-bottom: 1px solid #ecf0f1;
-			box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1);
-			text{
+
+			text {
 				margin-left: 20upx;
 				font-size: 40upx;
 				font-weight: 500;
 			}
 		}
-		.showBar{
+
+		.showBar {
 			margin-top: 20upx;
-			.showBar-cards{
-				display: flex;
-				justify-content: space-evenly;
-				align-items: center;
+			.scrollCard{
+				white-space: nowrap;
+				width: 100%;
+				.showBar-cards {
+					width: 100%;
+					display: flex;
+					justify-content: space-evenly;
+					align-items: center;
+					flex-direction: row;
+				}
 			}
 		}
+		
+		
 	}
-	
 </style>

@@ -76,13 +76,13 @@
           align-items: center;
 }
 .changePerson_right image.data-v-5856ccf4 {
-    height: 80rpx;
-    width: 80rpx;
-    border-radius: 50%;
-    margin-right: 20rpx;
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
 }
 .changePerson_right input.data-v-5856ccf4 {
-    text-align: right;
+  text-align: right;
 }
 .changePerson.data-v-5856ccf4 {
   margin: 30rpx;
@@ -106,26 +106,26 @@
   margin: 30rpx 0;
 }
 .changePerson_avatar .change_choice.data-v-5856ccf4,
-  .changePerson_sex .change_choice.data-v-5856ccf4,
-  .changePerson_name .change_choice.data-v-5856ccf4,
-  .changePerson_birthday .change_choice.data-v-5856ccf4,
-  .changePerson_hometown .change_choice.data-v-5856ccf4,
-  .changePerson_job .change_choice.data-v-5856ccf4,
-  .changePerson_loveState .change_choice.data-v-5856ccf4 {
-    color: #708090;
-    font-size: 35rpx;
-    font-weight: bold;
+.changePerson_sex .change_choice.data-v-5856ccf4,
+.changePerson_name .change_choice.data-v-5856ccf4,
+.changePerson_birthday .change_choice.data-v-5856ccf4,
+.changePerson_hometown .change_choice.data-v-5856ccf4,
+.changePerson_job .change_choice.data-v-5856ccf4,
+.changePerson_loveState .change_choice.data-v-5856ccf4 {
+  color: #708090;
+  font-size: 35rpx;
+  font-weight: bold;
 }
 .changePerson_avatar .change image.data-v-5856ccf4,
-  .changePerson_sex .change image.data-v-5856ccf4,
-  .changePerson_name .change image.data-v-5856ccf4,
-  .changePerson_birthday .change image.data-v-5856ccf4,
-  .changePerson_hometown .change image.data-v-5856ccf4,
-  .changePerson_job .change image.data-v-5856ccf4,
-  .changePerson_loveState .change image.data-v-5856ccf4 {
-    width: 50rpx;
-    height: 50rpx;
-    margin-top: -10rpx;
+.changePerson_sex .change image.data-v-5856ccf4,
+.changePerson_name .change image.data-v-5856ccf4,
+.changePerson_birthday .change image.data-v-5856ccf4,
+.changePerson_hometown .change image.data-v-5856ccf4,
+.changePerson_job .change image.data-v-5856ccf4,
+.changePerson_loveState .change image.data-v-5856ccf4 {
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: -10rpx;
 }
 .avatar image.data-v-5856ccf4 {
   width: 80rpx;

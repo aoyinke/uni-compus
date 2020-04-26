@@ -40,10 +40,10 @@
           align-items: center;
 }
 .avatar image.data-v-0f948ce8 {
-    height: 80rpx;
-    width: 80rpx;
+  height: 80rpx;
+  width: 80rpx;
 }
 .avatar text.data-v-0f948ce8 {
-    font-size: 22rpx;
+  font-size: 22rpx;
 }
 
