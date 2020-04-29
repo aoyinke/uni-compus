@@ -1,6 +1,7 @@
 <template>
 	<view class="avatar">
 		<image :src="imgSrc" mode="" :style="{borderRadius: circle ? image_radius : ''} " ></image>
+		
 		<text >{{name}}</text>
 	</view>
 </template>

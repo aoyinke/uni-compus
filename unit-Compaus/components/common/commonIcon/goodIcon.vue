@@ -31,8 +31,10 @@
 .isgood{
 	width: 60upx;
 	height: 60upx;
+	margin: 20upx;
+	
 }
 .eosfont{
-		font-size: 50upx !important;
+		font-size: 60upx !important;
 	}
 </style>

@@ -11,8 +11,8 @@
 				<text class="first">{{user.groupInfo.already}}</text>
 				<text class="second">已经加入的小组</text>
 			</view>
-			<view class="groupInfo-recommend">
-				<image src="../../static/group/fengxiangbiao.png" mode=""></image>
+			<view class="groupInfo-recommend" @click="openFilter">
+				<text class="eosfont">&#xe69e;</text>
 				<text class="second">爱好偏向</text>
 			</view>
 
@@ -32,22 +32,50 @@
 			<swiper-item v-for="(items,index) in groupDetail" :key="index">
 				<scroll-view scroll-y class="list" :style="{height:swiperHeight + 'px'}">
 					<block v-for="(item,indx) in items.content" :key="indx">
-						<group-item :groupLogo = "item.groupLogo" :groupName = "item.groupName" :intro="item.intro" :tag="item.tag"></group-item>
+						<group-item :groupLogo="item.groupLogo" :groupName="item.groupName" :intro="item.intro" :tag="item.tag"></group-item>
 					</block>
 				</scroll-view>
 			</swiper-item>
 		</swiper>
+
+
+		<uni-drawer ref="uniDrawer" mode="right" width="320">
+			<view style="padding:30rpx;" class="filter-container">
+				<view class="filter-content" v-for="(filter,index) in filters" :key="index">
+					<filterBar :title="filter.title" :choices="filter.choices"></filterBar>
+				</view>
+				<view class="filter-container-bottom">
+					<uniCompusButton content="重置" background="#eb4d4b" width="48"></uniCompusButton>
+					<uniCompusButton content="确认" background="#f0932b" width="48" @click="closeDrawer"></uniCompusButton>
+				</view>
+			</view>
+		</uni-drawer>
 	</view>
 </template>
 
 <script>
 	import uniSearchBar from '@/components/uni-search-bar/uni-search-bar.vue'
 	import groupItem from '@/components/group/group-item.vue'
-
+	import uniDrawer from "@/components/uni-drawer/uni-drawer.vue"
+	import filterBar from '@/components/uni-compus-components/uniCompus-filter.vue'
+	import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue'
 	export default {
 		data() {
 			return {
-				swiperHeight:0,
+				filters: [{
+					title: "兴趣爱好",
+
+					choices: ['舞蹈', '电竞', '书法', '书法']
+				}, {
+					title: "兴趣爱好",
+
+					choices: ['舞蹈', '电竞', '书法', '书法']
+				}, {
+					title: "兴趣爱好",
+
+					choices: ['舞蹈', '电竞', '书法', '书法']
+				}],
+				swiperHeight: 0,
 				tapIndex: 0,
 				user: {
 					groupInfo: {
@@ -56,62 +84,66 @@
 					}
 				},
 				groupDetail: [{
-					content: [{
-							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/waterfull/1.jpg",
-							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
-							tag:['强大','优秀']
-						},
-						{
-							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/waterfull/1.jpg",
-							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
-							tag:['强大','优秀']
-						},
-						{
-							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/waterfull/1.jpg",
-							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
-							tag:['强大','优秀']
-						},
-						{
-							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/waterfull/1.jpg",
-							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
-							tag:['强大','优秀']
-						},
-						{
-							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/waterfull/1.jpg",
-							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
-							tag:['强大','优秀']
-						}
-					]
-				},
-				{
-					content: [{
-							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/waterfull/1.jpg",
-							intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
-							tag:['强大','优秀']
-						},
-						{
-							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/waterfull/1.jpg",
-							intro: "轻松一校项目组是地球上最强大的组织之一，它负责..."
-						},
-						{
-							groupName: "轻松一校项目组",
-							groupLogo: "../../static/test/waterfull/1.jpg",
-							intro: "轻松一校项目组是地球上最强大的组织之一，它负责..."
-						}
-					]
-				}]
+						content: [{
+								groupName: "轻松一校项目组",
+								groupLogo: "../../static/test/waterfull/1.jpg",
+								intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
+								tag: ['强大', '优秀']
+							},
+							{
+								groupName: "轻松一校项目组",
+								groupLogo: "../../static/test/waterfull/1.jpg",
+								intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
+								tag: ['强大', '优秀']
+							},
+							{
+								groupName: "轻松一校项目组",
+								groupLogo: "../../static/test/waterfull/1.jpg",
+								intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
+								tag: ['强大', '优秀']
+							},
+							{
+								groupName: "轻松一校项目组",
+								groupLogo: "../../static/test/waterfull/1.jpg",
+								intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
+								tag: ['强大', '优秀']
+							},
+							{
+								groupName: "轻松一校项目组",
+								groupLogo: "../../static/test/waterfull/1.jpg",
+								intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
+								tag: ['强大', '优秀']
+							}
+						]
+					},
+					{
+						content: [{
+								groupName: "轻松一校项目组",
+								groupLogo: "../../static/test/waterfull/1.jpg",
+								intro: "轻松一校项目组是地球上最强大的组织之一，它负责...",
+								tag: ['强大', '优秀']
+							},
+							{
+								groupName: "轻松一校项目组",
+								groupLogo: "../../static/test/waterfull/1.jpg",
+								intro: "轻松一校项目组是地球上最强大的组织之一，它负责..."
+							},
+							{
+								groupName: "轻松一校项目组",
+								groupLogo: "../../static/test/waterfull/1.jpg",
+								intro: "轻松一校项目组是地球上最强大的组织之一，它负责..."
+							}
+						]
+					}
+				]
 			};
 		},
 		components: {
 			uniSearchBar,
-			groupItem
+			groupItem,
+			uniDrawer,
+			filterBar,
+			uniCompusButton
 		},
 		methods: {
 			tap(index) {
@@ -120,6 +152,13 @@
 			tabChange(e) {
 				this.tapIndex = e.detail.current
 			},
+			openFilter() {
+				this.$refs.uniDrawer.open()
+			},
+			closeDrawer() {
+				console.log('asdasd')
+				this.$refs.uniDrawer.close()
+			}
 		},
 		async onLoad() {
 			let swiperHeight = uni.getSystemInfo({
@@ -130,7 +169,7 @@
 			})
 			let res = await this.request('groups/')
 			console.log(res[1].data.data.records)
-			
+
 		}
 
 	}
@@ -139,6 +178,20 @@
 <style lang="scss" scoped>
 	page {
 		background-color: darkgray;
+	}
+
+	.filter-container {
+		position: relative;
+		height: 100vh;
+
+		.filter-container-bottom {
+			width: 100%;
+			position: absolute;
+			bottom: 10%;
+			margin: 10upx;
+			right: -5%;
+
+		}
 	}
 
 	.groupInfo {
@@ -188,7 +241,7 @@
 		flex-direction: row;
 		height: 100upx;
 		box-shadow: 3upx 3upx 5upx 5upx #EEEEEE;
-		
+
 		.tab {
 			font-size: 26upx;
 			font-weight: 400;
@@ -197,13 +250,13 @@
 	}
 
 	.content {
-		
+
 		display: flex;
 		justify-content: space-around;
 		margin: 30upx 10upx;
 		width: 100%;
 		flex-wrap: wrap;
-		
+
 		.group-logo {
 			height: 100%;
 			background-color: #fff;

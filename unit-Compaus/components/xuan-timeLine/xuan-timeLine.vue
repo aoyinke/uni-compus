@@ -29,6 +29,14 @@
 								<!-- 内容 -->
 								<view class="info-content">
 									<!-- 内容 -->
+									<view class="info-content-topBar">
+										<view class="userAvatar">
+											<image src="../../static/logo.jpg" mode=""></image>
+										</view>
+										<view class="userName">
+											天堂屠夫
+										</view>
+									</view>
 									<view class="info-txt">{{item.content}}</view>
 								</view>
 							</view>
@@ -212,7 +220,8 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+	@import './myOwncheck.scss';
 	.time-line-wrap{
 		width: 100%;
 		overflow-x: hidden;

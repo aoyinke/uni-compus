@@ -1,12 +1,15 @@
 <template>
 	<view class="cooperate">
-		<uni-nav-bar left-icon="back" title="社团协作" @clickLeft="clickLeft"></uni-nav-bar>
+		<uni-nav-bar title="社团协作"></uni-nav-bar>
 		<view class="group">
 
 			<groupCard title="我的社团" scrollHeight="100px">
 				<slot>
 					<block v-for="(group,idx) in myGroups" :key="idx">
-						<avatar :imgSrc="group.src" :name="group.name" :circle="group.circle"></avatar>
+						<goDetail detailUrl="/pages/chatPages/chatPages">
+							<avatar :imgSrc="group.src" :name="group.name" :circle="group.circle"></avatar>
+							
+						</goDetail>
 					</block>
 				</slot>
 
@@ -19,15 +22,19 @@
 			</view>
 
 			<swiper class="swiper-box">
+
 				<swiper-item v-for="(task,idx) in mytasks" :key="idx">
-					<view class="task-item">
-						<uni-card :title="task.title" mode="style" :is-shadow="true" :thumbnail="task.coverImg" :extra="task.time" :note="task.note">
-							<text class="text-line-2">
-								{{task.content}}
-							</text>
-						</uni-card>
-					</view>
+					<goDetail detailUrl="/pages/coopertateDetail/coopertateDetail">
+						<view class="task-item">
+							<uni-card :title="task.title" mode="style" :is-shadow="true" :thumbnail="task.coverImg" :extra="task.time" :note="task.note">
+								<text class="text-line-2">
+									{{task.content}}
+								</text>
+							</uni-card>
+						</view>
+					</goDetail>
 				</swiper-item>
+
 			</swiper>
 
 
@@ -40,13 +47,15 @@
 </template>
 
 <script>
+	import chatTag from '@/components/uni-compus-components/uniCompus-chatTag.vue'
 	import groupCard from '@/components/uni-compus-components/uniCompus-card.vue'
-	import cardWidthImg from '@/components/uni-compus-components/uniCompus-card-widthImg.vue'
+	import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue'
 	import avatar from '@/components/uni-compus-components/uniCompus-avatar.vue'
 	import uniCard from '@/components/uni-card/uni-card.vue'
 	export default {
 		data() {
 			return {
+				messageNum:1,
 				mytasks: [{
 					title: "完成页面的开发任务",
 					coverImg: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/cbd.jpg",
@@ -96,17 +105,13 @@
 		},
 		components: {
 			groupCard,
-			cardWidthImg,
 			avatar,
-			uniCard
+			uniCard,
+			goDetail,
+			chatTag
 		},
 		methods: {
-			clickLeft() {
-				uni.navigateBack({
-					animationDuration: 300,
-					animationType: 'pop-out'
-				})
-			}
+
 		}
 	}
 </script>
@@ -134,7 +139,8 @@
 			width: 50%;
 		}
 	}
-	.swiper-box{
+
+	.swiper-box {
 		height: 310px;
 	}
 </style>

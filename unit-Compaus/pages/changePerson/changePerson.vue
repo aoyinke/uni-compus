@@ -8,7 +8,7 @@
 				</view>
 				<view class="changePerson_right">
 					<image :src="userInfo.avatar" mode=""></image>
-					<text class="eosfont">&#xe662;</text>
+					<text class="eosfont">&#xe611;</text>
 				</view>
 			</view>
 
@@ -18,7 +18,7 @@
 				</view>
 				<view class="changePerson_right">
 					<input type="text" v-model="userInfo.userName" />
-					<text class="eosfont">&#xe662;</text>
+					<text class="eosfont">&#xe611;</text>
 				</view>
 			</view>
 
@@ -28,7 +28,7 @@
 				</view>
 				<view class="changePerson_right">
 					<text>{{userInfo.userSex}}</text>
-					<text class="eosfont">&#xe662;</text>
+					<text class="eosfont">&#xe611;</text>
 				</view>
 			</view>
 
@@ -38,7 +38,7 @@
 				</view>
 				<view class="changePerson_right">
 					<text>{{userInfo.userBirthday}}</text>
-					<text class="eosfont">&#xe662;</text>
+					<text class="eosfont">&#xe611;</text>
 				</view>
 			</view>
 
@@ -48,7 +48,7 @@
 				</view>
 				<view class="changePerson_right">
 					<text>{{userInfo.loveState}}</text>
-					<text class="eosfont">&#xe662;</text>
+					<text class="eosfont">&#xe611;</text>
 				</view>
 			</view>
 
@@ -58,7 +58,7 @@
 				</view>
 				<view class="changePerson_right">
 					<text>{{userInfo.job}}</text>
-					<text class="eosfont">&#xe662;</text>
+					<text class="eosfont">&#xe611;</text>
 				</view>
 			</view>
 
@@ -68,11 +68,14 @@
 				</view>
 				<view class="changePerson_right">
 					<text>{{userInfo.hometown}}</text>
-					<text class="eosfont">&#xe662;</text>
+					<text class="eosfont">&#xe611;</text>
 				</view>
 			</view>
 		</view>
-		<button type="primary" size="32" @click="submitChangedInfo">完成</button>
+		
+			<uniCompusButton content="保存" width="100" background="#4834d4"></uniCompusButton>
+		
+		
 		<chunLei-modal v-model="chunLeiModal.value" :type="chunLeiModal.type" :mData="chunLeiModal.mData" navMask @onConfirm="onConfirm">
 		</chunLei-modal>
 		<w-picker :mode="picker.mode" startYear="2016" endYear="2030" :defaultVal="defaultVal" :current="true" @confirm="onConfirmPicker"
@@ -83,7 +86,8 @@
 
 <script>
 	import uniNavBar from '@/components/uni-icons/uni-icons.vue'
-	import wPicker from "@/components/w-picker/w-picker.vue";
+	import wPicker from "@/components/w-picker/w-picker.vue"
+	import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue'
 
 	export default {
 		data() {
@@ -111,7 +115,8 @@
 		},
 
 		components: {
-			wPicker
+			wPicker,
+			uniCompusButton
 		},
 		methods: {
 			onConfirm(item) {
@@ -156,6 +161,9 @@
 				}
 			},
 			changePerson_birthday() {
+				this.picker = {
+					mode: "date"
+				}
 				this.$refs.picker.show()
 				this.onConfirmPicker = (item) => {
 					this.userInfo.userBirthday = item.result
@@ -257,11 +265,13 @@
 		justify-content: space-between;
 		align-items: center;
 		margin: 30upx 0;
+		padding-bottom: 10upx;
+		border-bottom: 1px solid #eee;
 
 		.change_choice {
-			color: #708090;
+			color: #95afc0;
 			font-size: 35upx;
-			font-weight: bold;
+			font-weight: 400;
 		}
 
 		.change image {
@@ -278,5 +288,9 @@
 		height: 80upx;
 		border-radius: 50%;
 
+	}
+	
+	.uniCompusButton{
+		margin: 10upx;
 	}
 </style>

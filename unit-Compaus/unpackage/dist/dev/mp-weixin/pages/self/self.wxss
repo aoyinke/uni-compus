@@ -1,30 +1,4 @@
-@charset "UTF-8";
-/**
- * 这里是uni-app内置的常用样式变量
- *
- * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
- * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
- *
- */
-/**
- * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
- *
- * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
- */
-/* 颜色变量 */
-/* 行为相关颜色 */
-/* 文字基本颜色 */
-/* 背景颜色 */
-/* 边框颜色 */
-/* 尺寸变量 */
-/* 文字尺寸 */
-/* 图片尺寸 */
-/* Border Radius */
-/* 水平间距 */
-/* 垂直间距 */
-/* 透明度 */
-/* 文章场景相关 */
-.header.data-v-6d46bd58 {
+.header.data-v-fed4e274 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -36,28 +10,23 @@
           align-items: center;
   margin: 30rpx;
 }
-.header .user_avatar image.data-v-6d46bd58 {
-  height: 120rpx;
-  width: 120rpx;
-  border-radius: 50%;
-}
-.header .user_info.data-v-6d46bd58 {
+.header .user_info.data-v-fed4e274 {
   -webkit-padding-end: 400rpx;
           padding-inline-end: 400rpx;
 }
-.header .user_info .user_name text.data-v-6d46bd58 {
+.header .user_info .user_name text.data-v-fed4e274 {
   font-weight: bold;
   width: 150rpx;
 }
-.header .user_info .user_visits text.data-v-6d46bd58 {
+.header .user_info .user_visits text.data-v-fed4e274 {
   color: lightgray;
   font-size: 20rpx;
 }
-.header .user_detail image.data-v-6d46bd58 {
+.header .user_detail image.data-v-fed4e274 {
   height: 30rpx;
   width: 30rpx;
 }
-.main .userActivityNum.data-v-6d46bd58 {
+.main .userActivityNum.data-v-fed4e274 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -68,7 +37,7 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.main .userActivityNum .userActivityNum-detail.data-v-6d46bd58 {
+.main .userActivityNum .userActivityNum-detail.data-v-fed4e274 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -83,30 +52,30 @@
   -webkit-justify-content: center;
           justify-content: center;
 }
-.main .userActivityNum .userActivityNum-detail .userActivityNum-detail-right.data-v-6d46bd58 {
+.main .userActivityNum .userActivityNum-detail .userActivityNum-detail-right.data-v-fed4e274 {
   color: darkgray;
 }
-.main .navBar.data-v-6d46bd58 {
+.main .navBar.data-v-fed4e274 {
   margin: 10rpx;
   border: 1rpx solid #EEEEEE;
   -webkit-box-shadow: 3rpx 3rpx 5rpx 5rpx #EEEEEE;
           box-shadow: 3rpx 3rpx 5rpx 5rpx #EEEEEE;
 }
-.navIcon.data-v-6d46bd58 {
+.navIcon.data-v-fed4e274 {
   height: 45rpx;
   width: 45rpx;
   margin-bottom: -10rpx;
 }
-.navBar-detail image.data-v-6d46bd58 {
+.navBar-detail image.data-v-fed4e274 {
   height: 30rpx;
   width: 30rpx;
   color: lightgray;
   margin-right: 20rpx;
 }
-.userSetup.data-v-6d46bd58,
-.userHis.data-v-6d46bd58,
-.userConcern.data-v-6d46bd58,
-.userGroup.data-v-6d46bd58 {
+.userSetup.data-v-fed4e274,
+.userHis.data-v-fed4e274,
+.userConcern.data-v-fed4e274,
+.userGroup.data-v-fed4e274 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -121,20 +90,26 @@
   line-height: 50rpx;
   margin: 50rpx 0;
 }
-.userSetup .navBar-left text.data-v-6d46bd58,
-.userHis .navBar-left text.data-v-6d46bd58,
-.userConcern .navBar-left text.data-v-6d46bd58,
-.userGroup .navBar-left text.data-v-6d46bd58 {
+.userSetup .navBar-left text.data-v-fed4e274,
+.userHis .navBar-left text.data-v-fed4e274,
+.userConcern .navBar-left text.data-v-fed4e274,
+.userGroup .navBar-left text.data-v-fed4e274 {
   font-size: 30rpx;
   margin-left: 10rpx;
   font-weight: 500;
 }
-swiper.data-v-6d46bd58 {
+swiper.data-v-fed4e274 {
   margin: 20rpx 10rpx;
   height: 150rpx;
   border-radius: 50rpx;
 }
-swiper .swiper-item image.data-v-6d46bd58 {
+swiper .swiper-item image.data-v-fed4e274 {
   width: 100%;
+}
+.avatar.data-v-fed4e274 {
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden;
+  border-radius: 50%;
 }
 

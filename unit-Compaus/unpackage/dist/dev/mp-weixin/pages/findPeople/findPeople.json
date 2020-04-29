@@ -1,7 +1,11 @@
 {
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "uni-search-bar": "/components/uni-search-bar/uni-search-bar",
+    "uni-drawer": "/components/uni-drawer/uni-drawer",
     "water-fall": "/components/waterfall",
-    "tap-bar": "/components/tapBar"
+    "tap-bar": "/components/tapBar",
+    "filter-bar": "/components/uni-compus-components/uniCompus-filter",
+    "uni-compus-button": "/components/uni-compus-components/unicompus-button"
   }
 }

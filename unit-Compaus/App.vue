@@ -58,8 +58,9 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	@import './common/css/uni.css';
+	@import "./common/uni.scss";
 	@import url("./common/css/iconfont.css");
-	@import url("./common/css/common.scss");
+
 </style>

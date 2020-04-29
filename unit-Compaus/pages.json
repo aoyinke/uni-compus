@@ -56,8 +56,15 @@
 		}, {
 			"path": "pages/coopertateDetail/coopertateDetail",
 			"style": {}
+		}, {
+			"path": "pages/mySave/mySave",
+			"style": {}
 		}
-	],
+	    ,{
+            "path" : "pages/chatGroup/chatGroup",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
@@ -84,8 +91,8 @@
 			},
 			{
 				"pagePath": "pages/cooperate/cooperate",
-				"iconPath": "static/tarBar/index.png",
-				"selectedIconPath": "static/tarBar/selecetdIndex.png",
+				"iconPath": "static/tarBar/cooperate.png",
+				"selectedIconPath": "static/tarBar/cooperate.png",
 				"text": "协作"
 			},
 			{
@@ -107,6 +114,16 @@
 		"list": [{
 				"name": "index", //模式名称
 				"path": "pages/index/index", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			},
+			{
+					"name": "index", //模式名称
+					"path": "pages/chatGroup/chatGroup", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+			{
+				"name": "mySave", //模式名称
+				"path": "pages/mySave/mySave", //启动页面，必选
 				"query": "" //启动参数，在页面的onLoad函数里面得到
 			},
 			{

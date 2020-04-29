@@ -1,6 +1,14 @@
 <template>
 	<view class="contaier">
-		<uni-nav-bar title="人脉检索"></uni-nav-bar>
+		<uni-nav-bar>
+
+			<view class="filter" slot="left" @click="openFilter">
+				<text class="eosfont">&#xe614;</text>
+				<text>筛选</text>
+			</view>
+
+		</uni-nav-bar>
+		<uni-search-bar :radius="100" @confirm="search" @input="input"></uni-search-bar>
 		<tap-bar :tap-bars="tarBars" :tap-index="tapIndex" @taptab="tabtap"></tap-bar>
 		<view class="uni-tab-bar">
 			<swiper class="swiper-box" :current="tapIndex" @change="tabChange()" :style="{height:swiperHeight + 'px'}">
@@ -8,23 +16,50 @@
 					<scroll-view scroll-y class="list">
 						<water-fall :peopleList="people"></water-fall>
 					</scroll-view>
-					
+
 				</swiper-item>
-			
+
 			</swiper>
 		</view>
-		
 
+		<uni-drawer ref="uniDrawer" mode="right" width="320">
+			<view style="padding:30rpx;" class="filter-container">
+				<view class="filter-content" v-for="(filter,index) in filters" :key="index">
+					<filterBar :title="filter.title" :choices="filter.choices"></filterBar>
+				</view>
+				<view class="filter-container-bottom">
+					<uniCompusButton content="重置" background="#eb4d4b" width="48"></uniCompusButton>
+					<uniCompusButton content="确认" background="#f0932b" width="48"></uniCompusButton>
+				</view>
+			</view>
+		</uni-drawer>
 	</view>
 </template>
 
 <script>
 	import waterFall from '@/components/waterfall.vue'
 	import tapBar from '@/components/tapBar.vue'
+	import uniDrawer from "@/components/uni-drawer/uni-drawer.vue"
+	import filterBar from '@/components/uni-compus-components/uniCompus-filter.vue'
+	import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue'
+	import photoWall from '@/config/wallpapers.js'
 	export default {
 		data() {
 			return {
-				swiperHeight:0,
+				filters: [{
+					title: "兴趣爱好",
+
+					choices: ['舞蹈', '电竞', '书法', '书法']
+				}, {
+					title: "兴趣爱好",
+
+					choices: ['舞蹈', '电竞', '书法', '书法']
+				}, {
+					title: "兴趣爱好",
+
+					choices: ['舞蹈', '电竞', '书法', '书法']
+				}],
+				swiperHeight: 0,
 				tapIndex: 0,
 				tarBars: [{
 						name: "关注",
@@ -88,39 +123,18 @@
 						groupName: "轻松一校",
 						introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 						loveNum: 0
-					}, {
-						src: "../static/test/waterfull/8.jpg",
-						groupName: "轻松一校",
-						introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
-						loveNum: 0
-					}, {
-						src: "../static/test/waterfull/9.jpg",
-						groupName: "轻松一校",
-						introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
-						loveNum: 0
-					}, {
-						src: "../static/test/waterfull/10.jpg",
-						groupName: "轻松一校",
-						introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
-						loveNum: 0
-					}, {
-						src: "../static/test/waterfull/11.jpg",
-						groupName: "轻松一校",
-						introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
-						loveNum: 0
-					}, {
-						src: "../static/test/waterfull/12.jpg",
-						groupName: "轻松一校",
-						introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
-						loveNum: 0
 					}]
+					
 				]
 
 			};
 		},
 		components: {
 			waterFall,
-			tapBar
+			tapBar,
+			uniDrawer,
+			filterBar,
+			uniCompusButton
 		},
 		methods: {
 			tabChange(e) {
@@ -128,6 +142,15 @@
 			},
 			tabtap(index) {
 				this.tapIndex = index
+			},
+			openFilter() {
+				this.$refs.uniDrawer.open()
+			},
+			search() {
+
+			},
+			input() {
+
 			}
 		},
 		onLoad() {
@@ -137,13 +160,34 @@
 					this.swiperHeight = height
 				}
 			})
+			this.peopleList[0].forEach((item,index)=> item.src=photoWall[index+1])
 		},
-		onReachBottom(){
+		onReachBottom() {
 			console.log("asdasd")
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
+	.filter {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		width: 100%;
 
+	}
+
+	.filter-container {
+		position: relative;
+		height: 100vh;
+
+		.filter-container-bottom {
+			width: 100%;
+			position: absolute;
+			bottom: 10%;
+			margin: 10upx;
+			right: -5%;
+
+		}
+	}
 </style>

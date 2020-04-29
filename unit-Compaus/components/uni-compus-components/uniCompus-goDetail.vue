@@ -15,12 +15,15 @@
 			},
 			activityCategory:{
 				type:Number
+			},
+			detailUrl:{
+				type:String
 			}
 		},
 		methods:{
 			handleClick(){
 				uni.navigateTo({
-					url:"/pages/activityDetail/activityDetail"
+					url:this.detailUrl
 				})
 			}
 		}

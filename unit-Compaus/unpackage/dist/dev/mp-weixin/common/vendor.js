@@ -1560,6 +1560,110 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
+/***/ 107:
+/*!************************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/config/wallpapers.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /*
+                                                                                                      * Copyright (c) 2019-Now Asako Studio. All rights reseved.
+                                                                                                      * @fileoverview | 壁纸集data，后期换到server api维护.
+                                                                                                      * @Author: mukuashi | mukuashi@icloud.com
+                                                                                                      * @version 0.1 | 2020-03-28 // Initial version.
+                                                                                                      * @Date:   2020-03-28 15:20:27
+                                                                                                      * @Last Modified by: mukuashi
+                                                                                                      * @Last Modified time: 2020-04-08 02:44:52
+                                                                                                      */
+var wallpapers = [
+"https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg",
+"https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg",
+"https://images.mepai.me/app/works/38224/2019-12-22/w_5dfecd711bb5a/05dfecd711bc6b.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-12-20/w_5dfc9e15050c3/05dfc9e150521e.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-12-18/w_5df9775238e16/05df9775238fe0.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-12-15/w_5df5906a6bd94/05df5906a6befb.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-12-13/w_5df2e36df1c1c/05df2e36df1dc2.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-12-11/w_5df03f532c12d/05df03f532c285.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-12-08/w_5dec4ca4a2700/05dec4ca4a2878.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-12-06/w_5de9a4a416f64/05de9a4a4170a0.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-12-03/w_5de5ad262f86a/05de5ad262fa17.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-11-30/w_5de1b175186eb/05de1b1751890a.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-11-28/w_5ddf8c5da1624/05ddf8c5da1763.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-11-27/w_5dde3a348ec75/05dde3a348ee39.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-11-10/w_5dc7d8b4a60a3/05dc7d8b4a6245.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-11-03/w_5dbe36dce50c6/05dbe36dce5248.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-10-30/w_5db8db2089fab/05db8db208a10f.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-10-23/w_5dafa4fe29767/05dafa4fe298fd.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-10-09/w_5d9d69b4f2acd/05d9d69b53cf12.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-04-18/w_5cb7c14560815/85cb7c145bcc36.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2019-03-07/w_5c80626e09d76/05c80626e0baef.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-12-20/w_5c1ae1ccd1bf6/05c1ae1ccd375f.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-12-18/w_5c18bc473ef0f/05c18bc47408ea.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-12-14/w_5c13419019d5b/85c134190627bc.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-12-14/w_5c13419019d5b/75c13419062809.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-12-14/w_5c13419019d5b/65c1341906284d.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-12-14/w_5c13419019d5b/55c1341906288f.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/85c11a8910230f.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/75c11a89102357.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/65c11a89102397.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/45c11a8910240b.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/35c11a89102444.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/25c11a89102488.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/15c11a891024c3.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/05c11a89102500.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-11-17/w_5bef8f8001db8/05bef8f8003951.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-10-13/w_5bc1a16b3fb75/05bc1a16bc7a6b.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-10-12/w_5bbff091dd37c/05bbff091dd647.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-10-09/w_5bbc094bb330c/05bbc094c143db.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-10-06/w_5bb80b86d3506/05bb80b86d38ab.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-10-04/w_5bb5e9f9c3b29/05bb5e9fa341d0.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-06-22/w_5b2c81bad3a01/05b2c81bad3d2f.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/21/2018-06-15/w_5b23b17e68617/05b23b17e6876f.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/21/2018-06-13/w_5b20782538c3b/05b20782538d78.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-05-18/w_5afe9fc9e7142/85afe9fca55ec6.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-05-18/w_5afe9fc9e7142/05afe9fca5609a.jpg!1200w.jpg",
+"https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/85aa72975370bd.jpg!1200w.jpg",
+"https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/75aa7297537107.jpg!1200w.jpg",
+"https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/55aa7297537183.jpg!1200w.jpg",
+"https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/45aa72975371c0.jpg!1200w.jpg",
+"https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/35aa72975371ff.jpg!1200w.jpg",
+"https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/25aa729753723d.jpg!1200w.jpg",
+"https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/15aa729753727f.jpg!1200w.jpg",
+"https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/05aa72975372c0.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-01-21/w_5a644f2cd85d2/85a644f2cd8645.jpg!1200w.jpg",
+"https://images.mepai.me/app/works/38224/2018-01-21/w_5a644f2cd85d2/75a644f2cd8970.jpg!1200w.jpg",
+"https://images.mepai.me/app/activity/192/38224/a_5a153182a8f1b/05a153182b517d.jpg!1200w.jpg",
+"https://images.mepai.me/app/activity/170/38224/a_5978a5019e991/25978a501ac3cd.jpg!1200w.jpg",
+"https://img.pixbe.com/p47810601/E99F449EFCB74E3BA82E8237DCBA54A8_640.jpg",
+"https://img.pixbe.com/p47810601/E8BCC804399741B681F59D78537BA572_640.jpg",
+"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg",
+"https://img.pixbe.com/p47810601/0917F88BF15F414C96C10F243355B06B_640.jpg",
+"https://img.pixbe.com/p47810601/24DB9644BE814AAB9CDD7CFE6D39A002_640.jpg",
+"https://img.pixbe.com/p47810601/3BED16B685964BE197DA960A9B9FC7A5_640.jpg",
+"https://img.pixbe.com/p47810601/8983ADC4EF9243F5B67C2D25A412C55F_640.jpg",
+"https://img.pixbe.com/p47810601/C871C45ED6D74072839B7E9D08E195D6_640.jpg",
+"https://img.pixbe.com/p47810601/3F31DCAAB5A3480997A08BE976B98D87_640.jpg",
+"https://img.pixbe.com/p47810601/E124CB219C59429A82FB9443D28EFF4C_640.jpg",
+"https://img.pixbe.com/p47810601/22C15EC68FB04C7EB7A3F8668F59ED7E_640.jpg",
+"https://img.pixbe.com/p47810601/2D1F75B75E2449C4B8118C5BF478CAD8_640.jpg",
+"https://img.pixbe.com/p47810601/0FEEAE2C60B94448B41843374ED8EF6B_640.jpg",
+"https://img.pixbe.com/p47810601/BF4AB8BEB3E14D10A41F8DF1F7D5DEDE_640.jpg",
+"https://img.pixbe.com/p47810601/06752D905DA340F195FFAF527FEF0DE2_640.jpg",
+"https://lz.sinaimg.cn/osj1080/967d9727ly3gd46iout75j20vz1kw4qp.jpg",
+"https://lz.sinaimg.cn/osj1080/967d9727ly3gd46iout75j20vz1kw4qp.jpg",
+"https://lz.sinaimg.cn/osj1080/967d9727ly3gd1t7cyrr8j216o1kw4qq.jpg",
+"https://lz.sinaimg.cn/osj1080/967d9727ly3gd0qr7otgyj21421kwx6p.jpg",
+"https://lz.sinaimg.cn/osj1080/967d9727ly3gczhy2nrurj211x1kwhcu.jpg",
+"https://lz.sinaimg.cn/osj1080/967d9727ly3gcycxx0lzqj216o1kwx6p.jpg",
+"https://lz.sinaimg.cn/osj1080/967d9727ly3gcx703kfenj216o1kwb2a.jpg",
+"https://lz.sinaimg.cn/osj1080/967d9727ly3gcvz4zex5lj216o1kwb2a.jpg"];var _default =
+
+wallpapers;exports.default = _default;
+
+/***/ }),
+
 /***/ 12:
 /*!*********************************************************************************************!*\
   !*** ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator/index.js ***!
@@ -2352,14 +2456,14 @@ if (hadRuntime) {
 /***/ }),
 
 /***/ 15:
-/*!**************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/utils/util.js ***!
-  \**************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/utils/util.js ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.confirmLogin = confirmLogin;exports.wxLogin = wxLogin;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.confirmLogin = confirmLogin;exports.wxLogin = wxLogin;exports.deepClone = deepClone;exports.debounce = debounce;
 var _config = __webpack_require__(/*! ./config.js */ 16);var util = __webpack_require__(/*! util */ 17);
 
 function confirmLogin(provider) {
@@ -2413,14 +2517,45 @@ function wxLogin() {
     } });
 
 }
+
+function deepClone(obj) {
+  if (!obj || typeof obj !== "object") {
+    return obj;
+  }
+  // 根据obj的类型判断是新建一个数组还是对象
+  var newObj = obj instanceof Array ? [] : {};
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      newObj[key] =
+      typeof obj[key] === "object" ? deepClone(obj[key]) : obj[key];
+    }
+  }
+  return newObj;
+}
+
+function debounce(fn) {var delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
+  // 定时器，用来 setTimeout
+  var timer;
+  return function () {for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {args[_key] = arguments[_key];}
+    // 保存函数调用时的上下文和参数，传递给 fn
+    var context = this;
+    // 每次这个返回的函数被调用，就清除定时器，以保证不执行 fn
+    clearTimeout(timer);
+    // 当返回的函数被最后一次调用后（也就是用户停止了某个连续的操作），
+    // 再过 delay 毫秒就执行 fn
+    timer = setTimeout(function () {
+      fn.apply(context, args);
+    }, delay);
+  };
+}
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
 /***/ 16:
-/*!****************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/utils/config.js ***!
-  \****************************************************************************/
+/*!*******************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/utils/config.js ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2428,6 +2563,22 @@ function wxLogin() {
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
   host: "localhost",
   port: "3000" };exports.default = _default;
+
+/***/ }),
+
+/***/ 166:
+/*!*******************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/config/index.js ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+{
+  baseConfig: {
+    api_base_url: 'http://localhost:3000/v1/',
+    img_example: "https://lz.sinaimg.cn" } };exports.default = _default;
 
 /***/ }),
 
@@ -9551,10 +9702,48 @@ module.exports = function isBuffer(arg) {
 
 /***/ }),
 
-/***/ 204:
-/*!******************************************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/components/w-picker/city-data/province.js ***!
-  \******************************************************************************************************/
+/***/ 21:
+/*!***************************************************!*\
+  !*** ./node_modules/inherits/inherits_browser.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    if (superCtor) {
+      ctor.super_ = superCtor
+      ctor.prototype = Object.create(superCtor.prototype, {
+        constructor: {
+          value: ctor,
+          enumerable: false,
+          writable: true,
+          configurable: true
+        }
+      })
+    }
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    if (superCtor) {
+      ctor.super_ = superCtor
+      var TempCtor = function () {}
+      TempCtor.prototype = superCtor.prototype
+      ctor.prototype = new TempCtor()
+      ctor.prototype.constructor = ctor
+    }
+  }
+}
+
+
+/***/ }),
+
+/***/ 229:
+/*!*********************************************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/components/w-picker/city-data/province.js ***!
+  \*********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9701,10 +9890,10 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 205:
-/*!**************************************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/components/w-picker/city-data/city.js ***!
-  \**************************************************************************************************/
+/***/ 230:
+/*!*****************************************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/components/w-picker/city-data/city.js ***!
+  \*****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11215,10 +11404,10 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 206:
-/*!**************************************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/components/w-picker/city-data/area.js ***!
-  \**************************************************************************************************/
+/***/ 231:
+/*!*****************************************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/components/w-picker/city-data/area.js ***!
+  \*****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23768,10 +23957,10 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 207:
-/*!********************************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/components/w-picker/w-picker.js ***!
-  \********************************************************************************************/
+/***/ 232:
+/*!***********************************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/components/w-picker/w-picker.js ***!
+  \***********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24429,44 +24618,6 @@ initPicker;exports.default = _default;
 
 /***/ }),
 
-/***/ 21:
-/*!***************************************************!*\
-  !*** ./node_modules/inherits/inherits_browser.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-if (typeof Object.create === 'function') {
-  // implementation from standard node.js 'util' module
-  module.exports = function inherits(ctor, superCtor) {
-    if (superCtor) {
-      ctor.super_ = superCtor
-      ctor.prototype = Object.create(superCtor.prototype, {
-        constructor: {
-          value: ctor,
-          enumerable: false,
-          writable: true,
-          configurable: true
-        }
-      })
-    }
-  };
-} else {
-  // old school shim for old browsers
-  module.exports = function inherits(ctor, superCtor) {
-    if (superCtor) {
-      ctor.super_ = superCtor
-      var TempCtor = function () {}
-      TempCtor.prototype = superCtor.prototype
-      ctor.prototype = new TempCtor()
-      ctor.prototype.constructor = ctor
-    }
-  }
-}
-
-
-/***/ }),
-
 /***/ 24:
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -24597,9 +24748,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 25:
-/*!***************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/store/index.js ***!
-  \***************************************************************************/
+/*!******************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/store/index.js ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25573,9 +25724,9 @@ var index_esm = {
 /***/ }),
 
 /***/ 27:
-/*!**************************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/store/modules/chatInfo.js ***!
-  \**************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/store/modules/chatInfo.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25615,9 +25766,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 28:
-/*!*****************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/utils/request.js ***!
-  \*****************************************************************************/
+/*!********************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/utils/request.js ***!
+  \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25647,9 +25798,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 29:
-/*!************************************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/components/chunLei-modal/tabMask.js ***!
-  \************************************************************************************************/
+/*!***************************************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/components/chunLei-modal/tabMask.js ***!
+  \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25763,9 +25914,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 4:
-/*!***********************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/pages.json ***!
-  \***********************************************************************/
+/*!**************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/pages.json ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -25773,10 +25924,39 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 400:
-/*!******************************************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/components/uni-swipe-action-item/mpwxs.js ***!
-  \******************************************************************************************************/
+/***/ 406:
+/*!*********************************************************************************************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/components/kp-swiper/index.less?vue&type=style&index=0&id=5828f090&lang=less&scoped=true& ***!
+  \*********************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _D_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_10_oneOf_1_0_D_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_10_oneOf_1_1_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_oneOf_1_2_D_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_10_oneOf_1_3_D_HBuilderX_plugins_uniapp_cli_node_modules_less_loader_dist_cjs_js_ref_10_oneOf_1_4_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_oneOf_1_5_index_less_vue_type_style_index_0_id_5828f090_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/mini-css-extract-plugin/dist/loader.js??ref--10-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--10-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--10-oneOf-1-2!./node_modules/postcss-loader/src??ref--10-oneOf-1-3!./node_modules/less-loader/dist/cjs.js??ref--10-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--10-oneOf-1-5!./index.less?vue&type=style&index=0&id=5828f090&lang=less&scoped=true& */ 407);
+/* harmony import */ var _D_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_10_oneOf_1_0_D_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_10_oneOf_1_1_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_oneOf_1_2_D_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_10_oneOf_1_3_D_HBuilderX_plugins_uniapp_cli_node_modules_less_loader_dist_cjs_js_ref_10_oneOf_1_4_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_oneOf_1_5_index_less_vue_type_style_index_0_id_5828f090_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_D_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_10_oneOf_1_0_D_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_10_oneOf_1_1_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_oneOf_1_2_D_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_10_oneOf_1_3_D_HBuilderX_plugins_uniapp_cli_node_modules_less_loader_dist_cjs_js_ref_10_oneOf_1_4_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_oneOf_1_5_index_less_vue_type_style_index_0_id_5828f090_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _D_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_10_oneOf_1_0_D_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_10_oneOf_1_1_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_oneOf_1_2_D_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_10_oneOf_1_3_D_HBuilderX_plugins_uniapp_cli_node_modules_less_loader_dist_cjs_js_ref_10_oneOf_1_4_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_oneOf_1_5_index_less_vue_type_style_index_0_id_5828f090_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _D_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_10_oneOf_1_0_D_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_10_oneOf_1_1_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_oneOf_1_2_D_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_10_oneOf_1_3_D_HBuilderX_plugins_uniapp_cli_node_modules_less_loader_dist_cjs_js_ref_10_oneOf_1_4_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_oneOf_1_5_index_less_vue_type_style_index_0_id_5828f090_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_D_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_10_oneOf_1_0_D_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_10_oneOf_1_1_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_oneOf_1_2_D_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_10_oneOf_1_3_D_HBuilderX_plugins_uniapp_cli_node_modules_less_loader_dist_cjs_js_ref_10_oneOf_1_4_D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_oneOf_1_5_index_less_vue_type_style_index_0_id_5828f090_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ 407:
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--10-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--10-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--10-oneOf-1-2!./node_modules/postcss-loader/src??ref--10-oneOf-1-3!./node_modules/less-loader/dist/cjs.js??ref--10-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--10-oneOf-1-5!C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/components/kp-swiper/index.less?vue&type=style&index=0&id=5828f090&lang=less&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
+
+/***/ }),
+
+/***/ 453:
+/*!*********************************************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/components/uni-swipe-action-item/mpwxs.js ***!
+  \*********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26779,9 +26959,9 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ }),
 
 /***/ 64:
-/*!******************************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/components/uni-icons/icons.js ***!
-  \******************************************************************************************/
+/*!*********************************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/components/uni-icons/icons.js ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26885,21 +27065,21 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 7:
-/*!****************************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/pages.json?{"type":"style"} ***!
-  \****************************************************************************************/
+/*!*******************************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/pages.json?{"type":"style"} ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "uni-app" }, "pages/self/self": {}, "pages/changePerson/changePerson": {}, "pages/personalDetail/personalDetail": {}, "pages/group/group": { "backgroundColor": "darkgray" }, "pages/activityDetail/activityDetail": {}, "pages/publishActivity/publishActivity": {}, "pages/findPeople/findPeople": {}, "pages/login/login": {}, "pages/personShow/personShow": {}, "pages/interestsTag/interestsTag": {}, "pages/cooperate/cooperate": { "enablePullDownRefresh": true }, "pages/chatPages/chatPages": {}, "pages/chatDetail/chatDetail": {}, "pages/coopertateDetail/coopertateDetail": {} }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8", "navigationStyle": "custom" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "uni-app" }, "pages/self/self": {}, "pages/changePerson/changePerson": {}, "pages/personalDetail/personalDetail": {}, "pages/group/group": { "backgroundColor": "darkgray" }, "pages/activityDetail/activityDetail": {}, "pages/publishActivity/publishActivity": { "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/findPeople/findPeople": {}, "pages/login/login": { "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/personShow/personShow": {}, "pages/interestsTag/interestsTag": { "usingComponents": { "uni-compus-button": "/components/uni-compus-components/unicompus-button" }, "usingAutoImportComponents": {} }, "pages/cooperate/cooperate": { "enablePullDownRefresh": true }, "pages/chatPages/chatPages": {}, "pages/chatDetail/chatDetail": {}, "pages/coopertateDetail/coopertateDetail": {}, "pages/mySave/mySave": {}, "pages/chatGroup/chatGroup": { "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8", "navigationStyle": "custom" } };exports.default = _default;
 
 /***/ }),
 
 /***/ 8:
-/*!***************************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/寒假练手项目/uni-compus/unit-Compaus/pages.json?{"type":"stat"} ***!
-  \***************************************************************************************/
+/*!******************************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/pages.json?{"type":"stat"} ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

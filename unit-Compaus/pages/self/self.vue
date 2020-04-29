@@ -1,13 +1,17 @@
-<template recyclable>
+<template >
 	<view class="container">
 		<uni-nav-bar title="我">
 
 		</uni-nav-bar>
 
 		<view class="header" @click="toDetail">
-			<view class="user_avatar">
-				<image :src="userActivityInfo.avatar" mode=""></image>
-			</view>
+			<imgButton v-if="!authorized" open-type="getUserInfo" class="avatar-position" @getUserInfo="onGetUserInfo">
+				<image slot="img" class="avatar" src="../../static/test/myBg.jpg" />
+			</imgButton>
+			 <view v-if="authorized" class="avatar-container avatar-position">
+			        <image :src="userInfoFromWx.avatarUrl" class="avatar" />
+			        <text>{{userInfoFromWx.nickName}}</text>
+			   </view>
 			<view class="user_info">
 				<view class="user_name">
 					<template v-if="userInfo.userName">
@@ -31,20 +35,17 @@
 			<view class="userActivityNum">
 				<view class="userActivityNum-detail">
 					<text class="userActivityNum-detail-first">{{userActivityInfo.userActivityNum.num1}}</text>
-					<text class="userActivityNum-detail-right">关注</text>
+					<text class="userActivityNum-detail-right">我的关注</text>
 				</view>
 				<view class="userActivityNum-detail">
 					<text class="userActivityNum-detail-first">{{userActivityInfo.userActivityNum.num2}}</text>
-					<text class="userActivityNum-detail-right">关注</text>
+					<text class="userActivityNum-detail-right">我的粉丝</text>
 				</view>
 				<view class="userActivityNum-detail">
 					<text class="userActivityNum-detail-first">{{userActivityInfo.userActivityNum.num3}}</text>
-					<text class="userActivityNum-detail-right">关注</text>
+					<text class="userActivityNum-detail-right">我的推荐</text>
 				</view>
-				<view class="userActivityNum-detail">
-					<text class="userActivityNum-detail-first">{{userActivityInfo.userActivityNum.num4}}</text>
-					<text class="userActivityNum-detail-right">关注</text>
-				</view>
+
 			</view>
 			<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
 				<swiper-item v-for="(item,idx) in advertisements" :key="idx">
@@ -66,7 +67,7 @@
 				<view class="userHis">
 					<view class="navBar-left">
 						<image src="../../static/self/eye.png" mode="" class="navIcon"></image>
-						<text>浏览历史</text>
+						<text>我的喜欢</text>
 					</view>
 					<view class="navBar-detail">
 						<text class="eosfont">&#xe7df;</text>
@@ -75,7 +76,7 @@
 				<view class="userConcern">
 					<view class="navBar-left">
 						<image src="../../static/self/like.png" mode="" class="navIcon"></image>
-						<text>我的关注</text>
+						<text>我的提问</text>
 					</view>
 					<view class="navBar-detail">
 						<text class="eosfont">&#xe7df;</text>
@@ -84,7 +85,7 @@
 				<view class="userGroup">
 					<view class="navBar-left">
 						<image src="../../static/self/partner.png" mode="" class="navIcon"></image>
-						<text>我的社团</text>
+						<text>我的收藏</text>
 					</view>
 					<view class="navBar-detail">
 						<text class="eosfont">&#xe7df;</text>
@@ -97,10 +98,15 @@
 </template>
 
 <script>
-	import {confirmLogin} from '@/utils/util.js'
+	import {
+		confirmLogin
+	} from '@/utils/util.js'
+	import imgButton from '@/components/uni-compus-components/uniCompus-imgButton.vue'
 	export default {
 		data() {
 			return {
+				authorized: false,
+				userInfoFromWx:{},
 				userActivityInfo: {
 					username: "天堂屠夫",
 					total_visits: 0.,
@@ -113,15 +119,16 @@
 					avatar: "../../static/test/waterfull/1.jpg"
 				},
 				advertisements: [
-					"../../static/test/waterfull/1.jpg", "../../static/test/waterfull/2.jpg","../../static/test/waterfull/3.jpg"
+					"../../static/test/waterfull/1.jpg", "../../static/test/waterfull/2.jpg", "../../static/test/waterfull/3.jpg"
 				]
 
 			}
 		},
+		components: {
+			imgButton
+		},
 		methods: {
-			open() {
-				this.$refs.popup.open()
-			},
+
 			navtoChangePerson() {
 				let isLogin = this.checkLogin('../self/self', '2')
 				console.log(isLogin)
@@ -129,16 +136,16 @@
 					isLogin = true
 					confirmLogin('weixin')
 					uni.showModal({
-					title: '确认登录',
-					content: '要查看个人信息，需要登陆哦~',
-					success: function (res) {
+						title: '确认登录',
+						content: '要查看个人信息，需要登陆哦~',
+						success: function(res) {
 							if (res.confirm) {
 								confirmLogin('weixin')
-								if(isLogin){
+								if (isLogin) {
 									uni.showToast({
-										title:'登陆成功！！',
-										duration:1000,
-										icon:"success"
+										title: '登陆成功！！',
+										duration: 1000,
+										icon: "success"
 									})
 								}
 							} else if (res.cancel) {
@@ -148,9 +155,8 @@
 					});
 				} else {
 					uni.navigateTo({
-						url: "../changePerson/changePerson",
-						"animationType": "fade-in",
-						"animationDuration": 300
+						url: "../changePerson/changePerson"
+
 					})
 				}
 
@@ -159,16 +165,23 @@
 				let isLogin = this.checkLogin('../self/self', '2')
 				if (!isLogin) {
 					uni.setStorageSync('storage_key', 'hello');
-					
-				}else{
+
+				} else {
 					uni.navigateTo({
 						url: '../personalDetail/personalDetail',
 						"animationType": "fade-in",
 						"animationDuration": 300
-					
+
 					})
 				}
 
+			},
+			onGetUserInfo(e) {
+				const userInfo = event.userInfo
+				    if (userInfo) {
+				      this.userActivityInfo = userInfo
+					  this.authorized = true
+				    }
 			}
 		},
 		async onLoad() {
@@ -186,11 +199,6 @@
 		align-items: center;
 		margin: 30upx;
 
-		.user_avatar image {
-			height: 120upx;
-			width: 120upx;
-			border-radius: 50%;
-		}
 
 		.user_info {
 			.user_name text {
@@ -284,5 +292,12 @@
 				width: 100%;
 			}
 		}
+	}
+
+	.avatar {
+		width: 120rpx;
+		height: 120rpx;
+		overflow: hidden;
+		border-radius: 50%;
 	}
 </style>

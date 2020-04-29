@@ -3,7 +3,7 @@
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "activity": "/components/activity/activity",
-    "tap-bar": "/components/tapBar",
-    "top-bar": "/components/index/topBar"
+    "uni-fab": "/components/uni-fab/uni-fab",
+    "tap-bar": "/components/tapBar"
   }
 }

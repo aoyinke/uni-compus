@@ -1,6 +1,6 @@
 <template>
 	<button type="primary" :disabled="isDisabled" :size="size" class="button" 
-	:style="{'background': isDisabled ? '#ced6e0' : background }">{{content}}</button>
+	:style="{'background': isDisabled ? '#ced6e0' : background ,width:width + '%'}">{{content}}</button>
 </template>
 
 <script>
@@ -22,6 +22,9 @@
 			isDisabled:{
 				type:Boolean,
 				default:false
+			},
+			width:{
+				type:Number
 			}
 		}
 	}

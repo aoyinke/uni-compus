@@ -7,7 +7,6 @@
 			<scroll-view scroll-x="true" scroll-left="120" :style="{height:scrollHeight}" class="scrollCard" enable-flex="true">
 				<view class="showBar-cards">
 					<slot></slot>
-					<slot name="card"></slot>
 				</view>
 			</scroll-view>
 		</view>

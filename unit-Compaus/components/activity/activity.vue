@@ -4,7 +4,7 @@
 			<view class="groupNotification">
 				<user-top-bar :groupLogo="item.groupLogo" :groupName="item.groupName" :activityStartTime="item.activityStartTime"
 				 activityId="1"></user-top-bar>
-				<goDetail>
+				<goDetail detailUrl="/pages/activityDetail/activityDetail">
 					<template v-if="item.activityPropagate.type=='img'">
 						<swiper :indicator-dots="true" class="swiper">
 							<swiper-item v-for="(img,id) in item.activityPropagate.src" :key="id" >

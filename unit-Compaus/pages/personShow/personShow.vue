@@ -13,7 +13,6 @@
 						</view>
 					</swiper-item>
 				</scroll-view>
-
 			</swiper>
 		</view>
 	</view>

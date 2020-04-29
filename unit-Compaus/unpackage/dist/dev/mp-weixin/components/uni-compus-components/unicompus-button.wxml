@@ -1,1 +1,1 @@
-<button class="button data-v-52371e61" style="{{'background:'+(isDisabled?'#ced6e0':background)+';'}}" type="primary" disabled="{{isDisabled}}" size="{{size}}">{{content}}</button>
+<button class="button data-v-9d0ba15a" style="{{'background:'+(isDisabled?'#ced6e0':background)+';'+('width:'+(width+'%')+';')}}" type="primary" disabled="{{isDisabled}}" size="{{size}}">{{content}}</button>

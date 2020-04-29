@@ -14,7 +14,9 @@
     "pages/cooperate/cooperate",
     "pages/chatPages/chatPages",
     "pages/chatDetail/chatDetail",
-    "pages/coopertateDetail/coopertateDetail"
+    "pages/coopertateDetail/coopertateDetail",
+    "pages/mySave/mySave",
+    "pages/chatGroup/chatGroup"
   ],
   "subPackages": [],
   "window": {
@@ -44,8 +46,8 @@
       },
       {
         "pagePath": "pages/cooperate/cooperate",
-        "iconPath": "static/tarBar/index.png",
-        "selectedIconPath": "static/tarBar/selecetdIndex.png",
+        "iconPath": "static/tarBar/cooperate.png",
+        "selectedIconPath": "static/tarBar/cooperate.png",
         "text": "协作"
       },
       {
@@ -67,5 +69,5 @@
     "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
     "uni-compus-button": "/components/uni-compus-components/unicompus-button"
   },
-  "sitemapLocation": "sitemap33.json"
+  "sitemapLocation": "sitemap84.json"
 }

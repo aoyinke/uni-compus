@@ -50,11 +50,11 @@
 	
 		.showFollower {
 			display: flex;
-			position: fixed;
+			position: absolute;
 			justify-content: space-evenly;
 			align-items: center;
 			width: 100%;
-			top: 38%;
+			top: 82%;
 	
 			text {
 				color: #fff;

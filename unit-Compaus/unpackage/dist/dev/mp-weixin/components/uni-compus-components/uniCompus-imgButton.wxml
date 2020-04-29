@@ -1,0 +1,1 @@
+<view class="data-v-c9e96c38"><button class="container data-v-c9e96c38" open-type="{{openType}}" plain="{{true}}" data-event-opts="{{[['getuserinfo',[['onGetUserInfo',['$event']]]]]}}" bindgetuserinfo="__e"><slot name="img"></slot></button></view>

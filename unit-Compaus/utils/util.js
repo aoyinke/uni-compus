@@ -53,4 +53,34 @@ function wxLogin(){
 	});
 }
 
-export {confirmLogin,wxLogin}
+function deepClone(obj) {
+  if (!obj || typeof obj !== "object") {
+    return obj;
+  }
+  // 根据obj的类型判断是新建一个数组还是对象
+  let newObj = obj instanceof Array ? [] : {};
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      newObj[key] =
+        typeof obj[key] === "object" ? deepClone(obj[key]) : obj[key];
+    }
+  }
+  return newObj;
+}
+
+function debounce(fn, delay = 500) {
+  // 定时器，用来 setTimeout
+  let timer;
+  return function(...args) {
+    // 保存函数调用时的上下文和参数，传递给 fn
+    const context = this;
+    // 每次这个返回的函数被调用，就清除定时器，以保证不执行 fn
+    clearTimeout(timer);
+    // 当返回的函数被最后一次调用后（也就是用户停止了某个连续的操作），
+    // 再过 delay 毫秒就执行 fn
+    timer = setTimeout(function() {
+      fn.apply(context, args);
+    }, delay);
+  };
+}
+export {confirmLogin,wxLogin,deepClone,debounce}

@@ -1,8 +1,8 @@
 <template>
 	<view class="naviGator">
 		<view class="naviGator-chatAndFollow">
-			<uniCompusButton content="关注" ></uniCompusButton>
-			<uniCompusButton content="聊天" background="orange"></uniCompusButton>
+			<uniCompusButton content="关注" width="10%"></uniCompusButton>
+			<uniCompusButton content="聊天" background="orange" width="10%"></uniCompusButton>
 		</view>
 		<view class="naviGator-navBar">
 
@@ -44,12 +44,12 @@
 		flex-direction: column;
 
 		&-chatAndFollow {
-			margin-top: 20upx;
 			display: flex;
-			align-items: center;
+			margin-top: 20upx;
 			justify-content: space-evenly;
+			align-items: center;
 			width: 60%;
-
+			
 		}
 
 		&-navBar {
