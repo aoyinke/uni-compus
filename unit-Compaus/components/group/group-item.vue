@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view class="group-logo">
-			<image :src="groupLogo" mode="widthFix"></image>
+			<image :src="groupLogo" mode=""></image>
 		</view>
 		<view class="group-info">
 			<view class="group-username">
@@ -14,9 +14,9 @@
 				</view>
 
 			</view>
-			<view class="group-info-bottom"></view>
+			
 		</view>
-		<view class="group-chat">
+		<view class="group-chat" v-if="needChat">
 			<random-color-tag content="和他们聊聊" width="200upx"></random-color-tag>
 		</view>
 	</view>
@@ -35,6 +35,10 @@
 			randomColorTag
 		},
 		props:{
+			needChat:{
+				type:Boolean,
+				default:true
+			},
 			groupLogo:{
 				type:String,
 				required:true
@@ -59,25 +63,27 @@
 	.content {
 
 		display: flex;
-		justify-content: space-around;
+		justify-content: space-between;
 		margin: 30upx 10upx;
 		width: 100%;
 		flex-wrap: wrap;
 
 		.group-logo {
-			height: 100%;
+			
 			background-color: #fff;
-
+			padding-right: 30upx;
 			image {
-				width: 80upx;
-				height: 80upx;
+				width: 100upx;
+				height: 100upx;
 				border-radius: 50%;
 			}
 		}
 
 		.group-info {
+			flex: 1;
 			width: 60%;
-
+			border-bottom: 1px solid #eee;
+			padding-bottom: 20upx;
 			.group-username {
 				font-weight: bold;
 				font-size: 30upx;
@@ -94,10 +100,7 @@
 				}
 			}
 
-			.group-info-bottom {
-				height: 50upx;
-				border-bottom: 3upx solid #EEEEEE;
-			}
+			
 		}
 
 	}

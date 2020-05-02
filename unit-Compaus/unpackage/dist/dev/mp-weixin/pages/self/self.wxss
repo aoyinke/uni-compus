@@ -57,9 +57,9 @@
 }
 .main .navBar.data-v-fed4e274 {
   margin: 10rpx;
-  border: 1rpx solid #EEEEEE;
-  -webkit-box-shadow: 3rpx 3rpx 5rpx 5rpx #EEEEEE;
-          box-shadow: 3rpx 3rpx 5rpx 5rpx #EEEEEE;
+  border: 1rpx solid #eeeeee;
+  -webkit-box-shadow: 3rpx 3rpx 5rpx 5rpx #eeeeee;
+          box-shadow: 3rpx 3rpx 5rpx 5rpx #eeeeee;
 }
 .navIcon.data-v-fed4e274 {
   height: 45rpx;

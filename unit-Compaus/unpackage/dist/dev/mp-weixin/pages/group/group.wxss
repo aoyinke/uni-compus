@@ -40,7 +40,7 @@ page.data-v-0983e1c6 {
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
           flex-direction: column;
-  border-right: 2rpx solid #EEEEEE;
+  border-right: 2rpx solid #eeeeee;
   width: 33%;
 }
 .groupInfo .groupInfo-prepare .first.data-v-0983e1c6,
@@ -78,8 +78,8 @@ page.data-v-0983e1c6 {
   -webkit-flex-direction: row;
           flex-direction: row;
   height: 100rpx;
-  -webkit-box-shadow: 3rpx 3rpx 5rpx 5rpx #EEEEEE;
-          box-shadow: 3rpx 3rpx 5rpx 5rpx #EEEEEE;
+  -webkit-box-shadow: 3rpx 3rpx 5rpx 5rpx #eeeeee;
+          box-shadow: 3rpx 3rpx 5rpx 5rpx #eeeeee;
 }
 .group-detail-tab .tab.data-v-0983e1c6 {
   font-size: 26rpx;
@@ -126,11 +126,11 @@ page.data-v-0983e1c6 {
 }
 .content .group-info .group-info-bottom.data-v-0983e1c6 {
   height: 50rpx;
-  border-bottom: 3rpx solid #EEEEEE;
+  border-bottom: 3rpx solid #eeeeee;
 }
 .active text.data-v-0983e1c6 {
-  border-bottom: 5rpx solid #5F9EA0;
-  color: #4682B4;
+  border-bottom: 5rpx solid #5f9ea0;
+  color: #4682b4;
   font-weight: bold;
 }
 

@@ -8,7 +8,19 @@
 			</view>
 
 		</uni-nav-bar>
-		<uni-search-bar :radius="100" @confirm="search" @input="input"></uni-search-bar>
+		<view style="">
+			<lv-select
+				@handleSearch="handleSearch"
+				@change="change"
+				placeholder="快来寻找志同道合的小伙伴吧~"
+				:infoList="infoList"
+				:showValue="showValue"
+				v-model="searchValue"
+				:loading="loading"
+				type="primary"
+				:uniShadow="true"
+			></lv-select>
+		</view>
 		<tap-bar :tap-bars="tarBars" :tap-index="tapIndex" @taptab="tabtap"></tap-bar>
 		<view class="uni-tab-bar">
 			<swiper class="swiper-box" :current="tapIndex" @change="tabChange()" :style="{height:swiperHeight + 'px'}">
@@ -37,6 +49,7 @@
 </template>
 
 <script>
+	import lvSelect from '@/components/lv-select/lv-select.vue';
 	import waterFall from '@/components/waterfall.vue'
 	import tapBar from '@/components/tapBar.vue'
 	import uniDrawer from "@/components/uni-drawer/uni-drawer.vue"
@@ -46,6 +59,24 @@
 	export default {
 		data() {
 			return {
+				loading: false,
+				showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
+				searchValue: '',
+				infoList: [],
+				infoLists: [
+					{
+						name: '吕星辰1'
+					},
+					{
+						name: '吕星辰2'
+					},
+					{
+						name: '吕星辰3'
+					},
+					{
+						name: '吕星辰4'
+					}
+				],
 				filters: [{
 					title: "兴趣爱好",
 
@@ -103,23 +134,18 @@
 						groupName: "轻松一校",
 						introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 						loveNum: 0
-					}, {
-						src: "../static/test/waterfull/4.jpg",
+					},{
+						src: "../static/test/waterfull/3.jpg",
 						groupName: "轻松一校",
 						introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 						loveNum: 0
-					}, {
-						src: "../static/test/waterfull/5.jpg",
+					},{
+						src: "../static/test/waterfull/3.jpg",
 						groupName: "轻松一校",
 						introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 						loveNum: 0
-					}, {
-						src: "../static/test/waterfull/6.jpg",
-						groupName: "轻松一校",
-						introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
-						loveNum: 0
-					}, {
-						src: "../static/test/waterfull/7.jpg",
+					},{
+						src: "../static/test/waterfull/3.jpg",
 						groupName: "轻松一校",
 						introduction: "来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊来见识我的瀑布流啊",
 						loveNum: 0
@@ -134,9 +160,20 @@
 			tapBar,
 			uniDrawer,
 			filterBar,
-			uniCompusButton
+			uniCompusButton,
+			lvSelect
 		},
 		methods: {
+			handleSearch() {
+				this.loading = true;
+				setTimeout(() => {
+					this.loading = false;
+					this.infoList = this.infoLists;
+				}, 2000);
+			},
+			change(val){
+			        console.log(val)
+			},
 			tabChange(e) {
 				this.tapIndex = e.detail.current
 			},

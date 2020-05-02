@@ -1,19 +1,15 @@
 <template>
-	<view class="group">
+	<view >
 		
 	</view>
 </template>
 
 <script>
-	
 	export default {
 		data() {
 			return {
 				
 			};
-		},
-		components:{
-			
 		}
 	}
 </script>

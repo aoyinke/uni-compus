@@ -16,7 +16,10 @@
     "pages/chatDetail/chatDetail",
     "pages/coopertateDetail/coopertateDetail",
     "pages/mySave/mySave",
-    "pages/chatGroup/chatGroup"
+    "pages/chatGroup/chatGroup",
+    "pages/feedBack/feedBack",
+    "pages/groupDetail/groupDetail",
+    "pages/groupPublishTask/groupPublishTask"
   ],
   "subPackages": [],
   "window": {
@@ -45,7 +48,7 @@
         "text": "找人"
       },
       {
-        "pagePath": "pages/cooperate/cooperate",
+        "pagePath": "pages/groupDetail/groupDetail",
         "iconPath": "static/tarBar/cooperate.png",
         "selectedIconPath": "static/tarBar/cooperate.png",
         "text": "协作"
@@ -68,6 +71,5 @@
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
     "uni-compus-button": "/components/uni-compus-components/unicompus-button"
-  },
-  "sitemapLocation": "sitemap84.json"
+  }
 }

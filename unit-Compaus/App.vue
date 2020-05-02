@@ -58,9 +58,11 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="less">
 	@import './common/css/uni.css';
-	@import "./common/uni.scss";
+	@import "./styles/animate.less";
+	@import "./styles/reset.less";
 	@import url("./common/css/iconfont.css");
+	
 
 </style>

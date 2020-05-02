@@ -12,7 +12,7 @@
 		<view class="groupTopBar-right">
 			<view class="notiDetail">
 				<button type="primary" size="mini" :disabled="isdisabled" @click="followerUser" v-if="!isdisabled">关注</button>
-				<text class="eosfont" @tap="toDetail(activityId)">&#xe7e0;</text>
+				
 			</view>
 		</view>
 	</view>
@@ -53,12 +53,10 @@
 			}
 		},
 		methods:{
-			toDetail(activityId){
-				this.$emit('toActivityDetail',activityId)
-			},
+
 			toUserDetail(){
 				uni.navigateTo({
-					url:"/pages/personShow/personShow",
+					url:"/pages/groupDetail/groupDetail",
 					animationDuration:500,
 					animationType:'auto'
 				})

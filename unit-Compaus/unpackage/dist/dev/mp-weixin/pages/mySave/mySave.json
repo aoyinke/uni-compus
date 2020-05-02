@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "k-swiper": "/components/kp-swiper/index"
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "activity": "/components/activity/activity",
+    "group-item": "/components/group/group-item"
   }
 }

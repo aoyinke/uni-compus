@@ -108,7 +108,7 @@
 					job: "学生",
 					loveState: "恋爱中",
 					userSex: "男",
-					avatar: "../../static/test/avatar.png",
+					avatar: "https://images.mepai.me/app/works/38224/2019-10-09/w_5d9d69b4f2acd/05d9d69b53cf12.jpg!1200w.jpg",
 					userBirthday: "2000-8-28"
 				}
 			};

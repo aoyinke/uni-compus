@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
-    "uni-search-bar": "/components/uni-search-bar/uni-search-bar",
+    "lv-select": "/components/lv-select/lv-select",
     "uni-drawer": "/components/uni-drawer/uni-drawer",
     "water-fall": "/components/waterfall",
     "tap-bar": "/components/tapBar",

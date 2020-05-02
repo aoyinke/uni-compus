@@ -18,14 +18,14 @@ Vue.component('uniCompusButton',uniCompusButton);
 Vue.prototype.$store = store
 Vue.prototype.request = request
 
-Array.prototype.find = function (element,dataStore){
-    for( var i = 0 ; i < this.dataStore.length ; i ++ ){
-            if( this.dataStore[i] == element ){
-                return i;
-            }
-        }
-    return -1;
-}
+// Array.prototype.find = function (element,dataStore){
+//     for( var i = 0 ; i < this.dataStore.length ; i ++ ){
+//             if( this.dataStore[i] == element ){
+//                 return i;
+//             }
+//         }
+//     return -1;
+// }
 
 Vue.prototype.checkLogin = function(backpage, backtype) {
 	var SUID = uni.getStorageSync('SUID'); //本地持久化存储

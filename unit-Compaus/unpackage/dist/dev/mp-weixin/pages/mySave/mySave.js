@@ -90,16 +90,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components
+var components = {
+  "uni-nav-bar": function() {
+    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 36))
+  },
+  activity: function() {
+    return __webpack_require__.e(/*! import() | components/activity/activity */ "components/activity/activity").then(__webpack_require__.bind(null, /*! @/components/activity/activity.vue */ 205))
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  if (!_vm._isMounted) {
-    _vm.e0 = function(val) {
-      return (_vm.home.galleryIndex = val)
-    }
-  }
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -133,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -158,60 +160,92 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+var _wallpapers = _interopRequireDefault(__webpack_require__(/*! @/config/wallpapers.js */ 43));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var groupItem = function groupItem() {__webpack_require__.e(/*! require.ensure | components/group/group-item */ "components/group/group-item").then((function () {return resolve(__webpack_require__(/*! @/components/group/group-item.vue */ 284));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var activity = function activity() {__webpack_require__.e(/*! require.ensure | components/activity/activity */ "components/activity/activity").then((function () {return resolve(__webpack_require__(/*! @/components/activity/activity.vue */ 205));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
-
-
-
-
-
-
-
-
-
-var _index = _interopRequireDefault(__webpack_require__(/*! @/config/index.js */ 166));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var kSwiper = function kSwiper() {Promise.all(/*! require.ensure | components/kp-swiper/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-swiper/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-swiper/index.vue */ 401));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   data: function data() {
     return {
-      home: {
-        gallery: [
-        "/orj1080/967d9727ly3gc0whyclfoj20sg0sge0a.jpg",
-        "/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg",
-        "/orj1080/967d9727ly3gc0whykstlj20sg0sgb29.jpg",
-        "/orj1080/967d9727ly3gc0whywdupj20sg0sgb0l.jpg",
-        "/orj1080/967d9727ly3gc0whysphij20sg0sgkcg.jpg",
-        "/orj1080/967d9727ly3gc0whyiy96j20sg0sg1jj.jpg",
-        "/orj1080/967d9727ly3gc0whz3i51j20sg0sgu0x.jpg",
-        "/orj1080/967d9727ly3gc0whz6qvlj20sg0sghdt.jpg",
-        "/orj1080/967d9727ly3gc0whz6yf1j20sg0sgkic.jpg"].
-        map(function (row) {return _index.default.baseConfig.img_example + row;}),
-        galleryIndex: 0, //相册初始化位置
-        galleryDirection: "" //滑动方向
-      } };
+      type: 0,
+      saveGroups: [
+      {
+        groupName: '轻松一校项目组',
+        groupLogo: 'https://images.mepai.me/app/works/38224/2018-10-06/w_5bb80b86d3506/05bb80b86d38ab.jpg!1200w.jpg',
+        intro: '轻松一校项目组是地球上最强大的组织之一，它负责...',
+        tag: ['强大', '优秀'] }],
+
+
+      alreadyJoins: [
+      {
+        groupName: '轻松一校项目组',
+        groupLogo: 'https://images.mepai.me/app/works/38224/2018-10-06/w_5bb80b86d3506/05bb80b86d38ab.jpg!1200w.jpg',
+        intro: '轻松一校项目组是地球上最强大的组织之一，它负责...',
+        tag: ['强大', '优秀'] }],
+
+
+      activities: [
+      {
+        groupLogo: '../../static/test/waterfull/1.jpg',
+        groupName: '比赛大佬组',
+        activityStartTime: '17小时前',
+        activityPropagate: {
+          type: 'img',
+          src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg'] },
+
+        hotNum: 80,
+        commentNum: 6,
+        commentDetail: [
+        {
+          commentor: '天堂屠夫',
+          commentContent: 'nb.....' },
+
+        {
+          commentor: '天堂屠夫',
+          commentContent: 'tnb.....' },
+
+        {
+          commentor: '天堂屠夫',
+          commentContent: 'cznb.....' }] }] };
+
+
+
+
 
   },
-  components: {
-    kSwiper: kSwiper },
 
-  onLoad: function onLoad() {
-
-  },
   methods: {
-    handleSwiperChange: function handleSwiperChange(e) {
-      // https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html
-      // source为touch时由用户触摸引起
-      if (e.detail.source === "touch") {
-        this.home.galleryIndex = e.target.current;
-      }
-    },
-    handleSwiperTarget: function handleSwiperTarget(e) {
-      this.home.galleryDirection =
-      e.detail.dx > 0 && "left" || e.detail.dx < 0 && "right";
-    },
-    handleSwiperFinish: function handleSwiperFinish(e) {
-      if (!e.detail.source) {
-        this.home.galleryDirection = "";
-      }
-    } } };exports.default = _default;
+    clickLeft: function clickLeft() {
+      uni.navigateBack({
+        animationDuration: 300,
+        animationType: 'pop-out' });
+
+    } },
+
+  components: {
+    groupItem: groupItem,
+    activity: activity },
+
+  created: function created() {
+    for (var i = 0; i < 10; i++) {
+      this.saveGroups.push(this.saveGroups[0]);
+    }
+    this.saveGroups.forEach(function (item, index) {
+      return item.groupLogo = _wallpapers.default[10 + index];
+    });
+
+    for (var _i = 0; _i < 10; _i++) {
+      this.alreadyJoins.push(this.alreadyJoins[0]);
+    }
+    this.alreadyJoins.forEach(function (item, index) {
+      return item.groupLogo = _wallpapers.default[20 + index];
+    });
+  },
+  onLoad: function onLoad(option) {
+
+    var item = JSON.parse(decodeURIComponent(option.item));
+    this.type = item.type;
+    console.log(this.type);
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 

@@ -7,23 +7,19 @@
 <script>
 	export default {
 		props:{
-			activityType:{
-				type:Number
-			},
-			activityID:{
-				type:Number
-			},
-			activityCategory:{
-				type:Number
+			item:{
+				type:Object
 			},
 			detailUrl:{
 				type:String
 			}
 		},
 		methods:{
+			
 			handleClick(){
+				console.log(this.item)
 				uni.navigateTo({
-					url:this.detailUrl
+					url:`${this.detailUrl }?item=${encodeURIComponent(JSON.stringify(this.item))}`
 				})
 			}
 		}

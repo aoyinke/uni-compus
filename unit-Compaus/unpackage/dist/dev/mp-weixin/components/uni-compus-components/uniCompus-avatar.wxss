@@ -12,6 +12,7 @@
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
+  overflow: hidden;
 }
 .avatar image.data-v-6ed79dda {
   height: 80rpx;

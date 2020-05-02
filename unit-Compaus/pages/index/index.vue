@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<uni-nav-bar>
-			<view  class="nav-bar-left" @tap="topublish">
+			<view  slot="left" class="nav-bar-left" @tap="topublish">
 				<image :src="leftIcon" mode=""></image>
 			</view>
 		</uni-nav-bar>
@@ -32,7 +32,8 @@
 	import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
 	import activity from "@/components/activity/activity.vue"
 	import tapBar from "@/components/tapBar.vue"
-	import uniFab from '@/components/uni-fab/uni-fab.vue';
+	import uniFab from '@/components/uni-fab/uni-fab.vue'
+	import photoWall from '@/config/wallpapers.js'
 	let timer;
 	export default {
 		data() {
@@ -96,33 +97,8 @@
 										commentContent: "cznb....."
 									}
 								]
-							},
-							{
-								groupLogo: "../../static/test/waterfull/1.jpg",
-								groupName: "比赛大佬组",
-								activityStartTime: "17小时前",
-								activityPropagate: {
-									type: "img",
-									src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg',
-										'../../static/test/waterfull/3.jpg'
-									]
-								},
-								hotNum: 80,
-								commentNum: 6,
-								commentDetail: [{
-										commentor: "天堂屠夫",
-										commentContent: "nb....."
-									},
-									{
-										commentor: "天堂屠夫",
-										commentContent: "tnb....."
-									},
-									{
-										commentor: "天堂屠夫",
-										commentContent: "cznb....."
-									}
-								]
 							}
+							
 						],
 					},
 
@@ -229,6 +205,12 @@
 					this.swiperHeight = height
 				}
 			})
+			for(let i = 0;i<4;i++){
+				this.newsList.push(this.newsList[0])
+				
+			}
+			
+			
 			
 			
 

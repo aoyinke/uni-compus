@@ -27,6 +27,9 @@
 				default:false
 			}
 			
+		},
+		onLoad() {
+			console.log(this.name)
 		}
 	}
 </script>
@@ -37,6 +40,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		overflow: hidden;
 		image{
 			height: 80upx;
 			width: 80upx;

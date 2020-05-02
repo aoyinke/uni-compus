@@ -1,86 +1,114 @@
 <template>
-	<view class="contaier">
-		
-		<swiper
-		  circular
-		  class="gallery"
-		  interval="6000"
-		  :current="home.galleryIndex"
-		  @change="handleSwiperChange"
-		  @transition="handleSwiperTarget"
-		  @animationfinish="handleSwiperFinish"
-		>
-		  <swiper-item v-for="(item,index) in home.gallery" :key="index">
-		    <image :src="item" lazy-load mode="aspectFill">
-		  </swiper-item>
-		</swiper>
-		<!-- 自定义滑动指示点 -->
-		<view class="dots">
-		  <view class="dots-count">
-		    <text>{{ home.galleryIndex+1 }}</text>
-		    \{{ home.gallery.length }}
-		  </view>
-		  <kp-swiper
-		    v-model="home.gallery"
-		    :dotsIndex="home.galleryIndex"
-		    :dotsDirection="home.galleryDirection"
-		    @update="val=>home.galleryIndex=val"
-		  />
+	<view>
+		<uni-nav-bar left-icon="back" title="我的详情" @clickLeft="clickLeft"></uni-nav-bar>
+		<view class="uni-tab-bar">
+			<scroll-view scroll-y="true" class="list">
+				<view class="likeList" v-if="(type === 0)" v-for="(item, index) in activities" :key="index">
+					<activity  :activityInfo="item"></activity>
+				</view>
+				<view class="groupList" v-for="(item, index) in saveGroups" :key="index" v-if="type === 1">
+					<group-item 
+					:needChat="false" :groupLogo="item.groupLogo" :groupName="item.groupName" :intro="item.intro" :tag="item.tag"></group-item>
+				</view>
+				<view class="groupList" v-for="(item, index) in alreadyJoins" :key="index" v-if="type === 1">
+					<group-item 
+					:needChat="false" :groupLogo="item.groupLogo" :groupName="item.groupName" :intro="item.intro" :tag="item.tag"></group-item>
+				</view>
+				
+				
+			</scroll-view>
 		</view>
-		
 	</view>
 </template>
 
 <script>
-	import kSwiper from '@/components/kp-swiper/index.vue'
-	import config from '@/config/index.js'
-	export default {
-		data() {
-			return {
-				home: {
-				  gallery: [
-				    "/orj1080/967d9727ly3gc0whyclfoj20sg0sge0a.jpg",
-				    "/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg",
-				    "/orj1080/967d9727ly3gc0whykstlj20sg0sgb29.jpg",
-				    "/orj1080/967d9727ly3gc0whywdupj20sg0sgb0l.jpg",
-				    "/orj1080/967d9727ly3gc0whysphij20sg0sgkcg.jpg",
-				    "/orj1080/967d9727ly3gc0whyiy96j20sg0sg1jj.jpg",
-				    "/orj1080/967d9727ly3gc0whz3i51j20sg0sgu0x.jpg",
-				    "/orj1080/967d9727ly3gc0whz6qvlj20sg0sghdt.jpg",
-				    "/orj1080/967d9727ly3gc0whz6yf1j20sg0sgkic.jpg"
-				  ].map(row => config.baseConfig.img_example + row),
-				  galleryIndex: 0, //相册初始化位置
-				  galleryDirection: "" //滑动方向
-				},
-			};
-		},
-		components:{
-			kSwiper
-		},
-		onLoad() {
-			
-		},
-		methods:{
-			handleSwiperChange(e) {
-			  // https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html
-			  // source为touch时由用户触摸引起
-			  if (e.detail.source === "touch") {
-			    this.home.galleryIndex = e.target.current;
-			  }
-			},
-			handleSwiperTarget(e) {
-			  this.home.galleryDirection =
-			    (e.detail.dx > 0 && "left") || (e.detail.dx < 0 && "right");
-			},
-			handleSwiperFinish(e) {
-			  if (!e.detail.source) {
-			    this.home.galleryDirection = "";
-			  }
-			},
+import groupItem from '@/components/group/group-item.vue';
+import photoWall from '@/config/wallpapers.js';
+import activity from '@/components/activity/activity.vue';
+export default {
+	data() {
+		return {
+			type: 0,
+			saveGroups: [
+				{
+					groupName: '轻松一校项目组',
+					groupLogo: 'https://images.mepai.me/app/works/38224/2018-10-06/w_5bb80b86d3506/05bb80b86d38ab.jpg!1200w.jpg',
+					intro: '轻松一校项目组是地球上最强大的组织之一，它负责...',
+					tag: ['强大', '优秀']
+				}
+			],
+			alreadyJoins:[
+				{
+					groupName: '轻松一校项目组',
+					groupLogo: 'https://images.mepai.me/app/works/38224/2018-10-06/w_5bb80b86d3506/05bb80b86d38ab.jpg!1200w.jpg',
+					intro: '轻松一校项目组是地球上最强大的组织之一，它负责...',
+					tag: ['强大', '优秀']
+				}
+			],
+			activities: [
+				{
+					groupLogo: '../../static/test/waterfull/1.jpg',
+					groupName: '比赛大佬组',
+					activityStartTime: '17小时前',
+					activityPropagate: {
+						type: 'img',
+						src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg']
+					},
+					hotNum: 80,
+					commentNum: 6,
+					commentDetail: [
+						{
+							commentor: '天堂屠夫',
+							commentContent: 'nb.....'
+						},
+						{
+							commentor: '天堂屠夫',
+							commentContent: 'tnb.....'
+						},
+						{
+							commentor: '天堂屠夫',
+							commentContent: 'cznb.....'
+						}
+					]
+				}
+			]
+		};
+	},
+
+	methods: {
+		clickLeft() {
+			uni.navigateBack({
+				animationDuration: 300,
+				animationType: 'pop-out'
+			});
 		}
+	},
+	components: {
+		groupItem,
+		activity
+	},
+	created() {
+		for (let i = 0; i < 10; i++) {
+			this.saveGroups.push(this.saveGroups[0]);
+		}
+		this.saveGroups.forEach((item, index) => {
+			return (item.groupLogo = photoWall[10 + index]);
+		});
+		
+		for (let i = 0; i < 10; i++) {
+			this.alreadyJoins.push(this.alreadyJoins[0]);
+		}
+		this.alreadyJoins.forEach((item, index) => {
+			return (item.groupLogo = photoWall[20 + index]);
+		});
+	},
+	onLoad(option) {
+		
+		const item = JSON.parse(decodeURIComponent(option.item));
+		this.type = item.type;
+		console.log(this.type)
 	}
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
