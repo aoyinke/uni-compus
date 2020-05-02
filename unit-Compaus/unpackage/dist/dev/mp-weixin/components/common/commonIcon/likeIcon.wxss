@@ -1,7 +1,7 @@
 .like.data-v-770d2f72 {
   font-size: 50rpx !important;
-  -webkit-transition: width height 1s linear;
-  transition: width height 1s linear;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 .like.data-v-770d2f72:hover {
   width: 60rpx;
@@ -10,5 +10,7 @@
 .icon-active.data-v-770d2f72 {
   width: 50rpx;
   height: 50rpx;
+  -webkit-transform: scale3d(1.1);
+          transform: scale3d(1.1);
 }
 

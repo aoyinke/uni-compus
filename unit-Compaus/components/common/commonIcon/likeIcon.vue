@@ -43,7 +43,7 @@
 <style lang="scss" scoped>
 	.like {
 		font-size: 50upx !important;
-		transition: width height 1s linear;
+		transition: 1s;
 	}
 	.like:hover{
 		width: 60upx;
@@ -51,11 +51,8 @@
 	}
 
 	.icon-active {
-
-			width: 50upx;
-			height: 50upx;
-	
-		
-		
+		width: 50upx;
+		height: 50upx;
+		transform: scale3d(1.1);
 	}
 </style>

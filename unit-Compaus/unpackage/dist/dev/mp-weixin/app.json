@@ -14,12 +14,14 @@
     "pages/cooperate/cooperate",
     "pages/chatPages/chatPages",
     "pages/chatDetail/chatDetail",
-    "pages/coopertateDetail/coopertateDetail",
+    "pages/groupInfoDetail/groupInfoDetail",
     "pages/mySave/mySave",
     "pages/chatGroup/chatGroup",
     "pages/feedBack/feedBack",
     "pages/groupDetail/groupDetail",
-    "pages/groupPublishTask/groupPublishTask"
+    "pages/groupTaskList/groupTaskList",
+    "pages/groupInfoConcat/groupInfoConcat",
+    "pages/publishTask/publishTask"
   ],
   "subPackages": [],
   "window": {
@@ -71,5 +73,6 @@
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
     "uni-compus-button": "/components/uni-compus-components/unicompus-button"
-  }
+  },
+  "sitemapLocation": "sitemap87.json"
 }

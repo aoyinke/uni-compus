@@ -1578,7 +1578,7 @@ radio-group label, checkbox-group label{
  * @Last Modified time: 2020-04-04 22:02:24
  */
 @font-face {font-family: "eosfont";
-  src:url('https://at.alicdn.com/t/font_1686590_7t7bpdn6r9x.ttf') format('truetype');
+  src:url('https://at.alicdn.com/t/font_1686590_zlwwuqlg8nf.ttf') format('truetype');
 }
 .eosfont {
   font-family: "eosfont" !important;

@@ -14,26 +14,27 @@
 			</view>
 
 			<view class="hr"></view>
-<!-- 			<view class="function">
+			<view class="function">
 				<view class="good">
-					<image class="icon-like" src="../../static/hm-information-card/images/img_24030_0_0.png"></image>
+					<like-icon></like-icon>
 					<view>{{cardinfo.goodNum}}</view>
 				</view>
 				<view class="good">
-					<image class="icon-like" src="../../static/hm-information-card/images/img_24030_0_0.png"></image>
+					<like-icon></like-icon>
 					<view>{{cardinfo.likeNum}}</view>
 				</view>
 				<view class="good">
-					<image class="icon-like" src="../../static/hm-information-card/images/img_24030_0_0.png"></image>
+					<like-icon></like-icon>
 					<view>{{cardinfo.commentNum}}</view>
 				</view>
-			</view> -->
+			</view>
 		</view>
 	</view>
 
 </template>
 
 <script>
+	import likeIcon from '@/components/common/commonIcon/likeIcon.vue'
 	export default {
 		name: 'card',
 		props: {
@@ -45,6 +46,9 @@
 			return {
 
 			};
+		},
+		components:{
+			likeIcon
 		}
 	}
 </script>
@@ -124,11 +128,17 @@
 		height: 32upx;
 		width: 32upx;
 	}
-
+	
+	.function{
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+	
 	.good {
-		display: inline-flex;
-		margin-top: 30upx;
-		margin-left: 95upx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.good view {

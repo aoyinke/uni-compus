@@ -37,10 +37,6 @@
 						<view class="userInfo">
 							<view class="userInfo-top">
 								<text>{{owner.name}}</text>
-								<kp-tag size="small" bg-color="#d1ebfd" weight="500" class="left-tag">
-								  <kp-icon size="24" type="male" color="#3bb2f3"/>
-								  <text>{{ owner.age }}</text>
-								</kp-tag>
 							</view>
 							<view class="userPosition">
 								<text class="eosfont">&#xe60d;</text>
@@ -56,9 +52,9 @@
 				<scroll-view scroll-y="true" :style="{height:scrollHeight + 'px'}">
 					<view class="naviBar">
 						<block v-for="(item,index) in nav" :key="index">
-						<view class="nav-item"  @click="changePage(index)" :class="{'active': tapIndex==index}">
-							<text>{{item}}</text>
-						</view>	
+							<view class="nav-item"  @click="changePage(index)" :class="{'active': tapIndex==index}">
+								<text>{{item}}</text>
+							</view>	
 						</block>	
 						
 					</view>
@@ -138,7 +134,8 @@
 							</view>
 							<view class="cooperateBar">
 								<block v-for="(cooperateItem,id) in cooperateItems" :key="id">
-									<view class="cooperateBar-choice" :style="{backgroundImage:cooperateItem.backgroundImage}">
+									
+									<view class="cooperateBar-choice" :style="{backgroundImage:cooperateItem.backgroundImage}" @click="goDetail(id)">
 										<image :src="cooperateItem.icon" mode=""></image>
 										<view class="cooperateBar-choice-text">
 											<text>{{cooperateItem.choice}}</text>
@@ -202,7 +199,8 @@ export default {
 			cooperateItems:[{icon:"./task.png",choice:"发布任务",backgroundImage: "linear-gradient(rgba(253, 150, 68,0.7),rgba(250, 130, 49,1.0))"},
 			{icon:"../../static/self/eye.png",choice:"待处理的工作",backgroundImage: "linear-gradient(rgba(253, 114, 114,0.7),rgba(252, 66, 123,1.0))"},
 			{icon:"../../static/self/eye.png",choice:"添加工作",backgroundImage: "linear-gradient(rgba(255, 77, 77,0.7),rgba(255, 56, 56,1.0))"},
-			{icon:"../../static/self/eye.png",choice:"取得的合作",backgroundImage: "linear-gradient(rgba(126, 255, 245,0.7),rgba(32, 191, 107,1.0))"}],
+			{icon:"../../static/self/eye.png",choice:"取得的合作",backgroundImage: "linear-gradient(rgba(126, 255, 245,0.7),rgba(32, 191, 107,1.0))"},
+			{icon:"../../static/self/eye.png",choice:"信息交流",backgroundImage: "linear-gradient(rgba(205, 132, 241,0.7),rgba(197, 108, 240,1.0))"}],
 			collections:[
 				{type:'往期活动',
 				nums:124,
@@ -278,6 +276,23 @@ export default {
 		})
 	},
 	methods: {
+		goDetail(id){
+			let url = ""
+			switch(id){
+				case 0:
+					url = "/pages/publishTask/publishTask"
+					break;
+				case 1:
+					url = "/pages/groupTaskList/groupTaskList"
+					break;
+				case 4:
+					url = "/pages/groupInfoConcat/groupInfoConcat"
+					break;
+			}
+			uni.navigateTo({
+				url:url
+			})
+		},
 		handleOpenCommunity(row){
 			console.log(row)
 		},
@@ -523,15 +538,16 @@ export default {
 				margin: 50upx;
 			}
 			.userInfo{
-				margin: 10upx 0 0 0upx;
+				margin: 10upx 0 0 50upx;
 				display: flex;
 				justify-content: center;
 				align-items: flex-start;
-				width: 60%;
+				flex-direction: column;
+				
 				&-top{
 					display: flex;
-					justify-content: center;
-					flex-direction: column;
+					justify-content: space-evenly;
+					
 					align-items: center;
 					width: 100%;
 					font: {
@@ -541,10 +557,7 @@ export default {
 					& :first-child{
 						margin-right: 12upx;
 					}
-					.left-tag{
-						margin-left: 12upx;
-						font-size: 21upx;
-					}
+					
 				}
 				
 				
