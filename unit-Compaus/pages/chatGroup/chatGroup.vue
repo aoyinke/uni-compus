@@ -1,7 +1,8 @@
 <template>
 	<view>
-		<view class="content" @touchstart="hideDrawer">
-			<scroll-view class="msg-list" scroll-y="true" :scroll-with-animation="scrollAnimation" :scroll-top="scrollTop" :scroll-into-view="scrollToView" @scrolltoupper="loadHistory" upper-threshold="50">
+		<uni-nav-bar left-icon="back" title="xxx聊天室" @clickLeft="clickLeft"></uni-nav-bar>
+		<view class="content" @touchstart="hideDrawer" >
+			<scroll-view class="msg-list" scroll-y="true" :scroll-with-animation="scrollAnimation" :scroll-top="scrollTop" :scroll-into-view="scrollToView" @scrolltoupper="loadHistory" upper-threshold="50" :style="{marginTop:navHeight + 'px'}">
 				<!-- 加载历史数据waitingUI -->
 				<view class="loading">
 					<view class="spinner">
@@ -189,6 +190,7 @@
 	export default {
 		data() {
 			return {
+				navHeight:64,
 				//文字消息
 				textMsg:'',
 				//消息列表
@@ -245,6 +247,7 @@
 			};
 		},
 		onLoad(option) {
+			
 			this.getMsgList();
 			//语音自然播放结束
 			this.AUDIO.onEnded((res)=>{
@@ -280,6 +283,12 @@
 			});
 		},
 		methods:{
+			clickLeft() {
+				uni.navigateBack({
+					animationDuration: 300,
+					animationType: 'pop-out'
+				})
+			},
 			// 接受消息(筛选处理)
 			screenMsg(msg){
 				//从长连接处转发给这个方法，进行筛选处理
@@ -334,10 +343,10 @@
 				setTimeout(()=>{
 					// 消息列表
 					let list = [
-						{type:"user",msg:{id:1,type:"text",time:"12:56",userinfo:{uid:0,username:"大黑哥",face:"/static/img/face.jpg"},content:{text:"为什么温度会相差那么大？"}}},
-						{type:"user",msg:{id:2,type:"text",time:"12:57",userinfo:{uid:1,username:"售后客服008",face:"/static/img/im/face/face_2.jpg"},content:{text:"这个是有偏差的，两个温度相差十几二十度是很正常的，如果相差五十度，那即是质量问题了。"}}},
-						{type:"user",msg:{id:3,type:"voice",time:"12:59",userinfo:{uid:1,username:"售后客服008",face:"/static/img/im/face/face_2.jpg"},content:{url:"/static/voice/1.mp3",length:"00:06"}}},
-						{type:"user",msg:{id:4,type:"voice",time:"13:05",userinfo:{uid:0,username:"大黑哥",face:"/static/img/face.jpg"},content:{url:"/static/voice/2.mp3",length:"00:06"}}},
+						{type:"user",msg:{id:1,type:"text",time:"12:56",userinfo:{uid:0,username:"大黑哥",face:"https://lz.sinaimg.cn/osj1080/967d9727ly3gcx703kfenj216o1kwb2a.jpg"},content:{text:"为什么温度会相差那么大？"}}},
+						{type:"user",msg:{id:2,type:"text",time:"12:57",userinfo:{uid:1,username:"售后客服008",face:"https://img.pixbe.com/p47810601/06752D905DA340F195FFAF527FEF0DE2_640.jpg"},content:{text:"这个是有偏差的，两个温度相差十几二十度是很正常的，如果相差五十度，那即是质量问题了。"}}},
+						{type:"user",msg:{id:3,type:"voice",time:"12:59",userinfo:{uid:1,username:"售后客服008",face:"https://img.pixbe.com/p47810601/06752D905DA340F195FFAF527FEF0DE2_640.jpg"},content:{url:"/static/voice/1.mp3",length:"00:06"}}},
+						{type:"user",msg:{id:4,type:"voice",time:"13:05",userinfo:{uid:0,username:"大黑哥",face:"https://lz.sinaimg.cn/osj1080/967d9727ly3gcx703kfenj216o1kwb2a.jpg"},content:{url:"/static/voice/2.mp3",length:"00:06"}}},
 					]
 					// 获取消息中的图片,并处理显示尺寸
 					for(let i=0;i<list.length;i++){
@@ -528,7 +537,7 @@
 				var nowDate = new Date();
 				let lastid = this.msgList[this.msgList.length-1].msg.id;
 				lastid++;
-				let msg = {type:'user',msg:{id:lastid,time:nowDate.getHours()+":"+nowDate.getMinutes(),type:type,userinfo:{uid:0,username:"大黑哥",face:"/static/img/face.jpg"},content:content}}
+				let msg = {type:'user',msg:{id:lastid,time:nowDate.getHours()+":"+nowDate.getMinutes(),type:type,userinfo:{uid:0,username:"大黑哥",face:"https://img.pixbe.com/p47810601/24DB9644BE814AAB9CDD7CFE6D39A002_640.jpg"},content:content}}
 				// 发送消息
 				this.screenMsg(msg);
 				// 定时器模拟对方回复,三秒

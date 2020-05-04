@@ -136,7 +136,8 @@
 								<block v-for="(cooperateItem,id) in cooperateItems" :key="id">
 									
 									<view class="cooperateBar-choice" :style="{backgroundImage:cooperateItem.backgroundImage}" @click="goDetail(id)">
-										<image :src="cooperateItem.icon" mode=""></image>
+										<text class="eosfont">&#xe628;</text>
+										
 										<view class="cooperateBar-choice-text">
 											<text>{{cooperateItem.choice}}</text>
 										</view>
@@ -176,7 +177,7 @@
 					</swiper>
 					<view class="bottom">
 						<uniCompusButton content="分享" background="#ff6b81" width="100" style="width: 40%;"></uniCompusButton>
-						<uniCompusButton content="聊天" background="#70a1ff" width="100" style="width: 40%;"></uniCompusButton>
+						<uniCompusButton content="聊天" background="#70a1ff" width="100" style="width: 40%;" @click.native="gotoChatPage"></uniCompusButton>
 					</view>
 				</scroll-view>
 			</view>
@@ -276,6 +277,11 @@ export default {
 		})
 	},
 	methods: {
+		gotoChatPage(){
+			uni.navigateTo({
+				url:"/pages/chatPages/chatPages"
+			})
+		},
 		goDetail(id){
 			let url = ""
 			switch(id){

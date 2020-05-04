@@ -16,7 +16,7 @@
 				</view>
 
 				<view class="like">
-					<text class="eosfont">&#xe657;</text>
+					<like-icon></like-icon>
 					<text class="likeNum">{{likeNum}}</text>
 				</view>
 
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+	import likeIcon from '@/components/common/commonIcon/likeIcon.vue'
 	export default {
 		data() {
 			return {
@@ -53,6 +54,9 @@
 				type: Number,
 				required: true
 			}
+		},
+		components:{
+			likeIcon
 		}
 	}
 </script>

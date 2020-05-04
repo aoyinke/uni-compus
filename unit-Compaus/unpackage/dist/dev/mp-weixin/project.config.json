@@ -90,81 +90,75 @@
 					"pathName": "pages/groupInfoDetail/groupInfoDetail"
 				},
 				{
-					"name": "chatDetail",
-					"query": "",
-					"id": 10,
-					"pathName": "pages/chatDetail/chatDetail"
-				},
-				{
 					"name": "chatPages",
 					"query": "",
-					"id": 11,
+					"id": 10,
 					"pathName": "pages/chatPages/chatPages"
 				},
 				{
 					"name": "cooperate",
 					"query": "",
-					"id": 12,
+					"id": 11,
 					"pathName": "pages/cooperate/cooperate"
 				},
 				{
 					"name": "interestTag",
 					"query": "",
-					"id": 13,
+					"id": 12,
 					"pathName": "pages/interestsTag/interestsTag"
 				},
 				{
 					"name": "personShow",
 					"query": "",
-					"id": 14,
+					"id": 13,
 					"pathName": "pages/personShow/personShow"
 				},
 				{
 					"name": "activityDetail",
 					"query": "",
-					"id": 15,
+					"id": 14,
 					"pathName": "pages/activityDetail/activityDetail"
 				},
 				{
 					"name": "publish",
 					"query": "",
-					"id": 16,
+					"id": 15,
 					"pathName": "pages/publishActivity/publishActivity"
 				},
 				{
 					"name": "findPeople",
 					"query": "",
-					"id": 17,
+					"id": 16,
 					"pathName": "pages/findPeople/findPeople"
 				},
 				{
 					"name": "login",
 					"query": "",
-					"id": 18,
+					"id": 17,
 					"pathName": "pages/login/login"
 				},
 				{
 					"name": "self",
 					"query": "",
-					"id": 19,
+					"id": 18,
 					"pathName": "pages/self/self"
 				},
 				{
 					"name": "changePerson",
 					"query": "",
-					"id": 20,
+					"id": 19,
 					"pathName": "pages/changePerson/changePerson"
 				},
 				{
 					"name": "personDetail",
 					"query": "",
-					"id": 21,
+					"id": 20,
 					"pathName": "pages/personalDetail/personalDetail"
 				},
 				{
 					"name": "group",
 					"query": "",
-					"id": 22,
+					"id": 21,
 					"pathName": "pages/group/group"
 				}
 			]

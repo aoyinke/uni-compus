@@ -2,6 +2,7 @@
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "uni-search-bar": "/components/uni-search-bar/uni-search-bar",
-    "chat-item": "/components/uni-compus-components/uniCompus-chatItem"
+    "chat-item": "/components/uni-compus-components/uniCompus-chatItem",
+    "go-detail": "/components/uni-compus-components/uniCompus-goDetail"
   }
 }

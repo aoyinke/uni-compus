@@ -1,1 +1,0 @@
-<view class="data-v-1c807e13"><view class="chatUserRight data-v-1c807e13"><view class="userMsg textMsg data-v-1c807e13"><text class="data-v-1c807e13">{{userMsg}}</text></view><view class="userAvatar data-v-1c807e13"><image src="{{userAvatar}}" mode class="data-v-1c807e13"></image></view></view></view>

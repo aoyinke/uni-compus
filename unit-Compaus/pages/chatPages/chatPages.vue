@@ -6,9 +6,10 @@
 		<scroll-view scroll-y="true">
 			<view class="chatList">
 				<block v-for="(chatItem,idx) in chatList" :key="idx">
+					<go-detail detailUrl="/pages/chatGroup/chatGroup">
 					<chatItem :userAvatar="chatItem.userAvatar" :sendTime="chatItem.sendTime" :userName="chatItem.userName"
 					 :latestInfo="chatItem.latestInfo" :messageNum="chatItem.messageNum"></chatItem>
-					 
+					 </go-detail>
 				</block>
 
 			</view>
@@ -17,7 +18,7 @@
 </template>
 
 <script>
-	
+	import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue'
 	import uniSearchBar from '@/components/uni-search-bar/uni-search-bar.vue'
 	import chatItem from '@/components/uni-compus-components/uniCompus-chatItem.vue'
 	import {mapState} from 'vuex'
@@ -29,7 +30,8 @@
 		},
 		components: {
 			uniSearchBar,
-			chatItem
+			chatItem,
+			goDetail
 			
 		},
 		methods: {

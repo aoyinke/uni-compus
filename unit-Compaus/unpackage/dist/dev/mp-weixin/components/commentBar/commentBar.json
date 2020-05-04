@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "like-icon": "/components/common/commonIcon/likeIcon"
+  }
 }

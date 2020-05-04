@@ -51,9 +51,6 @@
 			"path": "pages/chatPages/chatPages",
 			"style": {}
 		}, {
-			"path": "pages/chatDetail/chatDetail",
-			"style": {}
-		}, {
 			"path": "pages/groupInfoDetail/groupInfoDetail",
 			"style": {}
 		}, {
@@ -174,11 +171,6 @@
 			{
 				"name": "groupInfoDetail", //模式名称
 				"path": "pages/groupInfoDetail/groupInfoDetail", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "chatDetail", //模式名称
-				"path": "pages/chatDetail/chatDetail", //启动页面，必选
 				"query": "" //启动参数，在页面的onLoad函数里面得到
 			},
 			{

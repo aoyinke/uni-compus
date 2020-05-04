@@ -13,7 +13,6 @@
     "pages/interestsTag/interestsTag",
     "pages/cooperate/cooperate",
     "pages/chatPages/chatPages",
-    "pages/chatDetail/chatDetail",
     "pages/groupInfoDetail/groupInfoDetail",
     "pages/mySave/mySave",
     "pages/chatGroup/chatGroup",
@@ -75,5 +74,5 @@
     "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
     "uni-compus-button": "/components/uni-compus-components/unicompus-button"
   },
-  "sitemapLocation": "sitemap37.json"
+  "sitemapLocation": "sitemap77.json"
 }

@@ -19,17 +19,27 @@
 				<text>{{taskInfo.deadLine}}</text>
 				
 			</view>
-			<view class="chooseCoverImg" @click="chooseCoverImg">
-				<text class="eosfont">&#xe716;</text>
-				<text>请上传任务封面图片</text>
-				<view class="choosedImg">
-					<image :src="choosedImg" mode=""></image>
-				</view>
-				<view class="chooseCoverImg-upload">
-					
-					<text class="eosfont">&#xe60e;</text>
-				</view>
-				
+	
+			<view class="feedback-body feedback-uploader">
+			    <view class="uni-uploader">
+			        <view class="uni-uploader-head">
+			            <view class="uni-uploader-title">上传任务封面图片</view>
+			            
+			        </view>
+			        <view class="uni-uploader-body">
+			            <view class="uni-uploader__files">
+			                <block v-for="(image,index) in choosedImg" :key="index">
+			                    <view class="uni-uploader__file" style="position: relative;">
+			                        <image class="uni-uploader__img" :src="image" ></image>
+			                        <view class="close-view" @click="close(index)">x</view>
+			                    </view>
+			                </block>
+			                <view class="uni-uploader__input-box">
+			                	<view class="uni-uploader__input" @tap="chooseCoverImg"></view>
+			                </view>
+			            </view>
+			        </view>
+			    </view>
 			</view>
 			<view class="addTaskCategory">
 				<view class="addTaskCategory-item" v-for="(item,idx) in addTaskCategoryItems" :key="idx" >
@@ -70,7 +80,7 @@
 	export default {
 		data() {
 			return {
-				choosedImg:"",
+				choosedImg:[],
 				showModel:false,
 				inputData:{
 				  title:'输入任务名称',
@@ -91,14 +101,19 @@
 			};
 		},
 		methods:{
+			close(e){
+			    this.imageList.splice(e,1);
+			},
 			chooseCoverImg(){
+				let that = this
 				uni.chooseImage({
 				    count: 1, //默认9
 				    sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
 				    sourceType: ['album'], //从相册选择
 				    success: function (res) {
-				        console.log(JSON.stringify(res.tempFilePaths));
-						this.choosedImg = JSON.stringify(res.tempFilePaths)
+				        
+						that.choosedImg = JSON.stringify(res.tempFilePaths)
+						console.log(that.choosedImg)
 				    }
 				});
 			},
@@ -108,17 +123,14 @@
 			onConfirmDeadLine(event){
 				let obj = {}
 				obj.deadLine = event.result
-				this.taskInfo.deadLine = obj
+				this.taskInfo = obj
+				console.log(this.taskInfo)
 			},
 			onConfirm(e){this.addTaskCategoryItems.push(e[0].content)},
 			cancel(e){console.log(e)},
 			changeDeadLine() {
-
 				this.$refs.shortTerm.show()
-				console.log(this.$refs)
-				this.onConfirmPicker = (item) => {
-					this.taskInfo.deadLine = item
-				}
+				
 			},
 			clickLeft() {
 				uni.navigateBack({
@@ -139,6 +151,7 @@
 </script>
 
 <style lang="scss" scoped>
+@import './index.scss';
 	@mixin inputStyle {
 		background-color: #fff;
 		margin: 20upx 0;
@@ -176,34 +189,15 @@
 				}
 			}
 		}
-		.chooseCoverImg{
-			@include inputStyle;
-			& > text:first-child {
-				color: #eb4d4b;
-			}
-			.choosedImg{
-				width: 80upx;
-				height: 80upx;
-				margin: 20upx;
-			}
-			&-upload{
-				margin: 20upx;
-				width: 60upx;
-				height: 60upx;
-				
-				text{
-					width: 100%;
-					height: 100%;
-					background-color: #dfe4ea;
-					padding: 15upx;
-				}
-				
-			}
-		}
+		
 		.addTaskCategory{
+			padding-top: 20upx;
+			border: 1px solid #eee;
+			box-shadow: 3px 3px 3px 5px rgba($color: #ced6e0, $alpha: 0.7);
 			&-item{
 				@include inputStyle;
 				display: flex;
+				margin: 0 !important;
 				justify-content: space-between;
 				align-items: center;
 				text-align: center;
@@ -219,9 +213,9 @@
 				text-align: center;
 				color: #22a6b3 !important;
 			}
-			& :last-child{
+			& text:last-child{
 				margin: 20upx 0;
-				color: #95afc0;
+				
 			}
 		}
 	}
