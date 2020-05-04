@@ -77,6 +77,9 @@
 		}, {
 			"path": "pages/publishTask/publishTask",
 			"style": {}
+		}, {
+			"path": "pages/groupTaskDetail/groupTaskDetail",
+			"style": {}
 		}
 	],
 	"globalStyle": {
@@ -128,6 +131,11 @@
 		"list": [{
 				"name": "index", //模式名称
 				"path": "pages/index/index", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			},
+			{
+				"name": "groupTaskDetail", //模式名称
+				"path": "pages/groupTaskDetail/groupTaskDetail", //启动页面，必选
 				"query": "" //启动参数，在页面的onLoad函数里面得到
 			},
 			{

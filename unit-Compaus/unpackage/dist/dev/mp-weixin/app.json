@@ -21,7 +21,8 @@
     "pages/groupDetail/groupDetail",
     "pages/groupTaskList/groupTaskList",
     "pages/groupInfoConcat/groupInfoConcat",
-    "pages/publishTask/publishTask"
+    "pages/publishTask/publishTask",
+    "pages/groupTaskDetail/groupTaskDetail"
   ],
   "subPackages": [],
   "window": {
@@ -74,5 +75,5 @@
     "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
     "uni-compus-button": "/components/uni-compus-components/unicompus-button"
   },
-  "sitemapLocation": "sitemap87.json"
+  "sitemapLocation": "sitemap37.json"
 }

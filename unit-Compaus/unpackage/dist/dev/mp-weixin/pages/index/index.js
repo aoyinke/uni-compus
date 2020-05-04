@@ -97,10 +97,10 @@ var components = {
     return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 36))
   },
   activity: function() {
-    return __webpack_require__.e(/*! import() | components/activity/activity */ "components/activity/activity").then(__webpack_require__.bind(null, /*! @/components/activity/activity.vue */ 227))
+    return __webpack_require__.e(/*! import() | components/activity/activity */ "components/activity/activity").then(__webpack_require__.bind(null, /*! @/components/activity/activity.vue */ 242))
   },
   "uni-fab": function() {
-    return __webpack_require__.e(/*! import() | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then(__webpack_require__.bind(null, /*! @/components/uni-fab/uni-fab.vue */ 234))
+    return __webpack_require__.e(/*! import() | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then(__webpack_require__.bind(null, /*! @/components/uni-fab/uni-fab.vue */ 249))
   }
 }
 var render = function() {
@@ -175,7 +175,7 @@ var _uniNavBar = _interopRequireDefault(__webpack_require__(/*! @/components/uni
 
 
 
-var _wallpapers = _interopRequireDefault(__webpack_require__(/*! @/config/wallpapers.js */ 43));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var activity = function activity() {__webpack_require__.e(/*! require.ensure | components/activity/activity */ "components/activity/activity").then((function () {return resolve(__webpack_require__(/*! @/components/activity/activity.vue */ 227));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tapBar = function tapBar() {__webpack_require__.e(/*! require.ensure | components/tapBar */ "components/tapBar").then((function () {return resolve(__webpack_require__(/*! @/components/tapBar.vue */ 241));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniFab = function uniFab() {__webpack_require__.e(/*! require.ensure | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then((function () {return resolve(__webpack_require__(/*! @/components/uni-fab/uni-fab.vue */ 234));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _wallpapers = _interopRequireDefault(__webpack_require__(/*! @/config/wallpapers.js */ 43));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var activity = function activity() {__webpack_require__.e(/*! require.ensure | components/activity/activity */ "components/activity/activity").then((function () {return resolve(__webpack_require__(/*! @/components/activity/activity.vue */ 242));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tapBar = function tapBar() {__webpack_require__.e(/*! require.ensure | components/tapBar */ "components/tapBar").then((function () {return resolve(__webpack_require__(/*! @/components/tapBar.vue */ 256));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniFab = function uniFab() {__webpack_require__.e(/*! require.ensure | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then((function () {return resolve(__webpack_require__(/*! @/components/uni-fab/uni-fab.vue */ 249));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 var timer;var _default =
 {
   data: function data() {
@@ -439,7 +439,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   "uni-status-bar": function() {
-    return __webpack_require__.e(/*! import() | components/uni-status-bar/uni-status-bar */ "components/uni-status-bar/uni-status-bar").then(__webpack_require__.bind(null, /*! @/components/uni-status-bar/uni-status-bar.vue */ 248))
+    return __webpack_require__.e(/*! import() | components/uni-status-bar/uni-status-bar */ "components/uni-status-bar/uni-status-bar").then(__webpack_require__.bind(null, /*! @/components/uni-status-bar/uni-status-bar.vue */ 263))
   },
   "uni-icons": function() {
     return Promise.all(/*! import() | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/components/uni-icons/uni-icons.vue */ 60))
@@ -482,7 +482,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniStatusBar = function uniStatusBar() {__webpack_require__.e(/*! require.ensure | components/uni-status-bar/uni-status-bar */ "components/uni-status-bar/uni-status-bar").then((function () {return resolve(__webpack_require__(/*! ../uni-status-bar/uni-status-bar.vue */ 248));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniIcons = function uniIcons() {Promise.all(/*! require.ensure | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then((function () {return resolve(__webpack_require__(/*! ../uni-icons/uni-icons.vue */ 60));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniStatusBar = function uniStatusBar() {__webpack_require__.e(/*! require.ensure | components/uni-status-bar/uni-status-bar */ "components/uni-status-bar/uni-status-bar").then((function () {return resolve(__webpack_require__(/*! ../uni-status-bar/uni-status-bar.vue */ 263));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniIcons = function uniIcons() {Promise.all(/*! require.ensure | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then((function () {return resolve(__webpack_require__(/*! ../uni-icons/uni-icons.vue */ 60));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

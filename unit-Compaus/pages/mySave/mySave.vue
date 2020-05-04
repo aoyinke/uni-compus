@@ -3,14 +3,15 @@
 		<uni-nav-bar left-icon="back" title="我的详情" @clickLeft="clickLeft"></uni-nav-bar>
 		<view class="uni-tab-bar">
 			<scroll-view scroll-y="true" class="list">
-				<view class="likeList" v-if="(type === 0)" v-for="(item, index) in activities" :key="index">
-					<activity  :activityInfo="item"></activity>
+				<view class="likeActivity" v-if="type == 0">
+					<activity  :activityInfo="activityInfo"></activity>
 				</view>
-				<view class="groupList" v-for="(item, index) in saveGroups" :key="index" v-if="type === 1">
+					
+				<view class="groupList" v-for="(item, index) in saveGroups" :key="index" v-if="type == 1">
 					<group-item 
 					:needChat="false" :groupLogo="item.groupLogo" :groupName="item.groupName" :intro="item.intro" :tag="item.tag"></group-item>
 				</view>
-				<view class="groupList" v-for="(item, index) in alreadyJoins" :key="index" v-if="type === 1">
+				<view class="groupList" v-for="(item, index) in alreadyJoins" :key="index" v-if="type == 2">
 					<group-item 
 					:needChat="false" :groupLogo="item.groupLogo" :groupName="item.groupName" :intro="item.intro" :tag="item.tag"></group-item>
 				</view>
@@ -45,33 +46,33 @@ export default {
 					tag: ['强大', '优秀']
 				}
 			],
-			activities: [
-				{
-					groupLogo: '../../static/test/waterfull/1.jpg',
-					groupName: '比赛大佬组',
-					activityStartTime: '17小时前',
+			activityInfo: [{
+					groupLogo: "../../static/test/waterfull/1.jpg",
+					groupName: "比赛大佬组",
+					activityStartTime: "17小时前",
 					activityPropagate: {
-						type: 'img',
-						src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg']
+						type: "img",
+						src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg',
+							'../../static/test/waterfull/3.jpg'
+						]
 					},
 					hotNum: 80,
 					commentNum: 6,
-					commentDetail: [
-						{
-							commentor: '天堂屠夫',
-							commentContent: 'nb.....'
+					commentDetail: [{
+							commentor: "天堂屠夫",
+							commentContent: "nb....."
 						},
 						{
-							commentor: '天堂屠夫',
-							commentContent: 'tnb.....'
+							commentor: "天堂屠夫",
+							commentContent: "tnb....."
 						},
 						{
-							commentor: '天堂屠夫',
-							commentContent: 'cznb.....'
+							commentor: "天堂屠夫",
+							commentContent: "cznb....."
 						}
 					]
 				}
-			]
+			],
 		};
 	},
 
@@ -90,16 +91,15 @@ export default {
 	created() {
 		for (let i = 0; i < 10; i++) {
 			this.saveGroups.push(this.saveGroups[0]);
+			this.alreadyJoins.push(this.alreadyJoins[0]);
+			this.activityInfo.push(this.activityInfo[0])
 		}
 		this.saveGroups.forEach((item, index) => {
 			return (item.groupLogo = photoWall[10 + index]);
 		});
-		
-		for (let i = 0; i < 10; i++) {
-			this.alreadyJoins.push(this.alreadyJoins[0]);
-		}
+
 		this.alreadyJoins.forEach((item, index) => {
-			return (item.groupLogo = photoWall[20 + index]);
+			return (item.groupLogo = photoWall[30 + index]);
 		});
 	},
 	onLoad(option) {

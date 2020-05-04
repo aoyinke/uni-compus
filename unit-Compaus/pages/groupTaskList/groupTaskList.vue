@@ -21,9 +21,11 @@
 					<view class="deadLine">
 						<uni-countdown color="#FFFFFF" background-color="#00B26A" border-color="#00B26A" :day="task.deadLine.day" :hour="task.deadLine.hour" :minute="task.deadLine.minute" :second="task.deadLine.second"></uni-countdown>
 					</view>
-					<uni-card :title="task.title" mode="style" :is-shadow="true" :thumbnail="task.coverImg" :extra="task.time" :note="task.note">
-						<text class="text-line-2">{{ task.content }}</text>
-					</uni-card>
+					<go-detail detailUrl="/pages/groupTaskDetail/groupTaskDetail">
+						<uni-card :title="task.title" mode="style" :is-shadow="true" :thumbnail="task.coverImg" :extra="task.time" :note="task.note">
+							<text class="text-line-2">{{ task.content }}</text>
+						</uni-card>
+					</go-detail>
 				</view>
 			</scroll-view>
 		</view>
@@ -35,6 +37,7 @@
 import uniCard from '@/components/uni-card/uni-card.vue';
 import lvSelect from '@/components/lv-select/lv-select.vue';
 import uniCountdown from '@/components/uni-countdown/uni-countdown.vue'
+import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue'
 export default {
 	data() {
 		return {
@@ -84,7 +87,8 @@ export default {
 		},
 		change(val) {
 			console.log(val);
-		}
+		},
+		
 	},
 	onLoad() {
 		for (let i = 0; i < 4; i++) {
@@ -94,7 +98,7 @@ export default {
 	components: {
 		uniCard,
 		lvSelect,
-	
+		goDetail,
 		uniCountdown
 	}
 };
@@ -105,5 +109,6 @@ export default {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		margin-top: 20upx;
 	}
 </style>

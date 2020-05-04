@@ -95,7 +95,7 @@ var components = {
     return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 36))
   },
   activity: function() {
-    return __webpack_require__.e(/*! import() | components/activity/activity */ "components/activity/activity").then(__webpack_require__.bind(null, /*! @/components/activity/activity.vue */ 227))
+    return __webpack_require__.e(/*! import() | components/activity/activity */ "components/activity/activity").then(__webpack_require__.bind(null, /*! @/components/activity/activity.vue */ 242))
   }
 }
 var render = function() {
@@ -160,7 +160,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _wallpapers = _interopRequireDefault(__webpack_require__(/*! @/config/wallpapers.js */ 43));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var groupItem = function groupItem() {__webpack_require__.e(/*! require.ensure | components/group/group-item */ "components/group/group-item").then((function () {return resolve(__webpack_require__(/*! @/components/group/group-item.vue */ 302));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var activity = function activity() {__webpack_require__.e(/*! require.ensure | components/activity/activity */ "components/activity/activity").then((function () {return resolve(__webpack_require__(/*! @/components/activity/activity.vue */ 227));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+var _wallpapers = _interopRequireDefault(__webpack_require__(/*! @/config/wallpapers.js */ 43));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var groupItem = function groupItem() {__webpack_require__.e(/*! require.ensure | components/group/group-item */ "components/group/group-item").then((function () {return resolve(__webpack_require__(/*! @/components/group/group-item.vue */ 310));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var activity = function activity() {__webpack_require__.e(/*! require.ensure | components/activity/activity */ "components/activity/activity").then((function () {return resolve(__webpack_require__(/*! @/components/activity/activity.vue */ 242));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
   data: function data() {
@@ -182,29 +183,29 @@ var _wallpapers = _interopRequireDefault(__webpack_require__(/*! @/config/wallpa
         tag: ['强大', '优秀'] }],
 
 
-      activities: [
-      {
-        groupLogo: '../../static/test/waterfull/1.jpg',
-        groupName: '比赛大佬组',
-        activityStartTime: '17小时前',
+      activityInfo: [{
+        groupLogo: "../../static/test/waterfull/1.jpg",
+        groupName: "比赛大佬组",
+        activityStartTime: "17小时前",
         activityPropagate: {
-          type: 'img',
-          src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg', '../../static/test/waterfull/3.jpg'] },
+          type: "img",
+          src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg',
+          '../../static/test/waterfull/3.jpg'] },
+
 
         hotNum: 80,
         commentNum: 6,
-        commentDetail: [
-        {
-          commentor: '天堂屠夫',
-          commentContent: 'nb.....' },
+        commentDetail: [{
+          commentor: "天堂屠夫",
+          commentContent: "nb....." },
 
         {
-          commentor: '天堂屠夫',
-          commentContent: 'tnb.....' },
+          commentor: "天堂屠夫",
+          commentContent: "tnb....." },
 
         {
-          commentor: '天堂屠夫',
-          commentContent: 'cznb.....' }] }] };
+          commentor: "天堂屠夫",
+          commentContent: "cznb....." }] }] };
 
 
 
@@ -227,16 +228,15 @@ var _wallpapers = _interopRequireDefault(__webpack_require__(/*! @/config/wallpa
   created: function created() {
     for (var i = 0; i < 10; i++) {
       this.saveGroups.push(this.saveGroups[0]);
+      this.alreadyJoins.push(this.alreadyJoins[0]);
+      this.activityInfo.push(this.activityInfo[0]);
     }
     this.saveGroups.forEach(function (item, index) {
       return item.groupLogo = _wallpapers.default[10 + index];
     });
 
-    for (var _i = 0; _i < 10; _i++) {
-      this.alreadyJoins.push(this.alreadyJoins[0]);
-    }
     this.alreadyJoins.forEach(function (item, index) {
-      return item.groupLogo = _wallpapers.default[20 + index];
+      return item.groupLogo = _wallpapers.default[30 + index];
     });
   },
   onLoad: function onLoad(option) {

@@ -3,6 +3,7 @@
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "lv-select": "/components/lv-select/lv-select",
     "uni-countdown": "/components/uni-countdown/uni-countdown",
-    "uni-card": "/components/uni-card/uni-card"
+    "uni-card": "/components/uni-card/uni-card",
+    "go-detail": "/components/uni-compus-components/uniCompus-goDetail"
   }
 }

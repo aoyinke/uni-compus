@@ -97,13 +97,13 @@ var components = {
     return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 36))
   },
   "lv-select": function() {
-    return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 281))
+    return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 226))
   },
   "uni-countdown": function() {
-    return __webpack_require__.e(/*! import() | components/uni-countdown/uni-countdown */ "components/uni-countdown/uni-countdown").then(__webpack_require__.bind(null, /*! @/components/uni-countdown/uni-countdown.vue */ 492))
+    return __webpack_require__.e(/*! import() | components/uni-countdown/uni-countdown */ "components/uni-countdown/uni-countdown").then(__webpack_require__.bind(null, /*! @/components/uni-countdown/uni-countdown.vue */ 500))
   },
   "uni-card": function() {
-    return __webpack_require__.e(/*! import() | components/uni-card/uni-card */ "components/uni-card/uni-card").then(__webpack_require__.bind(null, /*! @/components/uni-card/uni-card.vue */ 386))
+    return __webpack_require__.e(/*! import() | components/uni-card/uni-card */ "components/uni-card/uni-card").then(__webpack_require__.bind(null, /*! @/components/uni-card/uni-card.vue */ 394))
   }
 }
 var render = function() {
@@ -143,7 +143,10 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniCard = function uniCard() {__webpack_require__.e(/*! require.ensure | components/uni-card/uni-card */ "components/uni-card/uni-card").then((function () {return resolve(__webpack_require__(/*! @/components/uni-card/uni-card.vue */ 386));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 281));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCountdown = function uniCountdown() {__webpack_require__.e(/*! require.ensure | components/uni-countdown/uni-countdown */ "components/uni-countdown/uni-countdown").then((function () {return resolve(__webpack_require__(/*! @/components/uni-countdown/uni-countdown.vue */ 492));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniCard = function uniCard() {__webpack_require__.e(/*! require.ensure | components/uni-card/uni-card */ "components/uni-card/uni-card").then((function () {return resolve(__webpack_require__(/*! @/components/uni-card/uni-card.vue */ 394));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 226));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCountdown = function uniCountdown() {__webpack_require__.e(/*! require.ensure | components/uni-countdown/uni-countdown */ "components/uni-countdown/uni-countdown").then((function () {return resolve(__webpack_require__(/*! @/components/uni-countdown/uni-countdown.vue */ 500));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var goDetail = function goDetail() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-goDetail */ "components/uni-compus-components/uniCompus-goDetail").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-goDetail.vue */ 277));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
 
 
 
@@ -231,6 +234,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log(val);
     } },
 
+
   onLoad: function onLoad() {
     for (var i = 0; i < 4; i++) {
       this.mytasks.push(this.mytasks[0]);
@@ -239,7 +243,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     uniCard: uniCard,
     lvSelect: lvSelect,
-
+    goDetail: goDetail,
     uniCountdown: uniCountdown } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
