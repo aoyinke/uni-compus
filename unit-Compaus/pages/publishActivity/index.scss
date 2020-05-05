@@ -1,0 +1,40 @@
+.choose-publish-group{
+	background-color: #fff;
+	height: 70vh;
+	
+}
+.choose-publish-group-title{
+		text-align: center;
+		font-size: 32upx;
+		font-weight: 500;
+	}
+.group-list{
+	&-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 15upx;
+		width: 100%;
+		&-left {
+		}
+		&-right {
+			color: #70a1ff;
+		}
+	}
+}
+.CategoryPopup{
+	background-color: #fff;
+	height: 80vh;
+}
+.category-list{
+	
+	&-item{
+		font: {
+			weight:500;
+			size:30upx;
+		};
+		border-bottom: 1px solid #eee;
+		padding-bottom: 15upx;
+		margin: 15upx;
+	}
+}

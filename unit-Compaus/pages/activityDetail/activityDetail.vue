@@ -2,23 +2,24 @@
 	<view class="contaier">
 		<uni-nav-bar left-icon="back" title="活动详情" @clickLeft="clickLeft"></uni-nav-bar>
 		<user-top-bar :groupName="activityDetail.groupName" :activityStartTime="activityDetail.activityStartTime" :groupLogo="activityDetail.groupLogo"></user-top-bar>
-		<template v-if="activityDetail.imgs.length > 1">
+		<template v-if="activityDetail.img.length > 1">
 			<swiper :indicator-dots="true" class="swiper-box">
-				<swiper-item v-for="(img,index) in activityDetail.imgs" :key="index">
+				<swiper-item v-for="(img,index) in activityDetail.img" :key="index">
 					<view class="swiper-item">
 						<image :src="img" mode=""></image>
+					</image>
 					</view>
 				</swiper-item>
 			</swiper>
 		</template>
-		<template v-if="activityDetail.imgs.length == 1">
+		<template v-if="activityDetail.img.length == 1">
 			<view class="imgShow">
-				<image :src="activityDetail.imgs[0]" mode="widthFix"></image>
+				<image :src="activityDetail.img[0]" mode="widthFix"></image>
 			</view>
 		</template>
-		<template v-if="activityDetail.text">
+		<template v-if="activityDetail.description">
 			<view class="textarea">
-				<text>{{activityDetail.text}}</text>
+				<text>{{activityDetail.description}}</text>
 			</view>
 		</template>
 		<view class="mutation">
@@ -57,17 +58,7 @@
 			return {
 				maskState:0,
 				activityId: "",
-				activityDetail: {
-					groupName: '轻松一校',
-					activityStartTime: "17小时前",
-					groupLogo: '../../static/test/avatar.png',
-					text: '岁月无情',
-					imgs: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg',
-						'../../static/test/waterfull/3.jpg'
-					],
-					hotNum: 75,
-					commentNum: 38
-				},
+				activityDetail: {},
 				commentors: [{
 						commentorAvatar: "../../static/test/waterfull/1.jpg",
 						commentorName: "天堂屠夫",
@@ -101,7 +92,9 @@
 			ygcComment
 		},
 		onLoad(option) {
-			this.activityId = option.activityId
+			const item = JSON.parse(decodeURIComponent(option.item));
+			this.activityDetail = item
+			console.log(this.activityDetail)
 		},
 		methods: {
 			clickLeft() {

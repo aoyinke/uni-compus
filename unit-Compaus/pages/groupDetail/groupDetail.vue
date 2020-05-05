@@ -213,10 +213,10 @@ export default {
 				coverImg:"https://img.pixbe.com/p47810601/3F31DCAAB5A3480997A08BE976B98D87_640.jpg",
 				backgroundImage:"linear-gradient(#fc5c65,#eb3b5a,#fd9644)"},
 					
-				{type:'参与的问答',
-				nums:127,
-				coverImg:"https://img.pixbe.com/p47810601/E124CB219C59429A82FB9443D28EFF4C_640.jpg",
-				backgroundImage:"linear-gradient(#fd9644,#fa8231,#eb3b5a)"},
+				// {type:'参与的问答',
+				// nums:127,
+				// coverImg:"https://img.pixbe.com/p47810601/E124CB219C59429A82FB9443D28EFF4C_640.jpg",
+				// backgroundImage:"linear-gradient(#fd9644,#fa8231,#eb3b5a)"},
 				
 				{type:'发布的知识',
 				nums:113,

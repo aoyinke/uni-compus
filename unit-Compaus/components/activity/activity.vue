@@ -4,10 +4,16 @@
 			<view class="groupNotification">
 				<user-top-bar :groupLogo="item.groupLogo" :groupName="item.groupName" :activityStartTime="item.activityStartTime"
 				 activityId="1"></user-top-bar>
-				<goDetail detailUrl="/pages/activityDetail/activityDetail">
-					<template v-if="item.activityPropagate.type=='img'">
+				<goDetail detailUrl="/pages/activityDetail/activityDetail" :item="item">
+					<template v-if="item.title">
+						<view class="activity-title">
+							<text>{{item.title}}</text>
+							
+						</view>
+					</template>
+					<template v-if="item.img.length">
 						<swiper :indicator-dots="true" class="swiper">
-							<swiper-item v-for="(img,id) in item.activityPropagate.src" :key="id" >
+							<swiper-item v-for="(img,id) in item.img" :key="id" >
 								<view class="swiper-item">
 									<image :src="img" mode=""></image>
 								</view>
@@ -50,6 +56,9 @@
 
 			}
 		},
+		onLoad() {
+			console.log(this.activityInfo)
+		},
 		props: {
 			activityInfo: Array
 		},
@@ -78,6 +87,15 @@
 </script>
 
 <style lang="scss" scoped>
+	.activity-title{
+		margin: 20upx;
+		text-align: center;
+		font: {
+			weight:bold;
+			size: 1.5em;
+			
+		};
+	}
 	.groupNotification {
 		border-bottom: 10upx solid #EEEEEE;
 

@@ -130,7 +130,9 @@ export default {
 	components: {
 		KpAvatar,
 		uniPopup,
-		uniCompusButton
+		lvSelect,
+		uniCompusButton,
+		
 	},
 	created() {
 		for (let i = 0; i < 5; i++) {
