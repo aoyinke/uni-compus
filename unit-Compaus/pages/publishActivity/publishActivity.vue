@@ -11,11 +11,11 @@
 				<view class="uni-list-cell-db" style="font-weight: 500;">是否需要标题</view>
 				<switch :checked="needTitle" @change="isTitle" color="#12CBC4" />
 			</view>
+			<view class="publish-title" v-show="needTitle"><input type="text" v-model="title" class="uni-input" placeholder="标题（选填）" /></view>
 			<view class="uni-list-cell uni-list-cell-pd" @click="chooseCategory">
 				<view class="uni-list-cell-db" style="font-weight: 500;">选择类别吧</view>
 				<text>{{ choosedCategory }}</text>
 			</view>
-			<view class="publish-title" v-show="needTitle"><input type="text" v-model="title" class="uni-input" placeholder="标题（选填）" /></view>
 			<view class="uni-textarea"><textarea v-model="description" placeholder="和志同道合的人一起分享动态吧" style="height: 400upx;" /></view>
 
 			<view class="uni-list-cell uni-list-cell-pd" v-if="tapIndex === 2 || 3">

@@ -20,27 +20,7 @@
 				
 			</view>
 	
-			<view class="feedback-body feedback-uploader">
-			    <view class="uni-uploader">
-			        <view class="uni-uploader-head">
-			            <view class="uni-uploader-title">上传任务封面图片</view>
-			            
-			        </view>
-			        <view class="uni-uploader-body">
-			            <view class="uni-uploader__files">
-			                <block v-for="(image,index) in choosedImg" :key="index">
-			                    <view class="uni-uploader__file" style="position: relative;">
-			                        <image class="uni-uploader__img" :src="image" ></image>
-			                        <view class="close-view" @click="close(index)">x</view>
-			                    </view>
-			                </block>
-			                <view class="uni-uploader__input-box">
-			                	<view class="uni-uploader__input" @tap="chooseCoverImg"></view>
-			                </view>
-			            </view>
-			        </view>
-			    </view>
-			</view>
+			<uni-compus-upload-img title="选择任务需要的图片(点击可预览)" :imageList="taskInfo.imageList" @close="close" @chooseImg="chooseImg"></uni-compus-upload-img>
 			<view class="addTaskCategory">
 				<view class="addTaskCategory-item" v-for="(item,idx) in addTaskCategoryItems" :key="idx" >
 					<text class="content">{{item}}</text>
@@ -56,9 +36,9 @@
 			</view>
 			
 			
-			
+			<uniCompusButton width="100" content="发布任务" backgroud="#ffa502"></uniCompusButton>
 		</view>
-		<uniCompusButton width="100" content="发布任务" backgroud="#ffa502"></uniCompusButton>
+		
 		<w-picker
 		        mode="shortTerm"
 		        value="2020-04-08 13:18:00"
@@ -67,7 +47,7 @@
 		        @confirm="onConfirmDeadLine($event,'shortTerm')"
 		        
 		        ref="shortTerm" 
-		    ></w-picker
+		    >
 		</w-picker>
 		<chunLei-modal v-model="showModel" :mData="inputData" type="input" @onConfirm="onConfirm" @cancel="cancel" navMask>
 		    </chunLei-modal>

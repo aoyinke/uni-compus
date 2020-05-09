@@ -36,82 +36,82 @@
 					"pathName": "pages/index/index"
 				},
 				{
-					"name": "groupTaskDetail",
+					"name": "collectionsDetail",
 					"query": "",
 					"id": 1,
+					"pathName": "pages/collectionsDetail/collectionsDetail"
+				},
+				{
+					"name": "groupTaskDetail",
+					"query": "",
+					"id": 2,
 					"pathName": "pages/groupTaskDetail/groupTaskDetail"
+				},
+				{
+					"name": "startPage",
+					"query": "",
+					"id": 3,
+					"pathName": "pages/startPage/startPage"
 				},
 				{
 					"name": "groupTaskList",
 					"query": "",
-					"id": 2,
+					"id": 4,
 					"pathName": "pages/groupTaskList/groupTaskList"
 				},
 				{
 					"name": "groupConcat",
 					"query": "",
-					"id": 3,
+					"id": 5,
 					"pathName": "pages/groupInfoConcat/groupInfoConcat"
 				},
 				{
 					"name": "PublishTask",
 					"query": "",
-					"id": 4,
+					"id": 6,
 					"pathName": "pages/publishTask/publishTask"
 				},
 				{
 					"name": "groupDetail",
 					"query": "",
-					"id": 5,
+					"id": 7,
 					"pathName": "pages/groupDetail/groupDetail"
 				},
 				{
 					"name": "feedBack",
 					"query": "",
-					"id": 6,
+					"id": 8,
 					"pathName": "pages/feedBack/feedBack"
 				},
 				{
 					"name": "index",
 					"query": "",
-					"id": 7,
+					"id": 9,
 					"pathName": "pages/chatGroup/chatGroup"
 				},
 				{
 					"name": "mySave",
 					"query": "",
-					"id": 8,
+					"id": 10,
 					"pathName": "pages/mySave/mySave"
 				},
 				{
 					"name": "groupInfoDetail",
 					"query": "",
-					"id": 9,
+					"id": 11,
 					"pathName": "pages/groupInfoDetail/groupInfoDetail"
 				},
 				{
 					"name": "chatPages",
 					"query": "",
-					"id": 10,
+					"id": 12,
 					"pathName": "pages/chatPages/chatPages"
-				},
-				{
-					"name": "cooperate",
-					"query": "",
-					"id": 11,
-					"pathName": "pages/cooperate/cooperate"
 				},
 				{
 					"name": "interestTag",
 					"query": "",
-					"id": 12,
-					"pathName": "pages/interestsTag/interestsTag"
-				},
-				{
-					"name": "personShow",
-					"query": "",
 					"id": 13,
-					"pathName": "pages/personShow/personShow"
+					"pathName": "pages/interestsTag/interestsTag"
 				},
 				{
 					"name": "activityDetail",

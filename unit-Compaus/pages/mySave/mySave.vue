@@ -1,20 +1,80 @@
 <template>
 	<view>
 		<uni-nav-bar left-icon="back" title="我的详情" @clickLeft="clickLeft"></uni-nav-bar>
+		<view style="">
+			<lv-select
+				@handleSearch="handleSearch"
+				@change="change"
+				placeholder="输入名称搜索"
+				:infoList="infoList"
+				:showValue="showValue"
+				v-model="searchValue"
+				:loading="loading"
+				type="primary"
+				:uniShadow="true"
+			></lv-select>
+		</view>
 		<view class="uni-tab-bar">
 			<scroll-view scroll-y="true" class="list">
-				<view class="likeActivity" v-if="type == 0">
-					<activity  :activityInfo="activityInfo"></activity>
-				</view>
-					
-				<view class="groupList" v-for="(item, index) in saveGroups" :key="index" v-if="type == 1">
-					<group-item 
-					:needChat="false" :groupLogo="item.groupLogo" :groupName="item.groupName" :intro="item.intro" :tag="item.tag"></group-item>
-				</view>
-				<view class="groupList" v-for="(item, index) in alreadyJoins" :key="index" v-if="type == 2">
-					<group-item 
-					:needChat="false" :groupLogo="item.groupLogo" :groupName="item.groupName" :intro="item.intro" :tag="item.tag"></group-item>
-				</view>
+				<template v-if="type == 0">
+					<view class="likeActivity" >
+						<activity  :activityInfo="communityList"></activity>
+						<view>
+							<uni-fab
+								v-if="showPopButton"
+								:pattern="pattern"
+								:popMenu="ispopMenu"
+								:content="content"
+								horizontal="right"
+								vertical="bottom"
+								direction="horizontal"
+								@trigger="trigger"
+								@fabClick="showMenu"
+							></uni-fab>
+						</view>
+					</view>
+				</template>
+				
+				<template v-if="type == 1">
+					<block v-for="(item, index) in group.userSavedGroup" :key="index" >
+						<view class="groupList" >
+							<group-item 
+							:needChat="false" :groupLogo="item.logo" :groupName="item.name" :intro="item.intro" :tag="item.tag"></group-item>
+						</view>
+				</block>
+				</template>
+				<template v-if="type == 2">
+					<block v-for="(item, index) in group.userJoinedGroup" :key="index">
+						<view class="groupList"  >
+							<group-item 
+							:needChat="false" :groupLogo="item.logo" :groupName="item.name" :intro="item.intro" :tag="item.tag"></group-item>
+						</view>
+					</block>
+				</template>
+				<template v-if="type == 3">
+					<block v-for="(concernedPerson,id) in user.concernedPersonList" :key="id" >
+						<view class="concernedPerson-item">
+							<view class="concernedPerson-item-left">
+								<kp-avatar
+								  :image="concernedPerson.avatar"
+								  size="large"
+								  mode=""
+								  @tap="handleOpenCommunity(row)"
+								/>
+							</view>
+							<view class="concernedPerson-item-right">
+								<view class="concernedPerson-item-right-name">
+									<text>{{concernedPerson.name}}</text>
+								</view>
+								<view class="concernedPerson-item-right-intro text-line-2">
+									<text>{{concernedPerson.intro}}</text>
+								</view>
+							</view>
+						</view>
+						
+					</block>
+				</template>
+				
 				
 				
 			</scroll-view>
@@ -26,57 +86,110 @@
 import groupItem from '@/components/group/group-item.vue';
 import photoWall from '@/config/wallpapers.js';
 import activity from '@/components/activity/activity.vue';
+import KpAvatar from '@/components/kp-avatar/index.vue';
+
+import {mapState} from 'vuex'
 export default {
 	data() {
 		return {
 			type: 0,
-			saveGroups: [
+			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
+			searchValue: '',
+			infoList: [],
+			infoLists: [
 				{
-					groupName: '轻松一校项目组',
-					groupLogo: 'https://images.mepai.me/app/works/38224/2018-10-06/w_5bb80b86d3506/05bb80b86d38ab.jpg!1200w.jpg',
-					intro: '轻松一校项目组是地球上最强大的组织之一，它负责...',
-					tag: ['强大', '优秀']
-				}
-			],
-			alreadyJoins:[
+					name: '吕星辰1'
+				},
 				{
-					groupName: '轻松一校项目组',
-					groupLogo: 'https://images.mepai.me/app/works/38224/2018-10-06/w_5bb80b86d3506/05bb80b86d38ab.jpg!1200w.jpg',
-					intro: '轻松一校项目组是地球上最强大的组织之一，它负责...',
-					tag: ['强大', '优秀']
+					name: '吕星辰2'
+				},
+				{
+					name: '吕星辰3'
+				},
+				{
+					name: '吕星辰4'
 				}
 			],
-			activityInfo: [{
-					groupLogo: "../../static/test/waterfull/1.jpg",
-					groupName: "比赛大佬组",
-					activityStartTime: "17小时前",
-					activityPropagate: {
-						type: "img",
-						src: ['../../static/test/waterfull/1.jpg', '../../static/test/waterfull/2.jpg',
-							'../../static/test/waterfull/3.jpg'
-						]
-					},
-					hotNum: 80,
-					commentNum: 6,
-					commentDetail: [{
-							commentor: "天堂屠夫",
-							commentContent: "nb....."
-						},
-						{
-							commentor: "天堂屠夫",
-							commentContent: "tnb....."
-						},
-						{
-							commentor: "天堂屠夫",
-							commentContent: "cznb....."
-						}
-					]
+			
+			contentIndex:0,
+			content: [
+				{
+					iconPath: '../../static/index/MyActivity.png',
+					selectedIconPath: '../../static/index/MyActivity.png',
+					text: '活动',
+					active: true
+				},
+				{
+					iconPath: '../../static/index/answer.png',
+					selectedIconPath: '../../static/index/answer.png',
+					text: '动态',
+					active: false
+				},
+				// {
+				// 	iconPath: "../../static/index/answer.png",
+				// 	selectedIconPath: "../../static/index/answer.png",
+				// 	text: "问答",
+				// 	active: false
+				// },
+				{
+					iconPath: '../../static/index/knowledge.png',
+					selectedIconPath: '../../static/index/knowledge.png',
+					text: '知识',
+					active: false
 				}
 			],
+			pattern: {
+				buttonColor: '#1e90ff'
+			},
+			showPopButton: true,
+			ispopMenu: false
+			
+			
 		};
 	},
-
+	computed:{
+		...mapState([
+			'group',
+			'user'
+		]),
+		communityList(){
+			switch(this.contentIndex){
+				case 0:
+					return this.user.userLikedActivity.activityInfo
+				case 1:
+					return this.user.userLikedActivity.groupDynamic
+				case 2:
+					return this.user.userLikedActivity.knowledge
+			}
+		},
+	},
 	methods: {
+		handleOpenCommunity(row){},
+		handleSearch() {
+			this.loading = true;
+			setTimeout(() => {
+				this.loading = false;
+				this.infoList = this.infoLists;
+			}, 2000);
+		},
+		change(val) {
+			console.log(val);
+		},
+		
+		showMenu() {
+			this.ispopMenu = true;
+		},
+		trigger(e) {
+			this.content.forEach((item, index) => {
+				return (item.active = false);
+			});
+			let index = e.index
+			this.contentIndex = index
+			this.content[index].active = true;
+			this.ispopMenu = false;
+		
+		},
+		
 		clickLeft() {
 			uni.navigateBack({
 				animationDuration: 300,
@@ -86,29 +199,43 @@ export default {
 	},
 	components: {
 		groupItem,
-		activity
+		activity,
+		KpAvatar
 	},
 	created() {
 		for (let i = 0; i < 10; i++) {
-			this.saveGroups.push(this.saveGroups[0]);
-			this.alreadyJoins.push(this.alreadyJoins[0]);
-			this.activityInfo.push(this.activityInfo[0])
+			
 		}
-		this.saveGroups.forEach((item, index) => {
-			return (item.groupLogo = photoWall[10 + index]);
-		});
-
-		this.alreadyJoins.forEach((item, index) => {
-			return (item.groupLogo = photoWall[30 + index]);
-		});
+		
 	},
 	onLoad(option) {
 		
 		const item = JSON.parse(decodeURIComponent(option.item));
 		this.type = item.type;
 		console.log(this.type)
+		console.log(this.user)
 	}
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+	.concernedPerson-item{
+		display: flex;
+		align-items: center;
+		margin-bottom: 20upx;
+		&-left{
+			width: 20%;
+			padding: 20upx;
+		}
+		&-right{
+			flex: 1;
+			&-name{
+				font-size: 32upx;
+				
+			}
+			&-intro{
+				color: gray;
+			}
+		}
+	}
+</style>

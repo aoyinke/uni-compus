@@ -1,0 +1,3 @@
+export default{
+	STORE_LEAVE_TIME:"STORE_LEAVE_TIME"
+}

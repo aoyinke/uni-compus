@@ -8,11 +8,17 @@ import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue'
 import chunLeiModal from '@/components/chunLei-modal/chunLei-modal.vue'
 import TabMask from '@/components/chunLei-modal/tabMask'
 import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue'
+import MescrollBody from "@/components/mescroll-uni/mescroll-body.vue"
+import MescrollUni from "@/components/mescroll-uni/mescroll-uni.vue"
+import lvSelect from '@/components/lv-select/lv-select.vue';
 
 Vue.config.productionTip = false
 Vue.component('uniNavBar', uniNavBar);
 Vue.component('chunLei-modal',chunLeiModal);
 Vue.component('uniCompusButton',uniCompusButton);
+Vue.component('mescroll-body', MescrollBody)
+Vue.component('mescroll-uni', MescrollUni)
+Vue.component('lv-select',lvSelect)
 
 //把vuex定义成全局组件
 Vue.prototype.$store = store

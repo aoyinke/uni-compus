@@ -9,9 +9,7 @@
     "pages/publishActivity/publishActivity",
     "pages/findPeople/findPeople",
     "pages/login/login",
-    "pages/personShow/personShow",
     "pages/interestsTag/interestsTag",
-    "pages/cooperate/cooperate",
     "pages/chatPages/chatPages",
     "pages/groupInfoDetail/groupInfoDetail",
     "pages/mySave/mySave",
@@ -21,7 +19,10 @@
     "pages/groupTaskList/groupTaskList",
     "pages/groupInfoConcat/groupInfoConcat",
     "pages/publishTask/publishTask",
-    "pages/groupTaskDetail/groupTaskDetail"
+    "pages/groupTaskDetail/groupTaskDetail",
+    "pages/startPage/startPage",
+    "pages/manage/manage",
+    "pages/collectionsDetail/collectionsDetail"
   ],
   "subPackages": [],
   "window": {
@@ -50,10 +51,10 @@
         "text": "找人"
       },
       {
-        "pagePath": "pages/groupDetail/groupDetail",
+        "pagePath": "pages/manage/manage",
         "iconPath": "static/tarBar/cooperate.png",
         "selectedIconPath": "static/tarBar/cooperate.png",
-        "text": "协作"
+        "text": "管理"
       },
       {
         "pagePath": "pages/group/group",
@@ -72,7 +73,9 @@
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
-    "uni-compus-button": "/components/uni-compus-components/unicompus-button"
-  },
-  "sitemapLocation": "sitemap11.json"
+    "uni-compus-button": "/components/uni-compus-components/unicompus-button",
+    "mescroll-body": "/components/mescroll-uni/mescroll-body",
+    "mescroll-uni": "/components/mescroll-uni/mescroll-uni",
+    "lv-select": "/components/lv-select/lv-select"
+  }
 }

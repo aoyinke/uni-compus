@@ -37,16 +37,8 @@
 		}
 
 		, {
-			"path": "pages/personShow/personShow",
-			"style": {}
-		}, {
 			"path": "pages/interestsTag/interestsTag",
 			"style": {}
-		}, {
-			"path": "pages/cooperate/cooperate",
-			"style": {
-				"enablePullDownRefresh": true
-			}
 		}, {
 			"path": "pages/chatPages/chatPages",
 			"style": {}
@@ -77,8 +69,24 @@
 		}, {
 			"path": "pages/groupTaskDetail/groupTaskDetail",
 			"style": {}
+		}, {
+			"path": "pages/startPage/startPage",
+			"style": {
+				"navigationBarTitleText": "广告页",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/manage/manage",
+			"style": {}
 		}
-	],
+	    ,{
+            "path" : "pages/collectionsDetail/collectionsDetail",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
@@ -104,10 +112,10 @@
 				"text": "找人"
 			},
 			{
-				"pagePath": "pages/groupDetail/groupDetail",
+				"pagePath": "pages/manage/manage",
 				"iconPath": "static/tarBar/cooperate.png",
 				"selectedIconPath": "static/tarBar/cooperate.png",
-				"text": "协作"
+				"text": "管理"
 			},
 			{
 				"pagePath": "pages/group/group",
@@ -131,8 +139,18 @@
 				"query": "" //启动参数，在页面的onLoad函数里面得到
 			},
 			{
+					"name": "collectionsDetail", //模式名称
+					"path": "pages/collectionsDetail/collectionsDetail", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+			{
 				"name": "groupTaskDetail", //模式名称
 				"path": "pages/groupTaskDetail/groupTaskDetail", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			},
+			{
+				"name": "startPage", //模式名称
+				"path": "pages/startPage/startPage", //启动页面，必选
 				"query": "" //启动参数，在页面的onLoad函数里面得到
 			},
 			{
@@ -178,21 +196,13 @@
 				"path": "pages/chatPages/chatPages", //启动页面，必选
 				"query": "" //启动参数，在页面的onLoad函数里面得到
 			},
-			{
-				"name": "cooperate", //模式名称
-				"path": "pages/cooperate/cooperate", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
+
 			{
 				"name": "interestTag", //模式名称
 				"path": "pages/interestsTag/interestsTag", //启动页面，必选
 				"query": "" //启动参数，在页面的onLoad函数里面得到
 			},
-			{
-				"name": "personShow", //模式名称
-				"path": "pages/personShow/personShow", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
+
 			{
 				"name": "activityDetail", //模式名称
 				"path": "pages/activityDetail/activityDetail", //启动页面，必选

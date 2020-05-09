@@ -108,6 +108,7 @@
   background-color: #ced6e0;
 }
 .swiper-box.data-v-a07b11b0 {
+  position: relative;
   height: 125%;
 }
 .paragraph.data-v-a07b11b0 {

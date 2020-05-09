@@ -52,6 +52,17 @@
   -webkit-flex-direction: column;
           flex-direction: column;
 }
+.addConcernEvent.data-v-22ae151c {
+  color: #00a8ff;
+}
+.changeTaskName input.data-v-22ae151c {
+  text-align: right;
+}
+.inputConcernEvent.data-v-22ae151c {
+  background-color: #dcdde1;
+  margin: 20rpx 20rpx 20rpx 20rpx;
+  border: 1px solid #eee;
+}
 .TaskName.data-v-22ae151c {
   text-align: center;
   margin-bottom: 30rpx;

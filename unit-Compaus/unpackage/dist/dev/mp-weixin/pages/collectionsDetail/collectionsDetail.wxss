@@ -1,0 +1,35 @@
+.activity-title.data-v-0482b194 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  height: 40rpx;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  margin-bottom: 10rpx;
+}
+.activity-title-left.data-v-0482b194 {
+  background: #3498db;
+  width: 20rpx;
+  background-clip: content-box;
+  height: 100%;
+}
+.activity-title-right.data-v-0482b194 {
+  font-size: 36rpx;
+  font-weight: 500;
+}
+.container.data-v-0482b194 {
+  height: 100vh;
+  position: relative;
+}
+.container .swiper-box.data-v-0482b194 {
+  position: absolute;
+  top: 4%;
+  right: 10%;
+  height: 80%;
+  width: 80%;
+}
+

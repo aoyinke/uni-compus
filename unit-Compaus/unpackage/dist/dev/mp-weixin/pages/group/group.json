@@ -8,6 +8,8 @@
     "group-item": "/components/group/group-item",
     "filter-bar": "/components/uni-compus-components/uniCompus-filter",
     "uni-compus-button": "/components/uni-compus-components/unicompus-button",
-    "go-detail": "/components/uni-compus-components/uniCompus-goDetail"
+    "go-detail": "/components/uni-compus-components/uniCompus-goDetail",
+    "ms-dropdown-menu": "/components/ms-dropdown/dropdown-menu",
+    "ms-dropdown-item": "/components/ms-dropdown/dropdown-item"
   }
 }

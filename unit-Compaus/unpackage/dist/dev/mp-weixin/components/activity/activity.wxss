@@ -1,3 +1,6 @@
+.mainBar.data-v-4ea9ceb8 {
+  min-height: 300rpx;
+}
 .activity-title.data-v-4ea9ceb8 {
   margin: 20rpx;
   text-align: center;

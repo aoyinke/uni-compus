@@ -1,55 +1,55 @@
 <template>
 	<view>
-		<uni-nav-bar  title="社团" >
-			<view class="chooseGroup" name="left">
-				
-			</view>
+		<uni-nav-bar  title="社团"  left-icon="back"  @clickLeft="clickLeft">
+			
 		</uni-nav-bar>
-		<view class="mainContent">
-			<view class="detail-header">
-						<swiper
-						  circular
-						  class="gallery"
-						  interval="6000"
-						  :current="home.galleryIndex"
-						  @change="handleSwiperChange"
-						  @transition="handleSwiperTarget"
-						  @animationfinish="handleSwiperFinish"
-						>
-						  <swiper-item v-for="(item,index) in home.gallery" :key="index">
-						    <image :src="item" lazy-load mode="aspectFill">
-						  </swiper-item>
-						</swiper>
-					
-					<view class="dots">
-					  <view class="dots-count">
-					    <text>{{ home.galleryIndex+1 }}</text>
-					    \{{ home.gallery.length }}
-					  </view>
-					  <kp-swiper
-					    v-model="home.gallery"
-					    :dotsIndex="home.galleryIndex"
-					    :dotsDirection="home.galleryDirection"
-					    @update="val=>home.galleryIndex=val"
-					  />
+		<view class="uni-tab-bar">
+			<scroll-view scroll-y="true" style="height: 100vh;">
+				<view class="mainContent">
+					<view class="detail-header">
+								<swiper
+								  circular
+								  class="gallery"
+								  interval="6000"
+								  :current="home.galleryIndex"
+								  @change="handleSwiperChange"
+								  @transition="handleSwiperTarget"
+								  @animationfinish="handleSwiperFinish"
+								>
+								  <swiper-item v-for="(item,index) in home.gallery" :key="index">
+								    <image :src="item" lazy-load mode="aspectFill">
+								  </swiper-item>
+								</swiper>
+							
+							<view class="dots">
+							  <view class="dots-count">
+							    <text>{{ home.galleryIndex+1 }}</text>
+							    \{{ home.gallery.length }}
+							  </view>
+							  <kp-swiper
+							    v-model="home.gallery"
+							    :dotsIndex="home.galleryIndex"
+							    :dotsDirection="home.galleryDirection"
+							    @update="val=>home.galleryIndex=val"
+							  />
+							</view>
+							<view class="userBar">
+								<view class="userInfo">
+									<view class="userInfo-top">
+										<text>{{owner.name}}</text>
+									</view>
+									<view class="userPosition">
+										<text class="eosfont">&#xe60d;</text>
+										<text>{{owner.position}}</text>
+									</view>
+								</view>
+								<view class="heart">
+									<likeIcon></likeIcon>
+								</view>
+						</view>
 					</view>
-					<view class="userBar">
-						<view class="userInfo">
-							<view class="userInfo-top">
-								<text>{{owner.name}}</text>
-							</view>
-							<view class="userPosition">
-								<text class="eosfont">&#xe60d;</text>
-								<text>{{owner.position}}</text>
-							</view>
-						</view>
-						<view class="heart">
-							<likeIcon></likeIcon>
-						</view>
 				</view>
-			</view>
-			<view class="uni-tab-bar">
-				<scroll-view scroll-y="true" :style="{height:scrollHeight + 'px'}">
+				<view class="uni-tab-bar">
 					<view class="naviBar">
 						<block v-for="(item,index) in nav" :key="index">
 							<view class="nav-item"  @click="changePage(index)" :class="{'active': tapIndex==index}">
@@ -58,130 +58,113 @@
 						</block>	
 						
 					</view>
-					<swiper :current="tapIndex" @change="pageSwiperChange" class="swiper-box">
-						<swiper-item>
-							<view class="homePage">
-								
-								<view class="Introduce paragraph">
-									<view class="paragraph-title">
-										<kp-badge class="title-dot" dot bg-color="#f5624f"/>
-										<h2>介绍</h2>
-									</view>
-								  <view class="Introduce content">
-								  	<text>这个人很懒，啥介绍也没有~</text>
-								  </view>
+				<swiper :current="tapIndex" @change="pageSwiperChange" class="swiper-box">
+					<swiper-item>
+						<view class="homePage">
+							
+							<view class="Introduce paragraph">
+								<view class="paragraph-title">
+									<kp-badge class="title-dot" dot bg-color="#f5624f"/>
+									<h2>介绍</h2>
 								</view>
-								
-								<view class="achievement paragraph">
-									<view class="paragraph-title">
-										<kp-badge class="title-dot" dot bg-color="#1e90ff"/>
-										<h2>成就</h2>
-									</view>
-								  <view class="Introduce content">
-								  	<text>这个人很懒，啥成就也没有~</text>
-								  </view>
-								</view>
-								
-								<view class="classicActivity paragraph">
-									<view class="paragraph-title">
-										<kp-badge class="title-dot" dot bg-color="#1e90ff"/>
-										<h2>专属活动</h2>
-									</view>
-								  <view class="classicActivity content">
-								  	<text>这个人很懒，啥成就也没有~</text>
-								  </view>
-								</view>
-								
-								<view class="labels paragraph">
-									<view class="paragraph-title">
-										<kp-badge class="title-dot" dot bg-color="#ff7f50"/>
-										<h2>定制标签</h2>
-									</view>
-								  <view class="labels content">
-								  	<kp-tag
-								  	  v-for="(row,index) in user.labels"
-								  	  :key="index"
-								  	  class="detail-labels"
-								  	  type="grey"
-								  	  shape="circle"
-								  	>{{row}}</kp-tag>
-								  </view>
-								</view>
-								
-								
-								<view class="team paragraph">
-									<view class="paragraph-title">
-										<kp-badge class="title-dot" dot bg-color="#ff7f50"/>
-										<h2>团队</h2>
-									</view>
-								  <view class="team content">
-									<view v-for="(row,index) in team" :key="index" class="detail-team-item">
-									  <kp-avatar
-									    :image="row.avatar"
-									    size="large"
-									    mode="aspectFill"
-									    @tap="handleOpenCommunity(row)"
-									  />
-									  <text>{{row.role}}</text>
-									</view>
-								  </view>
-								</view>
+							  <view class="Introduce content">
+							  	<text>这个人很懒，啥介绍也没有~</text>
+							  </view>
 							</view>
-						</swiper-item>
-						<swiper-item class="cooperate">
-							<view class="collections-title">
-								<text>团队协作</text>
+							
+							<view class="achievement paragraph">
+								<view class="paragraph-title">
+									<kp-badge class="title-dot" dot bg-color="#1e90ff"/>
+									<h2>成就</h2>
+								</view>
+							  <view class="Introduce content">
+							  	<text>这个人很懒，啥成就也没有~</text>
+							  </view>
 							</view>
-							<view class="cooperateBar">
-								<block v-for="(cooperateItem,id) in cooperateItems" :key="id">
+							
+							<view class="classicActivity paragraph">
+								<view class="paragraph-title">
+									<kp-badge class="title-dot" dot bg-color="#1e90ff"/>
+									<h2>专属活动</h2>
+								</view>
+							  <view class="classicActivity content">
+							  	<text>这个人很懒，啥成就也没有~</text>
+							  </view>
+							</view>
+							
+							<view class="labels paragraph">
+								<view class="paragraph-title">
+									<kp-badge class="title-dot" dot bg-color="#ff7f50"/>
+									<h2>定制标签</h2>
+								</view>
+							  <view class="labels content">
+							  	<kp-tag
+							  	  v-for="(row,index) in user.labels"
+							  	  :key="index"
+							  	  class="detail-labels"
+							  	  type="grey"
+							  	  shape="circle"
+							  	>{{row}}</kp-tag>
+							  </view>
+							</view>
+							
+							
+							<view class="team paragraph">
+								<view class="paragraph-title">
+									<kp-badge class="title-dot" dot bg-color="#ff7f50"/>
+									<h2>团队</h2>
+								</view>
+							  <view class="team content">
+								<view v-for="(row,index) in team" :key="index" class="detail-team-item">
+								  <kp-avatar
+								    :image="row.avatar"
+								    size="large"
+								    mode="aspectFill"
+								    @tap="handleOpenCommunity(row)"
+								  />
+								  <text>{{row.role}}</text>
+								</view>
+							  </view>
+							</view>
+						</view>
+					</swiper-item>
+					
+					<swiper-item class="collections">
+						<view class="collections-title">
+							<text>Previous collections</text>
+						</view>
+						<view class="collectionsBar" v-for="(collection,idx) in collections" :key="idx">
+							<view class="collections-item">
+								<view class="collections-item-left">
+									<view class="collections-item-left-coverImg">
+										<image :src="collection.coverImg" mode=""></image>
+									</view>
 									
-									<view class="cooperateBar-choice" :style="{backgroundImage:cooperateItem.backgroundImage}" @click="goDetail(id)">
-										<text class="eosfont">&#xe628;</text>
-										
-										<view class="cooperateBar-choice-text">
-											<text>{{cooperateItem.choice}}</text>
-										</view>
-										
+								</view>
+								<view class="collections-item-right">
+									<view class="collections-item-right-top" :style="{backgroundImage:collection.backgroundImage}">
+										{{collection.type}}
 									</view>
-								</block>
-								
-							</view>
-							
-							
-						</swiper-item>
-						<swiper-item class="collections">
-							<view class="collections-title">
-								<text>Previous collections</text>
-							</view>
-							<view class="collectionsBar" v-for="(collection,idx) in collections" :key="idx">
-								<view class="collections-item">
-									<view class="collections-item-left">
-										<view class="collections-item-left-coverImg">
-											<image :src="collection.coverImg" mode=""></image>
-										</view>
-										
-									</view>
-									<view class="collections-item-right">
-										<view class="collections-item-right-top" :style="{backgroundImage:collection.backgroundImage}">
-											{{collection.type}}
-										</view>
-										<view class="collections-item-right-bottom">
-											<text>{{collection.nums}}+</text>
-											<text>More</text>
-										</view>
+									<view class="collections-item-right-bottom">
+										<text>{{collection.nums}}+</text>
+										<text>More</text>
 									</view>
 								</view>
 							</view>
-							
-						</swiper-item>
-					</swiper>
-					<view class="bottom">
-						<uniCompusButton content="分享" background="#ff6b81" width="100" style="width: 40%;"></uniCompusButton>
-						<uniCompusButton content="聊天" background="#70a1ff" width="100" style="width: 40%;" @click.native="gotoChatPage"></uniCompusButton>
-					</view>
-				</scroll-view>
-			</view>
+						</view>
+						
+					</swiper-item>
+					
+				</swiper>
+				
+				</view>
+				<view class="bottom">
+					<uniCompusButton content="分享" background="#ff6b81" width="100" style="width: 40%;"></uniCompusButton>
+					<uniCompusButton content="聊天" background="#70a1ff" width="100" style="width: 40%;" @click.native="gotoChatPage"></uniCompusButton>
+				</view>
+			</scroll-view>
 		</view>
+		
 	</view>
 </template>
 
@@ -227,7 +210,7 @@ export default {
 				{avatar:"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg",role:"前端工程师"},
 				{avatar:"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg",role:"前端工程师"}],
 			tapIndex:0,
-			nav:['主页','协作','合集'],
+			nav:['主页','展示'],
 			owner:{
 				name:"轻松一校",
 				age:1,
@@ -277,6 +260,12 @@ export default {
 		})
 	},
 	methods: {
+		clickLeft() {
+			uni.navigateBack({
+				animationDuration: 300,
+				animationType: 'pop-out'
+			})
+		},
 		gotoChatPage(){
 			uni.navigateTo({
 				url:"/pages/chatPages/chatPages"
@@ -454,6 +443,7 @@ export default {
 		}
 	}
 	.swiper-box{
+		position: relative;
 		height: 125%;
 	}
 	.paragraph{
@@ -597,6 +587,7 @@ export default {
 		display: flex;
 		justify-content: space-evenly;
 		margin-top: 50upx;
+		
 	}
 	@keyframes heartBeat {
 	  0% {

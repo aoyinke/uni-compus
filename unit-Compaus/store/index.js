@@ -4,15 +4,25 @@ import Vuex from 'vuex'
 import chatInfo from './modules/chatInfo.js'
 import activity from './modules/activity/index.js'
 import group from './modules/group/index.js'
+import user from './modules/user/index.js'
+
+import {STORE_LEAVE_TIME} from './mutation_type.js'
 Vue.use(Vuex)
 const store = new Vuex.Store({
-    state: {},
-    mutations: {},
-    actions: {},
+    state: {
+		leaveTime: 0
+	},
 	modules:{
 		chatInfo,
 		activity,
-		group
+		group,
+		user
+	},
+	mutations:{
+		[STORE_LEAVE_TIME](state, payload) { // 记录离开时间
+			let date = new Date()
+			state.leaveTime = date.getTime()
+		},
 	}
 })
 export default store

@@ -2,10 +2,25 @@
 	<view class="groupTopBar">
 		<view class="groupTopBar-left" @click="toUserDetail">
 			<view class="groupLogo">
-				<image :src="groupLogo" mode="scaleToFill"></image>
+				<image :src="groupInfo.groupLogo" mode="scaleToFill"></image>
 			</view>
 			<view class="groupName">
-				<text class="groupName-first">{{groupName}}</text>
+				<view class="groupName-top">
+					<text class="groupName-first">{{groupInfo.groupName}}</text>
+					<kp-tag size="small" bg-color="#d1ebfd" weight="500" class="left-tag">
+					  <!-- <kp-icon size="24" type="male" color="#3bb2f3"/> -->
+					  <text class="eosfont category">&#xe602;</text>
+					  <text>{{groupInfo.category}}</text>
+					</kp-tag>
+					<kp-tag
+					  size="small"
+					  color="#f9796a"
+					  weight="500"
+					  bg-color="#f4dee0"
+					  class="left-star"
+					>活动精彩</kp-tag>
+				</view>
+				
 				<text class="groupName-last">{{activityStartTime}}</text>
 			</view>
 		</view>
@@ -19,46 +34,34 @@
 </template>
 
 <script>
+	import KpIcon from "@/components/kp-icon";
+	import KpTag from "@/components/kp-tag";
 	export default {
 		data() {
 			return {
 				isdisabled:false
 			};
 		},
+		components:{
+			KpIcon,
+			KpTag
+		},
 		props: {
-			groupLogo: {
-				type: String,
-				default: '../../static/logo.jpg'
-			},
-			groupName:{
-				type:String,
-				required:true
+			groupInfo:{
+				type:Object,
+				default:{}
 			},
 			activityStartTime:{
 				type:String,
 				required:true
-			},
-			imgs:{
-				type:Array
-			},
-			text:{
-				type:String
-			},
-			activityId:{
-				type:String,
-				required:true
-			},
-			userId:{
-				type:Number,
 			}
 		},
 		methods:{
 
 			toUserDetail(){
+				console.log('6666666666666')
 				uni.navigateTo({
-					url:"/pages/groupDetail/groupDetail",
-					animationDuration:500,
-					animationType:'auto'
+					url:"/pages/groupDetail/groupDetail"
 				})
 			},
 			followerUser(){
@@ -102,7 +105,14 @@
 				margin-left: 10upx;
 				flex-direction: column;
 				flex-wrap: nowrap;
-
+				&-top{
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					kp-tag{
+						margin-left: 15upx;
+					}
+				}
 				.groupName-first {
 					font-weight: bold;
 

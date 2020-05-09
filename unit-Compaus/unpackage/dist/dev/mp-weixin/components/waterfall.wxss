@@ -7,8 +7,8 @@
   border-radius: 20rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-box-shadow: 2rpx 2rpx 8rpx 8rpx #EEEEEE;
-          box-shadow: 2rpx 2rpx 8rpx 8rpx #EEEEEE;
+  -webkit-box-shadow: 2rpx 2rpx 8rpx 8rpx #eeeeee;
+          box-shadow: 2rpx 2rpx 8rpx 8rpx #eeeeee;
   margin: 20rpx;
 }
 .peopleFall-item-img.data-v-0386f9b2 {
@@ -37,7 +37,7 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
           flex-direction: row;
-  border-bottom: 3px solid #EEEEEE;
+  border-bottom: 3px solid #eeeeee;
 }
 .footer-left.data-v-0386f9b2 {
   display: -webkit-box;

@@ -1,6 +1,10 @@
 <template>
 	<view>
-		<uni-nav-bar left-icon="back" title="兴趣小组"></uni-nav-bar>
+		<uni-nav-bar>
+			<view class="selectSchool" slot="left">
+				<ms-dropdown-menu><ms-dropdown-item v-model="school" :list="list"></ms-dropdown-item></ms-dropdown-menu>
+			</view>
+		</uni-nav-bar>
 		<view style="">
 			<lv-select
 				@handleSearch="handleSearch"
@@ -16,14 +20,11 @@
 		</view>
 
 		<view class="groupInfo">
+			<view class="groupInfo-prepare" @click="checkAlreadySave">
+				<text class="first">{{ user.groupInfo.prepare }}</text>
+				<text class="second">已经收藏的小组</text>
+			</view>
 
-				<view class="groupInfo-prepare" @click="checkAlreadySave">
-					
-					<text class="first">{{ user.groupInfo.prepare }}</text>
-					<text class="second">已经收藏的小组</text>
-					
-				</view>
-			
 			<view class="groupInfo-already" @click="checkAlreadyJoin">
 				<text class="first">{{ user.groupInfo.already }}</text>
 				<text class="second">已经加入的小组</text>
@@ -42,7 +43,7 @@
 			<swiper-item v-for="(items, index) in groupDetail" :key="index">
 				<scroll-view scroll-y class="list" :style="{ height: swiperHeight + 'px' }">
 					<block v-for="(item, indx) in items.content" :key="indx">
-						<group-item :groupLogo="item.groupLogo" :groupName="item.groupName" :intro="item.intro" :tag="item.tag"></group-item>
+						<group-item :groupLogo="item.groupLogo" :groupName="item.groupName" :intro="item.intro" :tag="item.tag" @click.native="gotoDetail"></group-item>
 					</block>
 				</scroll-view>
 			</swiper-item>
@@ -68,6 +69,8 @@ import uniDrawer from '@/components/uni-drawer/uni-drawer.vue';
 import filterBar from '@/components/uni-compus-components/uniCompus-filter.vue';
 import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue';
 import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue';
+import msDropdownMenu from '@/components/ms-dropdown/dropdown-menu.vue';
+import msDropdownItem from '@/components/ms-dropdown/dropdown-item.vue';
 export default {
 	data() {
 		return {
@@ -89,6 +92,22 @@ export default {
 					name: '吕星辰4'
 				}
 			],
+
+			list: [
+				{
+					text: "上海海事大学",
+					value: 0
+				},
+				{
+					text: "上海交通大学",
+					value: 1
+				},
+				{
+					text: "复旦大学",
+					value: 2
+				}
+			],
+			school: "上海海事大学",
 
 			filters: [
 				{
@@ -136,22 +155,27 @@ export default {
 		filterBar,
 		uniCompusButton,
 		lvSelect,
-		goDetail
+		goDetail,
+		msDropdownMenu,
+		msDropdownItem
 	},
 	methods: {
-		checkAlreadyJoin(){
-			let item = {type:2}
+		gotoDetail(){
 			uni.navigateTo({
-				url:`/pages/mySave/mySave?item=${encodeURIComponent(JSON.stringify(item))}`
-				
+				url:"/pages/groupDetail/groupDetail"
 			})
 		},
-		checkAlreadySave(){
-			let item = {type:1}
+		checkAlreadyJoin() {
+			let item = { type: 2 };
 			uni.navigateTo({
-				url:`/pages/mySave/mySave?item=${encodeURIComponent(JSON.stringify(item))}`
-				
-			})
+				url: `/pages/mySave/mySave?item=${encodeURIComponent(JSON.stringify(item))}`
+			});
+		},
+		checkAlreadySave() {
+			let item = { type: 1 };
+			uni.navigateTo({
+				url: `/pages/mySave/mySave?item=${encodeURIComponent(JSON.stringify(item))}`
+			});
 		},
 		handleSearch() {
 			this.loading = true;

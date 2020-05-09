@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
-    "tap-bar": "/components/personShow/tapBar",
-    "navigation": "/components/personShow/navigator",
-    "show-item": "/components/personShow/show"
-  }
-}

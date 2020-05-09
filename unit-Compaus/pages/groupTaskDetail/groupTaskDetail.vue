@@ -1,12 +1,29 @@
 <template>
 	<view>
-		<uni-nav-bar left-icon="back" title="任务详情" @clickLeft="clickLeft"></uni-nav-bar>
+		<uni-nav-bar left-icon="back" title="修改任务" @clickLeft="clickLeft"></uni-nav-bar>
 		<view class="TaskName">
 			<text class="eosfont">&#xe627;</text>
-			<text class="TaskName-title">{{ TaskName }}</text>
+			<text class="TaskName-title">{{ taskInfo.taskName }}</text>
 			
 		</view>
 		<view class="main">
+			<view class="uni-list-cell uni-list-cell-pd changeTaskName">
+				<view class="uni-list-cell-db" style="font-weight: 500;">任务的名称</view>
+				<input type="text" v-model="taskInfo.title" />
+			</view>
+			<view class="uni-list-cell uni-list-cell-pd" @tap="changeDeadLine">
+				<view class="uni-list-cell-db" style="font-weight: 500;">任务截止的时间</view>
+				
+				<text>{{taskInfo.deadLine}}</text>
+			</view>
+			<view class="uni-list-cell uni-list-cell-pd">
+				<view class="uni-list-cell-db" style="font-weight: 500;">任务注意的事项</view>
+				<text class="eosfont addConcernEvent">&#xe715;</text>
+			</view>
+			<view class="inputConcernEvent">
+				<textarea v-model="taskInfo.inputConcernEvent" placeholder="请输入任务注意事项" />
+			</view>
+			<uni-compus-upload-img title="选择任务需要的图片(点击可预览)" :imageList="taskInfo.imageList" @close="close" @chooseImg="chooseImg"></uni-compus-upload-img>
 			<view class="joinedPeople">
 				<view class="joinedPeople-change">
 					<view class="joinedPeople-change-left">
@@ -22,6 +39,7 @@
 					</view>
 				</view>
 			</view> 
+			<uni-compus-button content="确认修改" background="#fbc531" width="100"></uni-compus-button>
 		</view>
 		<uni-popup ref="popup" type="bottom">
 			<slot>
@@ -62,18 +80,30 @@
 				</view>
 			</slot>
 		</uni-popup>
+		<w-picker
+		        mode="shortTerm"
+		        value="2020-04-08 13:18:00"
+		        :current="true"
+		        expand="60"
+		        @confirm="onConfirmDeadLine($event,'shortTerm')"
+		        
+		        ref="shortTerm" 
+		    >
+		</w-picker>
 	</view>
 </template>
 
 <script>
+import wPicker from "@/components/w-picker/w-picker.vue"
 import lvSelect from '@/components/lv-select/lv-select.vue';
 import KpAvatar from '@/components/kp-avatar/index.vue';
 import uniPopup from '@/components/uni-popup/uni-popup.vue';
 import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue';
-
+import uniCompusUploadImg from '@/components/uni-compus-components/uniCompus-uploadImg.vue'
 export default {
 	data() {
 		return {
+			taskInfo:{taskName:'开发任务',deadLine:"2020-5-20",title:'开发任务',inputConcernEvent:"",imageList:[]},
 			scrollHeight:"500rpx",
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
 			searchValue: '',
@@ -92,13 +122,38 @@ export default {
 					name: '吕星辰4'
 				}
 			],
-
-			TaskName: '开发任务',
 			groupMembers:[{name:"老王",avatar:"https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/05aa72975372c0.jpg!1200w.jpg"}],
 			joinedPeopleList: [{ name: '小明', avatar: 'https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/15aa729753727f.jpg!1200w.jpg'}]
 		};
 	},
 	methods: {
+		changeDeadLine(){
+			this.$refs.shortTerm.show()
+		},
+		onConfirmDeadLine(event){
+			let obj = this.taskInfo
+			obj.deadLine = event.result
+			this.taskInfo = obj
+			console.log(this.taskInfo)
+		},
+		
+		chooseImg(){
+			uni.chooseImage({
+			    sourceType: ["camera", "album"],
+			    sizeType: "compressed",
+			    count: 8 - this.taskInfo.imageList.length,
+			    success: (res) => {
+					let obj = this.taskInfo
+					obj.imageList = obj.imageList.concat(res.tempFilePaths)
+					this.taskInfo = obj
+			        
+			    }
+			})
+		},
+		close(e){
+			this.taskInfo.imageList.splice(e,1);
+		},
+		
 		addJoinedMember(index,member){
 			this.groupMembers.splice(index,1)
 			this.joinedPeopleList.push(member)
@@ -132,6 +187,8 @@ export default {
 		uniPopup,
 		lvSelect,
 		uniCompusButton,
+		wPicker,
+		uniCompusUploadImg
 		
 	},
 	created() {
@@ -145,6 +202,20 @@ export default {
 
 <style lang="scss" scoped>
 @import './index.scss';
+.addConcernEvent{
+	color: #00a8ff;
+}
+.changeTaskName{
+	input{
+		text-align: right;
+	}
+	
+}
+.inputConcernEvent{
+	background-color: #dcdde1;
+	margin: 20upx 20upx 20upx 20upx;
+	border: 1px solid #eee;
+}
 .TaskName{
 	text-align: center;
 	margin-bottom: 30upx;

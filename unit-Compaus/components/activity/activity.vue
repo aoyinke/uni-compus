@@ -2,29 +2,31 @@
 	<view>
 		<block v-for="(item,idx) in activityInfo" :key="idx">
 			<view class="groupNotification">
-				<user-top-bar :groupLogo="item.groupLogo" :groupName="item.groupName" :activityStartTime="item.activityStartTime"
+				<user-top-bar :groupInfo="item.groupInfo" :activityStartTime="item.activityStartTime"
 				 activityId="1"></user-top-bar>
 				<goDetail detailUrl="/pages/activityDetail/activityDetail" :item="item">
-					<template v-if="item.title">
-						<view class="activity-title">
-							<text>{{item.title}}</text>
-							
-						</view>
-					</template>
-					<template v-if="item.img.length">
-						<swiper :indicator-dots="true" class="swiper">
-							<swiper-item v-for="(img,id) in item.img" :key="id" >
-								<view class="swiper-item">
-									<image :src="img" mode=""></image>
-								</view>
-							</swiper-item>
-						</swiper>
-					</template>
-					<template v-if="item.description">
-						<view class="description text-line-4">
-							<text>{{item.description}}</text>
-						</view>
-					</template>
+					<view class="mainBar">
+						<template v-if="item.title">
+							<view class="activity-title">
+								<text>{{item.title}}</text>
+								
+							</view>
+						</template>
+						<template v-if="item.img.length">
+							<swiper :indicator-dots="true" class="swiper">
+								<swiper-item v-for="(img,id) in item.img" :key="id" >
+									<view class="swiper-item">
+										<image :src="img" mode=""></image>
+									</view>
+								</swiper-item>
+							</swiper>
+						</template>
+						<template v-if="item.description">
+							<view class="description text-line-4">
+								<text>{{item.description}}</text>
+							</view>
+						</template>
+					</view>
 				</goDetail>
 				<view class="footer">
 					<mutation></mutation>
@@ -57,7 +59,7 @@
 			}
 		},
 		onLoad() {
-			console.log(this.activityInfo)
+			
 		},
 		props: {
 			activityInfo: Array
@@ -87,6 +89,9 @@
 </script>
 
 <style lang="scss" scoped>
+	.mainBar{
+		min-height: 300rpx;
+	}
 	.activity-title{
 		margin: 20upx;
 		text-align: center;
@@ -235,4 +240,5 @@
 		margin: 0 15upx;
 		font-weight: 500;
 	}
+	
 </style>

@@ -48,7 +48,8 @@
 
 						<swiper-item>
 							<scroll-view scroll-y="true" class="list">
-								<activity :activityInfo="activityInfo" ref="activityRef"></activity>
+								<activity  :activityInfo="user.userPublished"></activity>
+								
 							</scroll-view>
 						</swiper-item>
 
@@ -67,11 +68,13 @@
 <script>
 	import tapBar from '@/components/tapBar.vue'
 	import personShowWithBg from '@/components/common/personShowWithBg.vue'
-
+	import {mapState} from 'vuex'
 
 	export default {
 		data() {
 			return {
+				
+				
 				scrollHeight: 0,
 				activityInfo: [{
 						groupLogo: "../../static/test/waterfull/1.jpg",
@@ -155,7 +158,11 @@
 			tapBar,
 			personShowWithBg
 		},
-
+		computed:{
+			...mapState([
+				'user'
+			])
+		},
 		methods: {
 			clickLeft() {
 				uni.navigateBack({

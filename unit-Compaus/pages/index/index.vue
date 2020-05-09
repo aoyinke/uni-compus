@@ -3,13 +3,14 @@
 		<uni-nav-bar>
 			<view slot="left" class="nav-bar-left" @tap="topublish"><image :src="leftIcon" mode=""></image></view>
 		</uni-nav-bar>
+		
 		<view class="main">
 			<tapBar :tap-bars="tarBars" :tap-index="tapIndex" @taptab="tabtap"></tapBar>
 
 			<view class="uni-tab-bar">
 				<swiper class="swiper-box" :style="{ height: swiperHeight + 'px' }" :current="tapIndex" @change="tabChange">
 					<swiper-item v-for="(val,key, index) in communityList" :key="index">
-						<scroll-view scroll-y class="list" @scroll="hideFavButton" @click="test(communityList[key])"><activity :activityInfo="communityList[key]"></activity></scroll-view>
+						<scroll-view scroll-y class="list" @scroll="hideFavButton" ><activity :activityInfo="communityList[key]"></activity></scroll-view>
 					</swiper-item>
 				</swiper>
 			</view>
@@ -31,7 +32,7 @@
 </template>
 
 <script>
-import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue';
+
 import activity from '@/components/activity/activity.vue';
 import tapBar from '@/components/tapBar.vue';
 import uniFab from '@/components/uni-fab/uni-fab.vue';
@@ -132,9 +133,7 @@ export default {
 		};
 	},
 	methods: {
-		test(key){
-			console.log(key)
-		},
+
 		async hideFavButton() {
 			let that = this;
 			clearTimeout(timer); // 每次滚动前 清除一次
