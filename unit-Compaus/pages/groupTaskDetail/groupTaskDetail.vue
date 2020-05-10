@@ -11,6 +11,13 @@
 				<view class="uni-list-cell-db" style="font-weight: 500;">任务的名称</view>
 				<input type="text" v-model="taskInfo.title" />
 			</view>
+			<uni-collapse :accordion="true">
+				<uni-collapse-item :title="taskInfo.title" :showAnimation="true" >
+					<view class="task-progress">
+						<textarea v-model="taskInfo.progress" placeholder="更新个人任务进度" />
+					</view>
+				</uni-collapse-item>
+			</uni-collapse>
 			<view class="uni-list-cell uni-list-cell-pd" @tap="changeDeadLine">
 				<view class="uni-list-cell-db" style="font-weight: 500;">任务截止的时间</view>
 				
@@ -100,10 +107,12 @@ import KpAvatar from '@/components/kp-avatar/index.vue';
 import uniPopup from '@/components/uni-popup/uni-popup.vue';
 import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue';
 import uniCompusUploadImg from '@/components/uni-compus-components/uniCompus-uploadImg.vue'
+import uniCollapse from '@/components/uni-collapse/uni-collapse.vue';
+import uniCollapseItem from '@/components/uni-collapse-item/uni-collapse-item.vue';
 export default {
 	data() {
 		return {
-			taskInfo:{taskName:'开发任务',deadLine:"2020-5-20",title:'开发任务',inputConcernEvent:"",imageList:[]},
+			taskInfo:{progress:"",taskName:'开发任务',deadLine:"2020-5-20",title:'开发任务',inputConcernEvent:"",imageList:[]},
 			scrollHeight:"500rpx",
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
 			searchValue: '',
@@ -188,7 +197,9 @@ export default {
 		lvSelect,
 		uniCompusButton,
 		wPicker,
-		uniCompusUploadImg
+		uniCompusUploadImg,
+		uniCollapse,
+		uniCollapseItem,
 		
 	},
 	created() {

@@ -204,7 +204,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       this.concernList.push(categoryId);
       this.content = "已关注";
       console.log(this.concernList);
-    } } };exports.default = _default;
+    } },
+
+  onLoad: function onLoad(option) {
+    var item = JSON.parse(decodeURIComponent(option.item));
+    console.log(item);
+  } };exports.default = _default;
 
 /***/ }),
 

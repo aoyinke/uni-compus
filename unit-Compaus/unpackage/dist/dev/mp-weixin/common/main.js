@@ -11,7 +11,7 @@
 /* WEBPACK VAR INJECTION */(function(uni, createApp) {__webpack_require__(/*! uni-pages */ 4);__webpack_require__(/*! @dcloudio/uni-stat */ 5);var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
 var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 9));
 var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ 26));
-var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 33));
+
 
 
 
@@ -32,7 +32,7 @@ _vue.default.component('lv-select', lvSelect);
 
 //把vuex定义成全局组件
 _vue.default.prototype.$store = _store.default;
-_vue.default.prototype.request = _request.default;
+
 
 // Array.prototype.find = function (element,dataStore){
 //     for( var i = 0 ; i < this.dataStore.length ; i ++ ){
@@ -97,12 +97,16 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 12));
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
 var _util = __webpack_require__(/*! @/utils/util.js */ 15);
-var _vuex = __webpack_require__(/*! vuex */ 22);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
+var _vuex = __webpack_require__(/*! vuex */ 22);
+var _index = _interopRequireDefault(__webpack_require__(/*! @/store/index.js */ 26));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+var util = __webpack_require__(/*! util */ 17);var _default =
 {
   onLaunch: function onLaunch(option) {var _this = this;
+    var host = 'http://localhost';
+    var port = '3000';
     (0, _util.wxLogin)();
     uni.getSystemInfo({
       success: function success(e) {
@@ -132,36 +136,47 @@ var _vuex = __webpack_require__(/*! vuex */ 22);function _interopRequireDefault(
     uni.getStorage({
       key: 'userInfo',
       success: function success(res) {
-        console.log(res.data);
+        var result = JSON.parse(res.data);
         // 此处仅做演示
         // 跟后台校验token的有效性，判定是否在登录状态。如果token失效，需重新登录。app端不强制用户登录，可以游客身份登录，可以进一步优化流程
-        // uni.request({
-        //  url: '',    // 验证token有效性的api
-        //  header: {
-        //     "Token":res.data.token
-        //  },
-        // 	method: "POST",
-        // 	success: response => {
-        // 		if (response.data.code === 200) {
-        // 			this.storeLogin(e.data);
-        // 		} else {  // 验证无效清除用户原有缓存数据
-        // 			this.storeLogout()
-        // 		}
-        // 	}
-        // })
-        _this.storeLogin(JSON.parse(res.data));
+        uni.request({
+          url: util.format('%s:%s/v1/user/verify', host, port), // 验证token有效性的api
+          data: {
+            token: result.token },
+
+          method: 'POST',
+          success: function success(response) {
+            console.log(response);
+            if (response.data.is_valid) {
+              _this.storeLogin({ hasLogin: true, token: result.token, uid: result.uid });
+            } else {// 验证无效清除用户原有缓存数据
+              _this.storeLogout();
+            }
+          },
+          fail: function fail(err) {
+            console.log(err);
+          } });
+
+        // this.storeLogin(JSON.parse(res.data));
       } });
 
 
     //封装uni.request
-    _vue.default.prototype.request = /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(route, data, method) {var result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  uni.request({
-                    url: 'https://smileapi.lililili.net/v1/' + route,
-                    method: method || 'GET',
-                    data: data }));case 2:result = _context.sent;return _context.abrupt("return",
+    _vue.default.prototype.request = function (route, data, method) {
+      var result = uni.request({
+        url: 'http://localhost:3000/' + route,
+        method: method || 'GET',
+        data: data,
+        header: {
+          "token": _index.default.state.user.userInfo.token,
+          "Content-Type": "application/text"
+          // "Content-Type":"json"
+        } });
 
-                result);case 4:case "end":return _context.stop();}}}, _callee);}));return function (_x, _x2, _x3) {return _ref.apply(this, arguments);};}();
 
+
+      return result;
+    };
   },
   onShow: function onShow() {
     var adShowTime = 10 * 60 * 1000; // 10分钟（单位毫秒）
@@ -175,6 +190,7 @@ var _vuex = __webpack_require__(/*! vuex */ 22);function _interopRequireDefault(
 
       }, 10);
     }
+
   },
   onHide: function onHide() {
     console.log('App Hide');
@@ -185,7 +201,9 @@ var _vuex = __webpack_require__(/*! vuex */ 22);function _interopRequireDefault(
 
   globalData: {
     denglu: 0,
-    alreadyInDetail: false } };exports.default = _default;
+    alreadyInDetail: false },
+
+  computed: {} };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

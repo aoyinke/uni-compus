@@ -17,7 +17,7 @@
 					<text>昵称</text>
 				</view>
 				<view class="changePerson_right">
-					<input type="text" v-model="userInfo.userName" />
+					<input type="text" v-model="userInfo.nickName" />
 					<text class="eosfont">&#xe611;</text>
 				</view>
 			</view>
@@ -27,7 +27,7 @@
 					<text>性别</text>
 				</view>
 				<view class="changePerson_right">
-					<text>{{userInfo.userSex}}</text>
+					<text>{{userInfo.sex}}</text>
 					<text class="eosfont">&#xe611;</text>
 				</view>
 			</view>
@@ -37,7 +37,7 @@
 					<text>生日</text>
 				</view>
 				<view class="changePerson_right">
-					<text>{{userInfo.userBirthday}}</text>
+					<text>{{userInfo.birthday}}</text>
 					<text class="eosfont">&#xe611;</text>
 				</view>
 			</view>
@@ -47,7 +47,7 @@
 					<text>情感</text>
 				</view>
 				<view class="changePerson_right">
-					<text>{{userInfo.loveState}}</text>
+					<text>{{userInfo.love}}</text>
 					<text class="eosfont">&#xe611;</text>
 				</view>
 			</view>
@@ -67,20 +67,39 @@
 					<text>家乡</text>
 				</view>
 				<view class="changePerson_right">
-					<text>{{userInfo.hometown}}</text>
+					<text>{{userInfo.homeTown}}</text>
 					<text class="eosfont">&#xe611;</text>
 				</view>
 			</view>
 		</view>
 		
-			<uniCompusButton content="保存" width="100" background="#4834d4"></uniCompusButton>
+			<uniCompusButton content="保存" width="100" background="#4834d4" @click.native="submit"></uniCompusButton>
 		
 		
 		<chunLei-modal v-model="chunLeiModal.value" :type="chunLeiModal.type" :mData="chunLeiModal.mData" navMask @onConfirm="onConfirm">
 		</chunLei-modal>
-		<w-picker :mode="picker.mode" startYear="2016" endYear="2030" :defaultVal="defaultVal" :current="true" @confirm="onConfirmPicker"
-		 ref="picker" themeColor="#f00" :selectList="selectList1">
-		</w-picker>
+		<w-picker
+		        mode="region"
+		        
+		        default-type="value"
+		        :hide-area="false"
+		        @confirm="onConfirmHome($event,'region')"
+		        @cancel="onCancel"
+		        ref="region" 
+		    ></w-picker>
+		
+		    <w-picker
+		        mode="date" 
+		        startYear="2017" 
+		        endYear="2029"
+		        value="2020-04-07"
+		        :current="true"
+		        fields="day"
+		        @confirm="onConfirmBirthday($event,'date')"
+		        
+		        :disabled-after="false"
+		        ref="date" 
+		    ></w-picker>
 	</view>
 </template>
 
@@ -88,8 +107,18 @@
 	import uniNavBar from '@/components/uni-icons/uni-icons.vue'
 	import wPicker from "@/components/w-picker/w-picker.vue"
 	import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue'
-
+	import {mapState} from 'vuex'
 	export default {
+		computed:{
+			...mapState([
+				'user'
+			])
+		},
+		onLoad() {
+			
+			this.userInfo = Object.assign({},this.user.userInfo)
+			console.log(this.userInfo)
+		},
 		data() {
 			return {
 				picker: {
@@ -102,15 +131,7 @@
 					type: 'default',
 					mData: {}
 				},
-				userInfo: {
-					userName: "天堂屠夫",
-					hometown: "江苏省-常州市-天宁区",
-					job: "学生",
-					loveState: "恋爱中",
-					userSex: "男",
-					avatar: "https://images.mepai.me/app/works/38224/2019-10-09/w_5d9d69b4f2acd/05d9d69b53cf12.jpg!1200w.jpg",
-					userBirthday: "2000-8-28"
-				}
+				userInfo:{}
 			};
 		},
 
@@ -119,10 +140,24 @@
 			uniCompusButton
 		},
 		methods: {
+			submit(){
+				console.log(this.userInfo)
+				this.request('v1/user/update','6666','POST')
+				console.log(this.request)
+			},
 			onConfirm(item) {
 
 			},
-			onConfirmPicker() {},
+			onConfirmBirthday(item){
+				console.log(item)
+				
+				this.userInfo = Object.assign({},this.userInfo,{birthday:item.result})
+			},
+			onConfirmHome(e){
+				console.log(e)
+				this.userInfo = Object.assign({},this.userInfo,{homeTown:e.result})
+				
+			},
 			clickLeft() {
 				uni.navigateBack({
 					animationDuration: 300,
@@ -156,27 +191,19 @@
 					}]
 				}
 				this.onConfirm = (item) => {
-					this.userInfo.userSex = item.title
+					this.userInfo.sex = item.title
 
 				}
 			},
 			changePerson_birthday() {
-				this.picker = {
-					mode: "date"
-				}
-				this.$refs.picker.show()
-				this.onConfirmPicker = (item) => {
-					this.userInfo.userBirthday = item.result
-				}
+
+				this.$refs.date.show()
+				
 			},
 			changePerson_hometown() {
-				this.picker = {
-					mode: "region"
-				}
-				this.$refs.picker.show()
-				this.onConfirmPicker = (item) => {
-					this.userInfo.hometown = item.result
-				}
+
+				this.$refs.region.show()
+				
 			},
 			changePerson_job() {
 				this.chunLeiModal = {
@@ -220,7 +247,7 @@
 						title:"呵~我不会让你知道的"
 					}]
 				}
-				this.onConfirm = (item)=>{this.userInfo.loveState=item.title}
+				this.onConfirm = (item)=>{this.userInfo.love=item.title}
 			}
 		}
 	}

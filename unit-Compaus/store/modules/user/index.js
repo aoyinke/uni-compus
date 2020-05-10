@@ -6,18 +6,18 @@ export default {
 			{id:1,name:"天堂屠夫",avatar:"https://images.mepai.me/app/works/38224/2019-10-09/w_5d9d69b4f2acd/05d9d69b53cf12.jpg!1200w.jpg",intro:"666666666"}
 		],
 		userInfo: {
-			id: 1,
+			
 			hasLogin:false,
-			userName: "天堂屠夫",
+			nickName: "一只仓鼠",
 			avatar: "https://images.mepai.me/app/works/38224/2019-10-09/w_5d9d69b4f2acd/05d9d69b53cf12.jpg!1200w.jpg",
 			sex: "男",
 			job: "学生汪",
-			birthDay: "2000-8-28",
-			emotion: "恋爱中",
-			homeTown: "江苏省-常州市-天宁区",
+			birthday: "无",
+			love: "恋爱中",
+			homeTown: "无",
 			likeNum:0,
 			concernNum:0,
-			publishedNum:999,
+			publishedNum:0,
 			coverImg:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588831947886&di=980528a611d4a265c4b6e210e5e9585e&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3D27c8c40143ed2e73fce98624b700a16d%2Fc2e9e91f4134970a21fc3baa9ccad1c8a6865d65.jpg"
 		},
 		userLikedActivity: {
@@ -198,10 +198,12 @@ export default {
 	},
 	mutations:{
 		storeLogin(state,payload){
+			console.log('payload',payload)
 			const temp = {
 				hasLogin:true,
 				token:payload.token,
-				info:payload.userInfo
+				uid:payload.uid
+
 			}
 			
 			state.userInfo = Object.assign({},state.userInfo,temp)

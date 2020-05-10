@@ -227,100 +227,127 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _uniIcons = _interopRequireDefault(__webpack_require__(/*! @/components/uni-icons/uni-icons.vue */ 58));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var wPicker = function wPicker() {__webpack_require__.e(/*! require.ensure | components/w-picker/w-picker */ "components/w-picker/w-picker").then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 299));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusButton = function uniCompusButton() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/unicompus-button */ "components/uni-compus-components/unicompus-button").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/unicompus-button.vue */ 158));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { data: function data() {return { picker: { mode: 'date' }, selectList1: [], defaultVal: ['2018', '12', '31'], chunLeiModal: { value: false, type: 'default', mData: {} }, userInfo: { userName: "天堂屠夫", hometown: "江苏省-常州市-天宁区", job: "学生", loveState: "恋爱中", userSex: "男", avatar: "https://images.mepai.me/app/works/38224/2019-10-09/w_5d9d69b4f2acd/05d9d69b53cf12.jpg!1200w.jpg", userBirthday: "2000-8-28" } };}, components: { wPicker: wPicker, uniCompusButton: uniCompusButton }, methods: { onConfirm: function onConfirm(item) {}, onConfirmPicker: function onConfirmPicker() {}, clickLeft: function clickLeft() {uni.navigateBack({ animationDuration: 300, animationType: 'pop-out' });}, submitChangedInfo: function submitChangedInfo() {console.log(this.userInfo);}, changePerson_avatar: function changePerson_avatar() {var _this = this;uni.chooseImage({ count: 1, sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-        success: function success(res) {_this.userInfo.avatar = res.tempFilePaths;} });}, changePerson_sex: function changePerson_sex() {var _this2 = this;this.chunLeiModal = { value: true, type: "select", mData: [{ title: "男", icon: "../../static/personDetail/man.png" }, { title: "女", icon: "../../static/personDetail/woman.png" }] };this.onConfirm = function (item) {_this2.userInfo.userSex = item.title;};}, changePerson_birthday: function changePerson_birthday() {var _this3 = this;this.picker = { mode: "date" };this.$refs.picker.show();this.onConfirmPicker = function (item) {_this3.userInfo.userBirthday = item.result;};}, changePerson_hometown: function changePerson_hometown() {var _this4 = this;this.picker = { mode: "region" };
-      this.$refs.picker.show();
-      this.onConfirmPicker = function (item) {
-        _this4.userInfo.hometown = item.result;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _uniIcons = _interopRequireDefault(__webpack_require__(/*! @/components/uni-icons/uni-icons.vue */ 58));
+
+
+var _vuex = __webpack_require__(/*! vuex */ 22);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wPicker = function wPicker() {__webpack_require__.e(/*! require.ensure | components/w-picker/w-picker */ "components/w-picker/w-picker").then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 299));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusButton = function uniCompusButton() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/unicompus-button */ "components/uni-compus-components/unicompus-button").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/unicompus-button.vue */ 158));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+{
+  computed: _objectSpread({},
+  (0, _vuex.mapState)([
+  'user'])),
+
+
+  onLoad: function onLoad() {
+
+    this.userInfo = Object.assign({}, this.user.userInfo);
+    console.log(this.userInfo);
+  },
+  data: function data() {
+    return {
+      picker: {
+        mode: 'date' },
+
+      selectList1: [],
+      defaultVal: ['2018', '12', '31'],
+      chunLeiModal: {
+        value: false,
+        type: 'default',
+        mData: {} },
+
+      userInfo: {} };
+
+  },
+
+  components: {
+    wPicker: wPicker,
+    uniCompusButton: uniCompusButton },
+
+  methods: {
+    submit: function submit() {
+      console.log(this.userInfo);
+      this.request('v1/user/update', '6666', 'POST');
+      console.log(this.request);
+    },
+    onConfirm: function onConfirm(item) {
+
+    },
+    onConfirmBirthday: function onConfirmBirthday(item) {
+      console.log(item);
+
+      this.userInfo = Object.assign({}, this.userInfo, { birthday: item.result });
+    },
+    onConfirmHome: function onConfirmHome(e) {
+      console.log(e);
+      this.userInfo = Object.assign({}, this.userInfo, { homeTown: e.result });
+
+    },
+    clickLeft: function clickLeft() {
+      uni.navigateBack({
+        animationDuration: 300,
+        animationType: 'pop-out' });
+
+    },
+    submitChangedInfo: function submitChangedInfo() {
+      console.log(this.userInfo);
+    },
+
+    changePerson_avatar: function changePerson_avatar() {var _this = this;
+      uni.chooseImage({
+        count: 1,
+        sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+        success: function success(res) {
+
+          _this.userInfo.avatar = res.tempFilePaths;
+        } });
+
+    },
+    changePerson_sex: function changePerson_sex() {var _this2 = this;
+      this.chunLeiModal = {
+        value: true,
+        type: "select",
+        mData: [{
+          title: "男",
+          icon: "../../static/personDetail/man.png" },
+        {
+          title: "女",
+          icon: "../../static/personDetail/woman.png" }] };
+
+
+      this.onConfirm = function (item) {
+        _this2.userInfo.sex = item.title;
+
       };
     },
-    changePerson_job: function changePerson_job() {var _this5 = this;
+    changePerson_birthday: function changePerson_birthday() {
+
+      this.$refs.date.show();
+
+    },
+    changePerson_hometown: function changePerson_hometown() {
+
+      this.$refs.region.show();
+
+    },
+    changePerson_job: function changePerson_job() {var _this3 = this;
       this.chunLeiModal = {
         value: true,
         type: "select",
@@ -346,9 +373,9 @@ var wPicker = function wPicker() {__webpack_require__.e(/*! require.ensure | com
 
 
 
-      this.onConfirm = function (item) {_this5.userInfo.job = item.title;};
+      this.onConfirm = function (item) {_this3.userInfo.job = item.title;};
     },
-    changePerson_loveState: function changePerson_loveState() {var _this6 = this;
+    changePerson_loveState: function changePerson_loveState() {var _this4 = this;
       this.chunLeiModal = {
         value: true,
         type: "select",
@@ -362,7 +389,7 @@ var wPicker = function wPicker() {__webpack_require__.e(/*! require.ensure | com
           title: "呵~我不会让你知道的" }] };
 
 
-      this.onConfirm = function (item) {_this6.userInfo.loveState = item.title;};
+      this.onConfirm = function (item) {_this4.userInfo.love = item.title;};
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

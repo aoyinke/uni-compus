@@ -96,11 +96,14 @@ var components = {
   "uni-nav-bar": function() {
     return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 228))
   },
+  "uni-popup": function() {
+    return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 390))
+  },
+  "lv-select": function() {
+    return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 258))
+  },
   "w-picker": function() {
     return __webpack_require__.e(/*! import() | components/w-picker/w-picker */ "components/w-picker/w-picker").then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ 299))
-  },
-  "chunLei-modal": function() {
-    return Promise.all(/*! import() | components/chunLei-modal/chunLei-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/chunLei-modal/chunLei-modal")]).then(__webpack_require__.bind(null, /*! @/components/chunLei-modal/chunLei-modal.vue */ 235))
   }
 }
 var render = function() {
@@ -140,7 +143,50 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {__webpack_require__.e(/*! require.ensure | components/w-picker/w-picker */ "components/w-picker/w-picker").then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 299));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusButton = function uniCompusButton() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/unicompus-button */ "components/uni-compus-components/unicompus-button").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/unicompus-button.vue */ 158));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {__webpack_require__.e(/*! require.ensure | components/w-picker/w-picker */ "components/w-picker/w-picker").then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 299));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 258));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 286));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 390));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusButton = function uniCompusButton() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/unicompus-button */ "components/uni-compus-components/unicompus-button").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/unicompus-button.vue */ 158));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusUploadImg = function uniCompusUploadImg() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-uploadImg */ "components/uni-compus-components/uniCompus-uploadImg").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-uploadImg.vue */ 495));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -202,57 +248,70 @@ __webpack_require__.r(__webpack_exports__);
 {
   data: function data() {
     return {
-      choosedImg: [],
-      showModel: false,
-      inputData: {
-        title: '输入任务名称',
-        content: [
-        { title: '任务', content: '', type: 'text', placeholder: '请输入任务名' }] },
+      taskInfo: { belongActivity: "", taskName: '', deadLine: "", title: '', inputConcernEvent: "", imageList: [] },
+      scrollHeight: "500rpx",
+      showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
+      searchValue: '',
+      infoList: [],
+      infoLists: [
+      {
+        name: '吕星辰1' },
+
+      {
+        name: '吕星辰2' },
+
+      {
+        name: '吕星辰3' },
+
+      {
+        name: '吕星辰4' }],
 
 
-
-      taskName: "",
-      taskInfo: {},
-      selectList1: [],
-      defaultVal: ['2018', '12', '31'],
-      addTaskCategoryItems: [],
-      inputTask: [
-      { content: "任务名称", placeholder: "请填写任务名称" },
-      { content: "任务所属的活动", placeholder: "请填写任务所属的活动" },
-      { content: "参与人员的数量", placeholder: "请填写参与人员的数量" }] };
+      groupMembers: [{ name: "老王", avatar: "https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/05aa72975372c0.jpg!1200w.jpg" }],
+      joinedPeopleList: [] };
 
   },
   methods: {
-    close: function close(e) {
-      this.imageList.splice(e, 1);
-    },
-    chooseCoverImg: function chooseCoverImg() {
-      var that = this;
-      uni.chooseImage({
-        count: 1, //默认9
-        sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-        sourceType: ['album'], //从相册选择
-        success: function success(res) {
-
-          that.choosedImg = JSON.stringify(res.tempFilePaths);
-          console.log(that.choosedImg);
-        } });
-
-    },
-    deleteDask: function deleteDask(idx) {
-      this.addTaskCategoryItems.splice(idx, 1);
+    changeDeadLine: function changeDeadLine() {
+      this.$refs.shortTerm.show();
     },
     onConfirmDeadLine: function onConfirmDeadLine(event) {
-      var obj = {};
+      var obj = this.taskInfo;
       obj.deadLine = event.result;
       this.taskInfo = obj;
       console.log(this.taskInfo);
     },
-    onConfirm: function onConfirm(e) {this.addTaskCategoryItems.push(e[0].content);},
-    cancel: function cancel(e) {console.log(e);},
-    changeDeadLine: function changeDeadLine() {
-      this.$refs.shortTerm.show();
 
+    chooseImg: function chooseImg() {var _this = this;
+      uni.chooseImage({
+        sourceType: ["camera", "album"],
+        sizeType: "compressed",
+        count: 8 - this.taskInfo.imageList.length,
+        success: function success(res) {
+          var obj = _this.taskInfo;
+          obj.imageList = obj.imageList.concat(res.tempFilePaths);
+          _this.taskInfo = obj;
+
+        } });
+
+    },
+    close: function close(e) {
+      this.taskInfo.imageList.splice(e, 1);
+    },
+
+    addJoinedMember: function addJoinedMember(index, member) {
+      this.groupMembers.splice(index, 1);
+      this.joinedPeopleList.push(member);
+    },
+    handleSearch: function handleSearch() {var _this2 = this;
+      this.loading = true;
+      setTimeout(function () {
+        _this2.loading = false;
+        _this2.infoList = _this2.infoLists;
+      }, 2000);
+    },
+    change: function change(val) {
+      console.log(val);
     },
     clickLeft: function clickLeft() {
       uni.navigateBack({
@@ -260,13 +319,29 @@ __webpack_require__.r(__webpack_exports__);
         animationType: 'pop-out' });
 
     },
-    addTaskCategory: function addTaskCategory(index) {
-      this.showModel = true;
+    handleOpenCommunity: function handleOpenCommunity(e) {
+      console.log(e);
+    },
+
+    changejoinedPeople: function changejoinedPeople() {
+      this.$refs.popup.open();
     } },
 
   components: {
+    KpAvatar: KpAvatar,
+    uniPopup: uniPopup,
+    lvSelect: lvSelect,
+    uniCompusButton: uniCompusButton,
     wPicker: wPicker,
-    uniCompusButton: uniCompusButton } };exports.default = _default;
+    uniCompusUploadImg: uniCompusUploadImg },
+
+
+  created: function created() {
+    for (var i = 0; i < 5; i++) {
+      this.groupMembers.push(this.groupMembers[0]);
+
+    }
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

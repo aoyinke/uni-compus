@@ -77,5 +77,6 @@
     "mescroll-body": "/components/mescroll-uni/mescroll-body",
     "mescroll-uni": "/components/mescroll-uni/mescroll-uni",
     "lv-select": "/components/lv-select/lv-select"
-  }
+  },
+  "sitemapLocation": "sitemap60.json"
 }

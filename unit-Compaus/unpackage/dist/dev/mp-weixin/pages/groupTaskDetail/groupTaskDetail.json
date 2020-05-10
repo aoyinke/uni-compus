@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "uni-collapse": "/components/uni-collapse/uni-collapse",
+    "uni-collapse-item": "/components/uni-collapse-item/uni-collapse-item",
     "uni-popup": "/components/uni-popup/uni-popup",
     "lv-select": "/components/lv-select/lv-select",
     "w-picker": "/components/w-picker/w-picker",

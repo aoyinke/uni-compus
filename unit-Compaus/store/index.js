@@ -10,7 +10,9 @@ import {STORE_LEAVE_TIME} from './mutation_type.js'
 Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
-		leaveTime: 0
+		leaveTime: 0,
+		host:"http://localhost",
+		port:"3000"
 	},
 	modules:{
 		chatInfo,

@@ -7,30 +7,17 @@
 				<image src="../../static/logo.jpg" mode=""></image>
 				<text>你是一只还没有登录的松鼠</text>
 			</view>
-			<view style="width: 100%;">
-				<uni-compus-button content="立即登录" background="#fbc531" @click.native="login" width="100"></uni-compus-button>
-			</view>
-			
+			<view style="width: 100%;"><uni-compus-button open-type="getUserInfo" content="立即登录" background="#fbc531" @click.native="login" width="100"></uni-compus-button></view>
 		</view>
 		<template v-if="user.userInfo.hasLogin">
 			<view class="header" @click="toDetail">
-				<view class="header-left">
-					<kp-avatar
-					  :image="user.userInfo.avatar"
-					  size="large"
-					  mode=""
-					  @tap="handleOpenCommunity(row)"
-					/>
-				</view>
+				<view class="header-left"><kp-avatar :image="user.userInfo.avatar" size="large" mode="" @tap="handleOpenCommunity(row)" /></view>
 				<view class="header-center">
 					<view class="header-center-userName">
-						<text>{{user.userInfo.userName}}</text>
-					</view>
-					<view class="header-center-id">
-						<text>ID: {{user.userInfo.id}}</text>
+						<text>{{ user.userInfo.nickName }}</text>
 					</view>
 					<view class="header-center-published">
-						<text>发表过的文章 {{user.userInfo.publishedNum}}</text>
+						<text>发表过的文章 {{ user.userInfo.publishedNum }}</text>
 					</view>
 				</view>
 				<view class="header-right"><text class="eosfont">&#xe7df;</text></view>
@@ -96,13 +83,14 @@
 </template>
 
 <script>
-
 import KpAvatar from '@/components/kp-avatar/index.vue';
 import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue';
-import { mapState } from 'vuex';
+import { mapState,mapMutations } from 'vuex';
+import {host,port} from '@/utils/config.js'
+const util = require('util')
 export default {
 	computed: {
-		...mapState(['user'])
+		...mapState(['user','host','port'])
 	},
 	data() {
 		return {
@@ -124,17 +112,48 @@ export default {
 		};
 	},
 	components: {
-		
 		goDetail,
 		KpAvatar
 	},
 	methods: {
-		login() {
-			let obj = this.user;
-			console.log(obj)
-			obj.userInfo.hasLogin = true;
-
-			this.user = obj;
+		...mapMutations({
+			storeLogin:"storeLogin"
+		}),
+		
+		login(){
+			uni.showLoading({
+				
+			})
+			
+			wx.login({
+				success:(res)=>{
+					
+					if(res.code){
+						uni.request({
+							url:util.format('%s:%s/v1/user/token',this.host,this.port),
+							method:"POST",
+							data:{
+								type:100,
+								account:res.code,
+								
+							}
+						}).then(res=>{
+							
+							let item = {
+								token:res[1].data.token,
+								uid:res[1].data.uid
+								
+							}
+							console.log(item)
+							this.storeLogin(item)
+							uni.showToast({
+								title:"登录成功！"
+							})
+							uni.hideLoading()
+						})
+					}
+				}
+			})
 		},
 		goConcernDetail() {
 			let item = { type: 3 };
@@ -145,20 +164,23 @@ export default {
 		navtoChangePerson() {
 			uni.navigateTo({
 				url: '../changePerson/changePerson'
-			})
+			});
 		},
 		toDetail() {
-			
 			uni.navigateTo({
-				url:"/pages/personalDetail/personalDetail"
-			})
+				url: '/pages/personalDetail/personalDetail'
+			});
 		}
 	},
 	async onLoad() {
-		console.log(this.user)
-		let res = await this.request('me/', {
-			uid: 1
-		});
+		
+		uni.getUserInfo({
+			success:res=>{
+				console.log(res)
+			}
+		})
+		
+		
 	}
 };
 </script>
@@ -186,27 +208,28 @@ export default {
 	display: flex;
 	align-items: center;
 	margin-bottom: 60rpx;
-	&-left{
+	&-left {
 		width: 25%;
 		display: flex;
 		justify-content: center;
 	}
-	&-center{
-		flex:1;
-		&-name{
+	&-center {
+		flex: 1;
+		&-name {
 			font: {
-				weight:600;
-				size:24rpx
-			};
+				weight: 600;
+				size: 24rpx;
+			}
 		}
-		&-id{
+		&-id {
 			color: #dcdde1;
 		}
-		&-published{
+		&-published {
 			color: #dcdde1;
 		}
 	}
-	&-right{}
+	&-right {
+	}
 }
 
 .main {

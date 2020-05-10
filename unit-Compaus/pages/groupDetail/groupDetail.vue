@@ -127,13 +127,17 @@
 							  </view>
 							</view>
 						</view>
+						<view class="bottom">
+							<uniCompusButton content="分享" background="#ff6b81" width="100" style="width: 100%;"></uniCompusButton>
+							<!-- <uniCompusButton content="聊天" background="#70a1ff" width="100" style="width: 40%;" @click.native="gotoChatPage"></uniCompusButton> -->
+						</view>
 					</swiper-item>
 					
 					<swiper-item class="collections">
 						<view class="collections-title">
 							<text>Previous collections</text>
 						</view>
-						<view class="collectionsBar" v-for="(collection,idx) in collections" :key="idx">
+						<view class="collectionsBar" v-for="(collection,idx) in collections" :key="idx" @click="gotoCollections(idx)">
 							<view class="collections-item">
 								<view class="collections-item-left">
 									<view class="collections-item-left-coverImg">
@@ -152,16 +156,16 @@
 								</view>
 							</view>
 						</view>
-						
+						<view class="bottom">
+							<uniCompusButton content="分享" background="#ff6b81" width="100" style="width: 100%;"></uniCompusButton>
+							<!-- <uniCompusButton content="聊天" background="#70a1ff" width="100" style="width: 40%;" @click.native="gotoChatPage"></uniCompusButton> -->
+						</view>
 					</swiper-item>
 					
 				</swiper>
 				
 				</view>
-				<view class="bottom">
-					<uniCompusButton content="分享" background="#ff6b81" width="100" style="width: 40%;"></uniCompusButton>
-					<uniCompusButton content="聊天" background="#70a1ff" width="100" style="width: 40%;" @click.native="gotoChatPage"></uniCompusButton>
-				</view>
+				
 			</scroll-view>
 		</view>
 		
@@ -182,8 +186,6 @@ export default {
 		return {
 			cooperateItems:[{icon:"./task.png",choice:"发布任务",backgroundImage: "linear-gradient(rgba(253, 150, 68,0.7),rgba(250, 130, 49,1.0))"},
 			{icon:"../../static/self/eye.png",choice:"待处理的工作",backgroundImage: "linear-gradient(rgba(253, 114, 114,0.7),rgba(252, 66, 123,1.0))"},
-			{icon:"../../static/self/eye.png",choice:"添加工作",backgroundImage: "linear-gradient(rgba(255, 77, 77,0.7),rgba(255, 56, 56,1.0))"},
-			{icon:"../../static/self/eye.png",choice:"取得的合作",backgroundImage: "linear-gradient(rgba(126, 255, 245,0.7),rgba(32, 191, 107,1.0))"},
 			{icon:"../../static/self/eye.png",choice:"信息交流",backgroundImage: "linear-gradient(rgba(205, 132, 241,0.7),rgba(197, 108, 240,1.0))"}],
 			collections:[
 				{type:'往期活动',
@@ -260,6 +262,12 @@ export default {
 		})
 	},
 	methods: {
+		gotoCollections(index){
+			
+			uni.navigateTo({
+				url:"/pages/collectionsDetail/collectionsDetail?type=" + index
+			})
+		},
 		clickLeft() {
 			uni.navigateBack({
 				animationDuration: 300,

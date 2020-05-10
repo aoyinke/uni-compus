@@ -69,6 +69,10 @@
 				this.content = "已关注"
 				console.log(this.concernList)
 			}
+		},
+		onLoad(option) {
+			const item = JSON.parse(decodeURIComponent(option.item));
+			console.log(item)
 		}
 	}
 </script>

@@ -311,6 +311,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 var _index = _interopRequireDefault(__webpack_require__(/*! @/config/index.js */ 173));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var kpSwiper = function kpSwiper() {Promise.all(/*! require.ensure | components/kp-swiper/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-swiper/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-swiper/index.vue */ 432));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpIcon = function KpIcon() {Promise.all(/*! require.ensure | components/kp-icon/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-icon/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-icon */ 439));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpTag = function KpTag() {Promise.all(/*! require.ensure | components/kp-tag/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-tag/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-tag */ 446));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var likeIcon = function likeIcon() {__webpack_require__.e(/*! require.ensure | components/common/commonIcon/likeIcon */ "components/common/commonIcon/likeIcon").then((function () {return resolve(__webpack_require__(/*! @/components/common/commonIcon/likeIcon.vue */ 453));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var kpBadge = function kpBadge() {Promise.all(/*! require.ensure | components/kp-badge/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-badge/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-badge/index.vue */ 460));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 286));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusButton = function uniCompusButton() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/unicompus-button */ "components/uni-compus-components/unicompus-button").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/unicompus-button.vue */ 158));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
@@ -323,8 +327,6 @@ var _index = _interopRequireDefault(__webpack_require__(/*! @/config/index.js */
     return {
       cooperateItems: [{ icon: "./task.png", choice: "发布任务", backgroundImage: "linear-gradient(rgba(253, 150, 68,0.7),rgba(250, 130, 49,1.0))" },
       { icon: "../../static/self/eye.png", choice: "待处理的工作", backgroundImage: "linear-gradient(rgba(253, 114, 114,0.7),rgba(252, 66, 123,1.0))" },
-      { icon: "../../static/self/eye.png", choice: "添加工作", backgroundImage: "linear-gradient(rgba(255, 77, 77,0.7),rgba(255, 56, 56,1.0))" },
-      { icon: "../../static/self/eye.png", choice: "取得的合作", backgroundImage: "linear-gradient(rgba(126, 255, 245,0.7),rgba(32, 191, 107,1.0))" },
       { icon: "../../static/self/eye.png", choice: "信息交流", backgroundImage: "linear-gradient(rgba(205, 132, 241,0.7),rgba(197, 108, 240,1.0))" }],
       collections: [
       { type: '往期活动',
@@ -401,6 +403,12 @@ var _index = _interopRequireDefault(__webpack_require__(/*! @/config/index.js */
 
   },
   methods: {
+    gotoCollections: function gotoCollections(index) {
+
+      uni.navigateTo({
+        url: "/pages/collectionsDetail/collectionsDetail?type=" + index });
+
+    },
     clickLeft: function clickLeft() {
       uni.navigateBack({
         animationDuration: 300,

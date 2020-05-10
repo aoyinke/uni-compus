@@ -134,7 +134,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var gallerySwiper = function gallerySwiper() {__webpack_require__.e(/*! require.ensure | components/QS-gallery-swiper/QS-gallery-swiper */ "components/QS-gallery-swiper/QS-gallery-swiper").then((function () {return resolve(__webpack_require__(/*! @/components/QS-gallery-swiper/QS-gallery-swiper */ 502));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var gallerySwiper = function gallerySwiper() {__webpack_require__.e(/*! require.ensure | components/QS-gallery-swiper/QS-gallery-swiper */ "components/QS-gallery-swiper/QS-gallery-swiper").then((function () {return resolve(__webpack_require__(/*! @/components/QS-gallery-swiper/QS-gallery-swiper */ 502));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var specialBanner = function specialBanner() {__webpack_require__.e(/*! require.ensure | components/EtherealWheat-banner/specialBanner */ "components/EtherealWheat-banner/specialBanner").then((function () {return resolve(__webpack_require__(/*! @/components/EtherealWheat-banner/specialBanner */ 509));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
 
 
 
@@ -163,13 +164,13 @@ __webpack_require__.r(__webpack_exports__);
 {
   data: function data() {
     return {
-      groupActivityCollections: [
-
-      {
-
-        title: "轻松一校上线",
-        indicatorDotsConfig: { left: "20rpx", bottom: "20rpx" },
-        photos: [
+      currentIndex: 0,
+      groupName: "轻松一校",
+      bannerList: [{
+        picture: 'http://image.mishi.cn/r/yry_h5_test/detail/3_1535359279285.png',
+        title: '七夕将至：时光足够久，韧性也能炖出味',
+        description: '一万年太久，就现在，给你爱',
+        images: [
         "https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg",
         "https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg",
         "https://images.mepai.me/app/works/38224/2019-12-22/w_5dfecd711bb5a/05dfecd711bc6b.jpg!1200w.jpg",
@@ -177,19 +178,65 @@ __webpack_require__.r(__webpack_exports__);
         "https://images.mepai.me/app/works/38224/2019-12-18/w_5df9775238e16/05df9775238fe0.jpg!1200w.jpg",
         "https://images.mepai.me/app/works/38224/2019-12-15/w_5df5906a6bd94/05df5906a6befb.jpg!1200w.jpg",
         "https://images.mepai.me/app/works/38224/2019-12-13/w_5df2e36df1c1c/05df2e36df1dc2.jpg!1200w.jpg",
-        "https://images.mepai.me/app/works/38224/2019-12-11/w_5df03f532c12d/05df03f532c285.jpg!1200w.jpg",
-        "https://images.mepai.me/app/works/38224/2019-12-08/w_5dec4ca4a2700/05dec4ca4a2878.jpg!1200w.jpg",
-        "https://images.mepai.me/app/works/38224/2019-12-06/w_5de9a4a416f64/05de9a4a4170a0.jpg!1200w.jpg",
-        "https://images.mepai.me/app/works/38224/2019-12-03/w_5de5ad262f86a/05de5ad262fa17.jpg!1200w.jpg"] }] };
+        "https://images.mepai.me/app/works/38224/2019-12-11/w_5df03f532c12d/05df03f532c285.jpg!1200w.jpg"],
+
+        path: '' },
+      {
+        picture: 'http://image.mishi.cn/r/yry_h5_test/detail/2_1535359240426.png',
+        title: '新菜上架：无边海洋，找到顺眼的那尾鱼',
+        description: '花中樱，鱼乃鲷花中樱，鱼乃鲷',
+        images: [
+
+        "https://images.mepai.me/app/works/38224/2019-12-22/w_5dfecd711bb5a/05dfecd711bc6b.jpg!1200w.jpg",
+        "https://images.mepai.me/app/works/38224/2019-12-20/w_5dfc9e15050c3/05dfc9e150521e.jpg!1200w.jpg"],
+
+
+        path: '' },
+      {
+        picture: 'http://image.mishi.cn/r/yry_h5_test/detail/1_1535359204228.png',
+        title: '在湘西的烟火气里，发现苗族少女的神明',
+        description: '取材自湘西苗族传统的烟熏文化',
+        images: [
+
+        "https://images.mepai.me/app/works/38224/2019-12-18/w_5df9775238e16/05df9775238fe0.jpg!1200w.jpg",
+        "https://images.mepai.me/app/works/38224/2019-12-15/w_5df5906a6bd94/05df5906a6befb.jpg!1200w.jpg",
+        "https://images.mepai.me/app/works/38224/2019-12-13/w_5df2e36df1c1c/05df2e36df1dc2.jpg!1200w.jpg",
+        "https://images.mepai.me/app/works/38224/2019-12-11/w_5df03f532c12d/05df03f532c285.jpg!1200w.jpg"],
+
+        path: '' },
+      {
+        picture: 'http://image.mishi.cn/r/yry_h5_test/detail/4_1535359327213.png',
+        title: '福利降临，陪伴独自行走的丰盛旅程',
+        description: '在自己的小世界里，日日好日，夜夜好清宵',
+        images: [
+
+        "https://images.mepai.me/app/works/38224/2019-12-13/w_5df2e36df1c1c/05df2e36df1dc2.jpg!1200w.jpg",
+        "https://images.mepai.me/app/works/38224/2019-12-11/w_5df03f532c12d/05df03f532c285.jpg!1200w.jpg"],
+
+        path: '' }],
+
+      swiperConfig: {
+        indicatorDots: true,
+        indicatorColor: 'rgba(255, 255, 255, .4)',
+        indicatorActiveColor: 'rgba(255, 255, 255, 1)',
+        autoplay: false,
+        interval: 3000,
+        duration: 300,
+        circular: true,
+        previousMargin: '58rpx',
+        nextMargin: '58rpx' } };
 
 
 
   },
   components: {
-    gallerySwiper: gallerySwiper },
+    gallerySwiper: gallerySwiper,
+    specialBanner: specialBanner },
 
   methods: {
-
+    swiperChange: function swiperChange(index) {
+      this.currentIndex = index;
+    },
     clickLeft: function clickLeft() {
       uni.navigateBack({
         animationDuration: 300,
@@ -199,6 +246,9 @@ __webpack_require__.r(__webpack_exports__);
 
   created: function created() {
 
+  },
+  onLoad: function onLoad(option) {
+    console.log(option.index);
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

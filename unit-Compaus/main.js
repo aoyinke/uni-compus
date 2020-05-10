@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import store from './store'
-import request from '@/utils/request.js'
+
 
 
 import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue'
@@ -22,7 +22,7 @@ Vue.component('lv-select',lvSelect)
 
 //把vuex定义成全局组件
 Vue.prototype.$store = store
-Vue.prototype.request = request
+
 
 // Array.prototype.find = function (element,dataStore){
 //     for( var i = 0 ; i < this.dataStore.length ; i ++ ){

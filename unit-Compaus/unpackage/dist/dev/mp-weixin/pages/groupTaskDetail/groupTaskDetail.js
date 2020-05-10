@@ -96,6 +96,12 @@ var components = {
   "uni-nav-bar": function() {
     return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 228))
   },
+  "uni-collapse": function() {
+    return __webpack_require__.e(/*! import() | components/uni-collapse/uni-collapse */ "components/uni-collapse/uni-collapse").then(__webpack_require__.bind(null, /*! @/components/uni-collapse/uni-collapse.vue */ 481))
+  },
+  "uni-collapse-item": function() {
+    return __webpack_require__.e(/*! import() | components/uni-collapse-item/uni-collapse-item */ "components/uni-collapse-item/uni-collapse-item").then(__webpack_require__.bind(null, /*! @/components/uni-collapse-item/uni-collapse-item.vue */ 488))
+  },
   "uni-popup": function() {
     return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 390))
   },
@@ -143,7 +149,16 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {__webpack_require__.e(/*! require.ensure | components/w-picker/w-picker */ "components/w-picker/w-picker").then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 299));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 258));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 286));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 390));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusButton = function uniCompusButton() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/unicompus-button */ "components/uni-compus-components/unicompus-button").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/unicompus-button.vue */ 158));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusUploadImg = function uniCompusUploadImg() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-uploadImg */ "components/uni-compus-components/uniCompus-uploadImg").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-uploadImg.vue */ 495));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {__webpack_require__.e(/*! require.ensure | components/w-picker/w-picker */ "components/w-picker/w-picker").then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 299));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 258));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 286));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 390));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusButton = function uniCompusButton() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/unicompus-button */ "components/uni-compus-components/unicompus-button").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/unicompus-button.vue */ 158));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusUploadImg = function uniCompusUploadImg() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-uploadImg */ "components/uni-compus-components/uniCompus-uploadImg").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-uploadImg.vue */ 495));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCollapse = function uniCollapse() {__webpack_require__.e(/*! require.ensure | components/uni-collapse/uni-collapse */ "components/uni-collapse/uni-collapse").then((function () {return resolve(__webpack_require__(/*! @/components/uni-collapse/uni-collapse.vue */ 481));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCollapseItem = function uniCollapseItem() {__webpack_require__.e(/*! require.ensure | components/uni-collapse-item/uni-collapse-item */ "components/uni-collapse-item/uni-collapse-item").then((function () {return resolve(__webpack_require__(/*! @/components/uni-collapse-item/uni-collapse-item.vue */ 488));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
 
 
 
@@ -248,7 +263,7 @@ __webpack_require__.r(__webpack_exports__);
 {
   data: function data() {
     return {
-      taskInfo: { taskName: '开发任务', deadLine: "2020-5-20", title: '开发任务', inputConcernEvent: "", imageList: [] },
+      taskInfo: { progress: "", taskName: '开发任务', deadLine: "2020-5-20", title: '开发任务', inputConcernEvent: "", imageList: [] },
       scrollHeight: "500rpx",
       showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
       searchValue: '',
@@ -333,7 +348,9 @@ __webpack_require__.r(__webpack_exports__);
     lvSelect: lvSelect,
     uniCompusButton: uniCompusButton,
     wPicker: wPicker,
-    uniCompusUploadImg: uniCompusUploadImg },
+    uniCompusUploadImg: uniCompusUploadImg,
+    uniCollapse: uniCollapse,
+    uniCollapseItem: uniCollapseItem },
 
 
   created: function created() {

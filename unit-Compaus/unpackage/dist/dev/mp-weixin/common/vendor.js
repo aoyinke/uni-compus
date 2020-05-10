@@ -2457,7 +2457,7 @@ function debounce(fn) {var delay = arguments.length > 1 && arguments[1] !== unde
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  host: "localhost",
+  host: "http://localhost",
   port: "3000" };exports.default = _default;
 
 /***/ }),
@@ -11655,7 +11655,9 @@ var _mutation_type = __webpack_require__(/*! ./mutation_type.js */ 32);function 
 _vue.default.use(_vuex.default);
 var store = new _vuex.default.Store({
   state: {
-    leaveTime: 0 },
+    leaveTime: 0,
+    host: "http://localhost",
+    port: "3000" },
 
   modules: {
     chatInfo: _chatInfo.default,
@@ -12214,18 +12216,18 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     { id: 1, name: "天堂屠夫", avatar: "https://images.mepai.me/app/works/38224/2019-10-09/w_5d9d69b4f2acd/05d9d69b53cf12.jpg!1200w.jpg", intro: "666666666" }],
 
     userInfo: {
-      id: 1,
+
       hasLogin: false,
-      userName: "天堂屠夫",
+      nickName: "一只仓鼠",
       avatar: "https://images.mepai.me/app/works/38224/2019-10-09/w_5d9d69b4f2acd/05d9d69b53cf12.jpg!1200w.jpg",
       sex: "男",
       job: "学生汪",
-      birthDay: "2000-8-28",
-      emotion: "恋爱中",
-      homeTown: "江苏省-常州市-天宁区",
+      birthday: "无",
+      love: "恋爱中",
+      homeTown: "无",
       likeNum: 0,
       concernNum: 0,
-      publishedNum: 999,
+      publishedNum: 0,
       coverImg: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588831947886&di=980528a611d4a265c4b6e210e5e9585e&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3D27c8c40143ed2e73fce98624b700a16d%2Fc2e9e91f4134970a21fc3baa9ccad1c8a6865d65.jpg" },
 
     userLikedActivity: {
@@ -12406,10 +12408,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
   mutations: {
     storeLogin: function storeLogin(state, payload) {
+      console.log('payload', payload);
       var temp = {
         hasLogin: true,
         token: payload.token,
-        info: payload.userInfo };
+        uid: payload.uid };
+
 
 
       state.userInfo = Object.assign({}, state.userInfo, temp);
@@ -12441,38 +12445,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
   STORE_LEAVE_TIME: "STORE_LEAVE_TIME" };exports.default = _default;
-
-/***/ }),
-
-/***/ 33:
-/*!********************************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/utils/request.js ***!
-  \********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default = function _default(params) {
-  return new Promise(function (resolve, reject) {
-
-    uni.showLoading({
-      title: "加载中" });
-
-    uni.request(_objectSpread({},
-    params, {
-      success: function success(res) {
-        resolve(res);
-      },
-      fail: function fail(err) {
-        reject(err);
-      },
-      complete: function complete() {
-        uni.hideLoading();
-      } }));
-
-  });
-};exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
@@ -13679,7 +13651,7 @@ main();
 
 /***/ }),
 
-/***/ 577:
+/***/ 584:
 /*!********************************************************************************************************************!*\
   !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/components/w-picker/areadata/areadata.js ***!
   \********************************************************************************************************************/
@@ -13808,7 +13780,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 632:
+/***/ 639:
 /*!*********************************************************************************************************************!*\
   !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/components/uni-swipe-action-item/mpwxs.js ***!
   \*********************************************************************************************************************/

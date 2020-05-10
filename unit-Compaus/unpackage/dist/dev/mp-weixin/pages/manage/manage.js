@@ -95,6 +95,9 @@ __webpack_require__.r(__webpack_exports__);
 var components = {
   "uni-nav-bar": function() {
     return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 228))
+  },
+  "chunLei-modal": function() {
+    return Promise.all(/*! import() | components/chunLei-modal/chunLei-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/chunLei-modal/chunLei-modal")]).then(__webpack_require__.bind(null, /*! @/components/chunLei-modal/chunLei-modal.vue */ 235))
   }
 }
 var render = function() {
@@ -333,6 +336,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
 var _index = _interopRequireDefault(__webpack_require__(/*! @/config/index.js */ 173));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var kpSwiper = function kpSwiper() {Promise.all(/*! require.ensure | components/kp-swiper/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-swiper/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-swiper/index.vue */ 432));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpIcon = function KpIcon() {Promise.all(/*! require.ensure | components/kp-icon/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-icon/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-icon */ 439));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpTag = function KpTag() {Promise.all(/*! require.ensure | components/kp-tag/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-tag/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-tag */ 446));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var likeIcon = function likeIcon() {__webpack_require__.e(/*! require.ensure | components/common/commonIcon/likeIcon */ "components/common/commonIcon/likeIcon").then((function () {return resolve(__webpack_require__(/*! @/components/common/commonIcon/likeIcon.vue */ 453));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var kpBadge = function kpBadge() {Promise.all(/*! require.ensure | components/kp-badge/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-badge/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-badge/index.vue */ 460));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 286));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownMenu = function msDropdownMenu() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-menu */ "components/ms-dropdown/dropdown-menu").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-menu.vue */ 341));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownItem = function msDropdownItem() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-item */ "components/ms-dropdown/dropdown-item").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-item.vue */ 348));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
@@ -344,6 +356,28 @@ var _index = _interopRequireDefault(__webpack_require__(/*! @/config/index.js */
 {
   data: function data() {
     return {
+      value: false,
+      shareData: [{
+        title: '朋友圈',
+        icon: '../../static/shareIcon/pengyouquan.png' },
+
+      {
+        title: '微信好友',
+        icon: '../../static/shareIcon/weixinhaoyou.png' },
+
+      {
+        title: '微博',
+        icon: '../../static/shareIcon/weibo.png' },
+
+      {
+        title: 'QQ好友',
+        icon: '../../static/shareIcon/qqhaoyou.png' },
+
+      {
+        title: 'QQ空间',
+        icon: '../../static/shareIcon/qqkongjian.png' }],
+
+
       list: [
       {
         text: "轻松一校项目组",
@@ -361,8 +395,6 @@ var _index = _interopRequireDefault(__webpack_require__(/*! @/config/index.js */
       group: "轻松一校项目组",
       cooperateItems: [{ icon: "./task.png", choice: "发布任务", backgroundImage: "linear-gradient(rgba(253, 150, 68,0.7),rgba(250, 130, 49,1.0))" },
       { icon: "../../static/self/eye.png", choice: "待处理的工作", backgroundImage: "linear-gradient(rgba(253, 114, 114,0.7),rgba(252, 66, 123,1.0))" },
-      { icon: "../../static/self/eye.png", choice: "添加工作", backgroundImage: "linear-gradient(rgba(255, 77, 77,0.7),rgba(255, 56, 56,1.0))" },
-      { icon: "../../static/self/eye.png", choice: "取得的合作", backgroundImage: "linear-gradient(rgba(126, 255, 245,0.7),rgba(32, 191, 107,1.0))" },
       { icon: "../../static/self/eye.png", choice: "信息交流", backgroundImage: "linear-gradient(rgba(205, 132, 241,0.7),rgba(197, 108, 240,1.0))" }],
       collections: [
       { type: '往期活动',
@@ -440,6 +472,19 @@ var _index = _interopRequireDefault(__webpack_require__(/*! @/config/index.js */
 
   },
   methods: {
+    share: function share() {
+      this.value = true;
+
+    },
+    onConfirm: function onConfirm(item) {
+      console.log(item);
+    },
+    gotoCollections: function gotoCollections(index) {
+
+      uni.navigateTo({
+        url: "/pages/collectionsDetail/collectionsDetail?type=" + index });
+
+    },
     gotoChatPage: function gotoChatPage() {
       uni.navigateTo({
         url: "/pages/chatPages/chatPages" });
@@ -454,7 +499,7 @@ var _index = _interopRequireDefault(__webpack_require__(/*! @/config/index.js */
         case 1:
           url = "/pages/groupTaskList/groupTaskList";
           break;
-        case 4:
+        case 2:
           url = "/pages/groupInfoConcat/groupInfoConcat";
           break;}
 

@@ -78,10 +78,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   "uni-swipe-action": function() {
-    return __webpack_require__.e(/*! import() | components/uni-swipe-action/uni-swipe-action */ "components/uni-swipe-action/uni-swipe-action").then(__webpack_require__.bind(null, /*! @/components/uni-swipe-action/uni-swipe-action.vue */ 622))
+    return __webpack_require__.e(/*! import() | components/uni-swipe-action/uni-swipe-action */ "components/uni-swipe-action/uni-swipe-action").then(__webpack_require__.bind(null, /*! @/components/uni-swipe-action/uni-swipe-action.vue */ 629))
   },
   "uni-swipe-action-item": function() {
-    return Promise.all(/*! import() | components/uni-swipe-action-item/uni-swipe-action-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-swipe-action-item/uni-swipe-action-item")]).then(__webpack_require__.bind(null, /*! @/components/uni-swipe-action-item/uni-swipe-action-item.vue */ 627))
+    return Promise.all(/*! import() | components/uni-swipe-action-item/uni-swipe-action-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-swipe-action-item/uni-swipe-action-item")]).then(__webpack_require__.bind(null, /*! @/components/uni-swipe-action-item/uni-swipe-action-item.vue */ 634))
   }
 }
 var render = function() {
@@ -121,7 +121,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var chatTag = function chatTag() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-chatTag */ "components/uni-compus-components/uniCompus-chatTag").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-chatTag.vue */ 637));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSwipeAction = function uniSwipeAction() {__webpack_require__.e(/*! require.ensure | components/uni-swipe-action/uni-swipe-action */ "components/uni-swipe-action/uni-swipe-action").then((function () {return resolve(__webpack_require__(/*! @/components/uni-swipe-action/uni-swipe-action.vue */ 622));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSwipeActionItem = function uniSwipeActionItem() {Promise.all(/*! require.ensure | components/uni-swipe-action-item/uni-swipe-action-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-swipe-action-item/uni-swipe-action-item")]).then((function () {return resolve(__webpack_require__(/*! @/components/uni-swipe-action-item/uni-swipe-action-item.vue */ 627));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var chatTag = function chatTag() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-chatTag */ "components/uni-compus-components/uniCompus-chatTag").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-chatTag.vue */ 644));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSwipeAction = function uniSwipeAction() {__webpack_require__.e(/*! require.ensure | components/uni-swipe-action/uni-swipe-action */ "components/uni-swipe-action/uni-swipe-action").then((function () {return resolve(__webpack_require__(/*! @/components/uni-swipe-action/uni-swipe-action.vue */ 629));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSwipeActionItem = function uniSwipeActionItem() {Promise.all(/*! require.ensure | components/uni-swipe-action-item/uni-swipe-action-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-swipe-action-item/uni-swipe-action-item")]).then((function () {return resolve(__webpack_require__(/*! @/components/uni-swipe-action-item/uni-swipe-action-item.vue */ 634));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

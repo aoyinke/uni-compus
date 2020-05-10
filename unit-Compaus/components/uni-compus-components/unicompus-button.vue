@@ -6,6 +6,9 @@
 <script>
 	export default{
 		props:{
+			openType:{
+				type:String
+			},
 			content:{
 				type:String,
 				required:true

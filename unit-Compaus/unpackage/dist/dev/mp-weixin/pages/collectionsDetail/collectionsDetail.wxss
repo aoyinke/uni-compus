@@ -13,7 +13,7 @@
 }
 .activity-title-left.data-v-0482b194 {
   background: #3498db;
-  width: 20rpx;
+  width: 10rpx;
   background-clip: content-box;
   height: 100%;
 }
@@ -28,8 +28,7 @@
 .container .swiper-box.data-v-0482b194 {
   position: absolute;
   top: 4%;
-  right: 10%;
   height: 80%;
-  width: 80%;
+  width: 100%;
 }
 

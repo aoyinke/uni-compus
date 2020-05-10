@@ -1,9 +1,13 @@
 <script>
 import Vue from 'vue';
 import { wxLogin } from '@/utils/util.js';
-import { mapMutations } from 'vuex';
+import { mapMutations, mapState } from 'vuex';
+import store from '@/store/index.js'
+const util = require('util');
 export default {
 	onLaunch: function(option) {
+		let host = 'http://localhost';
+		let port = '3000';
 		wxLogin();
 		uni.getSystemInfo({
 			success: function(e) {
@@ -33,33 +37,44 @@ export default {
 		uni.getStorage({
 			key: 'userInfo',
 			success: res => {
-				console.log(res.data);
+				let result = JSON.parse(res.data);
 				// 此处仅做演示
 				// 跟后台校验token的有效性，判定是否在登录状态。如果token失效，需重新登录。app端不强制用户登录，可以游客身份登录，可以进一步优化流程
-				// uni.request({
-				//  url: '',    // 验证token有效性的api
-				//  header: {
-				//     "Token":res.data.token
-				//  },
-				// 	method: "POST",
-				// 	success: response => {
-				// 		if (response.data.code === 200) {
-				// 			this.storeLogin(e.data);
-				// 		} else {  // 验证无效清除用户原有缓存数据
-				// 			this.storeLogout()
-				// 		}
-				// 	}
-				// })
-				this.storeLogin(JSON.parse(res.data));
+				uni.request({
+					url: util.format('%s:%s/v1/user/verify', host, port), // 验证token有效性的api
+					data:{
+						token:result.token
+					},
+					method: 'POST',
+					success: response => {
+						console.log( response);
+						if (response.data.is_valid) {
+							this.storeLogin({hasLogin:true,token:result.token,uid:result.uid});
+						} else {  // 验证无效清除用户原有缓存数据
+							this.storeLogout()
+						}
+					},
+					fail: err => {
+						console.log(err);
+					}
+				});
+				// this.storeLogin(JSON.parse(res.data));
 			}
 		});
 
 		//封装uni.request
-		Vue.prototype.request = async function(route, data, method) {
-			let result = await uni.request({
-				url: 'https://smileapi.lililili.net/v1/' + route,
+		Vue.prototype.request = function(route, data, method) {
+			let result = uni.request({
+				url: 'http://localhost:3000/' + route,
 				method: method || 'GET',
-				data: data
+				data: data,
+				header:{
+					"token":store.state.user.userInfo.token,
+					"Content-Type": "application/text",
+					// "Content-Type":"json"
+					  
+					
+				}
 			});
 			return result;
 		};
@@ -76,10 +91,11 @@ export default {
 				});
 			}, 10);
 		}
+		
 	},
 	onHide: function() {
 		console.log('App Hide');
-		this.$store.commit('STORE_LEAVE_TIME')
+		this.$store.commit('STORE_LEAVE_TIME');
 	},
 	methods: {
 		...mapMutations(['storeLogin', 'storeLogout'])
@@ -87,7 +103,8 @@ export default {
 	globalData: {
 		denglu: 0,
 		alreadyInDetail: false
-	}
+	},
+	computed: {}
 };
 </script>
 
