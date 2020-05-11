@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
+    "uni-compus-upload-img": "/components/uni-compus-components/uniCompus-uploadImg",
+    "kp-tag": "/components/kp-tag/index"
+  }
+}

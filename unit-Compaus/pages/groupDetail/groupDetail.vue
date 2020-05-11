@@ -128,7 +128,7 @@
 							</view>
 						</view>
 						<view class="bottom">
-							<uniCompusButton content="分享" background="#ff6b81" width="100" style="width: 100%;"></uniCompusButton>
+							<uniCompusButton content="申请加入" background="#ff6b81" width="100" style="width: 100%;" @click.native="joinGroup"></uniCompusButton>
 							<!-- <uniCompusButton content="聊天" background="#70a1ff" width="100" style="width: 40%;" @click.native="gotoChatPage"></uniCompusButton> -->
 						</view>
 					</swiper-item>
@@ -157,7 +157,7 @@
 							</view>
 						</view>
 						<view class="bottom">
-							<uniCompusButton content="分享" background="#ff6b81" width="100" style="width: 100%;"></uniCompusButton>
+							<uniCompusButton content="申请加入" background="#ff6b81" width="100" style="width: 100%;" @click.native="joinGroup"></uniCompusButton>
 							<!-- <uniCompusButton content="聊天" background="#70a1ff" width="100" style="width: 40%;" @click.native="gotoChatPage"></uniCompusButton> -->
 						</view>
 					</swiper-item>
@@ -262,6 +262,16 @@ export default {
 		})
 	},
 	methods: {
+		joinGroup(){
+			uni.showModal({
+				title:"申请加入",
+				content:"确定要申请加入吗？",
+				showCancel:true,
+				cancelColor:"#ff5e57",
+				confirmColor:"#0fbcf9"
+				
+			})
+		},
 		gotoCollections(index){
 			
 			uni.navigateTo({

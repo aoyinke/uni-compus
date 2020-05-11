@@ -81,12 +81,17 @@
 		}, {
 			"path": "pages/manage/manage",
 			"style": {}
+		}, {
+			"path": "pages/collectionsDetail/collectionsDetail",
+			"style": {}
+		}, {
+			"path": "pages/changeGroupInfo/changeGroupInfo",
+			"style": {}
+		}, {
+			"path": "pages/memberMange/memberMange",
+			"style": {}
 		}
-	    ,{
-            "path" : "pages/collectionsDetail/collectionsDetail",
-            "style" : {}
-        }
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
@@ -139,10 +144,25 @@
 				"query": "" //启动参数，在页面的onLoad函数里面得到
 			},
 			{
-					"name": "collectionsDetail", //模式名称
-					"path": "pages/collectionsDetail/collectionsDetail", //启动页面，必选
-					"query": "" //启动参数，在页面的onLoad函数里面得到
-				},
+				"name": "collectionsDetail", //模式名称
+				"path": "pages/collectionsDetail/collectionsDetail", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			},
+			{
+				"name": "memberMange", //模式名称
+				"path": "pages/memberMange/memberMange", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			},
+			{
+				"name": "manage", //模式名称
+				"path": "pages/manage/manage", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			},
+			{
+				"name": "changeGroupInfo", //模式名称
+				"path": "pages/changeGroupInfo/changeGroupInfo", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			},
 			{
 				"name": "groupTaskDetail", //模式名称
 				"path": "pages/groupTaskDetail/groupTaskDetail", //启动页面，必选

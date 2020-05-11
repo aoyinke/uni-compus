@@ -129,10 +129,7 @@
 							  </view>
 							</view>
 						</view>
-						<view class="bottom">
-							<uniCompusButton content="分享" background="#ff6b81" width="100" style="width: 100%;" @click.native="share"></uniCompusButton>
-							<!-- <uniCompusButton content="聊天" background="#70a1ff" width="100" style="width: 40%;" @click.native="gotoChatPage"></uniCompusButton> -->
-						</view>
+						
 					</swiper-item>
 					<swiper-item class="cooperate">
 						<view class="collections-title">
@@ -153,10 +150,7 @@
 							
 						</view>
 						
-						<view class="bottom">
-							<uniCompusButton content="分享" background="#ff6b81" width="100" style="width: 100%;" @click.native="share"></uniCompusButton>
-							<!-- <uniCompusButton content="聊天" background="#70a1ff" width="100" style="width: 40%;" @click.native="gotoChatPage"></uniCompusButton> -->
-						</view>
+						
 					</swiper-item>
 					<swiper-item class="collections">
 						<view class="collections-title">
@@ -181,10 +175,7 @@
 								</view>
 							</view>
 						</view>
-						<view class="bottom">
-							<uniCompusButton content="分享" background="#ff6b81" width="100" style="width: 100%;" @click.native="share"></uniCompusButton>
-							<!-- <uniCompusButton content="聊天" background="#70a1ff" width="100" style="width: 40%;" @click.native="gotoChatPage"></uniCompusButton> -->
-						</view>
+						
 					</swiper-item>
 					
 				</swiper>
@@ -213,27 +204,6 @@ export default {
 	data() {
 		return {
 			value: false,
-			shareData: [{
-					title: '朋友圈',
-					icon: '../../static/shareIcon/pengyouquan.png'
-				},
-				{
-					title: '微信好友',
-					icon: '../../static/shareIcon/weixinhaoyou.png'
-				},
-				{
-					title: '微博',
-					icon: '../../static/shareIcon/weibo.png'
-				},
-				{
-					title: 'QQ好友',
-					icon: '../../static/shareIcon/qqhaoyou.png'
-				},
-				{
-					title: 'QQ空间',
-					icon: '../../static/shareIcon/qqkongjian.png'
-				}
-			],
 			list: [
 				{
 					text: "轻松一校项目组",
@@ -249,9 +219,12 @@ export default {
 				}
 			],
 			group: "轻松一校项目组",
-			cooperateItems:[{icon:"./task.png",choice:"发布任务",backgroundImage: "linear-gradient(rgba(253, 150, 68,0.7),rgba(250, 130, 49,1.0))"},
+			cooperateItems:[
+			{icon:"./task.png",choice:"发布任务",backgroundImage: "linear-gradient(rgba(253, 150, 68,0.7),rgba(250, 130, 49,1.0))"},
 			{icon:"../../static/self/eye.png",choice:"待处理的工作",backgroundImage: "linear-gradient(rgba(253, 114, 114,0.7),rgba(252, 66, 123,1.0))"},
-			{icon:"../../static/self/eye.png",choice:"信息交流",backgroundImage: "linear-gradient(rgba(205, 132, 241,0.7),rgba(197, 108, 240,1.0))"}],
+			{icon:"../../static/self/eye.png",choice:"信息交流",backgroundImage: "linear-gradient(rgba(205, 132, 241,0.7),rgba(197, 108, 240,1.0))"},
+			{icon:"./task.png",choice:"资料编辑",backgroundImage: "linear-gradient(rgba(52, 231, 228,0.7),rgba(15, 188, 249,1.0))"},
+			{icon:"./task.png",choice:"成员管理",backgroundImage: "linear-gradient(rgba(11, 232, 129,0.7),rgba(5, 196, 107,1.0))"},],
 			collections:[
 				{type:'往期活动',
 				nums:124,
@@ -328,10 +301,7 @@ export default {
 		})
 	},
 	methods: {
-		share() {
-			this.value = true
-		
-		},
+
 		onConfirm(item) {
 			console.log(item)
 		},

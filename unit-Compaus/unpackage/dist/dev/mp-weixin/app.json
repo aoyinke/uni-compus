@@ -22,7 +22,9 @@
     "pages/groupTaskDetail/groupTaskDetail",
     "pages/startPage/startPage",
     "pages/manage/manage",
-    "pages/collectionsDetail/collectionsDetail"
+    "pages/collectionsDetail/collectionsDetail",
+    "pages/changeGroupInfo/changeGroupInfo",
+    "pages/memberMange/memberMange"
   ],
   "subPackages": [],
   "window": {
@@ -77,6 +79,5 @@
     "mescroll-body": "/components/mescroll-uni/mescroll-body",
     "mescroll-uni": "/components/mescroll-uni/mescroll-uni",
     "lv-select": "/components/lv-select/lv-select"
-  },
-  "sitemapLocation": "sitemap60.json"
+  }
 }

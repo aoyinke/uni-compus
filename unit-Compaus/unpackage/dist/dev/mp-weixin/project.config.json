@@ -1,167 +1,183 @@
 {
-	"description": "项目配置文件。",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": false,
-		"es6": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.9.2",
-	"appid": "wx9a27842ce15e1186",
-	"projectname": "unit-Compaus",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"name": "index",
-					"query": "",
-					"id": 0,
-					"pathName": "pages/index/index"
-				},
-				{
-					"name": "collectionsDetail",
-					"query": "",
-					"id": 1,
-					"pathName": "pages/collectionsDetail/collectionsDetail"
-				},
-				{
-					"name": "groupTaskDetail",
-					"query": "",
-					"id": 2,
-					"pathName": "pages/groupTaskDetail/groupTaskDetail"
-				},
-				{
-					"name": "startPage",
-					"query": "",
-					"id": 3,
-					"pathName": "pages/startPage/startPage"
-				},
-				{
-					"name": "groupTaskList",
-					"query": "",
-					"id": 4,
-					"pathName": "pages/groupTaskList/groupTaskList"
-				},
-				{
-					"name": "groupConcat",
-					"query": "",
-					"id": 5,
-					"pathName": "pages/groupInfoConcat/groupInfoConcat"
-				},
-				{
-					"name": "PublishTask",
-					"query": "",
-					"id": 6,
-					"pathName": "pages/publishTask/publishTask"
-				},
-				{
-					"name": "groupDetail",
-					"query": "",
-					"id": 7,
-					"pathName": "pages/groupDetail/groupDetail"
-				},
-				{
-					"name": "feedBack",
-					"query": "",
-					"id": 8,
-					"pathName": "pages/feedBack/feedBack"
-				},
-				{
-					"name": "index",
-					"query": "",
-					"id": 9,
-					"pathName": "pages/chatGroup/chatGroup"
-				},
-				{
-					"name": "mySave",
-					"query": "",
-					"id": 10,
-					"pathName": "pages/mySave/mySave"
-				},
-				{
-					"name": "groupInfoDetail",
-					"query": "",
-					"id": 11,
-					"pathName": "pages/groupInfoDetail/groupInfoDetail"
-				},
-				{
-					"name": "chatPages",
-					"query": "",
-					"id": 12,
-					"pathName": "pages/chatPages/chatPages"
-				},
-				{
-					"name": "interestTag",
-					"query": "",
-					"id": 13,
-					"pathName": "pages/interestsTag/interestsTag"
-				},
-				{
-					"name": "activityDetail",
-					"query": "",
-					"id": 14,
-					"pathName": "pages/activityDetail/activityDetail"
-				},
-				{
-					"name": "publish",
-					"query": "",
-					"id": 15,
-					"pathName": "pages/publishActivity/publishActivity"
-				},
-				{
-					"name": "findPeople",
-					"query": "",
-					"id": 16,
-					"pathName": "pages/findPeople/findPeople"
-				},
-				{
-					"name": "login",
-					"query": "",
-					"id": 17,
-					"pathName": "pages/login/login"
-				},
-				{
-					"name": "self",
-					"query": "",
-					"id": 18,
-					"pathName": "pages/self/self"
-				},
-				{
-					"name": "changePerson",
-					"query": "",
-					"id": 19,
-					"pathName": "pages/changePerson/changePerson"
-				},
-				{
-					"name": "personDetail",
-					"query": "",
-					"id": 20,
-					"pathName": "pages/personalDetail/personalDetail"
-				},
-				{
-					"name": "group",
-					"query": "",
-					"id": 21,
-					"pathName": "pages/group/group"
-				}
-			]
-		}
-	}
+  "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.9.2",
+  "appid": "wx9a27842ce15e1186",
+  "projectname": "unit-Compaus",
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": 0,
+      "list": [
+        {
+          "name": "index",
+          "query": "",
+          "id": 0,
+          "pathName": "pages/index/index"
+        },
+        {
+          "name": "collectionsDetail",
+          "query": "",
+          "id": 1,
+          "pathName": "pages/collectionsDetail/collectionsDetail"
+        },
+        {
+          "name": "memberMange",
+          "query": "",
+          "id": 2,
+          "pathName": "pages/memberMange/memberMange"
+        },
+        {
+          "name": "manage",
+          "query": "",
+          "id": 3,
+          "pathName": "pages/manage/manage"
+        },
+        {
+          "name": "changeGroupInfo",
+          "query": "",
+          "id": 4,
+          "pathName": "pages/changeGroupInfo/changeGroupInfo"
+        },
+        {
+          "name": "groupTaskDetail",
+          "query": "",
+          "id": 5,
+          "pathName": "pages/groupTaskDetail/groupTaskDetail"
+        },
+        {
+          "name": "startPage",
+          "query": "",
+          "id": 6,
+          "pathName": "pages/startPage/startPage"
+        },
+        {
+          "name": "groupTaskList",
+          "query": "",
+          "id": 7,
+          "pathName": "pages/groupTaskList/groupTaskList"
+        },
+        {
+          "name": "groupConcat",
+          "query": "",
+          "id": 8,
+          "pathName": "pages/groupInfoConcat/groupInfoConcat"
+        },
+        {
+          "name": "PublishTask",
+          "query": "",
+          "id": 9,
+          "pathName": "pages/publishTask/publishTask"
+        },
+        {
+          "name": "groupDetail",
+          "query": "",
+          "id": 10,
+          "pathName": "pages/groupDetail/groupDetail"
+        },
+        {
+          "name": "feedBack",
+          "query": "",
+          "id": 11,
+          "pathName": "pages/feedBack/feedBack"
+        },
+        {
+          "name": "index",
+          "query": "",
+          "id": 12,
+          "pathName": "pages/chatGroup/chatGroup"
+        },
+        {
+          "name": "mySave",
+          "query": "",
+          "id": 13,
+          "pathName": "pages/mySave/mySave"
+        },
+        {
+          "name": "groupInfoDetail",
+          "query": "",
+          "id": 14,
+          "pathName": "pages/groupInfoDetail/groupInfoDetail"
+        },
+        {
+          "name": "chatPages",
+          "query": "",
+          "id": 15,
+          "pathName": "pages/chatPages/chatPages"
+        },
+        {
+          "name": "interestTag",
+          "query": "",
+          "id": 16,
+          "pathName": "pages/interestsTag/interestsTag"
+        },
+        {
+          "name": "activityDetail",
+          "query": "",
+          "id": 17,
+          "pathName": "pages/activityDetail/activityDetail"
+        },
+        {
+          "name": "publish",
+          "query": "",
+          "id": 18,
+          "pathName": "pages/publishActivity/publishActivity"
+        },
+        {
+          "name": "findPeople",
+          "query": "",
+          "id": 19,
+          "pathName": "pages/findPeople/findPeople"
+        },
+        {
+          "name": "login",
+          "query": "",
+          "id": 20,
+          "pathName": "pages/login/login"
+        },
+        {
+          "name": "self",
+          "query": "",
+          "id": 21,
+          "pathName": "pages/self/self"
+        },
+        {
+          "name": "changePerson",
+          "query": "",
+          "id": 22,
+          "pathName": "pages/changePerson/changePerson"
+        },
+        {
+          "name": "personDetail",
+          "query": "",
+          "id": 23,
+          "pathName": "pages/personalDetail/personalDetail"
+        },
+        {
+          "name": "group",
+          "query": "",
+          "id": 24,
+          "pathName": "pages/group/group"
+        }
+      ]
+    }
+  }
 }
