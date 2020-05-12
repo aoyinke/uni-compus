@@ -94,10 +94,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   "uni-nav-bar": function() {
-    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 227))
+    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 229))
   },
   "ygc-comment": function() {
-    return __webpack_require__.e(/*! import() | components/ygc-comment/ygc-comment */ "components/ygc-comment/ygc-comment").then(__webpack_require__.bind(null, /*! @/components/ygc-comment/ygc-comment.vue */ 354))
+    return __webpack_require__.e(/*! import() | components/ygc-comment/ygc-comment */ "components/ygc-comment/ygc-comment").then(__webpack_require__.bind(null, /*! @/components/ygc-comment/ygc-comment.vue */ 356))
   }
 }
 var render = function() {
@@ -137,7 +137,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var userTopBar = function userTopBar() {__webpack_require__.e(/*! require.ensure | components/activity/userTopBar */ "components/activity/userTopBar").then((function () {return resolve(__webpack_require__(/*! @/components/activity/userTopBar.vue */ 361));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var commentItem = function commentItem() {__webpack_require__.e(/*! require.ensure | components/commentBar/commentBar */ "components/commentBar/commentBar").then((function () {return resolve(__webpack_require__(/*! @/components/commentBar/commentBar.vue */ 368));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var mutation = function mutation() {__webpack_require__.e(/*! require.ensure | components/activity/mutation */ "components/activity/mutation").then((function () {return resolve(__webpack_require__(/*! @/components/activity/mutation.vue */ 375));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var ygcComment = function ygcComment() {__webpack_require__.e(/*! require.ensure | components/ygc-comment/ygc-comment */ "components/ygc-comment/ygc-comment").then((function () {return resolve(__webpack_require__(/*! @/components/ygc-comment/ygc-comment.vue */ 354));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var userTopBar = function userTopBar() {__webpack_require__.e(/*! require.ensure | components/activity/userTopBar */ "components/activity/userTopBar").then((function () {return resolve(__webpack_require__(/*! @/components/activity/userTopBar.vue */ 363));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var commentItem = function commentItem() {__webpack_require__.e(/*! require.ensure | components/commentBar/commentBar */ "components/commentBar/commentBar").then((function () {return resolve(__webpack_require__(/*! @/components/commentBar/commentBar.vue */ 370));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var mutation = function mutation() {__webpack_require__.e(/*! require.ensure | components/activity/mutation */ "components/activity/mutation").then((function () {return resolve(__webpack_require__(/*! @/components/activity/mutation.vue */ 377));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var ygcComment = function ygcComment() {__webpack_require__.e(/*! require.ensure | components/ygc-comment/ygc-comment */ "components/ygc-comment/ygc-comment").then((function () {return resolve(__webpack_require__(/*! @/components/ygc-comment/ygc-comment.vue */ 356));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

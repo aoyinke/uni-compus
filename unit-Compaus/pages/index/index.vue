@@ -162,14 +162,11 @@ export default {
 			this.tapIndex = index;
 		},
 		topublish() {
-			let isLogin = this.checkLogin('../index/index', '2');
-			if (!isLogin) {
-			} else {
-				uni.navigateTo({
-					url: '../publishActivity/publishActivity',
-					animationType: 'slide-in-left'
-				});
-			}
+			
+			uni.navigateTo({
+				url: '../publishActivity/publishActivity',
+				animationType: 'slide-in-left'
+			});
 		}
 	},
 	components: {

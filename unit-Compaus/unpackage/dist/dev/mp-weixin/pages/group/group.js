@@ -94,13 +94,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   "uni-nav-bar": function() {
-    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 227))
+    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 229))
   },
   "lv-select": function() {
-    return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 257))
+    return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 259))
+  },
+  "mescroll-uni": function() {
+    return Promise.all(/*! import() | components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/components/mescroll-uni/mescroll-uni.vue */ 252))
   },
   "uni-drawer": function() {
-    return __webpack_require__.e(/*! import() | components/uni-drawer/uni-drawer */ "components/uni-drawer/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/uni-drawer/uni-drawer.vue */ 312))
+    return __webpack_require__.e(/*! import() | components/uni-drawer/uni-drawer */ "components/uni-drawer/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/uni-drawer/uni-drawer.vue */ 314))
   }
 }
 var render = function() {
@@ -140,7 +143,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 37));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 257));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSearchBar = function uniSearchBar() {__webpack_require__.e(/*! require.ensure | components/uni-search-bar/uni-search-bar */ "components/uni-search-bar/uni-search-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-search-bar/uni-search-bar.vue */ 319));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var groupItem = function groupItem() {__webpack_require__.e(/*! require.ensure | components/group/group-item */ "components/group/group-item").then((function () {return resolve(__webpack_require__(/*! @/components/group/group-item.vue */ 326));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniDrawer = function uniDrawer() {__webpack_require__.e(/*! require.ensure | components/uni-drawer/uni-drawer */ "components/uni-drawer/uni-drawer").then((function () {return resolve(__webpack_require__(/*! @/components/uni-drawer/uni-drawer.vue */ 312));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var filterBar = function filterBar() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-filter */ "components/uni-compus-components/uniCompus-filter").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-filter.vue */ 333));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusButton = function uniCompusButton() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/unicompus-button */ "components/uni-compus-components/unicompus-button").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/unicompus-button.vue */ 157));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var goDetail = function goDetail() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-goDetail */ "components/uni-compus-components/uniCompus-goDetail").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-goDetail.vue */ 293));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownMenu = function msDropdownMenu() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-menu */ "components/ms-dropdown/dropdown-menu").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-menu.vue */ 340));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownItem = function msDropdownItem() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-item */ "components/ms-dropdown/dropdown-item").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-item.vue */ 347));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 37));
 
 
 
@@ -213,7 +216,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+var _mescrollMixins = _interopRequireDefault(__webpack_require__(/*! @/components/mescroll-uni/mescroll-mixins.js */ 709));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 259));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSearchBar = function uniSearchBar() {__webpack_require__.e(/*! require.ensure | components/uni-search-bar/uni-search-bar */ "components/uni-search-bar/uni-search-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-search-bar/uni-search-bar.vue */ 321));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var groupItem = function groupItem() {__webpack_require__.e(/*! require.ensure | components/group/group-item */ "components/group/group-item").then((function () {return resolve(__webpack_require__(/*! @/components/group/group-item.vue */ 328));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniDrawer = function uniDrawer() {__webpack_require__.e(/*! require.ensure | components/uni-drawer/uni-drawer */ "components/uni-drawer/uni-drawer").then((function () {return resolve(__webpack_require__(/*! @/components/uni-drawer/uni-drawer.vue */ 314));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var filterBar = function filterBar() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-filter */ "components/uni-compus-components/uniCompus-filter").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-filter.vue */ 335));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusButton = function uniCompusButton() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/unicompus-button */ "components/uni-compus-components/unicompus-button").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/unicompus-button.vue */ 143));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var goDetail = function goDetail() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-goDetail */ "components/uni-compus-components/uniCompus-goDetail").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-goDetail.vue */ 295));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownMenu = function msDropdownMenu() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-menu */ "components/ms-dropdown/dropdown-menu").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-menu.vue */ 342));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownItem = function msDropdownItem() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-item */ "components/ms-dropdown/dropdown-item").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-item.vue */ 349));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
+  mixins: [_mescrollMixins.default], // 使用mixin
   data: function data() {
     return {
       loading: false,
@@ -232,6 +247,15 @@ __webpack_require__.r(__webpack_exports__);
 
       {
         name: '吕星辰4' }],
+
+
+
+      // 下拉刷新的配置
+      downOption: {},
+
+
+      // 上拉加载的常用配置
+      upOption: {},
 
 
 
@@ -302,6 +326,15 @@ __webpack_require__.r(__webpack_exports__);
     msDropdownItem: msDropdownItem },
 
   methods: {
+    /*下拉刷新的回调*/
+    downCallback: function downCallback() {
+      // 与 mescroll-body 的处理方式一致 >
+    },
+    /*上拉加载的回调*/
+    upCallback: function upCallback(page) {
+      // 与 mescroll-body 的处理方式一致 >
+    },
+
     gotoDetail: function gotoDetail() {
       uni.navigateTo({
         url: "/pages/groupDetail/groupDetail" });

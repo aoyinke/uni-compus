@@ -94,13 +94,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   "uni-nav-bar": function() {
-    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 227))
+    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 229))
   },
   activity: function() {
-    return __webpack_require__.e(/*! import() | components/activity/activity */ "components/activity/activity").then(__webpack_require__.bind(null, /*! @/components/activity/activity.vue */ 264))
+    return __webpack_require__.e(/*! import() | components/activity/activity */ "components/activity/activity").then(__webpack_require__.bind(null, /*! @/components/activity/activity.vue */ 266))
   },
   "uni-fab": function() {
-    return __webpack_require__.e(/*! import() | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then(__webpack_require__.bind(null, /*! @/components/uni-fab/uni-fab.vue */ 271))
+    return __webpack_require__.e(/*! import() | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then(__webpack_require__.bind(null, /*! @/components/uni-fab/uni-fab.vue */ 273))
   }
 }
 var render = function() {
@@ -180,7 +180,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _wallpapers = _interopRequireDefault(__webpack_require__(/*! @/config/wallpapers.js */ 40));
 
-var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var activity = function activity() {__webpack_require__.e(/*! require.ensure | components/activity/activity */ "components/activity/activity").then((function () {return resolve(__webpack_require__(/*! @/components/activity/activity.vue */ 264));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tapBar = function tapBar() {__webpack_require__.e(/*! require.ensure | components/tapBar */ "components/tapBar").then((function () {return resolve(__webpack_require__(/*! @/components/tapBar.vue */ 278));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniFab = function uniFab() {__webpack_require__.e(/*! require.ensure | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then((function () {return resolve(__webpack_require__(/*! @/components/uni-fab/uni-fab.vue */ 271));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var activity = function activity() {__webpack_require__.e(/*! require.ensure | components/activity/activity */ "components/activity/activity").then((function () {return resolve(__webpack_require__(/*! @/components/activity/activity.vue */ 266));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tapBar = function tapBar() {__webpack_require__.e(/*! require.ensure | components/tapBar */ "components/tapBar").then((function () {return resolve(__webpack_require__(/*! @/components/tapBar.vue */ 280));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniFab = function uniFab() {__webpack_require__.e(/*! require.ensure | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then((function () {return resolve(__webpack_require__(/*! @/components/uni-fab/uni-fab.vue */ 273));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 var timer;var _default =
 {
   computed: _objectSpread({},
@@ -304,14 +304,11 @@ var timer;var _default =
       this.tapIndex = index;
     },
     topublish: function topublish() {
-      var isLogin = this.checkLogin('../index/index', '2');
-      if (!isLogin) {
-      } else {
-        uni.navigateTo({
-          url: '../publishActivity/publishActivity',
-          animationType: 'slide-in-left' });
 
-      }
+      uni.navigateTo({
+        url: '../publishActivity/publishActivity',
+        animationType: 'slide-in-left' });
+
     } },
 
   components: {

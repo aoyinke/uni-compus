@@ -2,7 +2,7 @@
 	<view>
 		<uni-nav-bar  title="社团" >
 			<view class="selectGroup" slot="left">
-				<ms-dropdown-menu><ms-dropdown-item v-model="school" :list="list"></ms-dropdown-item></ms-dropdown-menu>
+				<ms-dropdown-menu><ms-dropdown-item v-model="group" :list="list"></ms-dropdown-item></ms-dropdown-menu>
 			</view>
 		</uni-nav-bar>
 		<view class="uni-tab-bar">
@@ -36,13 +36,23 @@
 							  />
 							</view>
 							<view class="userBar">
-								<view class="userInfo">
-									<view class="userInfo-top">
-										<text>{{owner.name}}</text>
+								<view class="userBar-left">
+									<view class="userInfo">
+										<view class="userInfo-top">
+											<text>{{owner.name}}</text>
+										</view>
+										<view class="userPosition">
+											<text class="eosfont">&#xe60d;</text>
+											<text>{{owner.position}}</text>
+										</view>
 									</view>
-									<view class="userPosition">
-										<text class="eosfont">&#xe60d;</text>
-										<text>{{owner.position}}</text>
+									<view class="groupLogo">
+										<kp-avatar
+										  :image="owner.logo"
+										  size="large"
+										  mode="aspectFill"
+										  @tap="handleOpenCommunity(row)"
+										/>
 									</view>
 								</view>
 								<view class="heart">
@@ -64,10 +74,20 @@
 					<swiper-item>
 						<view class="homePage">
 							
+							<view class="concat paragraph">
+								<view class="paragraph-title">
+									<kp-badge class="title-dot" dot bg-color="#f5624f"/>
+									<h2>联系方式</h2>
+								</view>
+							  <view class="Introduce content">
+							  	<text>加群：xxxx或者加我QQ:1351058003</text>
+							  </view>
+							</view>
+							
 							<view class="Introduce paragraph">
 								<view class="paragraph-title">
 									<kp-badge class="title-dot" dot bg-color="#f5624f"/>
-									<h2>介绍</h2>
+									<h2>社团介绍</h2>
 								</view>
 							  <view class="Introduce content">
 							  	<text>这个人很懒，啥介绍也没有~</text>
@@ -77,7 +97,7 @@
 							<view class="achievement paragraph">
 								<view class="paragraph-title">
 									<kp-badge class="title-dot" dot bg-color="#1e90ff"/>
-									<h2>成就</h2>
+									<h2>社团成就</h2>
 								</view>
 							  <view class="Introduce content">
 							  	<text>这个人很懒，啥成就也没有~</text>
@@ -255,7 +275,8 @@ export default {
 				name:"轻松一校",
 				age:1,
 				star:"LEO",
-				position:"ShangHai"
+				position:"ShangHai",
+				logo:"https://img.pixbe.com/p47810601/22C15EC68FB04C7EB7A3F8668F59ED7E_640.jpg"
 			},
 			user: {
 			  labels:['活泼','具有创造力','进取','优秀','舞蹈','音乐'],
@@ -327,6 +348,12 @@ export default {
 					break;
 				case 2:
 					url = "/pages/groupInfoConcat/groupInfoConcat"
+					break;
+				case 3:
+					url = "/pages/changeGroupInfo/changeGroupInfo"
+					break;
+				case 4:
+					url="/pages/memberMange/memberMange"
 					break;
 			}
 			uni.navigateTo({
@@ -575,45 +602,53 @@ export default {
 			bottom: 0;
 			width: 80%;
 			height: 15%;
+			&-left{
+				display: flex;
+				align-items: center;
+				.userInfo{
+					margin: 10upx 0 0 50upx;
+					display: flex;
+					justify-content: center;
+					align-items: flex-start;
+					flex-direction: column;
+					
+					&-top{
+						display: flex;
+						justify-content: space-evenly;
+						
+						align-items: center;
+						width: 100%;
+						font: {
+							size: 36upx;
+							font-weight: 500;
+						};
+						& :first-child{
+							margin-right: 12upx;
+						}
+						
+					}
+					
+					
+					
+					.userPosition{
+						margin-top: -12rpx;
+						& :last-child{
+							color: rgba(209, 216, 224,1.0);
+							font: {
+								size: 24upx;
+							};
+						}
+					}
+					
+				}
+				kp-avatar{
+					margin-left: 20rpx;
+				}
+			}
 			.heart{
 				margin: 50upx;
 			}
-			.userInfo{
-				margin: 10upx 0 0 50upx;
-				display: flex;
-				justify-content: center;
-				align-items: flex-start;
-				flex-direction: column;
-				
-				&-top{
-					display: flex;
-					justify-content: space-evenly;
-					
-					align-items: center;
-					width: 100%;
-					font: {
-						size: 36upx;
-						font-weight: 500;
-					};
-					& :first-child{
-						margin-right: 12upx;
-					}
-					
-				}
-				
-				
-				
-				.userPosition{
-					margin-top: -12rpx;
-					& :last-child{
-						color: rgba(209, 216, 224,1.0);
-						font: {
-							size: 24upx;
-						};
-					}
-				}
-				
-			}
+			
 		}
 		
 	}

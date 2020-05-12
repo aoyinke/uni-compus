@@ -34,15 +34,26 @@
 							  />
 							</view>
 							<view class="userBar">
-								<view class="userInfo">
-									<view class="userInfo-top">
-										<text>{{owner.name}}</text>
+								<view class="userBar-left">
+									<view class="userInfo">
+										<view class="userInfo-top">
+											<text>{{owner.name}}</text>
+										</view>
+										<view class="userPosition">
+											<text class="eosfont">&#xe60d;</text>
+											<text>{{owner.position}}</text>
+										</view>
 									</view>
-									<view class="userPosition">
-										<text class="eosfont">&#xe60d;</text>
-										<text>{{owner.position}}</text>
+									<view class="groupLogo">
+										<kp-avatar
+										  :image="owner.logo"
+										  size="large"
+										  mode="aspectFill"
+										  @tap="handleOpenCommunity(row)"
+										/>
 									</view>
 								</view>
+								
 								<view class="heart">
 									<likeIcon></likeIcon>
 								</view>
@@ -217,12 +228,14 @@ export default {
 				name:"轻松一校",
 				age:1,
 				star:"LEO",
-				position:"ShangHai"
+				position:"ShangHai",
+				logo:"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg"
 			},
 			user: {
 			  labels:['活泼','具有创造力','进取','优秀','舞蹈','音乐'],
 			  likeClick: 0, //点赞喜欢次数，默认为0
 			  likeAnimate: false,
+			  
 			  liked: uni.getStorageSync(`${config.key}_liked`) //用户是否点过赞（点亮小红星）
 			},
 			home: {
@@ -268,8 +281,16 @@ export default {
 				content:"确定要申请加入吗？",
 				showCancel:true,
 				cancelColor:"#ff5e57",
-				confirmColor:"#0fbcf9"
-				
+				confirmColor:"#0fbcf9",
+				success:(res)=>{
+					uni.showLoading()
+					uni.showToast({
+						title:"申请成功！",
+						success:(res)=>{
+							uni.hideLoading()
+						}
+					})
+				}
 			})
 		},
 		gotoCollections(index){
@@ -548,45 +569,53 @@ export default {
 			bottom: 0;
 			width: 80%;
 			height: 15%;
+			&-left{
+				display: flex;
+				align-items: center;
+				.userInfo{
+					margin: 10upx 0 0 50upx;
+					display: flex;
+					justify-content: center;
+					align-items: flex-start;
+					flex-direction: column;
+					
+					&-top{
+						display: flex;
+						justify-content: space-evenly;
+						
+						align-items: center;
+						width: 100%;
+						font: {
+							size: 36upx;
+							font-weight: 500;
+						};
+						& :first-child{
+							margin-right: 12upx;
+						}
+						
+					}
+					
+					
+					
+					.userPosition{
+						margin-top: -12rpx;
+						& :last-child{
+							color: rgba(209, 216, 224,1.0);
+							font: {
+								size: 24upx;
+							};
+						}
+					}
+					
+				}
+				kp-avatar{
+					margin-left: 20rpx;
+				}
+			}
 			.heart{
 				margin: 50upx;
 			}
-			.userInfo{
-				margin: 10upx 0 0 50upx;
-				display: flex;
-				justify-content: center;
-				align-items: flex-start;
-				flex-direction: column;
-				
-				&-top{
-					display: flex;
-					justify-content: space-evenly;
-					
-					align-items: center;
-					width: 100%;
-					font: {
-						size: 36upx;
-						font-weight: 500;
-					};
-					& :first-child{
-						margin-right: 12upx;
-					}
-					
-				}
-				
-				
-				
-				.userPosition{
-					margin-top: -12rpx;
-					& :last-child{
-						color: rgba(209, 216, 224,1.0);
-						font: {
-							size: 24upx;
-						};
-					}
-				}
-				
-			}
+			
 		}
 		
 	}

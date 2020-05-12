@@ -43,7 +43,16 @@
 			<swiper-item v-for="(items, index) in groupDetail" :key="index">
 				<scroll-view scroll-y class="list" :style="{ height: swiperHeight + 'px' }">
 					<block v-for="(item, indx) in items.content" :key="indx">
-						<group-item :groupLogo="item.groupLogo" :groupName="item.groupName" :intro="item.intro" :tag="item.tag" @click.native="gotoDetail"></group-item>
+						<mescroll-uni ref="mescrollRef" @init="mescrollInit" @down="downCallback" @up="upCallback" :down="downOption" :up="upOption">
+							<group-item
+								:needChat="false"
+								:groupLogo="item.groupLogo"
+								:groupName="item.groupName"
+								:intro="item.intro"
+								:tag="item.tag"
+								@click.native="gotoDetail"
+							></group-item>
+						</mescroll-uni>
 					</block>
 				</scroll-view>
 			</swiper-item>
@@ -71,7 +80,10 @@ import uniCompusButton from '@/components/uni-compus-components/unicompus-button
 import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue';
 import msDropdownMenu from '@/components/ms-dropdown/dropdown-menu.vue';
 import msDropdownItem from '@/components/ms-dropdown/dropdown-item.vue';
+
+import MescrollMixin from "@/components/mescroll-uni/mescroll-mixins.js";
 export default {
+	mixins: [MescrollMixin], // 使用mixin
 	data() {
 		return {
 			loading: false,
@@ -79,19 +91,28 @@ export default {
 			searchValue: '',
 			infoList: [],
 			infoLists: [
-				{
-					name: '吕星辰1'
-				},
-				{
-					name: '吕星辰2'
-				},
-				{
-					name: '吕星辰3'
-				},
-				{
-					name: '吕星辰4'
-				}
+					{
+						name: '吕星辰1'
+					},
+					{
+						name: '吕星辰2'
+					},
+					{
+						name: '吕星辰3'
+					},
+					{
+						name: '吕星辰4'
+					}
 			],
+
+			// 下拉刷新的配置
+			downOption: {
+
+			},
+			// 上拉加载的常用配置
+			upOption: {
+
+			},
 
 			list: [
 				{
@@ -160,6 +181,15 @@ export default {
 		msDropdownItem
 	},
 	methods: {
+		/*下拉刷新的回调*/
+		downCallback(){
+			// 与 mescroll-body 的处理方式一致 >
+		},
+		/*上拉加载的回调*/
+		upCallback(page) {
+			// 与 mescroll-body 的处理方式一致 >
+		},
+
 		gotoDetail(){
 			uni.navigateTo({
 				url:"/pages/groupDetail/groupDetail"

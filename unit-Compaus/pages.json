@@ -20,7 +20,11 @@
 		}, {
 			"path": "pages/group/group",
 			"style": {
-				"backgroundColor": "darkgray"
+				"backgroundColor": "darkgray",
+				"disableScroll": true, // 禁止原生页面滚动, 解决Android小程序下拉卡顿的问题
+				"app-plus": {
+					"bounce": "none" // 取消APP端iOS回弹,避免与下拉刷新冲突,以及bounce边缘1秒卡顿
+				}
 			}
 		}, {
 			"path": "pages/activityDetail/activityDetail",
@@ -39,19 +43,23 @@
 		, {
 			"path": "pages/interestsTag/interestsTag",
 			"style": {}
-		}, {
-			"path": "pages/chatPages/chatPages",
-			"style": {}
-		}, {
+		},
+		// {
+		// 	"path": "pages/chatPages/chatPages",
+		// 	"style": {}
+		// },
+		{
 			"path": "pages/groupInfoDetail/groupInfoDetail",
 			"style": {}
 		}, {
 			"path": "pages/mySave/mySave",
 			"style": {}
-		}, {
-			"path": "pages/chatGroup/chatGroup",
-			"style": {}
-		}, {
+		},
+		// {
+		// 	"path": "pages/chatGroup/chatGroup",
+		// 	"style": {}
+		// }, 
+		{
 			"path": "pages/feedBack/feedBack",
 			"style": {}
 		}, {
@@ -196,11 +204,11 @@
 				"path": "pages/feedBack/feedBack", //启动页面，必选
 				"query": "" //启动参数，在页面的onLoad函数里面得到
 			},
-			{
-				"name": "index", //模式名称
-				"path": "pages/chatGroup/chatGroup", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
+			// {
+			// 	"name": "index", //模式名称
+			// 	"path": "pages/chatGroup/chatGroup", //启动页面，必选
+			// 	"query": "" //启动参数，在页面的onLoad函数里面得到
+			// },
 			{
 				"name": "mySave", //模式名称
 				"path": "pages/mySave/mySave", //启动页面，必选
@@ -211,11 +219,11 @@
 				"path": "pages/groupInfoDetail/groupInfoDetail", //启动页面，必选
 				"query": "" //启动参数，在页面的onLoad函数里面得到
 			},
-			{
-				"name": "chatPages", //模式名称
-				"path": "pages/chatPages/chatPages", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
+			// {
+			// 	"name": "chatPages", //模式名称
+			// 	"path": "pages/chatPages/chatPages", //启动页面，必选
+			// 	"query": "" //启动参数，在页面的onLoad函数里面得到
+			// },
 
 			{
 				"name": "interestTag", //模式名称
