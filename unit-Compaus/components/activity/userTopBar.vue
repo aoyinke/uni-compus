@@ -2,7 +2,7 @@
 	<view class="groupTopBar">
 		<view class="groupTopBar-left" @click="toUserDetail">
 			<view class="groupLogo">
-				<image :src="groupInfo.groupLogo" mode="scaleToFill"></image>
+				<image :src="groupInfo.logo" mode="scaleToFill"></image>
 			</view>
 			<view class="groupName">
 				<view class="groupName-top">
@@ -10,7 +10,7 @@
 					<kp-tag size="small" bg-color="#d1ebfd" weight="500" class="left-tag">
 					  <!-- <kp-icon size="24" type="male" color="#3bb2f3"/> -->
 					  <text class="eosfont category">&#xe602;</text>
-					  <text>{{groupInfo.category}}</text>
+					  
 					</kp-tag>
 					<kp-tag
 					  size="small"
@@ -18,7 +18,15 @@
 					  weight="500"
 					  bg-color="#f4dee0"
 					  class="left-star"
-					>活动精彩</kp-tag>
+					>{{groupInfo.college}}</kp-tag>
+					<kp-tag
+					  size="small"
+					  color="#fff"
+					  weight="500"
+					  bg-color="#4834d4"
+					  class="left-star"
+					  v-if="needCategory"
+					>{{groupInfo.category}}</kp-tag>
 				</view>
 				
 				<text class="groupName-last">{{activityStartTime}}</text>
@@ -47,6 +55,10 @@
 			KpTag
 		},
 		props: {
+			needCategory:{
+				type:Boolean,
+				default:true
+			},
 			groupInfo:{
 				type:Object,
 				default:{}
@@ -59,9 +71,9 @@
 		methods:{
 
 			toUserDetail(){
-				console.log('6666666666666')
+				
 				uni.navigateTo({
-					url:"/pages/groupDetail/groupDetail"
+					url:"/pages/groupDetail/groupDetail?groupId=" + this.groupInfo.id
 				})
 			},
 			followerUser(){

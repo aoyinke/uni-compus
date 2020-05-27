@@ -4,16 +4,17 @@
 		<view class="interetsTagList">
 
 				<view class="Tag-item" v-for="(Tag,idx) in interetsTagList" :key="idx">
-					<image :src="Tag.categoryFont" mode=""></image>
-					<text class="category">{{Tag.category}}</text>
-					<view class="concern" @click="addInterestTag(Tag.categoryId,idx)">
-						<uniCompusButton :content="Tag.buttonContent" :isDisabled="Tag.selected" ></uniCompusButton>
+					
+					<text class="eosfont dance">&#xe614;</text>
+					<text>{{Tag.category}}</text>
+					<view class="concern" @click="addInterestTag(Tag.categoryId,idx)" >
+						<uni-compus-button :content="Tag.buttonContent"  width="100" background="rgba(126, 214, 223,1.0)" :choosed="Tag.selected"></uni-compus-button>
 					</view>
 
 				</view>
 
 		</view>
-
+		<uni-compus-button open-type="getUserInfo"  width="100" background="#fbc531" content="确认提交"  @click.native="login"></uni-compus-button>
 
 	</view>
 </template>
@@ -24,31 +25,32 @@
 	export default {
 		data() {
 			return {
+				
 				interetsTagList: [{
-						categoryFont: "../../static/test/vue.png",
+						
 						category: "编程",
 						categoryId: 1,
 						selected: false,
 						buttonContent:"关注"
 					},
 					{
-						categoryFont: "../../static/test/Dance.png",
+						
 						category: "编程",
-						categoryId: 1,
+						categoryId: 2,
+						selected: false,
+						buttonContent:"关注"
+					},
+					{
+						
+						category: "编程",
+						categoryId: 3,
 						selected: false,
 						buttonContent:"关注"
 					},
 					{
 						categoryFont: "../../static/test/vue.png",
 						category: "编程",
-						categoryId: 1,
-						selected: false,
-						buttonContent:"关注"
-					},
-					{
-						categoryFont: "../../static/test/vue.png",
-						category: "编程",
-						categoryId: 1,
+						categoryId: 4,
 						selected: false,
 						buttonContent:"关注"
 					},
@@ -61,12 +63,21 @@
 			uniCompusButton
 		},
 		methods: {
+			
 			addInterestTag(categoryId,idx) {
+				let obj = this.interetsTagList
+				if(obj[idx]['selected']){
+					obj[idx]['selected'] = false
+					obj[idx]['buttonContent'] = "关注"
+					let index = this.concernList.indexOf(categoryId)
+					this.concernList = this.concernList.splice(index,1)
+				}else{
+					obj[idx]['selected'] = true
+					obj[idx]['buttonContent'] = "已关注"
+					this.concernList.push(categoryId)
+				}
+				this.interetsTagList = obj
 				
-				this.interetsTagList[idx]['selected'] = true
-				this.interetsTagList[idx]['buttonContent'] = "已关注"
-				this.concernList.push(categoryId)
-				this.content = "已关注"
 				console.log(this.concernList)
 			}
 		},
@@ -78,6 +89,10 @@
 </script>
 
 <style lang="scss" scoped>
+
+	.dance{
+		color: rgba(255, 121, 121,1.0);
+	}
 	.interetsTagList {
 		display: flex;
 		justify-content: space-around;

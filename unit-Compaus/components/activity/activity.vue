@@ -1,9 +1,9 @@
 <template>
 	<view>
-		<block v-for="(item,idx) in activityInfo" :key="idx">
+		<block v-for="(item,idx) in communityList" :key="idx">
 			<view class="groupNotification">
-				<user-top-bar :groupInfo="item.groupInfo" :activityStartTime="item.activityStartTime"
-				 activityId="1"></user-top-bar>
+				<user-top-bar :groupInfo="item.groupInfo" :activityStartTime="item.deadline"
+				 ></user-top-bar>
 				<goDetail detailUrl="/pages/activityDetail/activityDetail" :item="item">
 					<view class="mainBar">
 						<template v-if="item.title">
@@ -12,9 +12,9 @@
 								
 							</view>
 						</template>
-						<template v-if="item.img.length">
+						<template v-if="item.imgs.length">
 							<swiper :indicator-dots="true" class="swiper">
-								<swiper-item v-for="(img,id) in item.img" :key="id" >
+								<swiper-item v-for="(img,id) in item.imgs" :key="id" >
 									<view class="swiper-item">
 										<image :src="img" mode=""></image>
 									</view>
@@ -32,13 +32,13 @@
 					<mutation></mutation>
 					<view class="commentDetail">
 						<view class="activityInfo">
-							<text class="activityInfo-left">{{item.hotNum}}热度</text>
-							<text class="activityInfo-right">{{item.commentNum}}评论</text>
+							<text class="activityInfo-left">{{item.like_nums}}热度</text>
+							<text class="activityInfo-right">{{item.comments.length}}评论</text>
 						</view>
-						<block v-for="(comment,index) in item.commentDetail" :key="index">
+						<block v-for="(comment,index) in item.comments" :key="index">
 							<view class="commentDetail-P">
-								<text class="commentDetail-P-left">{{comment.commentor}}: </text>
-								<text class="commentDetail-P-right">{{comment.commentContent}}</text>
+								<text class="commentDetail-P-left">{{comment.nickName}}: </text>
+								<text class="commentDetail-P-right">{{comment.content}}</text>
 							</view>
 						</block>
 					</view>
@@ -52,20 +52,31 @@
 	import userTopBar from '@/components/activity/userTopBar.vue'
 	import mutation from '@/components/activity/mutation.vue'
 	import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue'
+	import {baseConfig} from '@/config/index.js'
 	export default {
 		data() {
 			return {
-
+				communityList:this.activityInfo
 			}
-		},
-		onLoad() {
-			
 		},
 		props: {
 			activityInfo: Array
 		},
 		mounted() {
-
+			
+			this.communityList = this.communityList.map(item=>{
+				
+				
+				let imgs = item.imgs.map(img=>{
+					return baseConfig.host + baseConfig.port + '/' + img.url
+				})
+				item.imgs = imgs
+				
+				return item
+				
+				
+			})
+			
 		},
 		components: {
 			userTopBar,

@@ -1,3 +1,8 @@
+.changeCollection.data-v-0482b194 {
+  position: absolute;
+  width: 160rpx;
+  right: 4%;
+}
 .activity-title.data-v-0482b194 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -10,6 +15,7 @@
   -webkit-justify-content: center;
           justify-content: center;
   margin-bottom: 10rpx;
+  position: relative;
 }
 .activity-title-left.data-v-0482b194 {
   background: #3498db;

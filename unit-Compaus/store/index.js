@@ -21,10 +21,7 @@ const store = new Vuex.Store({
 		user
 	},
 	mutations:{
-		[STORE_LEAVE_TIME](state, payload) { // 记录离开时间
-			let date = new Date()
-			state.leaveTime = date.getTime()
-		},
+		
 	}
 })
 export default store

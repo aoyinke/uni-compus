@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "uni-countdown": "/components/uni-countdown/uni-countdown",
     "ygc-comment": "/components/ygc-comment/ygc-comment",
     "user-top-bar": "/components/activity/userTopBar",
     "comment-item": "/components/commentBar/commentBar",

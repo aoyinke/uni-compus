@@ -72,10 +72,52 @@
 				</view>
 			</view>
 		</view>
+		<view class="uni-list-cell uni-list-cell-pd">
+			<view class="uni-list-cell-db">个人介绍</view>
+		</view>
+		<view class="group-description">
+			<textarea v-model="userInfo.description" placeholder="编辑个人介绍吧~" />
+		</view>
 		
-			<uniCompusButton content="保存" width="100" background="#4834d4" @click.native="submit"></uniCompusButton>
+		<view class="uni-list-cell uni-list-cell-pd">
+			<view class="uni-list-cell-db">拥有的成就</view>
+		</view>
+		<view class="group-achievement">
+			<textarea v-model="userInfo.achievement" placeholder="编辑拥有的成就成就吧,想说啥就说啥~" />
+		</view>
+		
+		<view class="uni-list-cell uni-list-cell-pd">
+			<view class="uni-list-cell-db">参加过的活动</view>
+		</view>
+		<view class="group-specailActivity">
+			<textarea v-model="userInfo.joinedActivity" placeholder="编辑参加过的活动活动吧~" />
+		</view>
+		
+		<view class="uni-list-cell uni-list-cell-pd" @click="addTags">
+			<view class="uni-list-cell-db">添加标签</view>
+			<text class="eosfont addTags">&#xe715;</text>
+		</view>
+		<view class="group-tags">
+			<kp-tag
+			  v-for="(row,index) in userInfo.tags"
+			  :key="index"
+			  class="detail-labels"
+			  type="primary"
+			  shape="circle"
+			>{{row}}</kp-tag>
+		</view>
+		<view class="uni-list-cell uni-list-cell-pd">
+			<view class="uni-list-cell-db">上传封面图片</view>
+		</view>
+		
+		<uni-compus-upload-img title="最多可上传9张" :imageList="userInfo.coverImgs" @close="close" @chooseImg="chooseImg"></uni-compus-upload-img>
+		<uniCompusButton content="保存" width="100" background="#4834d4" @click.native="submit"></uniCompusButton>
 		
 		
+		<chunLei-modal v-model="value" type="input" :mData="inputData"  @onConfirm="onConfirmTag" navMask>
+		</chunLei-modal>
+		<chunLei-modal v-model="showErr" type="default" :mData="errData" navMask>
+		</chunLei-modal>
 		<chunLei-modal v-model="chunLeiModal.value" :type="chunLeiModal.type" :mData="chunLeiModal.mData" navMask @onConfirm="onConfirm">
 		</chunLei-modal>
 		<w-picker
@@ -106,21 +148,37 @@
 <script>
 	import uniNavBar from '@/components/uni-icons/uni-icons.vue'
 	import wPicker from "@/components/w-picker/w-picker.vue"
-	import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue'
+	import uniCompusUploadImg from '@/components/uni-compus-components/uniCompus-uploadImg.vue'
+	import KpTag from "@/components/kp-tag";
 	import {mapState} from 'vuex'
+	import {changeUserInfoValidator} from '@/utils/validator.js'
 	export default {
-		computed:{
-			...mapState([
-				'user'
-			])
-		},
-		onLoad() {
+		
+		async onLoad() {
+			let user = await this.request('v1/user/getUserInfo')
 			
-			this.userInfo = Object.assign({},this.user.userInfo)
-			console.log(this.userInfo)
+			user[1].data.tags = user[1].data.tags.split(',')
+			this.userInfo = user[1].data
+			this.userInfo.avatar = "http://localhost:3000/" + user[1].data.avatar
+			let coverImgs = this.userInfo.coverImgs
+			this.userInfo.coverImgs = coverImgs.map(item=>{
+				return "http://localhost:3000/" + item.url
+			})
+			
+			
+			
 		},
 		data() {
 			return {
+				showErr:false,
+				errData:{title:'提示',content:'这是一个模态弹窗',cancelText:'cancel',confirmColor:'#3CC51F'},
+				
+				inputData:{
+				  title:'定义标签',
+				  content:[
+				  {title:'标签名称',content:'',placeholder:'请输入标签'},
+				  
+				 ]},
 				picker: {
 					mode: 'date'
 				},
@@ -131,30 +189,95 @@
 					type: 'default',
 					mData: {}
 				},
-				userInfo:{}
+				userInfo:{},
+				value:false
 			};
 		},
 
 		components: {
 			wPicker,
-			uniCompusButton
+			uniCompusUploadImg,
+			KpTag
 		},
 		methods: {
-			submit(){
+			close(e){
+				this.userInfo.coverImgs.splice(e,1);
+			},
+			
+			chooseImg(){
+				uni.chooseImage({
+				    sourceType: ["camera", "album"],
+				    sizeType: "compressed",
+				    count: 8 - this.userInfo.coverImgs.length,
+				    success: (res) => {
+						let obj = this.userInfo
+						obj.coverImgs = obj.coverImgs.concat(res.tempFilePaths)
+						this.userInfo = obj
+				        
+				    }
+				})
+			},
+			onConfirmTag(e){
+				
+				this.userInfo.tags.push(e[0].content)
+			},
+			addTags(){
+				this.value = true
+			},
+			
+			async  submit(){
+				
+				let avatar = this.userInfo.avatar
+				let coverImgs = this.userInfo.coverImgs
+				this.userInfo.coverImgs = ""
 				console.log(this.userInfo)
-				this.request('v1/user/update','6666','POST')
-				console.log(this.request)
+				if(coverImgs.length){
+					for(let i of coverImgs){
+						this.uploadFile('v1/uploadFiles/userCoverImgs',i)
+					}
+				}
+				
+				//设置用户修改信息头像
+				if(!avatar.startsWith("http://localhost")){
+					let avatarUrl = await this.uploadFile('v1/uploadFiles/avatar',avatar)
+					this.userInfo.avatar = avatarUrl[1].data
+					
+				}else{
+					this.userInfo.avatar = avatar.replace("http://localhost:3000/","")
+				}
+				
+				//将用户的个人标签转化形式
+				this.userInfo.tags = this.userInfo.tags.toString()
+				let res = changeUserInfoValidator(this.userInfo)
+				if(!res){
+					this.request('v1/user/update',this.userInfo,'POST')
+					uni.showToast({
+						title:"修改成功",
+						
+					})
+					uni.switchTab({
+						url:"/pages/self/self",
+						duration:3000
+					})
+				}else{
+					let obj = this.errData
+					obj.content = res
+					this.errData = obj
+					this.showErr = true
+				}
+				
+				
 			},
 			onConfirm(item) {
 
 			},
 			onConfirmBirthday(item){
-				console.log(item)
+				
 				
 				this.userInfo = Object.assign({},this.userInfo,{birthday:item.result})
 			},
 			onConfirmHome(e){
-				console.log(e)
+				
 				this.userInfo = Object.assign({},this.userInfo,{homeTown:e.result})
 				
 			},
@@ -164,17 +287,15 @@
 					animationType: 'pop-out'
 				})
 			},
-			submitChangedInfo() {
-				console.log(this.userInfo)
-			},
+
 
 			changePerson_avatar() {
 				uni.chooseImage({
 					count: 1,
 					sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
 					success: (res) => {
-
-						this.userInfo.avatar = res.tempFilePaths
+						
+						this.userInfo.avatar = res.tempFilePaths[0]
 					}
 				})
 			},
@@ -254,6 +375,7 @@
 </script>
 
 <style lang="scss" scoped>
+	@import './index.scss';
 	.eosfont {
 		font-size: 42upx !important;
 		margin-left: 20upx !important;

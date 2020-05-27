@@ -16,7 +16,21 @@
 				<view class="uni-list-cell-db" style="font-weight: 500;">选择类别吧</view>
 				<text>{{ choosedCategory }}</text>
 			</view>
-			<view class="uni-textarea"><textarea v-model="description" placeholder="和志同道合的人一起分享动态吧" style="height: 400upx;" /></view>
+			<view class="uni-list-cell uni-list-cell-pd" @click="chooseDeadLine">
+				<view class="uni-list-cell-db" style="font-weight: 500;">活动开始时间</view>
+				<text>{{deadLine}}</text>
+			</view>
+			
+			
+			<view class="uni-list-cell uni-list-cell-pd" >
+				<view class="uni-list-cell-db" style="font-weight: 500;">编辑内容简介</view>
+			</view>
+			<view class="uni-textarea"><textarea v-model="description" placeholder="编辑内容简介" style="height: 400upx;" /></view>
+			<view class="uni-list-cell uni-list-cell-pd" >
+				<view class="uni-list-cell-db" style="font-weight: 500;">编辑正文内容</view>
+			</view>
+			<view class="uni-textarea"><textarea v-model="content" placeholder="编辑正文内容" style="height: 400upx;" /></view>
+			
 
 			<view class="uni-list-cell uni-list-cell-pd" v-if="tapIndex === 2 || 3">
 				<view class="uni-list-cell-db" style="font-weight: 500;">
@@ -33,7 +47,7 @@
 			</view>
 		</view>
 
-		<view class="footer">
+		<view class="footer"> 
 			<view class="video footer-bar" @click="chooseVideo">
 				<image src="../../static/publish/video.png" mode=""></image>
 				<text>视频</text>
@@ -54,7 +68,7 @@
 			</view>
 		</view>
 		<view class="showVideoBar" v-if="videoSrc"><video :src="videoSrc" controls></video></view>
-		<view class="bottomBar" @click="sendActivity"><uniCompusButton background="#FFC312" content="发表" width="100"></uniCompusButton></view>
+		<view class="bottomBar" @click="sendActivity"><uniCompusButton background="#FFC312" content="发表" width="100" ></uniCompusButton></view>
 		<uni-popup ref="CategoryPopup" type="bottom">
 			<slot>
 				<view class="CategoryPopup">
@@ -103,6 +117,18 @@
 				</view>
 			</slot>
 		</uni-popup>
+		<chunLei-modal v-model="showErr" type="default" :mData="errData" navMask>
+		</chunLei-modal>
+		<w-picker
+		        mode="shortTerm"
+		        value="2020-04-08 13:18:00"
+		        :current="true"
+		        expand="60"
+		        @confirm="onConfirmDeadLine($event,'shortTerm')"
+		        
+		        ref="shortTerm" 
+		    >
+		</w-picker>
 	</view>
 </template>
 
@@ -113,15 +139,20 @@ import uniBadge from '@/components/uni-badge/uni-badge.vue';
 import lvSelect from '@/components/lv-select/lv-select.vue';
 import KpAvatar from '@/components/kp-avatar/index.vue';
 import uniPopup from '@/components/uni-popup/uni-popup.vue';
-
+import { pathToBase64, base64ToPath } from '@/js_sdk/gsq-image-tools/image-tools/index.js'
 import { mapMutations, mapState } from 'vuex';
+import {activityInoValidator} from '@/utils/validator.js'
 export default {
 	computed: {
 		...mapState(['group'])
 	},
 	data() {
 		return {
-			info: {},
+			deadLine:"",
+			showErr:false,
+			errData:{title:'提示',content:'这是一个模态弹窗',cancelText:'取消',confirmColor:'#3CC51F'},
+			content:"",
+			info: {type:100},
 			categoryList: [{category:'舞蹈',en:"dance"}, {category:'绘画',en:"draw"},
 			{category:'编程',en:"programming"},{category:'文学',en:"literature"},{category:'英语',en:"English"} ],
 			choosedCategory: '',
@@ -170,22 +201,66 @@ export default {
 		...mapMutations({
 			addActivity: 'ADD_ACTIVITYINFO'
 		}),
-		sendActivity() {
+		
+		chooseDeadLine(){
+			this.$refs.shortTerm.show()
+		},
+		onConfirmDeadLine(event){
+
+			this.deadLine = event.result
+		},
+		
+		async sendActivity() {
 			this.info.title = this.title;
 			this.info.description = this.description;
-			this.info.img = this.publishImgList;
-			this.info.videoSrc = this.videoSrc;
-			this.info.groupID = this.groupID;
-			console.log(this.info);
-			this.addActivity(this.info);
-			uni.showToast({
-				title:"提交成功"
-			})
+			
+			this.info.groupId = this.groupID;
+			this.info.category = this.choosedCategory
+			this.info.content = this.content
+			
+			console.log(this.info)
+			let errMsg = activityInoValidator(this.info,this.publishImgList)
+			
+			if(!errMsg){
+				uni.showModal({
+					title:"确认提交",
+					content:"请确认信息无误，审核后即将发表",
+					success:async result=>{
+						let activityInfo = await this.request('v1/ActivityInfo/upLoadActivity',this.info,'POST')
+						activityInfo = activityInfo[1].data
+						console.log(activityInfo)
+						this.publishImgList.forEach(item=>{
+							this.uploadFile('v1/uploadFiles/files',item,{activity_id:activityInfo.activity_id,type:activityInfo.type})
+						})
+						if(this.videoSrc){
+							this.uploadFile('v1/uploadFiles/files',this.videoSrc,{activity_id:activityInfo.activity_id,type:activityInfo.type})
+				
+						}
+						uni.showToast({
+							title:"提交成功",
+							duration:2500,
+							success: () => {
+								uni.switchTab({
+									url:"/pages/index/index"
+								})
+							}
+						})
+					}
+				})
+				
+			}else{
+				let obj = this.errData
+				obj.content = errMsg
+				this.errData = obj
+				this.showErr = true
+			}
+			
 		},
 		chooseCategory() {
 			this.$refs.CategoryPopup.open();
 		},
 		finishChooseCategory(item) {
+			
 			this.choosedCategory = item.category;
 			this.info.category = item.en
 			this.$refs.CategoryPopup.close();

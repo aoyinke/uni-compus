@@ -37,16 +37,21 @@
 								<view class="userBar-left">
 									<view class="userInfo">
 										<view class="userInfo-top">
-											<text>{{owner.name}}</text>
+											<text>{{groupInfo.name}}</text>
 										</view>
 										<view class="userPosition">
-											<text class="eosfont">&#xe60d;</text>
-											<text>{{owner.position}}</text>
+											<kp-tag
+											  size="small"
+											  color="#fff"
+											  weight="500"
+											  bg-color="#4834d4"
+											  class="left-star"
+											>{{groupInfo.college}}</kp-tag>
 										</view>
 									</view>
 									<view class="groupLogo">
 										<kp-avatar
-										  :image="owner.logo"
+										  :image="groupInfo.logo"
 										  size="large"
 										  mode="aspectFill"
 										  @tap="handleOpenCommunity(row)"
@@ -73,23 +78,23 @@
 					<swiper-item>
 						<view class="homePage">
 							
-							<view class="Introduce paragraph">
+							<view class="concat paragraph">
 								<view class="paragraph-title">
 									<kp-badge class="title-dot" dot bg-color="#f5624f"/>
-									<h2>介绍</h2>
+									<h2>联系方式</h2>
 								</view>
 							  <view class="Introduce content">
-							  	<text>这个人很懒，啥介绍也没有~</text>
+							  	<text>{{groupInfo.concat}}</text>
 							  </view>
 							</view>
 							
 							<view class="achievement paragraph">
 								<view class="paragraph-title">
 									<kp-badge class="title-dot" dot bg-color="#1e90ff"/>
-									<h2>成就</h2>
+									<h2>社团成就</h2>
 								</view>
 							  <view class="Introduce content">
-							  	<text>这个人很懒，啥成就也没有~</text>
+							  	<text>{{groupInfo.achievements}}</text>
 							  </view>
 							</view>
 							
@@ -99,9 +104,11 @@
 									<h2>专属活动</h2>
 								</view>
 							  <view class="classicActivity content">
-							  	<text>这个人很懒，啥成就也没有~</text>
+							  	<text>{{groupInfo.specialActivity}}</text>
 							  </view>
 							</view>
+							
+							
 							
 							<view class="labels paragraph">
 								<view class="paragraph-title">
@@ -110,7 +117,7 @@
 								</view>
 							  <view class="labels content">
 							  	<kp-tag
-							  	  v-for="(row,index) in user.labels"
+							  	  v-for="(row,index) in groupInfo.tags"
 							  	  :key="index"
 							  	  class="detail-labels"
 							  	  type="grey"
@@ -191,53 +198,21 @@ import KpTag from "@/components/kp-tag";
 import likeIcon from '@/components/common/commonIcon/likeIcon.vue';
 import kpBadge from '@/components/kp-badge/index.vue';
 import KpAvatar from '@/components/kp-avatar/index.vue';
-import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue';
+
+import {baseConfig,collections} from '@/config/index.js'
 export default {
 	data() {
 		return {
-			cooperateItems:[{icon:"./task.png",choice:"发布任务",backgroundImage: "linear-gradient(rgba(253, 150, 68,0.7),rgba(250, 130, 49,1.0))"},
-			{icon:"../../static/self/eye.png",choice:"待处理的工作",backgroundImage: "linear-gradient(rgba(253, 114, 114,0.7),rgba(252, 66, 123,1.0))"},
-			{icon:"../../static/self/eye.png",choice:"信息交流",backgroundImage: "linear-gradient(rgba(205, 132, 241,0.7),rgba(197, 108, 240,1.0))"}],
-			collections:[
-				{type:'往期活动',
-				nums:124,
-				coverImg:"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg",
-				backgroundImage:"linear-gradient(#2bcbba,#20bf6b,#45aaf2)"},
-				
-				{type:'活动动态',
-				nums:13,
-				coverImg:"https://img.pixbe.com/p47810601/3F31DCAAB5A3480997A08BE976B98D87_640.jpg",
-				backgroundImage:"linear-gradient(#fc5c65,#eb3b5a,#fd9644)"},
-					
-				// {type:'参与的问答',
-				// nums:127,
-				// coverImg:"https://img.pixbe.com/p47810601/E124CB219C59429A82FB9443D28EFF4C_640.jpg",
-				// backgroundImage:"linear-gradient(#fd9644,#fa8231,#eb3b5a)"},
-				
-				{type:'发布的知识',
-				nums:113,
-				coverImg:"https://img.pixbe.com/p47810601/22C15EC68FB04C7EB7A3F8668F59ED7E_640.jpg",
-				backgroundImage:"linear-gradient(#a55eea,#8854d0,#3867d6)"}],
+			
+			groupInfo:{},
+			
+			collections:collections,
 			team:[
 				{avatar:"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg",role:"前端工程师"},
 				{avatar:"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg",role:"前端工程师"},
 				{avatar:"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg",role:"前端工程师"}],
 			tapIndex:0,
 			nav:['主页','展示'],
-			owner:{
-				name:"轻松一校",
-				age:1,
-				star:"LEO",
-				position:"ShangHai",
-				logo:"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg"
-			},
-			user: {
-			  labels:['活泼','具有创造力','进取','优秀','舞蹈','音乐'],
-			  likeClick: 0, //点赞喜欢次数，默认为0
-			  likeAnimate: false,
-			  
-			  liked: uni.getStorageSync(`${config.key}_liked`) //用户是否点过赞（点亮小红星）
-			},
 			home: {
 				gallery: [
 					'/orj1080/967d9727ly3gc0whyclfoj20sg0sge0a.jpg',
@@ -249,7 +224,7 @@ export default {
 					'/orj1080/967d9727ly3gc0whz3i51j20sg0sgu0x.jpg',
 					'/orj1080/967d9727ly3gc0whz6qvlj20sg0sghdt.jpg',
 					'/orj1080/967d9727ly3gc0whz6yf1j20sg0sgkic.jpg'
-				].map(row => config.baseConfig.img_example + row),
+				].map(row => baseConfig.img_example + row),
 				galleryIndex: 0, //相册初始化位置
 				galleryDirection: '' //滑动方向
 			},
@@ -263,16 +238,21 @@ export default {
 		KpTag,
 		likeIcon,
 		kpBadge,
-		KpAvatar,
-		uniCompusButton
+		KpAvatar
 	},
-	onLoad() {
+	async onLoad(item) {
 		uni.getSystemInfo({
 			success: (res) => {
 				let height = res.windowHeight - uni.upx2px(355)
 				this.scrollHeight = height
 			}
 		})
+		let raw_groupInfo = await this.request('v1/group/detail?groupId=' + item.groupId)
+		let groupInfo = raw_groupInfo[1].data
+		groupInfo.logo = baseConfig.host + baseConfig.port + '/' + groupInfo.logo
+		groupInfo.tags = groupInfo.tags.split(',')
+		this.groupInfo = groupInfo
+		console.log(groupInfo)
 	},
 	methods: {
 		joinGroup(){

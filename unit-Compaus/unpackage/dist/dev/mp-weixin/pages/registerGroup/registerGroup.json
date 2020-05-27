@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "w-picker": "/components/w-picker/w-picker",
+    "chun-lei-modal": "/components/chunLei-modal/chunLei-modal"
+  }
+}

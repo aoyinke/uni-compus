@@ -109,7 +109,7 @@
 			uni.getSystemInfo({
 				success:(res)=>{
 					this.statusBarH = res.statusBarHeight
-					console.log('adasda' + this.statusBarH)
+					
 				}
 			})
 		},

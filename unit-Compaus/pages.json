@@ -15,9 +15,6 @@
 			"path": "pages/changePerson/changePerson",
 			"style": {}
 		}, {
-			"path": "pages/personalDetail/personalDetail",
-			"style": {}
-		}, {
 			"path": "pages/group/group",
 			"style": {
 				"backgroundColor": "darkgray",
@@ -98,6 +95,18 @@
 		}, {
 			"path": "pages/memberMange/memberMange",
 			"style": {}
+		}, {
+			"path": "pages/registerGroup/registerGroup",
+			"style": {}
+		}, {
+			"path": "pages/personShow/personShow",
+			"style": {}
+		}, {
+			"path": "pages/publishCollection/publishCollection",
+			"style": {}
+		}, {
+			"path": "pages/needWall/needWall",
+			"style": {}
 		}
 	],
 	"globalStyle": {
@@ -119,10 +128,10 @@
 				"text": "社区"
 			},
 			{
-				"pagePath": "pages/findPeople/findPeople",
+				"pagePath": "pages/needWall/needWall",
 				"iconPath": "static/findPeople/1.jpg",
 				"selectedIconPath": "static/findPeople/2.jpg",
-				"text": "找人"
+				"text": "需求墙"
 			},
 			{
 				"pagePath": "pages/manage/manage",
@@ -150,127 +159,139 @@
 				"name": "index", //模式名称
 				"path": "pages/index/index", //启动页面，必选
 				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "collectionsDetail", //模式名称
-				"path": "pages/collectionsDetail/collectionsDetail", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "memberMange", //模式名称
-				"path": "pages/memberMange/memberMange", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "manage", //模式名称
-				"path": "pages/manage/manage", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "changeGroupInfo", //模式名称
-				"path": "pages/changeGroupInfo/changeGroupInfo", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "groupTaskDetail", //模式名称
-				"path": "pages/groupTaskDetail/groupTaskDetail", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "startPage", //模式名称
-				"path": "pages/startPage/startPage", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "groupTaskList", //模式名称
-				"path": "pages/groupTaskList/groupTaskList", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "groupConcat", //模式名称
-				"path": "pages/groupInfoConcat/groupInfoConcat", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "PublishTask", //模式名称
-				"path": "pages/publishTask/publishTask", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			}, {
-				"name": "groupDetail", //模式名称
-				"path": "pages/groupDetail/groupDetail", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			}, {
-				"name": "feedBack", //模式名称
-				"path": "pages/feedBack/feedBack", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			// {
-			// 	"name": "index", //模式名称
-			// 	"path": "pages/chatGroup/chatGroup", //启动页面，必选
-			// 	"query": "" //启动参数，在页面的onLoad函数里面得到
-			// },
-			{
-				"name": "mySave", //模式名称
-				"path": "pages/mySave/mySave", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "groupInfoDetail", //模式名称
-				"path": "pages/groupInfoDetail/groupInfoDetail", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			// {
-			// 	"name": "chatPages", //模式名称
-			// 	"path": "pages/chatPages/chatPages", //启动页面，必选
-			// 	"query": "" //启动参数，在页面的onLoad函数里面得到
-			// },
+				},
+				{
+					"name": "needWall", //模式名称
+					"path": "pages/needWall/needWall", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "collectionsDetail", //模式名称
+					"path": "pages/collectionsDetail/collectionsDetail", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "personShow", //模式名称
+					"path": "pages/personShow/personShow", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "registerGroup", //模式名称
+					"path": "pages/registerGroup/registerGroup", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "memberMange", //模式名称
+					"path": "pages/memberMange/memberMange", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "manage", //模式名称
+					"path": "pages/manage/manage", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "changeGroupInfo", //模式名称
+					"path": "pages/changeGroupInfo/changeGroupInfo", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "groupTaskDetail", //模式名称
+					"path": "pages/groupTaskDetail/groupTaskDetail", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "startPage", //模式名称
+					"path": "pages/startPage/startPage", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "groupTaskList", //模式名称
+					"path": "pages/groupTaskList/groupTaskList", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "groupConcat", //模式名称
+					"path": "pages/groupInfoConcat/groupInfoConcat", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "PublishTask", //模式名称
+					"path": "pages/publishTask/publishTask", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "groupDetail", //模式名称
+					"path": "pages/groupDetail/groupDetail", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "feedBack", //模式名称
+					"path": "pages/feedBack/feedBack", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				// {
+				// 	"name": "index", //模式名称
+				// 	"path": "pages/chatGroup/chatGroup", //启动页面，必选
+				// 	"query": "" //启动参数，在页面的onLoad函数里面得到
+				// },
+				{
+					"name": "mySave", //模式名称
+					"path": "pages/mySave/mySave", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "groupInfoDetail", //模式名称
+					"path": "pages/groupInfoDetail/groupInfoDetail", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				// {
+				// 	"name": "chatPages", //模式名称
+				// 	"path": "pages/chatPages/chatPages", //启动页面，必选
+				// 	"query": "" //启动参数，在页面的onLoad函数里面得到
+				// },
 
-			{
-				"name": "interestTag", //模式名称
-				"path": "pages/interestsTag/interestsTag", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
+				{
+					"name": "interestTag", //模式名称
+					"path": "pages/interestsTag/interestsTag", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
 
-			{
-				"name": "activityDetail", //模式名称
-				"path": "pages/activityDetail/activityDetail", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "publish", //模式名称
-				"path": "pages/publishActivity/publishActivity", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "findPeople", //模式名称
-				"path": "pages/findPeople/findPeople", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "login", //模式名称
-				"path": "pages/login/login", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "self", //模式名称
-				"path": "pages/self/self", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "changePerson", //模式名称
-				"path": "pages/changePerson/changePerson", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "personDetail", //模式名称
-				"path": "pages/personalDetail/personalDetail",
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "group", //模式名称
-				"path": "pages/group/group",
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			}
-		]
+				{
+					"name": "activityDetail", //模式名称
+					"path": "pages/activityDetail/activityDetail", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "publish", //模式名称
+					"path": "pages/publishActivity/publishActivity", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "findPeople", //模式名称
+					"path": "pages/findPeople/findPeople", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "login", //模式名称
+					"path": "pages/login/login", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "self", //模式名称
+					"path": "pages/self/self", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "changePerson", //模式名称
+					"path": "pages/changePerson/changePerson", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "group", //模式名称
+					"path": "pages/group/group",
+					"query": "" //启动参数，在页面的onLoad函数里面得到
+				}
+			]
+		}
 	}
-}

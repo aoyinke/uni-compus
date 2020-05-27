@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/self/self",
     "pages/changePerson/changePerson",
-    "pages/personalDetail/personalDetail",
     "pages/group/group",
     "pages/activityDetail/activityDetail",
     "pages/publishActivity/publishActivity",
@@ -22,7 +21,11 @@
     "pages/manage/manage",
     "pages/collectionsDetail/collectionsDetail",
     "pages/changeGroupInfo/changeGroupInfo",
-    "pages/memberMange/memberMange"
+    "pages/memberMange/memberMange",
+    "pages/registerGroup/registerGroup",
+    "pages/personShow/personShow",
+    "pages/publishCollection/publishCollection",
+    "pages/needWall/needWall"
   ],
   "subPackages": [],
   "window": {
@@ -45,10 +48,10 @@
         "text": "社区"
       },
       {
-        "pagePath": "pages/findPeople/findPeople",
+        "pagePath": "pages/needWall/needWall",
         "iconPath": "static/findPeople/1.jpg",
         "selectedIconPath": "static/findPeople/2.jpg",
-        "text": "找人"
+        "text": "需求墙"
       },
       {
         "pagePath": "pages/manage/manage",
@@ -77,5 +80,6 @@
     "mescroll-body": "/components/mescroll-uni/mescroll-body",
     "mescroll-uni": "/components/mescroll-uni/mescroll-uni",
     "lv-select": "/components/lv-select/lv-select"
-  }
+  },
+  "sitemapLocation": "sitemap40.json"
 }

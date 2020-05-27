@@ -1,1 +1,0 @@
-<view class="tapBar data-v-6d300494"><view class="tapBar-bg data-v-6d300494"><image src="{{userAvatar}}" mode="scaleToFill" class="data-v-6d300494"></image></view><view class="userAvatar data-v-6d300494"><image src="{{userBg}}" mode="scaleToFill" class="data-v-6d300494"></image><text class="data-v-6d300494">{{userName}}</text></view></view>

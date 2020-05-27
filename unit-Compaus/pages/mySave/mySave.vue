@@ -15,69 +15,67 @@
 			></lv-select>
 		</view>
 		<view class="uni-tab-bar">
-			<scroll-view scroll-y="true" class="list">
-				<template v-if="type == 0">
-					<view class="likeActivity" >
-						<activity  :activityInfo="communityList"></activity>
-						<view>
-							<uni-fab
-								v-if="showPopButton"
-								:pattern="pattern"
-								:popMenu="ispopMenu"
-								:content="content"
-								horizontal="right"
-								vertical="bottom"
-								direction="horizontal"
-								@trigger="trigger"
-								@fabClick="showMenu"
-							></uni-fab>
-						</view>
-					</view>
-				</template>
-				
-				<template v-if="type == 1">
-					<block v-for="(item, index) in group.userSavedGroup" :key="index" >
-						<view class="groupList" >
-							<group-item 
-							:needChat="false" :groupLogo="item.logo" :groupName="item.name" :intro="item.intro" :tag="item.tag"></group-item>
-						</view>
-				</block>
-				</template>
-				<template v-if="type == 2">
-					<block v-for="(item, index) in group.userJoinedGroup" :key="index">
-						<view class="groupList"  >
-							<group-item 
-							:needChat="false" :groupLogo="item.logo" :groupName="item.name" :intro="item.intro" :tag="item.tag"></group-item>
-						</view>
-					</block>
-				</template>
-				<template v-if="type == 3">
-					<block v-for="(concernedPerson,id) in user.concernedPersonList" :key="id" >
-						<view class="concernedPerson-item">
-							<view class="concernedPerson-item-left">
-								<kp-avatar
-								  :image="concernedPerson.avatar"
-								  size="large"
-								  mode=""
-								  @tap="handleOpenCommunity(row)"
-								/>
-							</view>
-							<view class="concernedPerson-item-right">
-								<view class="concernedPerson-item-right-name">
-									<text>{{concernedPerson.name}}</text>
-								</view>
-								<view class="concernedPerson-item-right-intro text-line-2">
-									<text>{{concernedPerson.intro}}</text>
-								</view>
+
+				<scroll-view scroll-y="true" class="list">
+					<template v-if="type == 0">
+						<view class="likeActivity">
+							
+							<activity :activityInfo="communityList"></activity>
+							
+							<view>
+								<uni-fab
+									v-if="showPopButton"
+									:pattern="pattern"
+									:popMenu="ispopMenu"
+									:content="content"
+									horizontal="right"
+									vertical="bottom"
+									direction="horizontal"
+									@trigger="trigger"
+									@fabClick="showMenu"
+								></uni-fab>
 							</view>
 						</view>
+					</template>
+
+					<template v-if="type == 1">
+						<block v-for="(item, index) in group.userSavedGroup" :key="index">
+							<view class="groupList">
+								
+								<group-item :needChat="false" :groupLogo="item.logo" :groupName="item.name" :intro="item.intro" :tag="item.tag"></group-item>
+								
+							</view>
+						</block>
+					</template>
+					<template v-if="type == 2">
+						<block v-for="(item, index) in group.userJoinedGroup" :key="index">
+							<view class="groupList">
+								
+								<group-item :needChat="false" :groupLogo="item.logo" :groupName="item.name" :intro="item.intro" :tag="item.tag"></group-item>
+								
+							</view>
+						</block>
+					</template>
+					<template v-if="type == 3">
 						
-					</block>
-				</template>
-				
-				
-				
-			</scroll-view>
+						<block v-for="(concernedPerson, id) in user.concernedPersonList" :key="id">
+							<view class="concernedPerson-item">
+								<view class="concernedPerson-item-left"><kp-avatar :image="concernedPerson.avatar" size="large" mode="" @tap="handleOpenCommunity(row)" /></view>
+								<view class="concernedPerson-item-right">
+									<view class="concernedPerson-item-right-name">
+										<text>{{ concernedPerson.name }}</text>
+									</view>
+									
+									<view class="concernedPerson-item-right-intro text-line-2">
+										<text>{{ concernedPerson.intro }}</text>
+									</view>
+								</view>
+							</view>
+						</block>
+						
+					</template>
+				</scroll-view>
+			
 		</view>
 	</view>
 </template>
@@ -87,11 +85,16 @@ import groupItem from '@/components/group/group-item.vue';
 import photoWall from '@/config/wallpapers.js';
 import activity from '@/components/activity/activity.vue';
 import KpAvatar from '@/components/kp-avatar/index.vue';
-
-import {mapState} from 'vuex'
+import MescrollMixin from '@/components/mescroll-uni/mescroll-mixins.js';
+import { mapState } from 'vuex';
 export default {
+	mixins: [MescrollMixin], // 使用mixin
 	data() {
 		return {
+			// 下拉刷新的配置
+			downOption: {},
+			// 上拉加载的常用配置
+			upOption: {},
 			type: 0,
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
 			searchValue: '',
@@ -110,8 +113,8 @@ export default {
 					name: '吕星辰4'
 				}
 			],
-			
-			contentIndex:0,
+
+			contentIndex: 0,
 			content: [
 				{
 					iconPath: '../../static/index/MyActivity.png',
@@ -143,28 +146,31 @@ export default {
 			},
 			showPopButton: true,
 			ispopMenu: false
-			
-			
 		};
 	},
-	computed:{
-		...mapState([
-			'group',
-			'user'
-		]),
-		communityList(){
-			switch(this.contentIndex){
+	computed: {
+		...mapState(['group', 'user']),
+		communityList() {
+			switch (this.contentIndex) {
 				case 0:
-					return this.user.userLikedActivity.activityInfo
+					return this.user.userLikedActivity.activityInfo;
 				case 1:
-					return this.user.userLikedActivity.groupDynamic
+					return this.user.userLikedActivity.groupDynamic;
 				case 2:
-					return this.user.userLikedActivity.knowledge
+					return this.user.userLikedActivity.knowledge;
 			}
-		},
+		}
 	},
 	methods: {
-		handleOpenCommunity(row){},
+		/*下拉刷新的回调*/
+		downCallback() {
+			// 与 mescroll-body 的处理方式一致 >
+		},
+		/*上拉加载的回调*/
+		upCallback(page) {
+			// 与 mescroll-body 的处理方式一致 >
+		},
+		handleOpenCommunity(row) {},
 		handleSearch() {
 			this.loading = true;
 			setTimeout(() => {
@@ -175,7 +181,7 @@ export default {
 		change(val) {
 			console.log(val);
 		},
-		
+
 		showMenu() {
 			this.ispopMenu = true;
 		},
@@ -183,13 +189,12 @@ export default {
 			this.content.forEach((item, index) => {
 				return (item.active = false);
 			});
-			let index = e.index
-			this.contentIndex = index
+			let index = e.index;
+			this.contentIndex = index;
 			this.content[index].active = true;
 			this.ispopMenu = false;
-		
 		},
-		
+
 		clickLeft() {
 			uni.navigateBack({
 				animationDuration: 300,
@@ -203,39 +208,34 @@ export default {
 		KpAvatar
 	},
 	created() {
-		for (let i = 0; i < 10; i++) {
-			
-		}
-		
+		for (let i = 0; i < 10; i++) {}
 	},
 	onLoad(option) {
-		
 		const item = JSON.parse(decodeURIComponent(option.item));
 		this.type = item.type;
-		console.log(this.type)
-		console.log(this.user)
+		console.log(this.type);
+		console.log(this.user);
 	}
 };
 </script>
 
 <style lang="scss" scoped>
-	.concernedPerson-item{
-		display: flex;
-		align-items: center;
-		margin-bottom: 20upx;
-		&-left{
-			width: 20%;
-			padding: 20upx;
+.concernedPerson-item {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20upx;
+	&-left {
+		width: 20%;
+		padding: 20upx;
+	}
+	&-right {
+		flex: 1;
+		&-name {
+			font-size: 32upx;
 		}
-		&-right{
-			flex: 1;
-			&-name{
-				font-size: 32upx;
-				
-			}
-			&-intro{
-				color: gray;
-			}
+		&-intro {
+			color: gray;
 		}
 	}
+}
 </style>

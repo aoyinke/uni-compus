@@ -5,10 +5,13 @@
 			<view class="activity-title">
 				<view class="activity-title-left"> </view>
 				<view class="activity-title-right"><text>{{groupName}}</text></view>
+				<view class="changeCollection">
+					<uni-compus-button content="再编辑" background="rgba(255, 121, 121,1.0)" width="100"></uni-compus-button>
+				</view>
 			</view>
 			<swiper  class="swiper-box">
 				<swiper-item>
-					<special-banner @swiperChange="swiperChange" :banner-list="bannerList" :swiper-config="swiperConfig"></special-banner>
+					<special-banner @getBannerDetail="getBannerDetail" @swiperChange="swiperChange" :banner-list="bannerList" :swiper-config="swiperConfig"></special-banner>
 					<gallery-swiper imageHeight="400" height="700"
 					
 					:images="bannerList[currentIndex].images" 
@@ -98,8 +101,22 @@
 			specialBanner
 		},
 		methods:{
-			swiperChange(index){
+			getBannerDetail(index){
+				
+				console.log(index)
+				uni.showLoading({
+					title:"正在前往合集详情"
+				})
 				this.currentIndex = index
+				uni.navigateTo({
+					url:"/pages/activityDetail/activityDetail",
+					success:res=>{
+						uni.hideLoading()
+					}
+				})
+			},
+			swiperChange(index){
+				
 			},
 			clickLeft() {
 				uni.navigateBack({
@@ -118,6 +135,11 @@
 </script>
 
 <style lang="scss" scoped>
+	.changeCollection{
+		position: absolute;
+		width: 160rpx;
+		right: 4%;
+	}
 	.activity{
 		&-title{
 			display: flex;
@@ -125,6 +147,7 @@
 			align-items: center;
 			justify-content: center;
 			margin-bottom: 10upx;
+			position: relative;
 			&-left{
 				background: #3498db;
 				width: 10rpx;

@@ -10,35 +10,45 @@
 			<view class="group-intro">
 				<text>{{intro}}</text>
 				<view class="group-intro-tag">
-					<random-color-tag :content="tag" v-for="(tag,idx) in tag"  :key="idx"></random-color-tag>
+					<block v-for="(tag,idx) in tagList" :key="idx"></block>
+		
+					<kp-tag
+					  size="small"
+					  color="#fff"
+					  weight="500"
+					  bg-color="#4834d4"
+					  class="left-star"
+					>{{tag}}</kp-tag>
 				</view>
 
 			</view>
 			
 		</view>
-		<view class="group-chat" v-if="needChat">
-			<random-color-tag content="和他们聊聊" width="200upx"></random-color-tag>
+		<view class="group-chat" >
+			
 		</view>
 	</view>
 </template>
 
 <script>
-	import randomColorTag from '@/components/common/randomColorTag.vue'
+	import KpTag from "@/components/kp-tag";
 	export default {
 		data() {
 			return {
-			
+				
 			}
 		},
+		computed:{
 			
+		},
 		components:{
-			randomColorTag
+			KpTag
+		},
+		mounted() {
+			this.tagList = this.tag.split(',')
 		},
 		props:{
-			needChat:{
-				type:Boolean,
-				default:true
-			},
+
 			groupLogo:{
 				type:String,
 				required:true
@@ -52,7 +62,7 @@
 				required:true
 			},
 			tag:{
-				type:Array,
+				type:String,
 				required:true
 			}
 		}

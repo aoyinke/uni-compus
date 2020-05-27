@@ -1,18 +1,23 @@
 <script>
 import Vue from 'vue';
-import { wxLogin } from '@/utils/util.js';
+import { _encode } from '@/utils/util.js';
 import { mapMutations, mapState } from 'vuex';
 import store from '@/store/index.js'
+
 const util = require('util');
+
+
+
 export default {
 	onLaunch: function(option) {
+		
 		let host = 'http://localhost';
 		let port = '3000';
-		wxLogin();
+		
 		uni.getSystemInfo({
 			success: function(e) {
 				Vue.prototype.statusBar = e.statusBarHeight;
-				console.log(e.statusBarHeight);
+				
 				// #ifndef MP
 				if (e.platform == 'android') {
 					Vue.prototype.customBar = e.statusBarHeight + 50;
@@ -38,6 +43,7 @@ export default {
 			key: 'userInfo',
 			success: res => {
 				let result = JSON.parse(res.data);
+
 				// 此处仅做演示
 				// 跟后台校验token的有效性，判定是否在登录状态。如果token失效，需重新登录。app端不强制用户登录，可以游客身份登录，可以进一步优化流程
 				uni.request({
@@ -64,41 +70,64 @@ export default {
 
 		//封装uni.request
 		Vue.prototype.request = function(route, data, method) {
+			console.log(data)
+			let token = JSON.parse(uni.getStorageSync('userInfo')).token
+			
+			let basic_token = _encode(token)
 			let result = uni.request({
 				url: 'http://localhost:3000/' + route,
 				method: method || 'GET',
 				data: data,
 				header:{
-					"token":store.state.user.userInfo.token,
-					"Content-Type": "application/text",
-					// "Content-Type":"json"
-					  
-					
+					Authorization:basic_token
 				}
 			});
 			return result;
 		};
+		Vue.prototype.uploadFile = function(route,file,formData){
+			let token = JSON.parse(uni.getStorageSync('userInfo')).token
+			let basic_token = _encode(token)
+			let result = uni.uploadFile({
+				url:"http://localhost:3000/" + route,
+				filePath:file,
+				name:"file",
+				formData:formData,
+				header:{
+					Authorization:basic_token
+				}
+			})
+			return result
+			
+			
+			
+		}
+		
+		
+		
 	},
 	onShow: function() {
+		
 		let adShowTime = 10 * 60 * 1000; // 10分钟（单位毫秒）
 		let nowTime = new Date().getTime();
 		let leaveTime = this.$store.state.leaveTime;
 		if (nowTime - leaveTime > adShowTime) {
-			console.log('出现广告吧');
+			
 			setTimeout(() => {
 				uni.navigateTo({
 					url: '/pages/account/ad'
 				});
 			}, 10);
 		}
-		
+
 	},
 	onHide: function() {
 		console.log('App Hide');
 		this.$store.commit('STORE_LEAVE_TIME');
 	},
 	methods: {
-		...mapMutations(['storeLogin', 'storeLogout'])
+		...mapMutations(['storeLogin', 'storeLogout']),
+
+
 	},
 	globalData: {
 		denglu: 0,

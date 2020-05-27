@@ -1,5 +1,5 @@
 <template>
-	<view class="mask" :class="maskState===0 ? 'none' : maskState===1 ? 'show' : ''" @click="toggleMask">
+	<view class="mask" :class="commentState===0 ? 'none' : commentState===1 ? 'show' : ''" @click="toggleMask">
 		<view class="mask-content"  @click.stop.prevent="stopPrevent">
 			<view class="mask-content-topbar">
 				<view class="left" @click="cancelComment">取消</view>
@@ -33,6 +33,7 @@
 		data() {
 			return {
 				content: '',
+				commentState:this.maskState,
 				focus: false
 			};
 		},
@@ -46,15 +47,15 @@
 				let	state = type === 'show' ? 1 : 0;
 				// this.maskState = 2;
 				setTimeout(()=>{
-					this.maskState = state;
+					this.commentState = state;
 					// #ifdef APP-PLUS
 					// 安卓app软键盘自动弹出有点问题，暂时还没有很好的解决方案，所以就禁止安卓app软键盘自动弹出，如果哪位朋友有好的解决方案可以在评论里告诉大家参考一下
 					if (uni.getSystemInfoSync().platform == "ios") {
-						this.focus = this.maskState ? true : false;
+						this.focus = this.commentState ? true : false;
 					}
 					// #endif
 					// #ifndef APP-PLUS
-					this.focus = this.maskState ? true : false;
+					this.focus = this.commentState ? true : false;
 					// #endif
 				}, timer)
 			},

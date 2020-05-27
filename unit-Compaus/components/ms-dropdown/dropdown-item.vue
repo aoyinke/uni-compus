@@ -71,6 +71,7 @@
 		methods: {
 			choose(item) {
 				this.selectItem = item
+				console.log(item)
 				this.$emit('input', item.value)
 				this.closePopup()
 			},

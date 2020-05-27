@@ -35,25 +35,27 @@
 			</view>
 		</view>
 		<view class="group-detail-tab">
-			<view class="group-detail-ownGroup tab" :class="tapIndex == 0 ? 'active' : ''" @tap="tap(0)"><text>校内热门小组</text></view>
-			<view class="group-detail-country tab" :class="tapIndex == 1 ? 'active' : ''" @tap="tap(1)"><text>全国热门小组</text></view>
-			<view class="group-detail-sponsor tab" :class="tapIndex == 2 ? 'active' : ''" @tap="tap(2)"><text>热门赞助活动</text></view>
+			<block v-for="(nav,id) in nav" :key="id">
+				<view class="group-detail-ownGroup tab" :class="tapIndex == id ? 'active' : '' " @tap="tap(id)" ><text>{{nav}}</text></view>
+			</block>
+			
 		</view>
 		<swiper class="swiper-box" :current="tapIndex" :style="{ height: swiperHeight + 'px' }" @change="tabChange">
-			<swiper-item v-for="(items, index) in groupDetail" :key="index">
+			<swiper-item v-for="(item, index) in nav" :key="index">
 				<scroll-view scroll-y class="list" :style="{ height: swiperHeight + 'px' }">
-					<block v-for="(item, indx) in items.content" :key="indx">
-						<mescroll-uni ref="mescrollRef" @init="mescrollInit" @down="downCallback" @up="upCallback" :down="downOption" :up="upOption">
+					<mescroll-uni ref="mescrollRef" @init="mescrollInit" @down="downCallback" @up="upCallback" :down="downOption" :up="upOption">
+						<block v-for="(group,groupId) in groupList" :key="groupId">
 							<group-item
 								:needChat="false"
-								:groupLogo="item.groupLogo"
-								:groupName="item.groupName"
-								:intro="item.intro"
-								:tag="item.tag"
+								:groupLogo="group.logo"
+								:groupName="group.groupName"
+								:intro="group.description"
+								:tag="group.tags"
 								@click.native="gotoDetail"
 							></group-item>
-						</mescroll-uni>
-					</block>
+						</block>
+					</mescroll-uni>
+					
 				</scroll-view>
 			</swiper-item>
 		</swiper>
@@ -86,6 +88,7 @@ export default {
 	mixins: [MescrollMixin], // 使用mixin
 	data() {
 		return {
+			nav:['校内热门小组','全国热门小组'],
 			loading: false,
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
 			searchValue: '',
@@ -132,20 +135,11 @@ export default {
 
 			filters: [
 				{
-					title: '兴趣爱好',
+					title: '类别',
 
-					choices: ['舞蹈', '电竞', '书法', '书法']
+					choices: ['志愿服务', '学生组织','辩论类','英语类','体育类','电竞类','文娱类','文化交流','舞蹈类']
 				},
-				{
-					title: '兴趣爱好',
 
-					choices: ['舞蹈', '电竞', '书法', '书法']
-				},
-				{
-					title: '兴趣爱好',
-
-					choices: ['舞蹈', '电竞', '书法', '书法']
-				}
 			],
 			swiperHeight: 0,
 			tapIndex: 0,
@@ -155,18 +149,9 @@ export default {
 					already: 0
 				}
 			},
-			groupDetail: [
-				{
-					content: [
-						{
-							groupName: '轻松一校项目组',
-							groupLogo: '../../static/test/waterfull/1.jpg',
-							intro: '轻松一校项目组是地球上最强大的组织之一，它负责...',
-							tag: ['强大', '优秀']
-						}
-					]
-				}
-			]
+			groupList: [],
+				
+			
 		};
 	},
 	components: {
@@ -237,8 +222,15 @@ export default {
 				this.swiperHeight = height;
 			}
 		});
-		let res = await this.request('groups/');
-		console.log(res[1].data.data.records);
+		let groupList = await this.request('v1/group/findGroupList?college=' + this.list[0].text);
+		this.groupList = groupList[1].data
+		
+		let colleges = await this.request('v1/group/findGroupColleges')
+		colleges = [].concat(colleges[1].data)
+		this.list = colleges.map((item,index)=>{
+			return {text:item.college,value:index}
+		})
+		console.log(this.list);
 	}
 };
 </script>

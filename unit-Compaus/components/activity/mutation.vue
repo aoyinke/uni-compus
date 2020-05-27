@@ -4,9 +4,7 @@
 			<view class="like tag">
 				<like-icon :activityId="activityId"></like-icon>
 			</view>
-			<view class="comment tag">
-				<chat-icon></chat-icon>
-			</view>
+
 			<view class="good tag">
 				<good-icon></good-icon>
 			</view>
@@ -51,7 +49,7 @@
 
 		.mutation-left {
 			display: flex;
-			justify-content: space-around;
+			justify-content: space-evenly;
 			align-items: center;
 			width: 30%;
 

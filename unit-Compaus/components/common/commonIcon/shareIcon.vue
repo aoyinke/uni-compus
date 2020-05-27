@@ -18,19 +18,8 @@ export default {
 				{
 					title: '微信好友',
 					icon: '../../static/shareIcon/weixinhaoyou.png'
-				},
-				{
-					title: '微博',
-					icon: '../../static/shareIcon/weibo.png'
-				},
-				{
-					title: 'QQ好友',
-					icon: '../../static/shareIcon/qqhaoyou.png'
-				},
-				{
-					title: 'QQ空间',
-					icon: '../../static/shareIcon/qqkongjian.png'
-				}
+				}  
+
 			]
 		};
 	},

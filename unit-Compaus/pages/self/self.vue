@@ -1,11 +1,12 @@
 <template>
 	<view class="container">
 		<uni-nav-bar title="我"></uni-nav-bar>
-
+		
+		
 		<view class="unLogin" v-if="!user.userInfo.hasLogin">
 			<view class="unLogin-item">
 				<image src="../../static/logo.jpg" mode=""></image>
-				<text>你是一只还没有登录的松鼠</text>
+				<text>你是一只还没有登录的松鼠</text> 
 			</view>
 			<view style="width: 100%;"><uni-compus-button open-type="getUserInfo" content="立即登录" background="#fbc531" @click.native="login" width="100"></uni-compus-button></view>
 		</view>
@@ -35,7 +36,7 @@
 					</view>
 					<view class="userActivityNum-detail">
 						<text class="userActivityNum-detail-first">{{ userActivityInfo.userActivityNum.num3 }}</text>
-						<text class="userActivityNum-detail-right">我的推荐</text>
+						<text class="userActivityNum-detail-right">我的获赞</text>
 					</view>
 				</view>
 				<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
@@ -48,6 +49,13 @@
 						<view class="navBar-left">
 							<image src="../../static/self/setting.png" mode="" class="navIcon"></image>
 							<text>修改个人信息</text>
+						</view>
+						<view class="navBar-detail"><text class="eosfont">&#xe7df;</text></view>
+					</view>
+					<view class="userSetup" @click="navtoRegisterGroup">
+						<view class="navBar-left">
+							<text class="eosfont registerGroup">&#xe612;</text>
+							<text>注册社团</text>
 						</view>
 						<view class="navBar-detail"><text class="eosfont">&#xe7df;</text></view>
 					</view>
@@ -72,10 +80,11 @@
 					<view class="userGroup">
 						<view class="navBar-left">
 							<image src="../../static/self/partner.png" mode="" class="navIcon"></image>
-							<text>我的消息</text>
+							<text>加入我们</text>
 						</view>
 						<view class="navBar-detail"><text class="eosfont">&#xe7df;</text></view>
 					</view>
+					
 				</view>
 			</view>
 		</template>
@@ -95,7 +104,6 @@ export default {
 	data() {
 		return {
 			item: [{ type: 0 }],
-			
 			userInfoFromWx: {},
 			userActivityInfo: {
 				username: '天堂屠夫',
@@ -117,9 +125,15 @@ export default {
 	},
 	methods: {
 		...mapMutations({
-			storeLogin:"storeLogin"
+			storeLogin:"storeLogin",
+			updateUserInfo:"updateUserInfo"
 		}),
 		
+		navtoRegisterGroup(){
+			uni.navigateTo({
+				url:'/pages/registerGroup/registerGroup'
+			})
+		},
 		login(){
 			uni.showLoading({
 				
@@ -168,19 +182,17 @@ export default {
 		},
 		toDetail() {
 			uni.navigateTo({
-				url: '/pages/personalDetail/personalDetail'
+				url: '/pages/personShow/personShow'
 			});
 		}
 	},
 	async onLoad() {
+		let userInfo = await this.request('v1/user/getUserInfo')
+		console.log(userInfo)
+		this.user.userInfo = Object.assign({},this.user.userInfo,userInfo[1].data)
+		this.user.userInfo.avatar = "http://localhost:3000/" +  this.user.userInfo.avatar
 		
-		uni.getUserInfo({
-			success:res=>{
-				console.log(res)
-			}
-		})
-		
-		
+		console.log(this.user)
 	}
 };
 </script>
@@ -191,6 +203,9 @@ export default {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+}
+.registerGroup{
+	color: rgba(34, 166, 179,1.0);
 }
 .unLogin {
 	@include unLoginLayOut;

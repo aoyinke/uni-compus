@@ -97,11 +97,8 @@ export default {
       this.isDescAnimating = false
     },
     getBannerDetail (index) {
-	  uni.showLoading({
-		title: '将前往详情页面',
-		duration: 2000,
-		mask: true
-	  })
+	  
+	  this.$emit("getBannerDetail",index)
     }
   }
 }

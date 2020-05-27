@@ -8,11 +8,11 @@
 				ref="peopleItem"
 				:style="{ top: peopleItemStyles[index].top, right: peopleItemStyles[index].right, left: peopleItemStyles[index].left }"
 			>
-				<go-detail detailUrl="/pages/groupDetail/groupDetail">
+				<go-detail detailUrl="/pages/personShow/personShow">
 					<image class="peopleFall-item-img" :src="item.src" mode="" :style="{ height: imgStyle[index].height }"></image>
 				</go-detail>
 				<view class="peopleFall-item-desc">
-					<go-detail detailUrl="/pages/groupDetail/groupDetail">
+					<go-detail detailUrl="/pages/personShow/personShow">
 						<text class="peopleFall-item-groupName">{{ item.groupName }}</text>
 						<text class="text-line-2">{{ item.introduction }}</text>
 						<view class="peopleFall-item-tag"><random-color-tag :content="tag" v-for="(tag, idx) in item.tag" :key="idx"></random-color-tag></view>

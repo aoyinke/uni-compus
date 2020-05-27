@@ -21,7 +21,7 @@
 				<text class="eosfont addConcernEvent">&#xe715;</text>
 			</view>
 			<view class="inputConcernEvent">
-				<textarea v-model="taskInfo.inputConcernEvent" placeholder="请输入任务注意事项" />
+				<textarea v-model="taskInfo.concernEvent" placeholder="请输入任务注意事项" />
 			</view>
 			<uni-compus-upload-img title="选择任务需要的图片(点击可预览)" :imageList="taskInfo.imageList" @close="close" @chooseImg="chooseImg"></uni-compus-upload-img>
 			<view class="joinedPeople">
@@ -103,7 +103,7 @@ import uniCompusUploadImg from '@/components/uni-compus-components/uniCompus-upl
 export default {
 	data() {
 		return {
-			taskInfo:{belongActivity:"",taskName:'',deadLine:"",title:'',inputConcernEvent:"",imageList:[]},
+			taskInfo:{belongActivity:"",taskName:'',deadLine:"",title:'',concernEvent:"",imageList:[]},
 			scrollHeight:"500rpx",
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
 			searchValue: '',

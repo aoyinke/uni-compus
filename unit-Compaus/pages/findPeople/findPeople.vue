@@ -26,7 +26,10 @@
 			<swiper class="swiper-box" :current="tapIndex" @change="tabChange()" :style="{height:swiperHeight + 'px'}">
 				<swiper-item v-for="(people,id) in peopleList" :key="id">
 					<scroll-view scroll-y class="list">
-						<water-fall :peopleList="people"></water-fall>
+						<mescroll-uni ref="mescrollRef" @init="mescrollInit" @down="downCallback" @up="upCallback" :down="downOption" :up="upOption" >
+								<water-fall :peopleList="people"></water-fall>
+						</mescroll-uni>
+						
 					</scroll-view>
 
 				</swiper-item>
@@ -56,9 +59,19 @@
 	import filterBar from '@/components/uni-compus-components/uniCompus-filter.vue'
 	import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue'
 	import photoWall from '@/config/wallpapers.js'
+	import MescrollMixin from "@/components/mescroll-uni/mescroll-mixins.js";
 	export default {
+		mixins: [MescrollMixin], // 使用mixin
 		data() {
 			return {
+				// 下拉刷新的配置
+				downOption: { 
+					
+				},
+				// 上拉加载的常用配置
+				upOption: {
+					
+				},
 				loading: false,
 				showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
 				searchValue: '',
@@ -77,19 +90,14 @@
 						name: '吕星辰4'
 					}
 				],
-				filters: [{
-					title: "兴趣爱好",
-
-					choices: ['舞蹈', '电竞', '书法', '书法']
-				}, {
-					title: "兴趣爱好",
-
-					choices: ['舞蹈', '电竞', '书法', '书法']
-				}, {
-					title: "兴趣爱好",
-
-					choices: ['舞蹈', '电竞', '书法', '书法']
-				}],
+				filters: [
+					{
+						title: '类别',
+				
+						choices: ['志愿服务', '学生组织','辩论类','英语类','体育类','电竞类','文娱类','文化交流','舞蹈类']
+					},
+				
+				],
 				swiperHeight: 0,
 				tapIndex: 0,
 				tarBars: [{
@@ -164,6 +172,14 @@
 			lvSelect
 		},
 		methods: {
+			/*下拉刷新的回调*/
+			downCallback(){
+				// 与 mescroll-body 的处理方式一致 > 
+			},
+			/*上拉加载的回调*/
+			upCallback(page) {
+				// 与 mescroll-body 的处理方式一致 > 
+			},
 			handleSearch() {
 				this.loading = true;
 				setTimeout(() => {

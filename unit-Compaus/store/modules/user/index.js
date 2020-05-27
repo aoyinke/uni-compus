@@ -9,7 +9,7 @@ export default {
 			
 			hasLogin:false,
 			nickName: "一只仓鼠",
-			avatar: "https://images.mepai.me/app/works/38224/2019-10-09/w_5d9d69b4f2acd/05d9d69b53cf12.jpg!1200w.jpg",
+			avatar: "http://locahost:3000",
 			sex: "男",
 			job: "学生汪",
 			birthday: "无",
@@ -18,7 +18,13 @@ export default {
 			likeNum:0,
 			concernNum:0,
 			publishedNum:0,
-			coverImg:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588831947886&di=980528a611d4a265c4b6e210e5e9585e&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3D27c8c40143ed2e73fce98624b700a16d%2Fc2e9e91f4134970a21fc3baa9ccad1c8a6865d65.jpg"
+			coverImgs:["https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg"],
+			description:"",
+			achievement:"",
+			activity:"",
+			tags:"帅气,潇洒,英俊"
+			
+			
 		},
 		userLikedActivity: {
 			activityInfo: [{
@@ -198,7 +204,7 @@ export default {
 	},
 	mutations:{
 		storeLogin(state,payload){
-			console.log('payload',payload)
+			
 			const temp = {
 				hasLogin:true,
 				token:payload.token,
@@ -211,6 +217,11 @@ export default {
 			//将用户信息保存到本地
 			uni.setStorageSync('userInfo',JSON.stringify(state.userInfo))
 			
+		},
+		updateUserInfo(state,payload){
+			const userInfo = payload
+			console.log("this is in the store",payload)
+			state.userInfo = Object.assign({},state.userInfo,userInfo)
 		},
 		storeLogout(state){
 			const temp = {

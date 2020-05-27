@@ -1,6 +1,13 @@
 const util = require('util')
 import {host,port} from './config.js'
+import {Base64} from 'js-base64'
 
+
+function _encode(token){
+	const base64 = Base64.encode(token+':')
+	return 'Basic ' +base64
+
+}
 function confirmLogin(provider) {
 	uni.getSetting({
 			success(res) {
@@ -32,7 +39,9 @@ function confirmLogin(provider) {
 	})
 }
 
-
+function checkLogin(url,params){
+	
+}
 function wxLogin(){
 	let url = "http://%s:%s"
 	uni.login({
@@ -83,4 +92,4 @@ function debounce(fn, delay = 500) {
     }, delay);
   };
 }
-export {confirmLogin,wxLogin,deepClone,debounce}
+export {confirmLogin,wxLogin,deepClone,debounce,_encode}

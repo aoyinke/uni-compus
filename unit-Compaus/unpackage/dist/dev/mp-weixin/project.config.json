@@ -36,135 +36,147 @@
 					"pathName": "pages/index/index"
 				},
 				{
-					"name": "collectionsDetail",
+					"name": "needWall",
 					"query": "",
 					"id": 1,
+					"pathName": "pages/needWall/needWall"
+				},
+				{
+					"name": "collectionsDetail",
+					"query": "",
+					"id": 2,
 					"pathName": "pages/collectionsDetail/collectionsDetail"
+				},
+				{
+					"name": "personShow",
+					"query": "",
+					"id": 3,
+					"pathName": "pages/personShow/personShow"
+				},
+				{
+					"name": "registerGroup",
+					"query": "",
+					"id": 4,
+					"pathName": "pages/registerGroup/registerGroup"
 				},
 				{
 					"name": "memberMange",
 					"query": "",
-					"id": 2,
+					"id": 5,
 					"pathName": "pages/memberMange/memberMange"
 				},
 				{
 					"name": "manage",
 					"query": "",
-					"id": 3,
+					"id": 6,
 					"pathName": "pages/manage/manage"
 				},
 				{
 					"name": "changeGroupInfo",
 					"query": "",
-					"id": 4,
+					"id": 7,
 					"pathName": "pages/changeGroupInfo/changeGroupInfo"
 				},
 				{
 					"name": "groupTaskDetail",
 					"query": "",
-					"id": 5,
+					"id": 8,
 					"pathName": "pages/groupTaskDetail/groupTaskDetail"
 				},
 				{
 					"name": "startPage",
 					"query": "",
-					"id": 6,
+					"id": 9,
 					"pathName": "pages/startPage/startPage"
 				},
 				{
 					"name": "groupTaskList",
 					"query": "",
-					"id": 7,
+					"id": 10,
 					"pathName": "pages/groupTaskList/groupTaskList"
 				},
 				{
 					"name": "groupConcat",
 					"query": "",
-					"id": 8,
+					"id": 11,
 					"pathName": "pages/groupInfoConcat/groupInfoConcat"
 				},
 				{
 					"name": "PublishTask",
 					"query": "",
-					"id": 9,
+					"id": 12,
 					"pathName": "pages/publishTask/publishTask"
 				},
 				{
 					"name": "groupDetail",
 					"query": "",
-					"id": 10,
+					"id": 13,
 					"pathName": "pages/groupDetail/groupDetail"
 				},
 				{
 					"name": "feedBack",
 					"query": "",
-					"id": 11,
+					"id": 14,
 					"pathName": "pages/feedBack/feedBack"
 				},
 				{
 					"name": "mySave",
 					"query": "",
-					"id": 12,
+					"id": 15,
 					"pathName": "pages/mySave/mySave"
 				},
 				{
 					"name": "groupInfoDetail",
 					"query": "",
-					"id": 13,
+					"id": 16,
 					"pathName": "pages/groupInfoDetail/groupInfoDetail"
 				},
 				{
 					"name": "interestTag",
 					"query": "",
-					"id": 14,
+					"id": 17,
 					"pathName": "pages/interestsTag/interestsTag"
 				},
 				{
 					"name": "activityDetail",
 					"query": "",
-					"id": 15,
+					"id": 18,
 					"pathName": "pages/activityDetail/activityDetail"
 				},
 				{
 					"name": "publish",
 					"query": "",
-					"id": 16,
+					"id": 19,
 					"pathName": "pages/publishActivity/publishActivity"
 				},
 				{
 					"name": "findPeople",
 					"query": "",
-					"id": 17,
+					"id": 20,
 					"pathName": "pages/findPeople/findPeople"
 				},
 				{
 					"name": "login",
 					"query": "",
-					"id": 18,
+					"id": 21,
 					"pathName": "pages/login/login"
 				},
 				{
 					"name": "self",
 					"query": "",
-					"id": 19,
+					"id": 22,
 					"pathName": "pages/self/self"
 				},
 				{
 					"name": "changePerson",
 					"query": "",
-					"id": 20,
+					"id": 23,
 					"pathName": "pages/changePerson/changePerson"
-				},
-				{
-					"name": "personDetail",
-					"query": "",
-					"id": 21,
-					"pathName": "pages/personalDetail/personalDetail"
 				},
 				{
 					"name": "group",
 					"query": "",
-					"id": 22,
+					"id": 24,
 					"pathName": "pages/group/group"
 				}
 			]

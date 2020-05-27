@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "random-color-tag": "/components/common/randomColorTag"
+    "kp-tag": "/components/kp-tag/index"
   }
 }

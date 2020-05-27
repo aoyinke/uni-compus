@@ -1,10 +1,16 @@
 <template>
 	<view class="contaier">
 		<uni-nav-bar left-icon="back" title="活动详情" @clickLeft="clickLeft"></uni-nav-bar>
-		<user-top-bar :groupName="activityDetail.groupName" :activityStartTime="activityDetail.activityStartTime" :groupLogo="activityDetail.groupLogo"></user-top-bar>
-		<template v-if="activityDetail.img.length > 1">
+		<view class="countDown">
+			<uni-countdown color="#FFFFFF" background-color="#00B26A" border-color="#00B26A" :day="1" :hour="2" :minute="30" :second="0"></uni-countdown>
+			<view class="joinActivity">
+				<uni-compus-button content="报名参加" background="#3498db" width="100"></uni-compus-button>
+			</view>
+		</view>
+		<user-top-bar :groupInfo="activityDetail.groupInfo" :activityStartTime="activityDetail.activityStartTime" ></user-top-bar>
+		<template v-if="activityDetail.imgs.length > 1">
 			<swiper :indicator-dots="true" class="swiper-box">
-				<swiper-item v-for="(img,index) in activityDetail.img" :key="index">
+				<swiper-item v-for="(img,index) in activityDetail.imgs" :key="index">
 					<view class="swiper-item">
 						<image :src="img" mode=""></image>
 					</image>
@@ -12,9 +18,9 @@
 				</swiper-item>
 			</swiper>
 		</template>
-		<template v-if="activityDetail.img.length == 1">
+		<template v-if="activityDetail.imgs.length == 1">
 			<view class="imgShow">
-				<image :src="activityDetail.img[0]" mode="widthFix"></image>
+				<image :src="activityDetail.imgs[0]"></image>
 			</view>
 		</template>
 		<template v-if="activityDetail.description">
@@ -24,16 +30,16 @@
 		</template>
 		<view class="mutation">
 			<mutation></mutation>
-			<text class="hotNum">{{activityDetail.hotNum}}热度</text>
-			<text class="commentNum">{{activityDetail.commentNum}}评论</text>
+			<text class="hotNum">{{activityDetail.fav_nums}}热度</text>
+			<text class="commentNum">{{activityDetail.comments.length}}评论</text>
 		</view>
 
 
 		<view class="commentArea">
 			<text>热门评论</text>
 
-			<block v-for="(commentor,commentId) in commentors" :key="commentId">
-				<comment-item :commentorAvatar="commentor.commentorAvatar" :commentorName="commentor.commentorName" :commentContent="commentor.commentContent"
+			<block v-for="(commentor,commentId) in activityDetail.comments" :key="commentId">
+				<comment-item :commentorAvatar="commentor.avatar" :commentorName="commentor.nickName" :commentContent="commentor.content"
 				 :likeNum="commentor.likeNum"></comment-item>
 			</block>
 		</view>
@@ -53,31 +59,15 @@
 	import commentItem from '@/components/commentBar/commentBar.vue'
 	import mutation from '@/components/activity/mutation.vue'
 	import ygcComment from '@/components/ygc-comment/ygc-comment.vue';
+	import uniCountdown from '@/components/uni-countdown/uni-countdown.vue'
 	export default {
 		data() {
 			return {
 				maskState:0,
 				activityId: "",
 				activityDetail: {},
-				commentors: [{
-						commentorAvatar: "../../static/test/waterfull/1.jpg",
-						commentorName: "天堂屠夫",
-						commentContent: "世界上最nb的组织",
-						likeNum: 3921
-					},
-					{
-						commentorAvatar: "../../static/test/waterfull/1.jpg",
-						commentorName: "天堂屠夫",
-						commentContent: "世界上最nb的组织",
-						likeNum: 3921
-					},
-					{
-						commentorAvatar: "../../static/test/waterfull/1.jpg",
-						commentorName: "天堂屠夫",
-						commentContent: "世界上最nb的组织",
-						likeNum: 3921
-					}
-				]
+				comments:[]
+				
 			};
 		},
 		// computed:{
@@ -89,7 +79,8 @@
 			userTopBar,
 			commentItem,
 			mutation,
-			ygcComment
+			ygcComment,
+			uniCountdown
 		},
 		onLoad(option) {
 			const item = JSON.parse(decodeURIComponent(option.item));
@@ -119,6 +110,16 @@
 </script>
 
 <style lang="scss" scoped>
+	.joinActivity{
+		width: 35%;
+		margin-left: 50rpx;
+	}
+	.countDown{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 20rpx;
+	}
 	.swiper-item {
 		image {
 			width: 100%;

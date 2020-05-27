@@ -4,6 +4,8 @@
     "uni-badge": "/components/uni-badge/uni-badge",
     "uni-popup": "/components/uni-popup/uni-popup",
     "lv-select": "/components/lv-select/lv-select",
+    "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
+    "w-picker": "/components/w-picker/w-picker",
     "uni-compus-button": "/components/uni-compus-components/unicompus-button",
     "avatar": "/components/uni-compus-components/uniCompus-avatar",
     "kp-avatar": "/components/kp-avatar/index"

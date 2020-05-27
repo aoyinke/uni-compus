@@ -56,7 +56,7 @@ export default {
 			value:false,
 			groupInfo:{description:"",achievement:"",specailActivity:"",tags:[],coverImgs:[]},
 			inputData:{
-			  title:'登录',
+			  title:'定义标签',
 			  content:[
 			  {title:'标签名称',content:'',placeholder:'请输入标签'},
 			  
