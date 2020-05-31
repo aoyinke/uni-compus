@@ -32,12 +32,10 @@
   -webkit-align-items: center;
           align-items: center;
   padding: 10rpx 20rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .unishadow.data-v-0f9bca84 {
-  -webkit-box-shadow: 0rpx 1rpx 5rpx #DDDDDD;
-          box-shadow: 0rpx 1rpx 5rpx #DDDDDD;
+  box-shadow: 0rpx 1rpx 5rpx #DDDDDD;
 }
 .uni-search-form.data-v-0f9bca84 {
   position: relative;
@@ -93,8 +91,7 @@
   border: none;
 }
 .uni-shadow-blur.data-v-0f9bca84 {
-  -webkit-box-shadow: 0rpx 1rpx 10rpx #C8C7CC;
-          box-shadow: 0rpx 1rpx 10rpx #C8C7CC;
+  box-shadow: 0rpx 1rpx 10rpx #C8C7CC;
 }
 .uni-round.data-v-0f9bca84 {
   border-radius: 100rpx;
@@ -103,19 +100,16 @@
   position: absolute;
   top: 300rpx;
   left: 40rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   width: 75%;
   background-color: #FFFFFF;
   border-radius: 6px;
-  -webkit-box-shadow: #DDDDDD 4px 4px 8px, #DDDDDD -4px -4px 8px;
-          box-shadow: #DDDDDD 4px 4px 8px, #DDDDDD -4px -4px 8px;
+  box-shadow: #DDDDDD 4px 4px 8px, #DDDDDD -4px -4px 8px;
   z-index: 999;
 }
 .uni-combox__selector-scroll.data-v-0f9bca84 {
   max-height: 200px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .uni-combox__selector.data-v-0f9bca84::before {
   content: '';

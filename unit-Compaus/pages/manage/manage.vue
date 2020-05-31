@@ -235,7 +235,7 @@ export default {
 			group: 0,
 			cooperateItems:cooperateItems,
 			collections:collections,
-
+			team:[],
 			tapIndex:0,
 			nav:['主页','管理','展示'],
 
@@ -282,24 +282,23 @@ export default {
 				this.scrollHeight = height
 			}
 		})
-		let userGroupInfo = await this.request('v1/group/findUserGroup')
+		let raw_userGroupInfo = await this.request('v1/group/findUserGroup')
+		let userGroupInfo = raw_userGroupInfo[1].data
+		console.log(userGroupInfo)
+		let raw_groupInfo = await this.request(`v1/group/detail?groupId=${userGroupInfo[1].groupId}`)
+		let groupInfo = raw_groupInfo[1].data
 		
-		let groups = [].concat([],userGroupInfo[1].data)
-		
-		this.list = groups[0].map(item=>{
-			console.log(item)
-			
+		let raw_teamMembers = await this.request(`v1/group/groupMembers?groupId=${userGroupInfo[1].groupId}`)
+		this.team = raw_teamMembers[1].data
+		let list = userGroupInfo.map(item=>{
+			return {text:item.groupName,value:item.groupId}
 		})
 		
-		console.log(this.list)
-		
-		let groupInfo = await this.request("v1/group/detail?groupId=" + userGroupInfo[1].data[0].groupId)
-		this.groupInfo = groupInfo[1].data
 		
 		
+		this.groupInfo = groupInfo
+		this.list = list
 		
-		
-		this.userGroupInfo = userGroupInfo[1].data
 		
 	},
 	methods: {
@@ -331,7 +330,7 @@ export default {
 					url = "/pages/groupInfoConcat/groupInfoConcat"
 					break;
 				case 3:
-					url = "/pages/changeGroupInfo/changeGroupInfo"
+					url = "/pages/changeGroupInfo/changeGroupInfo?groupId=" + this.groupInfo.id
 					break;
 				case 4:
 					url="/pages/memberMange/memberMange"

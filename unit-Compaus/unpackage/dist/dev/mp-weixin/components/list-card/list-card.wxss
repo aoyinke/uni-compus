@@ -4,8 +4,7 @@
 }
 .father-box {
 	background-color: #FFFFFF;
-	-webkit-box-shadow: #C8C7CC;
-	        box-shadow: #C8C7CC;
+	box-shadow: #C8C7CC;
 	height: 500rpx;
 	width: 93%;
 	margin: 20rpx auto;

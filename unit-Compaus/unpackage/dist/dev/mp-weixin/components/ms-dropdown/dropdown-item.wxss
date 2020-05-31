@@ -29,8 +29,7 @@
           align-items: center;
   background: #fff;
   padding: 30rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
           justify-content: center;

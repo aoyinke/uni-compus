@@ -2,7 +2,7 @@
 	<view class="groupTopBar">
 		<view class="groupTopBar-left" @click="toUserDetail">
 			<view class="groupLogo">
-				<image :src="groupInfo.logo" mode="scaleToFill"></image>
+				<image :src="groupInfo.logo || groupInfo.avatar" mode="scaleToFill"></image>
 			</view>
 			<view class="groupName">
 				<view class="groupName-top">

@@ -25,7 +25,8 @@
     "pages/registerGroup/registerGroup",
     "pages/personShow/personShow",
     "pages/publishCollection/publishCollection",
-    "pages/needWall/needWall"
+    "pages/needWall/needWall",
+    "pages/publishNeed/publishNeed"
   ],
   "subPackages": [],
   "window": {
@@ -81,5 +82,5 @@
     "mescroll-uni": "/components/mescroll-uni/mescroll-uni",
     "lv-select": "/components/lv-select/lv-select"
   },
-  "sitemapLocation": "sitemap40.json"
+  "sitemapLocation": "sitemap0.json"
 }

@@ -72,8 +72,7 @@
   font-font-weight: 600;
 }
 .main .joinedPeople.data-v-65c01c30 {
-  -webkit-box-shadow: 3px 3px 3px 5px rgba(223, 228, 234, 0.7);
-          box-shadow: 3px 3px 3px 5px rgba(223, 228, 234, 0.7);
+  box-shadow: 3px 3px 3px 5px rgba(223, 228, 234, 0.7);
 }
 .main .joinedPeople-change.data-v-65c01c30 {
   display: -webkit-box;

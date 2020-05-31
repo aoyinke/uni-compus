@@ -159,11 +159,8 @@
 			
 			user[1].data.tags = user[1].data.tags.split(',')
 			this.userInfo = user[1].data
-			this.userInfo.avatar = "http://localhost:3000/" + user[1].data.avatar
-			let coverImgs = this.userInfo.coverImgs
-			this.userInfo.coverImgs = coverImgs.map(item=>{
-				return "http://localhost:3000/" + item.url
-			})
+			
+			
 			
 			
 			

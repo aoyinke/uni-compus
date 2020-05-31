@@ -95,7 +95,7 @@
 import KpAvatar from '@/components/kp-avatar/index.vue';
 import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue';
 import { mapState,mapMutations } from 'vuex';
-import {host,port} from '@/utils/config.js'
+
 const util = require('util')
 export default {
 	computed: {
@@ -190,7 +190,7 @@ export default {
 		let userInfo = await this.request('v1/user/getUserInfo')
 		console.log(userInfo)
 		this.user.userInfo = Object.assign({},this.user.userInfo,userInfo[1].data)
-		this.user.userInfo.avatar = "http://localhost:3000/" +  this.user.userInfo.avatar
+		
 		
 		console.log(this.user)
 	}

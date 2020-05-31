@@ -32,8 +32,7 @@
   right: 0;
 }
 .swiper-item-children image.data-v-5828f090 {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   border-radius: 20rpx;
 }
 .swiper-item-children image.active.data-v-5828f090 {

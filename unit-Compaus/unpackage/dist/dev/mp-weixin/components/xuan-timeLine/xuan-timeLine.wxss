@@ -70,8 +70,7 @@
   right: 0;
   margin: 0 auto;
   top: 50px;
-  -webkit-box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
 .time-line-wrap .time-line .time-line-container .time-line-list .time-line-info .line-info-content .line-on-round.come-ani.data-v-5c73644e {
@@ -96,8 +95,7 @@
   padding-left: 3px;
 }
 .time-line-wrap .time-line .time-line-container .time-line-list .time-line-info .line-info-content .info-content-wrap .info-content.data-v-5c73644e {
-  -webkit-box-shadow: 1px 1px 1px 1px #d7e4ed;
-          box-shadow: 1px 1px 1px 1px #d7e4ed;
+  box-shadow: 1px 1px 1px 1px #d7e4ed;
   border-radius: 8px;
   padding: 5px;
   min-height: 40px;

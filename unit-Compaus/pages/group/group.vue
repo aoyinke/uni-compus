@@ -224,13 +224,14 @@ export default {
 		});
 		let groupList = await this.request('v1/group/findGroupList?college=' + this.list[0].text);
 		this.groupList = groupList[1].data
-		
+		console.log(this.groupList)
 		let colleges = await this.request('v1/group/findGroupColleges')
 		colleges = [].concat(colleges[1].data)
+		
 		this.list = colleges.map((item,index)=>{
 			return {text:item.college,value:index}
 		})
-		console.log(this.list);
+		
 	}
 };
 </script>

@@ -8,7 +8,7 @@
 			</view>
 			<view class="uni-list-cell uni-list-cell-pd changeTaskName">
 				<view class="uni-list-cell-db" style="font-weight: 500;">社团的名称</view>
-				<input type="text" v-model="groupInfo.name" />
+				<input type="text" v-model="groupInfo.groupName" />
 			</view>
 			<view class="uni-list-cell uni-list-cell-pd changeTaskName" @click="openCategoryPicker">
 				<view class="uni-list-cell-db" style="font-weight: 500;">所属的类别</view>
@@ -49,7 +49,7 @@ export default {
 		return {
 			showErr:"",
 			errData:{title:'提示',content:'这是一个模态弹窗',cancelText:'取消',confirmColor:'#3CC51F'},
-			groupInfo: { name: '', logo: '', description: '', college: '',category:"" },
+			groupInfo: { groupName: '', logo: '', description: '', college: '',category:"" },
 			defaultProps:{label:"category"},
 			index:0,
 			category:[{category:'创新实践类'},

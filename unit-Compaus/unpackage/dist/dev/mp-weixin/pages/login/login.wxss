@@ -21,15 +21,13 @@
   width: 90%;
   right: 5%;
   margin: auto 0;
-  -webkit-box-shadow: 2rpx 10rpx 10rpx 5rpx #EEEEEE;
-          box-shadow: 2rpx 10rpx 10rpx 5rpx #EEEEEE;
+  box-shadow: 2rpx 10rpx 10rpx 5rpx #EEEEEE;
   background-color: #fff;
   z-index: 100;
 }
 .main .confirmLogin.data-v-1ce8b21a {
   background-color: #6495ED;
-  -webkit-box-shadow: 2rpx 2rpx 2rpx 2rpx #EEEEEE;
-          box-shadow: 2rpx 2rpx 2rpx 2rpx #EEEEEE;
+  box-shadow: 2rpx 2rpx 2rpx 2rpx #EEEEEE;
   width: 80%;
   border-radius: 20rpx;
 }

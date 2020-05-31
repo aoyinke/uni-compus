@@ -10,11 +10,12 @@
 			<view class="uni-tab-bar">
 				<swiper class="swiper-box" :style="{ height: swiperHeight + 'px' }" :current="tapIndex" @change="tabChange">
 					<swiper-item v-for="(val,index) in tarBars" :key="index">
-						<scroll-view scroll-y class="list" @scroll="hideFavButton" >
+						<scroll-view scroll-y class="list" @scroll="hideFavButton">
 							<mescroll-uni ref="mescrollRef" @init="mescrollInit" @down="downCallback" @up="upCallback" :down="downOption" :up="upOption" >
-									<activity :activityInfo="communityList" v-if="communityList[0].category == currentCategory"></activity>
+									<activity :activityInfo="communityList"></activity>
+									
 							</mescroll-uni>					
-							</scroll-view>
+						</scroll-view>
 					</swiper-item>
 				</swiper>
 			</view>
@@ -49,11 +50,14 @@ let timer;
 export default {
 	mixins: [MescrollMixin], // 使用mixin
 	watch:{
-		tapIndex:async function(val){
-
+		tapIndex:function(val){
+			
+			this._getResources(val)
+		},
+		activityType:function(val){
 			this._getResources()
 		},
-		activityType:async function(val){
+		contentIndex:function(){
 			this._getResources()
 		}
 	},
@@ -61,33 +65,18 @@ export default {
 		...mapState([
 			'user'
 		]),
-		async communityList(){
-			if(this.tapIndex == 0){
-				let info = await this.request(`v1/ActivityInfo/userLiked?type=${100}&&currentPage=${1}`)
-				this.communityList = info[1].data
-				console.log(info)
-			}
-			switch(this.contentIndex){
-				case 0:
-					return this.activities
-				case 1:
-					return this.dynamic
-				case 2:
-					return this.knowledge
-			}
+		currentCategory(){
+			return this.tarBars[this.tapIndex].name
 		},
-		async currentCategory(){
-			let cateogry = this.tarBars[this.tapIndex].name
+		changeCommunityList(){
 			
-			return cateogry
 		}
 		
 	},
 	data() {
 		return {
-			activities:[],
-			dynamic:[],
-			knowledge:[],
+
+			communityList:[],
 			// 下拉刷新的配置
 			downOption: { 
 				
@@ -96,7 +85,7 @@ export default {
 			upOption: {
 				
 			},
-			activityType:'getActivity',
+			
 					
 			contentIndex:0,
 			content: [
@@ -133,14 +122,7 @@ export default {
 			leftIcon: '../../static/index/pencil.png',
 			swiperHeight: 0,
 			tapIndex: 0,
-			filters: [
-				{
-					title: '类别',
 			
-					choices: ['志愿服务', '学生组织','辩论类','英语类','体育类','电竞类','娱乐类','文化交流','舞蹈类']
-				},
-			
-			],
 			tarBars: [
 				{
 					name: '关注',
@@ -151,7 +133,7 @@ export default {
 					id: 'wudao'
 				},
 				{
-					name: '舞蹈类',
+					name: '舞蹈',
 					id: 'wudao'
 				},
 				{
@@ -189,7 +171,7 @@ export default {
 		let that = this;
 		if (res.from === 'button') {
 			// 来自页面内分享按钮
-			console.log(res.target);
+			
 		}
 		return {
 			title: '轻松一校小程序',
@@ -197,19 +179,27 @@ export default {
 		};
 	},
 	methods: {
+		async _getConcern(){
+			let info = await this.request(`v1/ActivityInfo/userLiked?currentPage=${1}&&type=${100}`)
+			return info[1].data
+		},
 		
-		async _getResources(){
-			let url = `v1/ActivityInfo/${this.activityType}?currentPage=1&&category=`
-			let community = await this.request(url + this.currentCategory)
+		async _getResources(val){
+
+			let url = `v1/ActivityInfo/community?currentPage=1&&category=`
+			let raw_community = await this.request(url + this.currentCategory)
+			console.log(raw_community)
 			switch(this.contentIndex){
 				case 0:
-					this.activities = community[1].data
+					this.communityList = raw_community[1].data.activities
+					console.log("communityListChanged",this.communityList)
 				case 1:
-					this.dynamic = community[1].data
+					this.communityList = raw_community[1].data.dynamic
 				case 2:
-					this.knowledge = community[1].data
+					this.communityList = raw_community[1].data.knowledge
 			}
-			console.log("community:",community)
+			
+			
 		},
 		/*下拉刷新的回调*/
 		downCallback(){
@@ -235,18 +225,7 @@ export default {
 				return (item.active = false);
 			});
 			let index = e.index
-			switch(e.index){
-				case 0:
-					this.activityType = "getActivity"
-					break
-				case 1:
-					this.activityType = "getDynamic"
-					break
-				case 2:
-					this.activityType = "getKnowledge"
-					break
-			}
-			console.log(this.activityType)
+
 			this.contentIndex = index
 			this.content[index].active = true;
 			this.ispopMenu = false;
@@ -257,7 +236,7 @@ export default {
 		},
 		tabtap(index) {
 			this.tapIndex = index;
-			console.log(this.currentCategory)
+			
 		},
 		topublish() {
 			
@@ -279,15 +258,15 @@ export default {
 				this.swiperHeight = height;
 			}
 		});
-		console.log(this.user)
-		let activity = await this.request('v1/ActivityInfo/getActivity?currentPage=1&&category=' + this.currentCategory)
-		// let dynamic = await this.request('v1/ActivityInfo/getActivity?currentPage=1')
-		// let knowledge = await this.request('v1/ActivityInfo/getActivity?currentPage=1')
 		
-		this.activities = activity[1].data
+		let info = await this.request(`v1/ActivityInfo/userLiked?currentPage=${1}&&type=${100}`)
+		console.log("info",info)
+		this.communityList = info[1].data
 		
+	},
+	async onShow(){
 		
-	} 
+	}
 };
 </script>
 

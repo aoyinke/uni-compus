@@ -32,11 +32,9 @@
   -webkit-flex-direction: column;
           flex-direction: column;
   border-radius: 10rpx;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(253, 150, 68, 0.7)), to(#fa8231));
   background-image: -webkit-linear-gradient(rgba(253, 150, 68, 0.7), #fa8231);
   background-image: linear-gradient(rgba(253, 150, 68, 0.7), #fa8231);
-  -webkit-box-shadow: 0 5px 5px 4px rgba(238, 238, 238, 0.7);
-          box-shadow: 0 5px 5px 4px rgba(238, 238, 238, 0.7);
+  box-shadow: 0 5px 5px 4px rgba(238, 238, 238, 0.7);
 }
 .cooperate .cooperateBar-choice image.data-v-a07b11b0 {
   height: 80rpx;
@@ -57,11 +55,9 @@
   display: flex;
   margin: 0 40rpx 25rpx 40rpx;
   border: 1px solid #EDEDED;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-radius: 20rpx;
-  -webkit-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 .collections-item-left.data-v-a07b11b0 {
   width: 65%;
@@ -83,7 +79,6 @@
   padding: 19%;
   text-align: center;
   height: 50%;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#2bcbba), to(#20bf6b));
   background-image: -webkit-linear-gradient(#2bcbba, #20bf6b);
   background-image: linear-gradient(#2bcbba, #20bf6b);
 }

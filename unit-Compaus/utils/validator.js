@@ -42,7 +42,7 @@ function activityInoValidator(activity,imgs){
 
 function groupRegisterValidator(groupInfo){
 	let errMsg = ''
-	if(!groupInfo.name){
+	if(!groupInfo.groupName){
 		errMsg = "社团名称不能为空"
 	}
 		
@@ -58,8 +58,46 @@ function groupRegisterValidator(groupInfo){
 	return errMsg
 }
 
+function changeGroupInfoValidator(groupInfo){
+	let errMsg = ''
+	if(!groupInfo.groupName){
+		errMsg = "社团名称不能为空"
+	}
+		
+	if(!groupInfo.college){
+		errMsg = "社团或社团负责人所属学校不能为空"
+	}
+	if(!groupInfo.category){
+		errMsg = "类别不能为空"
+	}
+	if(!groupInfo.logo){
+		errMsg = "社团或小组Logo不能为空"
+	}
+	if(groupInfo.coverImgs.length<1){
+		errMsg = "社团封面图片数量不能少于1张"
+	}
+	return errMsg
+}
+
+function publishNeedValidator(needInfo){
+	let errMsg = ''
+	if(!needInfo.content){
+		errMsg = "需求内容不能为空"
+	}
+	if(!needInfo.title){
+		errMsg = "需求标题不能为空"
+	}
+	if(!needInfo.category){
+		errMsg = "需求类别不能为空"
+	}
+		
+	
+	return errMsg
+}
 export {
 	changeUserInfoValidator,
 	activityInoValidator,
-	groupRegisterValidator
+	groupRegisterValidator,
+	changeGroupInfoValidator,
+	publishNeedValidator
 }

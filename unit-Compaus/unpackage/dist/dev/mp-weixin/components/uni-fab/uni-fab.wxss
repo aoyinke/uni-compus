@@ -115,8 +115,7 @@
           transform: rotate(135deg);
 }
 .uni-fab__content.data-v-8ade19cc {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -137,8 +136,7 @@
 }
 .uni-fab__content--other-platform.data-v-8ade19cc {
   border-width: 0px;
-  -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
 }
 .uni-fab__content--left.data-v-8ade19cc {
   -webkit-box-pack: start;

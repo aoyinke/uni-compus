@@ -27,11 +27,11 @@
 
 		<view class="uni-tab-bar" :style="{height:needHeight + 'px'}">
 			<scroll-view scroll-y="true" class="list">
-				<swiper :current="currentIndex" class="swiper-box">
+				<swiper :current="currentIndex" class="swiper-box" @change="changeCurrentIndex">
 					<swiper-item>
 						<view class="swiper-item">
 							<view class="need-List">
-								<view class="need-item">
+								<view class="need-item" v-for="(needInfo,id) in needList" :key="id">
 									<user-top-bar :groupInfo="needInfo.userInfo" :needCategory="false"></user-top-bar>
 									<view class="need-item-main">
 										<view class="need-item-main-left">
@@ -63,6 +63,14 @@ import lvSelect from '@/components/lv-select/lv-select.vue';
 import userTopBar from '@/components/activity/userTopBar.vue';
 import likeIcon from '@/components/common/commonIcon/likeIcon.vue';
 export default {
+	watch:{
+		currentIndex:async function(oldVal,newVal){
+			let cateogry = this.nav[oldVal]
+			let needList = await this.request(`v1/needWall/needList?currentPage=${1}&&category=${cateogry}`)
+			this.needList = needList[1].data
+			console.log(needList)
+		}
+	},
 	components: {
 		lvSelect,
 		userTopBar,
@@ -73,8 +81,11 @@ export default {
 			needHeight:0,
 			currentIndex: 0,
 			nav: ['众投活动', '大佬赞助', '技能需求'],
-			needInfo: { userInfo: { college: '上海海事大学',logo:"https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg" }
+			
+			needList:[],
+			needInfo: {  college: '上海海事大学',logo:"https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg" 
 			,like_nums:0, title: '一起来玩啊！', content: '招募一只皮皮虾作为镇宅神兽' },
+			
 			loading: false,
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
 			searchValue: '',
@@ -96,6 +107,9 @@ export default {
 		};
 	},
 	methods: {
+		changeCurrentIndex(e){
+			this.currentIndex = e.detail.value
+		},
 		changeNav(id) {
 			this.currentIndex = id;
 		},
@@ -111,13 +125,16 @@ export default {
 			console.log(val);
 		}
 	},
-	onLoad(){
+	async onLoad(){
 		uni.getSystemInfo({
 			success: res => {
 				let height = res.windowHeight - uni.upx2px(145.2);
 				this.needHeight = height;
 			}
 		});
+		let needList = await this.request(`v1/needWall/needList?currentPage=${1}&&category=${'众投活动'}`)
+		this.needList = needList[1].data
+		console.log(this.needList)
 	},
 };
 </script>

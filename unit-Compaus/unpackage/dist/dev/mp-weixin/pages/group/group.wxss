@@ -78,8 +78,7 @@ page.data-v-0983e1c6 {
   -webkit-flex-direction: row;
           flex-direction: row;
   height: 100rpx;
-  -webkit-box-shadow: 3rpx 3rpx 5rpx 5rpx #eeeeee;
-          box-shadow: 3rpx 3rpx 5rpx 5rpx #eeeeee;
+  box-shadow: 3rpx 3rpx 5rpx 5rpx #eeeeee;
 }
 .group-detail-tab .tab.data-v-0983e1c6 {
   font-size: 26rpx;
