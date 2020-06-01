@@ -39,7 +39,7 @@
 					</view>
 				</view>
 			</view> 
-			<uni-compus-button content="确认修改" background="#fbc531" width="100"></uni-compus-button>
+			<uni-compus-button content="确认修改" background="#fbc531" width="100" @click.native="uploadTask"></uni-compus-button>
 		</view>
 		<uni-popup ref="popup" type="bottom">
 			<slot>
@@ -90,6 +90,8 @@
 		        ref="shortTerm" 
 		    >
 		</w-picker>
+		<chunLei-modal v-model="showErr" type="default" :mData="errData" navMask>
+		</chunLei-modal>
 	</view>
 </template>
 
@@ -100,9 +102,13 @@ import KpAvatar from '@/components/kp-avatar/index.vue';
 import uniPopup from '@/components/uni-popup/uni-popup.vue';
 import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue';
 import uniCompusUploadImg from '@/components/uni-compus-components/uniCompus-uploadImg.vue'
+import {publishTaskValidator} from '@/utils/validator.js'
 export default {
 	data() {
 		return {
+			showErr:false,
+			errData:{title:'提示',content:'这是一个模态弹窗',cancelText:'取消',confirmColor:'#3CC51F'},
+			
 			taskInfo:{belongActivity:"",taskName:'',deadLine:"",title:'',concernEvent:"",imageList:[]},
 			scrollHeight:"500rpx",
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
@@ -126,7 +132,24 @@ export default {
 			joinedPeopleList: []
 		};
 	},
+	async onLoad(option){
+		
+		let raw_teamMembers = await this.request(`v1/group/groupMembers?groupId=${option.groupId}`)
+		console.log(option)
+	},
 	methods: {
+		uploadTask(){
+			console.log(this.taskInfo)
+			let errMsg = publishTaskValidator(this.taskInfo)
+			if(!errMsg){
+				
+			}else{
+				let obj = this.errData
+				obj.content = errMsg
+				this.errData = obj
+				this.showErr = true
+			}
+		},
 		changeDeadLine(){
 			this.$refs.shortTerm.show()
 		},

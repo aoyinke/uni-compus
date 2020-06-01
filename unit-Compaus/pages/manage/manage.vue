@@ -149,7 +149,7 @@
 								    mode="aspectFill"
 								    @tap="handleOpenCommunity(row)"
 								  />
-								  <text>{{row.role}}</text>
+								  <text>{{row.nickName}}</text>
 								</view>
 							  </view>
 							</view>
@@ -284,12 +284,14 @@ export default {
 		})
 		let raw_userGroupInfo = await this.request('v1/group/findUserGroup')
 		let userGroupInfo = raw_userGroupInfo[1].data
-		console.log(userGroupInfo)
+		console.log("userGroupInfo",userGroupInfo)
+		
 		let raw_groupInfo = await this.request(`v1/group/detail?groupId=${userGroupInfo[1].groupId}`)
 		let groupInfo = raw_groupInfo[1].data
 		
 		let raw_teamMembers = await this.request(`v1/group/groupMembers?groupId=${userGroupInfo[1].groupId}`)
 		this.team = raw_teamMembers[1].data
+		console.log("raw_teamMembers",raw_teamMembers)
 		let list = userGroupInfo.map(item=>{
 			return {text:item.groupName,value:item.groupId}
 		})
@@ -321,7 +323,7 @@ export default {
 			let url = ""
 			switch(id){
 				case 0:
-					url = "/pages/publishTask/publishTask"
+					url = "/pages/publishTask/publishTask?groupId=" + this.groupInfo.id
 					break;
 				case 1:
 					url = "/pages/groupTaskList/groupTaskList"

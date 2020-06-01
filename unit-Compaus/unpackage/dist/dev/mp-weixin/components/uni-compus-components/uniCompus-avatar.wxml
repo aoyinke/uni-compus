@@ -1,1 +1,0 @@
-<view class="avatar data-v-6ed79dda"><image style="{{'border-radius:'+(circle?image_radius:'')+';'}}" src="{{imgSrc}}" mode class="data-v-6ed79dda"></image><text class="data-v-6ed79dda">{{name}}</text></view>

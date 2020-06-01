@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "kp-tag": "/components/kp-tag/index"
-  }
-}

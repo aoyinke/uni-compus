@@ -1,10 +1,7 @@
 <template>
 	<view>
 		<uni-nav-bar>
-			<view class="publishNeed" slot="left" @click="gotoPublishNeed">
-				<text class="eosfont pencil">&#xe669;</text>
-				
-			</view>
+			<view class="publishNeed" slot="left" @click="gotoPublishNeed"><text class="eosfont pencil">&#xe669;</text></view>
 		</uni-nav-bar>
 		<view style="">
 			<lv-select
@@ -20,19 +17,19 @@
 			></lv-select>
 		</view>
 		<view class="nav">
-			<view class="nav-item" :class="{ 'nav-active': id === currentIndex }" v-for="(navContent, id) in nav" :key="id" @tap="changeNav(id)">
+			<view class="nav-item" :class="{ 'nav-active': id == currentIndex }" v-for="(navContent, id) in nav" :key="id" @tap="changeNav(id)">
 				<text>{{ navContent }}</text>
 			</view>
 		</view>
 
-		<view class="uni-tab-bar" :style="{height:needHeight + 'px'}">
+		<view class="uni-tab-bar" :style="{ height: needHeight + 'px' }">
 			<scroll-view scroll-y="true" class="list">
 				<swiper :current="currentIndex" class="swiper-box" @change="changeCurrentIndex">
-					<swiper-item>
+					<swiper-item v-for="(tag,index) in nav" :key="index">
 						<view class="swiper-item">
 							<view class="need-List">
-								<view class="need-item" v-for="(needInfo,id) in needList" :key="id">
-									<user-top-bar :groupInfo="needInfo.userInfo" :needCategory="false"></user-top-bar>
+								<view class="need-item" v-for="(needInfo, id) in needList" :key="id">
+									<user-top-bar :groupInfo="needInfo.userInfo"></user-top-bar>
 									<view class="need-item-main">
 										<view class="need-item-main-left">
 											<view class="need-item-main-left-title">
@@ -45,7 +42,7 @@
 										</view>
 										<view class="need-item-main-right">
 											<like-icon></like-icon>
-											<text>{{needInfo.like_nums}}</text>
+											<text>{{ needInfo.fav_nums }}</text>
 										</view>
 									</view>
 								</view>
@@ -62,14 +59,10 @@
 import lvSelect from '@/components/lv-select/lv-select.vue';
 import userTopBar from '@/components/activity/userTopBar.vue';
 import likeIcon from '@/components/common/commonIcon/likeIcon.vue';
+
 export default {
-	watch:{
-		currentIndex:async function(oldVal,newVal){
-			let cateogry = this.nav[oldVal]
-			let needList = await this.request(`v1/needWall/needList?currentPage=${1}&&category=${cateogry}`)
-			this.needList = needList[1].data
-			console.log(needList)
-		}
+	watch: {
+		
 	},
 	components: {
 		lvSelect,
@@ -78,14 +71,13 @@ export default {
 	},
 	data() {
 		return {
-			needHeight:0,
+			needHeight: 0,
 			currentIndex: 0,
 			nav: ['众投活动', '大佬赞助', '技能需求'],
+
+			needList: [],
 			
-			needList:[],
-			needInfo: {  college: '上海海事大学',logo:"https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg" 
-			,like_nums:0, title: '一起来玩啊！', content: '招募一只皮皮虾作为镇宅神兽' },
-			
+
 			loading: false,
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
 			searchValue: '',
@@ -107,13 +99,40 @@ export default {
 		};
 	},
 	methods: {
-		changeCurrentIndex(e){
-			this.currentIndex = e.detail.value
+		async _getList(mm,currentIndex){
+			let category = this.nav[currentIndex];
+					
+			let type = ''
+			switch (category) {
+				case '众投活动':
+					type = 100;
+					break
+				case '大佬赞助':
+					type = 101;
+					break
+				case '技能需求':
+					type = 102;
+					break
+			}
+			let needList = await this.request(`v1/needWall/needList?currentPage=${1}&&category=${type}`);
+			this.needList = needList[1].data;
+			console.log(mm,needList);
+		},
+		changeCurrentIndex(e) {
+			this.currentIndex = e.detail.current;
+			console.log(this.currentIndex)
+			this._getList("changeCurrentIndex",this.currentIndex)
 		},
 		changeNav(id) {
 			this.currentIndex = id;
+			
+			this._getList("changeNav",id)
 		},
-		gotoPublishNeed() {},
+		gotoPublishNeed() {
+			uni.navigateTo({
+				url:'/pages/publishNeed/publishNeed'
+			})
+		},
 		handleSearch() {
 			this.loading = true;
 			setTimeout(() => {
@@ -122,26 +141,26 @@ export default {
 			}, 2000);
 		},
 		change(val) {
-			console.log(val);
+			
 		}
 	},
-	async onLoad(){
+	async onLoad() {
 		uni.getSystemInfo({
 			success: res => {
 				let height = res.windowHeight - uni.upx2px(145.2);
 				this.needHeight = height;
 			}
 		});
-		let needList = await this.request(`v1/needWall/needList?currentPage=${1}&&category=${'众投活动'}`)
-		this.needList = needList[1].data
-		console.log(this.needList)
-	},
+		let needList = await this.request(`v1/needWall/needList?currentPage=${1}&&category=${100}`);
+		needList[1].data.logo = this.needList = needList[1].data;
+		
+	}
 };
 </script>
 
 <style lang="scss" scoped>
-.pencil{
-	color: rgba(253, 150, 68,1.0);
+.pencil {
+	color: rgba(253, 150, 68, 1);
 	font-size: 2.5em;
 }
 @mixin elementCenter {
@@ -149,31 +168,30 @@ export default {
 	justify-content: center;
 	align-items: center;
 }
-.need-List{
-	.need-item{
-		
-		border-bottom: 2rpx solid #EEEEEE;
+.need-List {
+	.need-item {
+		border-bottom: 2rpx solid #eeeeee;
 		padding-bottom: 5rpx;
-		&-main{
+		&-main {
 			display: flex;
 			align-items: center;
 			min-height: 300rpx;
-			&-left{
+			&-left {
 				height: 250rpx;
 				flex: 1;
-				background-color: rgba(204, 174, 98,1.0);
-				&-title{
+				background-color: rgba(204, 174, 98, 1);
+				&-title {
 					@include elementCenter;
-					text{
+					text {
 						font-weight: 600;
 						font-size: 1.2em;
 					}
 				}
-				&-content{
+				&-content {
 					@include elementCenter;
 				}
 			}
-			&-right{
+			&-right {
 				height: 250rpx;
 				width: 15%;
 				@include elementCenter;

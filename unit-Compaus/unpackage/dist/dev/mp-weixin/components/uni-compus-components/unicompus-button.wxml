@@ -1,1 +1,0 @@
-<button class="{{['button data-v-9d0ba15a',(choosed)?'choosed':'']}}" style="{{'background:'+(isDisabled?'#ced6e0':background)+';'+('width:'+(width+'%')+';')}}" type="primary" disabled="{{isDisabled}}" size="{{size}}">{{content}}</button>

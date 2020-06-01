@@ -1,11 +1,11 @@
 <template>
 	<view>
 		<uni-nav-bar left-icon="back" title="发布需求" @clickLeft="clickLeft"></uni-nav-bar>
-		<view class="uni-list-cell uni-list-cell-pd" @click="chooseCategory">
+		<view class="uni-list-cell uni-list-cell-pd" >
 			<view class="uni-list-cell-db" style="font-weight: 500;">需求的名称</view>
 			<input type="text" v-model="needInfo.title" style="text-align: right;" />
 		</view>
-		<view class="uni-list-cell uni-list-cell-pd">
+		<view class="uni-list-cell uni-list-cell-pd" @click="chooseCategory">
 			<view class="uni-list-cell-db" style="font-weight: 500;">需求的类别</view>
 			<input type="text" v-model="needInfo.category" />
 		</view>
@@ -50,7 +50,7 @@ export default {
 		publishNeed() {
 			let errMsg = publishNeedValidator(this.needInfo);
 			if (!errMsg) {
-				
+				this.request('v1/needWall/addNeed',this.needInfo,'POST')
 			} else {
 				let obj = this.errData;
 				obj.content = errMsg;

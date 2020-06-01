@@ -1,1 +1,0 @@
-<view class="imageContent data-v-00336d6a"><block wx:if="{{galleryId==='test'}}"><block class="data-v-00336d6a"><block wx:if="{{scope.type==='num'}}"><view class="num data-v-00336d6a">{{''+scope.content+''}}</view></block><block wx:else><view class="content data-v-00336d6a">{{''+scope.content+''}}</view></block></block></block></view>

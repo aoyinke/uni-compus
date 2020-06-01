@@ -25,7 +25,7 @@
 					  weight="500"
 					  bg-color="#4834d4"
 					  class="left-star"
-					  v-if="needCategory"
+					  v-if="groupInfo.category"
 					>{{groupInfo.category}}</kp-tag>
 				</view>
 				

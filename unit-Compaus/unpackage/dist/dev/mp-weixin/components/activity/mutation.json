@@ -1,9 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "like-icon": "/components/common/commonIcon/likeIcon",
-    "chat-icon": "/components/common/commonIcon/chatIcon",
-    "good-icon": "/components/common/commonIcon/goodIcon",
-    "share-icon": "/components/common/commonIcon/shareIcon"
-  }
-}

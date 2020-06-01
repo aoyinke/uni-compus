@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
-    "gallery-swiper": "/components/QS-gallery-swiper/QS-gallery-swiper",
-    "special-banner": "/components/EtherealWheat-banner/specialBanner"
-  }
-}

@@ -94,10 +94,27 @@ function publishNeedValidator(needInfo){
 	
 	return errMsg
 }
+
+function publishTaskValidator(taskInfo){
+	let errMsg = ''
+	if(!needInfo.content){
+		errMsg = "需求内容不能为空"
+	}
+	if(!needInfo.title){
+		errMsg = "需求标题不能为空"
+	}
+	if(!needInfo.category){
+		errMsg = "需求类别不能为空"
+	}
+		
+	
+	return errMsg
+}
 export {
 	changeUserInfoValidator,
 	activityInoValidator,
 	groupRegisterValidator,
 	changeGroupInfoValidator,
-	publishNeedValidator
+	publishNeedValidator,
+	publishTaskValidator
 }

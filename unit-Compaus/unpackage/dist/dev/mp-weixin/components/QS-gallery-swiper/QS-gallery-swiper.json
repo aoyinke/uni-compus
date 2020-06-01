@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "image-content": "/components/QS-gallery-swiper/imageContent"
-  }
-}
