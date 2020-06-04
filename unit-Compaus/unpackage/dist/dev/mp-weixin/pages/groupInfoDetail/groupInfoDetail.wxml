@@ -1,0 +1,1 @@
+<view class="data-v-02a02344"><uni-nav-bar vue-id="77de3882-1" left-icon="back" title="我的工作" data-event-opts="{{[['^clickLeft',[['clickLeft']]]]}}" bind:clickLeft="__e" class="data-v-02a02344" bind:__l="__l"></uni-nav-bar><time-line vue-id="77de3882-2" location="left" title="my works" data-ref="timeline" class="data-v-02a02344 vue-ref" bind:__l="__l"></time-line></view>

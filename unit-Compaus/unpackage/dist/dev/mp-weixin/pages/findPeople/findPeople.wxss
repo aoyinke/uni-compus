@@ -1,0 +1,24 @@
+.filter.data-v-682f6086 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  width: 100%;
+}
+.filter-container.data-v-682f6086 {
+  position: relative;
+  height: 100vh;
+}
+.filter-container .filter-container-bottom.data-v-682f6086 {
+  width: 100%;
+  position: absolute;
+  bottom: 10%;
+  margin: 10rpx;
+  right: -5%;
+}
+

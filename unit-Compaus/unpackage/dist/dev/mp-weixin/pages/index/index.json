@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "uni-app",
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "mescroll-uni": "/components/mescroll-uni/mescroll-uni",
+    "activity": "/components/activity/activity",
+    "uni-fab": "/components/uni-fab/uni-fab",
+    "tap-bar": "/components/tapBar"
+  }
+}

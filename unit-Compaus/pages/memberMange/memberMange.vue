@@ -83,6 +83,7 @@
 							<view class="joinedPeople-list-item" v-for="(row, index) in joinedPeopleList" :key="index">
 								<kp-avatar :image="row.avatar" size="large" mode="aspectFill" @tap="handleOpenCommunity(row)" />
 								<text>{{ row.name }}</text>
+								<view class="close-view" @click="removeJoined(index)">x</view>
 							</view>
 						</view>
 						<scroll-view scroll-y="true" class="list" :style="{ height: scrollHeight }">
@@ -148,6 +149,9 @@ export default {
 		lvSelect
 	},
 	methods: {
+		removeJoined(index){
+			this.joinedPeopleList.splice(index,1)
+		},
 		changejoinedPeople(e, part) {
 			this.joinedPeopleList = part;
 			console.log(e);

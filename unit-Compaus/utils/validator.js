@@ -97,14 +97,17 @@ function publishNeedValidator(needInfo){
 
 function publishTaskValidator(taskInfo){
 	let errMsg = ''
-	if(!needInfo.content){
-		errMsg = "需求内容不能为空"
+	if(!taskInfo.content){
+		errMsg = "任务内容不能为空"
 	}
-	if(!needInfo.title){
-		errMsg = "需求标题不能为空"
+	if(!taskInfo.taskName){
+		errMsg = "任务标题不能为空"
 	}
-	if(!needInfo.category){
-		errMsg = "需求类别不能为空"
+	if(!taskInfo.belongActivity){
+		errMsg = "任务类别不能为空"
+	}
+	if(!taskInfo.concernEvent){
+		errMsg = "任务类别不能为空"
 	}
 		
 	

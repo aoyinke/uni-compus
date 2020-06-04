@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "lv-select": "/components/lv-select/lv-select",
+    "mescroll-uni": "/components/mescroll-uni/mescroll-uni",
+    "uni-drawer": "/components/uni-drawer/uni-drawer",
+    "water-fall": "/components/waterfall",
+    "tap-bar": "/components/tapBar",
+    "filter-bar": "/components/uni-compus-components/uniCompus-filter",
+    "uni-compus-button": "/components/uni-compus-components/unicompus-button"
+  }
+}

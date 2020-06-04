@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "lv-select": "/components/lv-select/lv-select",
+    "activity": "/components/activity/activity",
+    "uni-fab": "/components/uni-fab/uni-fab",
+    "group-item": "/components/group/group-item",
+    "kp-avatar": "/components/kp-avatar/index"
+  }
+}

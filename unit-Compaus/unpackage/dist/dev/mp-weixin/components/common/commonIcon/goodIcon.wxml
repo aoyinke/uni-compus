@@ -1,0 +1,1 @@
+<view class="goodIcon data-v-0ad27a98"><block wx:if="{{!isGood}}"><text data-event-opts="{{[['tap',[['Good',['$event']]]]]}}" class="eosfont data-v-0ad27a98" bindtap="__e"></text></block><block wx:else><image class="isgood data-v-0ad27a98" src="../../../static/common/Good.png" mode data-event-opts="{{[['tap',[['notgood',['$event']]]]]}}" bindtap="__e"></image></block></view>

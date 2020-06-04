@@ -1,0 +1,10 @@
+.tag.data-v-081cb453 {
+  margin-top: 10rpx;
+  border-radius: 20rpx;
+  height: 40rpx;
+  color: #fff;
+  text-align: center;
+  box-shadow: 2rpx 2rpx 2rpx 2rpx #EEEEEE;
+  margin-right: 10rpx;
+}
+

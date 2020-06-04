@@ -1,0 +1,35 @@
+.dance.data-v-6fd3c434 {
+  color: #ff7979;
+}
+.interetsTagList.data-v-6fd3c434 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.interetsTagList .Tag-item.data-v-6fd3c434 {
+  width: 40%;
+  margin: 20rpx;
+  border: 1rpx solid #dcdde1;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.interetsTagList .Tag-item image.data-v-6fd3c434 {
+  width: 50rpx;
+  height: 50rpx;
+}
+

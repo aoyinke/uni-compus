@@ -1,0 +1,83 @@
+.groupTopBar.data-v-11fa377e {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  height: 100rpx;
+  border: 0.5px solid #EEEEEE;
+}
+.groupTopBar .groupTopBar-left.data-v-11fa377e {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  margin: 20rpx;
+}
+.groupTopBar .groupTopBar-left .groupLogo image.data-v-11fa377e {
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 50%;
+}
+.groupTopBar .groupTopBar-left .groupName.data-v-11fa377e {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  margin-left: 10rpx;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+}
+.groupTopBar .groupTopBar-left .groupName-top.data-v-11fa377e {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.groupTopBar .groupTopBar-left .groupName-top kp-tag.data-v-11fa377e {
+  margin-left: 15rpx;
+}
+.groupTopBar .groupTopBar-left .groupName .groupName-first.data-v-11fa377e {
+  font-weight: bold;
+}
+.groupTopBar .groupTopBar-left .groupName .groupName-last.data-v-11fa377e {
+  color: darkgray;
+  font-size: 20rpx;
+}
+.groupTopBar .groupTopBar-right .notiDetail.data-v-11fa377e {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin-right: 20rpx;
+}
+.groupTopBar .groupTopBar-right .notiDetail button.data-v-11fa377e {
+  color: #fff;
+  background-color: #191970;
+}
+

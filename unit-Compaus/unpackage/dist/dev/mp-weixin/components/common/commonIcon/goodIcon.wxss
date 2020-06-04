@@ -1,0 +1,9 @@
+.isgood.data-v-0ad27a98 {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 20rpx;
+}
+.eosfont.data-v-0ad27a98 {
+  font-size: 60rpx !important;
+}
+

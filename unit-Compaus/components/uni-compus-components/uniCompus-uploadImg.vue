@@ -3,7 +3,7 @@
 		<view class="uni-uploader">
 			<view class="uni-uploader-head">
 				<view class="uni-uploader-title">{{title}}</view>
-				<view class="uni-uploader-info">{{ imageList.length }}/8</view>
+				<view class="uni-uploader-info">{{ imageList.length }}/{{imgNumber}}</view>
 			</view>
 			<view class="uni-uploader-body">
 				<view class="uni-uploader__files">
@@ -52,6 +52,10 @@ export default {
 		},
 		title:{
 			type:String
+		},
+		imgNumber:{
+			type:Number,
+			default:8
 		}
 	}
 };

@@ -5,7 +5,7 @@
 		<view class="main">
 			<view class="uni-list-cell uni-list-cell-pd changeTaskName">
 				<view class="uni-list-cell-db" style="font-weight: 500;">任务的名称</view>
-				<input type="text" v-model="taskInfo.title" />
+				<input type="text" v-model="taskInfo.taskName" class="taskName"></taskInfo>
 			</view>
 			<view class="uni-list-cell uni-list-cell-pd changeTaskName">
 				<view class="uni-list-cell-db" style="font-weight: 500;">任务所属的活动</view>
@@ -16,6 +16,15 @@
 				
 				<text>{{taskInfo.deadLine}}</text>
 			</view>
+			
+			<view class="uni-list-cell uni-list-cell-pd">
+				<view class="uni-list-cell-db" style="font-weight: 500;">任务的内容</view>
+				<text class="eosfont addConcernEvent">&#xe715;</text>
+			</view>
+			<view class="inputConcernEvent">
+				<textarea v-model="taskInfo.content" placeholder="请输入任务的内容" />
+			</view>
+			
 			<view class="uni-list-cell uni-list-cell-pd">
 				<view class="uni-list-cell-db" style="font-weight: 500;">任务注意的事项</view>
 				<text class="eosfont addConcernEvent">&#xe715;</text>
@@ -23,6 +32,7 @@
 			<view class="inputConcernEvent">
 				<textarea v-model="taskInfo.concernEvent" placeholder="请输入任务注意事项" />
 			</view>
+			<uni-compus-upload-img title="选择任务封面图片(点击可预览)" :imgNumber="1" :imageList="taskInfo.coverImg" @close="closeCover" @chooseImg="chooseCoverImg"></uni-compus-upload-img>
 			<uni-compus-upload-img title="选择任务需要的图片(点击可预览)" :imageList="taskInfo.imageList" @close="close" @chooseImg="chooseImg"></uni-compus-upload-img>
 			<view class="joinedPeople">
 				<view class="joinedPeople-change">
@@ -35,7 +45,7 @@
 				<view class="joinedPeople-list">
 					<view class="joinedPeople-list-item" v-for="(row, index) in joinedPeopleList" :key="index">
 						<kp-avatar :image="row.avatar" size="large" mode="aspectFill" @tap="handleOpenCommunity(row)" />
-						<text>{{ row.name }}</text>
+						<text>{{ row.nickName }}</text>
 					</view>
 				</view>
 			</view> 
@@ -62,7 +72,7 @@
 						<view class="joinedPeople-list">
 							<view class="joinedPeople-list-item" v-for="(row, index) in joinedPeopleList" :key="index">
 								<kp-avatar :image="row.avatar" size="large" mode="aspectFill" @tap="handleOpenCommunity(row)" />
-								<text>{{ row.name }}</text>
+								<text>{{ row.nickName }}</text>
 							</view>
 						</view>
 						<scroll-view scroll-y="true" class="list" :style="{height:scrollHeight}">
@@ -70,7 +80,7 @@
 								<view class="memberList-item" v-for="(member,idx) in groupMembers" :key="idx">
 									<view class="memberList-item-left">
 										<kp-avatar :image="member.avatar" size="large" mode="aspectFill" @tap="handleOpenCommunity(row)" />
-										<text>{{ member.name }}</text>
+										<text>{{ member.nickName }}</text>
 									</view>
 									<view class="memberList-item-right" @click="addJoinedMember(idx,member)"><text class="eosfont">&#xe715;</text></view>
 								</view>
@@ -135,13 +145,37 @@ export default {
 	async onLoad(option){
 		
 		let raw_teamMembers = await this.request(`v1/group/groupMembers?groupId=${option.groupId}`)
-		console.log(option)
+		let groupMembers = raw_teamMembers[1].data
+		this.groupMembers = groupMembers
 	},
 	methods: {
-		uploadTask(){
+		async uploadTask(){
 			console.log(this.taskInfo)
 			let errMsg = publishTaskValidator(this.taskInfo)
 			if(!errMsg){
+				let taskInfo = this.taskInfo
+				let taskImgs = taskInfo.imageList
+				
+				if(taskInfo.deadLine){
+					let split_deadline = taskInfo.deadLine.split(' ')
+					
+					
+				}
+				taskInfo.joinedPeopleList = this.joinedPeopleList
+				let raw_task = await this.request('v1/task/addTask',taskInfo,'POST')
+				let task = raw_task[1].data
+				console.log("task",task)
+
+				if(taskImgs.length){
+					let taskId = task.id
+					taskImgs.forEach(url=>{
+						this.uploadFile('v1/uploadFiles/taskImgs',url,{taskId})
+					})
+					
+				}
+				uni.navigateTo({
+					
+				})
 				
 			}else{
 				let obj = this.errData
@@ -149,6 +183,7 @@ export default {
 				this.errData = obj
 				this.showErr = true
 			}
+			
 		},
 		changeDeadLine(){
 			this.$refs.shortTerm.show()
@@ -158,6 +193,22 @@ export default {
 			obj.deadLine = event.result
 			this.taskInfo = obj
 			console.log(this.taskInfo)
+		},
+		chooseCoverImg(){
+			uni.chooseImage({
+			    sourceType: ["camera", "album"],
+			    sizeType: "compressed",
+			    count: 1,
+			    success: (res) => {
+					let obj = this.taskInfo
+					obj.coverImg = res.tempFilePaths[0]
+					this.taskInfo = obj
+			        
+			    }
+			})
+		},
+		closeCover(e){
+			this.taskInfo.coverImg="";
 		},
 		
 		chooseImg(){

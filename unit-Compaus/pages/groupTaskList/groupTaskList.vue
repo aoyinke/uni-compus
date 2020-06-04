@@ -17,12 +17,12 @@
 		
 		<view class="uni-tab-bar">
 			<scroll-view scroll-y="true" class="list">
-				<view class="taskCard" v-for="(task, idx) in mytasks" :key="idx">
+				<view class="taskCard" v-for="(task, idx) in groupTasks" :key="idx">
 					<view class="deadLine">
 						<uni-countdown color="#FFFFFF" background-color="#00B26A" border-color="#00B26A" :day="task.deadLine.day" :hour="task.deadLine.hour" :minute="task.deadLine.minute" :second="task.deadLine.second"></uni-countdown>
 					</view>
 					<go-detail detailUrl="/pages/groupTaskDetail/groupTaskDetail">
-						<uni-card :title="task.title" mode="style" :is-shadow="true" :thumbnail="task.coverImg" :extra="task.time" :note="task.note">
+						<uni-card :title="task.taskName" mode="style" :is-shadow="true" :thumbnail="task.coverImg" :extra="task.deadLine" :note="task.belongActivity">
 							<text class="text-line-2">{{ task.content }}</text>
 						</uni-card>
 					</go-detail>
@@ -39,9 +39,15 @@ import lvSelect from '@/components/lv-select/lv-select.vue';
 import uniCountdown from '@/components/uni-countdown/uni-countdown.vue'
 import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue'
 export default {
+	async onLoad(){
+		let raw_tasks = await this.request('v1/task/taskList?groupId=2')
+		let tasks = raw_tasks[1].data
+		this.groupTasks = tasks
+		console.log(raw_tasks)
+	},
 	data() {
 		return {
-			mytasks: [
+			groupTasks: [
 				{
 					title: '完成页面的开发任务',
 					deadLine:{day:1,hour:16,minute:45,second:0},
@@ -90,11 +96,7 @@ export default {
 		},
 		
 	},
-	onLoad() {
-		for (let i = 0; i < 4; i++) {
-			this.mytasks.push(this.mytasks[0]);
-		}
-	},
+
 	components: {
 		uniCard,
 		lvSelect,

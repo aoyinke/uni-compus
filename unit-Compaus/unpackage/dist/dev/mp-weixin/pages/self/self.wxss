@@ -1,0 +1,158 @@
+.registerGroup.data-v-fed4e274 {
+  color: #22a6b3;
+}
+.unLogin.data-v-fed4e274 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+}
+.unLogin-item.data-v-fed4e274 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.unLogin-item image.data-v-fed4e274 {
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 50%;
+}
+.header.data-v-fed4e274 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  margin-bottom: 60rpx;
+}
+.header-left.data-v-fed4e274 {
+  width: 25%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.header-center.data-v-fed4e274 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.header-center-name.data-v-fed4e274 {
+  font-weight: 600;
+  font-size: 24rpx;
+}
+.header-center-id.data-v-fed4e274 {
+  color: #dcdde1;
+}
+.header-center-published.data-v-fed4e274 {
+  color: #dcdde1;
+}
+.main .userActivityNum.data-v-fed4e274 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.main .userActivityNum .userActivityNum-detail.data-v-fed4e274 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.main .userActivityNum .userActivityNum-detail .userActivityNum-detail-right.data-v-fed4e274 {
+  color: darkgray;
+}
+.main .navBar.data-v-fed4e274 {
+  margin: 10rpx;
+  border: 1rpx solid #eeeeee;
+  box-shadow: 3rpx 3rpx 5rpx 5rpx #eeeeee;
+}
+.navIcon.data-v-fed4e274 {
+  height: 45rpx;
+  width: 45rpx;
+  margin-bottom: -10rpx;
+}
+.navBar-detail image.data-v-fed4e274 {
+  height: 30rpx;
+  width: 30rpx;
+  color: lightgray;
+  margin-right: 20rpx;
+}
+.userSetup.data-v-fed4e274,
+.userHis.data-v-fed4e274,
+.userConcern.data-v-fed4e274,
+.userGroup.data-v-fed4e274 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-flex-wrap: unwrap;
+          flex-wrap: unwrap;
+  line-height: 50rpx;
+  margin: 50rpx 0;
+}
+.userSetup .navBar-left text.data-v-fed4e274,
+.userHis .navBar-left text.data-v-fed4e274,
+.userConcern .navBar-left text.data-v-fed4e274,
+.userGroup .navBar-left text.data-v-fed4e274 {
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  font-weight: 500;
+}
+swiper.data-v-fed4e274 {
+  margin: 20rpx 10rpx;
+  height: 150rpx;
+  border-radius: 50rpx;
+}
+swiper .swiper-item image.data-v-fed4e274 {
+  width: 100%;
+}
+.avatar.data-v-fed4e274 {
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
