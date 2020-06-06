@@ -300,13 +300,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
 var _index = _interopRequireWildcard(__webpack_require__(/*! @/config/index.js */ 150));function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var kpSwiper = function kpSwiper() {Promise.all(/*! require.ensure | components/kp-swiper/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-swiper/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-swiper/index.vue */ 472));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpIcon = function KpIcon() {Promise.all(/*! require.ensure | components/kp-icon/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-icon/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-icon */ 479));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpTag = function KpTag() {Promise.all(/*! require.ensure | components/kp-tag/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-tag/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-tag */ 346));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var likeIcon = function likeIcon() {__webpack_require__.e(/*! require.ensure | components/common/commonIcon/likeIcon */ "components/common/commonIcon/likeIcon").then((function () {return resolve(__webpack_require__(/*! @/components/common/commonIcon/likeIcon.vue */ 486));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var kpBadge = function kpBadge() {Promise.all(/*! require.ensure | components/kp-badge/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-badge/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-badge/index.vue */ 493));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 319));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
@@ -360,7 +353,7 @@ var _index = _interopRequireWildcard(__webpack_require__(/*! @/config/index.js *
     KpAvatar: KpAvatar },
 
 
-  onLoad: function onLoad() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+  onLoad: function onLoad() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo, userJoinedGroup;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
               uni.getSystemInfo({
                 success: function success(res) {
                   var height = res.windowHeight - uni.upx2px(355);
@@ -368,11 +361,13 @@ var _index = _interopRequireWildcard(__webpack_require__(/*! @/config/index.js *
                 } });_context.next = 3;return (
 
 
-                _this.request('v1/user/getUserInfo'));case 3:userInfo = _context.sent;
+                _this.request('v1/user/getUserInfo'));case 3:userInfo = _context.sent;_context.next = 6;return (
+                _this.request('v1/group/findUserGroup'));case 6:userJoinedGroup = _context.sent;
               userInfo[1].data.tags = userInfo[1].data.tags.split(',');
-              userInfo[1].data.avatar = _index.baseConfig.host + _index.baseConfig.port + '/' + userInfo[1].data.avatar;
+
               _this.userInfo = userInfo[1].data;
-              console.log(_this.userInfo);case 8:case "end":return _context.stop();}}}, _callee);}))();
+              _this.coverImgs = Object.assign(_this.coverImgs, { gallery: _this.userInfo.coverImgs });case 10:case "end":return _context.stop();}}}, _callee);}))();
+
   },
   methods: {
     joinGroup: function joinGroup() {

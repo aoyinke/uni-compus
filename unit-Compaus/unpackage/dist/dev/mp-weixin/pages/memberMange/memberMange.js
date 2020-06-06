@@ -101,6 +101,9 @@ var components = {
   },
   lvSelect: function() {
     return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 291))
+  },
+  wPicker: function() {
+    return __webpack_require__.e(/*! import() | components/w-picker/w-picker */ "components/w-picker/w-picker").then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ 332))
   }
 }
 var render = function() {
@@ -140,7 +143,41 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 291));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 319));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 437));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 34));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 291));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 319));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 437));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -254,8 +291,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 {
+  onLoad: function onLoad() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var raw_members, raw_applicants;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                _this.request('v1/group/getGroupByMember?groupId=1'));case 2:raw_members = _context.sent;
+              _this.groupMembers = raw_members[1].data;_context.next = 6;return (
+
+                _this.request('v1/group/getApplicantList?groupId=1'));case 6:raw_applicants = _context.sent;
+              console.log(raw_applicants);case 8:case "end":return _context.stop();}}}, _callee);}))();
+  },
+
   data: function data() {
     return {
+      member: {},
+      authList: [{ auth: '社长权限', value: 16 }, { auth: '部长权限', value: 8 }, { auth: '成员权限', value: 4 }],
+      defaultProps: { "label": "auth", "value": "value" },
+
       applicantList: [{ avatar: 'https://lz.sinaimg.cn/osj1080/967d9727ly3gd46iout75j20vz1kw4qp.jpg', name: 'paradiseButcher', description: '最牛逼的人' }],
       currentIndex: 0,
       scrollHeight: '500rpx',
@@ -277,10 +326,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-      groupMembers: {
-        "宣传部": [{ name: '老王', avatar: 'https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/05aa72975372c0.jpg!1200w.jpg' }],
-        "外联部": [{ name: '老李', avatar: "https://img.pixbe.com/p47810601/24DB9644BE814AAB9CDD7CFE6D39A002_640.jpg" }] },
-
+      groupMembers: {},
       joinedPeopleList: [],
       otherPeople: [{ name: '小白', avatar: 'https://img.pixbe.com/p47810601/E124CB219C59429A82FB9443D28EFF4C_640.jpg' }] };
 
@@ -290,7 +336,33 @@ __webpack_require__.r(__webpack_exports__);
     uniPopup: uniPopup,
     lvSelect: lvSelect },
 
+
   methods: {
+    submitChangeMember: function submitChangeMember() {
+
+    },
+    updateMemberAuth: function updateMemberAuth() {
+      this.$refs.selector.show();
+    },
+    handleOpenManage: function handleOpenManage(member, key, id) {
+
+      var targetMemeber = this.groupMembers[key][id];
+      this.member = _objectSpread({}, member, { index: id });
+      this.$refs.updateMember.open();
+    },
+    confirmChangeAuth: function confirmChangeAuth(item) {
+      console.log(item);
+      this.member.auth = item.result;
+    },
+    confirmChangeMemberInfo: function confirmChangeMemberInfo() {var _this$member =
+      this.member,department = _this$member.department,index = _this$member.index;
+
+      this.groupMembers[department][index] = this.member;
+      this.request('v1/group/changeMemberAuth', this.member, 'POST');
+      this.$refs.updateMember.close();
+    },
+
+
     removeJoined: function removeJoined(index) {
       this.joinedPeopleList.splice(index, 1);
     },
@@ -304,11 +376,11 @@ __webpack_require__.r(__webpack_exports__);
       this.otherPeople.splice(index, 1);
       this.joinedPeopleList.push(member);
     },
-    handleSearch: function handleSearch() {var _this = this;
+    handleSearch: function handleSearch() {var _this2 = this;
       this.loading = true;
       setTimeout(function () {
-        _this.loading = false;
-        _this.infoList = _this.infoLists;
+        _this2.loading = false;
+        _this2.infoList = _this2.infoLists;
       }, 2000);
     },
     change: function change(val) {

@@ -12,7 +12,7 @@
 		</view>
 		<template v-if="user.userInfo.hasLogin">
 			<view class="header" @click="toDetail">
-				<view class="header-left"><kp-avatar :image="user.userInfo.avatar" size="large" mode="" @tap="handleOpenCommunity(row)" /></view>
+				<view class="header-left"><kp-avatar :image="user.userInfo.avatar" size="large" mode=""  /></view>
 				<view class="header-center">
 					<view class="header-center-userName">
 						<text>{{ user.userInfo.nickName }}</text>
@@ -158,12 +158,19 @@ export default {
 								uid:res[1].data.uid
 								
 							}
-							console.log(item)
+							
 							this.storeLogin(item)
 							uni.showToast({
-								title:"登录成功！"
+								title:"登录成功！",
+								duration:2000,
+								success: () => {
+									uni.hideLoading()
+									uni.reLaunch({
+										url:"/pages/self/self"
+									})
+								}
 							})
-							uni.hideLoading()
+							
 						})
 					}
 				}
@@ -188,11 +195,11 @@ export default {
 	},
 	async onLoad() {
 		let userInfo = await this.request('v1/user/getUserInfo')
-		console.log(userInfo)
+		
 		this.user.userInfo = Object.assign({},this.user.userInfo,userInfo[1].data)
 		
 		
-		console.log(this.user)
+		console.log(this.user.userInfo)
 	}
 };
 </script>

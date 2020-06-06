@@ -160,10 +160,7 @@
 			user[1].data.tags = user[1].data.tags.split(',')
 			this.userInfo = user[1].data
 			
-			
-			
-			
-			
+
 		},
 		data() {
 			return {
@@ -250,12 +247,13 @@
 					this.request('v1/user/update',this.userInfo,'POST')
 					uni.showToast({
 						title:"修改成功",
-						
+						success: () => {
+							uni.reLaunch({
+								url:"/pages/personShow/personShow"
+							})
+						}
 					})
-					uni.switchTab({
-						url:"/pages/self/self",
-						duration:3000
-					})
+					
 				}else{
 					let obj = this.errData
 					obj.content = res

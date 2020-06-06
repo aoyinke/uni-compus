@@ -303,9 +303,6 @@ var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);function _i
               _this.userInfo = user[1].data;case 5:case "end":return _context.stop();}}}, _callee);}))();
 
 
-
-
-
   },
   data: function data() {
     return {
@@ -391,12 +388,13 @@ var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);function _i
                 if (!res) {
                   _this3.request('v1/user/update', _this3.userInfo, 'POST');
                   uni.showToast({
-                    title: "修改成功" });
+                    title: "修改成功",
+                    success: function success() {
+                      uni.reLaunch({
+                        url: "/pages/personShow/personShow" });
 
+                    } });
 
-                  uni.switchTab({
-                    url: "/pages/self/self",
-                    duration: 3000 });
 
                 } else {
                   obj = _this3.errData;

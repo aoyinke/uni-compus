@@ -294,12 +294,19 @@ var util = __webpack_require__(/*! util */ 11);var _default =
                 uid: res[1].data.uid };
 
 
-              console.log(item);
+
               _this.storeLogin(item);
               uni.showToast({
-                title: "登录成功！" });
+                title: "登录成功！",
+                duration: 2000,
+                success: function success() {
+                  uni.hideLoading();
+                  uni.reLaunch({
+                    url: "/pages/self/self" });
 
-              uni.hideLoading();
+                } });
+
+
             });
           }
         } });
@@ -324,11 +331,11 @@ var util = __webpack_require__(/*! util */ 11);var _default =
 
   onLoad: function onLoad() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                 _this2.request('v1/user/getUserInfo'));case 2:userInfo = _context.sent;
-              console.log(userInfo);
+
               _this2.user.userInfo = Object.assign({}, _this2.user.userInfo, userInfo[1].data);
 
 
-              console.log(_this2.user);case 6:case "end":return _context.stop();}}}, _callee);}))();
+              console.log(_this2.user.userInfo);case 5:case "end":return _context.stop();}}}, _callee);}))();
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

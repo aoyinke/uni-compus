@@ -106,7 +106,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   if (!_vm._isMounted) {
     _vm.e0 = function(val) {
-      return (_vm.home.galleryIndex = val)
+      return (_vm.coverImgs.galleryIndex = val)
     }
   }
 }
@@ -361,6 +361,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var _index = __webpack_require__(/*! @/config/index.js */ 150);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var kpSwiper = function kpSwiper() {Promise.all(/*! require.ensure | components/kp-swiper/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-swiper/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-swiper/index.vue */ 472));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpIcon = function KpIcon() {Promise.all(/*! require.ensure | components/kp-icon/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-icon/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-icon */ 479));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpTag = function KpTag() {Promise.all(/*! require.ensure | components/kp-tag/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-tag/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-tag */ 346));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var likeIcon = function likeIcon() {__webpack_require__.e(/*! require.ensure | components/common/commonIcon/likeIcon */ "components/common/commonIcon/likeIcon").then((function () {return resolve(__webpack_require__(/*! @/components/common/commonIcon/likeIcon.vue */ 486));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var kpBadge = function kpBadge() {Promise.all(/*! require.ensure | components/kp-badge/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-badge/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-badge/index.vue */ 493));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 319));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownMenu = function msDropdownMenu() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-menu */ "components/ms-dropdown/dropdown-menu").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-menu.vue */ 381));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownItem = function msDropdownItem() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-item */ "components/ms-dropdown/dropdown-item").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-item.vue */ 388));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
@@ -389,7 +390,7 @@ var _index = __webpack_require__(/*! @/config/index.js */ 150);function _interop
         likeAnimate: false,
         liked: uni.getStorageSync("".concat(_index.baseConfig.key, "_liked")) //用户是否点过赞（点亮小红星）
       },
-      home: {
+      coverImgs: {
         gallery: [
         '/orj1080/967d9727ly3gc0whyclfoj20sg0sge0a.jpg',
         '/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg',
@@ -427,21 +428,23 @@ var _index = __webpack_require__(/*! @/config/index.js */ 150);function _interop
                 } });_context.next = 4;return (
 
                 _this.request('v1/group/findUserGroup'));case 4:raw_userGroupInfo = _context.sent;
-              userGroupInfo = raw_userGroupInfo[1].data;
-              console.log("userGroupInfo", userGroupInfo);_context.next = 9;return (
+              userGroupInfo = raw_userGroupInfo[1].data;_context.next = 8;return (
 
-                _this.request("v1/group/detail?groupId=".concat(userGroupInfo[1].groupId)));case 9:raw_groupInfo = _context.sent;
-              groupInfo = raw_groupInfo[1].data;_context.next = 13;return (
 
-                _this.request("v1/group/groupMembers?groupId=".concat(userGroupInfo[1].groupId)));case 13:raw_teamMembers = _context.sent;
+                _this.request("v1/group/detail?groupId=".concat(userGroupInfo[0].groupId)));case 8:raw_groupInfo = _context.sent;
+              groupInfo = raw_groupInfo[1].data;
+
+              _this.coverImgs = Object.assign(_this.coverImgs, { gallery: groupInfo.coverImgs });_context.next = 13;return (
+
+                _this.request("v1/group/groupMembers?groupId=".concat(userGroupInfo[0].groupId)));case 13:raw_teamMembers = _context.sent;
               _this.team = raw_teamMembers[1].data;
-              console.log("raw_teamMembers", raw_teamMembers);
+
               list = userGroupInfo.map(function (item) {
                 return { text: item.groupName, value: item.groupId };
               });
 
 
-
+              groupInfo.tags = groupInfo.tags.split(',');
               _this.groupInfo = groupInfo;
               _this.list = list;case 19:case "end":return _context.stop();}}}, _callee);}))();
 
@@ -538,16 +541,16 @@ var _index = __webpack_require__(/*! @/config/index.js */ 150);function _interop
       // https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html
       // source为touch时由用户触摸引起
       if (e.detail.source === "touch") {
-        this.home.galleryIndex = e.target.current;
+        this.coverImgs.galleryIndex = e.target.current;
       }
     },
     handleSwiperTarget: function handleSwiperTarget(e) {
-      this.home.galleryDirection =
+      this.coverImgs.galleryDirection =
       e.detail.dx > 0 && "left" || e.detail.dx < 0 && "right";
     },
     handleSwiperFinish: function handleSwiperFinish(e) {
       if (!e.detail.source) {
-        this.home.galleryDirection = "";
+        this.coverImgs.galleryDirection = "";
       }
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

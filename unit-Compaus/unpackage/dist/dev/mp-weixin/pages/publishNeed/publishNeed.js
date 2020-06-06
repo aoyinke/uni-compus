@@ -178,6 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 437));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   data: function data() {
@@ -193,13 +194,23 @@ var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);var uniPopu
       var errMsg = (0, _validator.publishNeedValidator)(this.needInfo);
       if (!errMsg) {
         this.request('v1/needWall/addNeed', this.needInfo, 'POST');
+        uni.showToast({
+          title: "提交成功，审核中",
+          duration: 2000,
+          success: function success() {
+            uni.reLaunch({
+              url: '/pages/needWall/needWall' });
+
+          } });
+
+
       } else {
         var obj = this.errData;
         obj.content = errMsg;
         this.errData = obj;
         this.showErr = true;
       }
-      console.log(this.needInfo);
+
     },
     clickLeft: function clickLeft() {
       uni.navigateBack({

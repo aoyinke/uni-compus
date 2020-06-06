@@ -3,6 +3,7 @@
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "uni-popup": "/components/uni-popup/uni-popup",
     "lv-select": "/components/lv-select/lv-select",
+    "w-picker": "/components/w-picker/w-picker",
     "kp-avatar": "/components/kp-avatar/index"
   }
 }

@@ -7,7 +7,8 @@
 		</view>
 		<view class="uni-list-cell uni-list-cell-pd" @click="chooseCategory">
 			<view class="uni-list-cell-db" style="font-weight: 500;">需求的类别</view>
-			<input type="text" v-model="needInfo.category" />
+			
+			<text>{{needInfo.category}}</text>
 		</view>
 
 		<view class="uni-list-cell uni-list-cell-pd"><view class="uni-list-cell-db" style="font-weight: 500;">编辑需求</view></view>
@@ -51,13 +52,23 @@ export default {
 			let errMsg = publishNeedValidator(this.needInfo);
 			if (!errMsg) {
 				this.request('v1/needWall/addNeed',this.needInfo,'POST')
+				uni.showToast({
+					title:"提交成功，审核中",
+					duration:2000,
+					success:()=>{
+						uni.reLaunch({
+						    url: '/pages/needWall/needWall'
+						});
+					}
+				})
+				
 			} else {
 				let obj = this.errData;
 				obj.content = errMsg;
 				this.errData = obj;
 				this.showErr = true;
 			}
-			console.log(this.needInfo);
+			
 		},
 		clickLeft() {
 			uni.navigateBack({

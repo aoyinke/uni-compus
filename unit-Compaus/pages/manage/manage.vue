@@ -13,26 +13,26 @@
 								  circular
 								  class="gallery"
 								  interval="6000"
-								  :current="home.galleryIndex"
+								  :current="coverImgs.galleryIndex"
 								  @change="handleSwiperChange"
 								  @transition="handleSwiperTarget"
 								  @animationfinish="handleSwiperFinish"
 								>
-								  <swiper-item v-for="(item,index) in home.gallery" :key="index">
+								  <swiper-item v-for="(item,index) in coverImgs.gallery" :key="index">
 								    <image :src="item" lazy-load mode="aspectFill">
 								  </swiper-item>
 								</swiper>
 							
 							<view class="dots">
 							  <view class="dots-count">
-							    <text>{{ home.galleryIndex+1 }}</text>
-							    \{{ home.gallery.length }}
+							    <text>{{ coverImgs.galleryIndex+1 }}</text>
+							    \{{ coverImgs.gallery.length }}
 							  </view>
 							  <kp-swiper
-							    v-model="home.gallery"
-							    :dotsIndex="home.galleryIndex"
-							    :dotsDirection="home.galleryDirection"
-							    @update="val=>home.galleryIndex=val"
+							    v-model="coverImgs.gallery"
+							    :dotsIndex="coverImgs.galleryIndex"
+							    :dotsDirection="coverImgs.galleryDirection"
+							    @update="val=>coverImgs.galleryIndex=val"
 							  />
 							</view>
 							<view class="userBar">
@@ -126,7 +126,7 @@
 								</view>
 							  <view class="labels content">
 							  	<kp-tag
-							  	  v-for="(row,index) in groupInfo.tags.split(',')"
+							  	  v-for="(row,index) in groupInfo.tags"
 							  	  :key="index"
 							  	  class="detail-labels"
 							  	  type="grey"
@@ -150,6 +150,7 @@
 								    @tap="handleOpenCommunity(row)"
 								  />
 								  <text>{{row.nickName}}</text>
+								  <text>{{row.position}}</text>
 								</view>
 							  </view>
 							</view>
@@ -245,7 +246,7 @@ export default {
 			  likeAnimate: false,
 			  liked: uni.getStorageSync(`${baseConfig.key}_liked`) //用户是否点过赞（点亮小红星）
 			},
-			home: {
+			coverImgs: {
 				gallery: [
 					'/orj1080/967d9727ly3gc0whyclfoj20sg0sge0a.jpg',
 					'/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg',
@@ -284,20 +285,22 @@ export default {
 		})
 		let raw_userGroupInfo = await this.request('v1/group/findUserGroup')
 		let userGroupInfo = raw_userGroupInfo[1].data
-		console.log("userGroupInfo",userGroupInfo)
 		
-		let raw_groupInfo = await this.request(`v1/group/detail?groupId=${userGroupInfo[1].groupId}`)
+		
+		let raw_groupInfo = await this.request(`v1/group/detail?groupId=${userGroupInfo[0].groupId}`)
 		let groupInfo = raw_groupInfo[1].data
 		
-		let raw_teamMembers = await this.request(`v1/group/groupMembers?groupId=${userGroupInfo[1].groupId}`)
+		this.coverImgs = Object.assign(this.coverImgs,{gallery:groupInfo.coverImgs})
+		
+		let raw_teamMembers = await this.request(`v1/group/groupMembers?groupId=${userGroupInfo[0].groupId}`)
 		this.team = raw_teamMembers[1].data
-		console.log("raw_teamMembers",raw_teamMembers)
+		
 		let list = userGroupInfo.map(item=>{
 			return {text:item.groupName,value:item.groupId}
 		})
 		
 		
-		
+		groupInfo.tags = groupInfo.tags.split(',')
 		this.groupInfo = groupInfo
 		this.list = list
 		
@@ -394,16 +397,16 @@ export default {
 		  // https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html
 		  // source为touch时由用户触摸引起
 		  if (e.detail.source === "touch") {
-		    this.home.galleryIndex = e.target.current;
+		    this.coverImgs.galleryIndex = e.target.current;
 		  }
 		},
 		handleSwiperTarget(e) {
-		  this.home.galleryDirection =
+		  this.coverImgs.galleryDirection =
 		    (e.detail.dx > 0 && "left") || (e.detail.dx < 0 && "right");
 		},
 		handleSwiperFinish(e) {
 		  if (!e.detail.source) {
-		    this.home.galleryDirection = "";
+		    this.coverImgs.galleryDirection = "";
 		  }
 		}
 		

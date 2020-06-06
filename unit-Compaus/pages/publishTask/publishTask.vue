@@ -119,7 +119,7 @@ export default {
 			showErr:false,
 			errData:{title:'提示',content:'这是一个模态弹窗',cancelText:'取消',confirmColor:'#3CC51F'},
 			
-			taskInfo:{belongActivity:"",taskName:'',deadLine:"",title:'',concernEvent:"",imageList:[]},
+			taskInfo:{imageList:[],coverImg:[],deadLine:""},
 			scrollHeight:"500rpx",
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
 			searchValue: '',
@@ -155,23 +155,24 @@ export default {
 			if(!errMsg){
 				let taskInfo = this.taskInfo
 				let taskImgs = taskInfo.imageList
+				let coverImg = taskInfo.coverImg
 				
 				if(taskInfo.deadLine){
 					let split_deadline = taskInfo.deadLine.split(' ')
-					
-					
+
 				}
 				taskInfo.joinedPeopleList = this.joinedPeopleList
 				let raw_task = await this.request('v1/task/addTask',taskInfo,'POST')
 				let task = raw_task[1].data
+				let taskId = task.id
 				console.log("task",task)
-
+				
+				this.uploadFile('v1/uploadFiles/taskCoverImg',coverImg,{taskId})
 				if(taskImgs.length){
-					let taskId = task.id
+					
 					taskImgs.forEach(url=>{
 						this.uploadFile('v1/uploadFiles/taskImgs',url,{taskId})
 					})
-					
 				}
 				uni.navigateTo({
 					
@@ -189,9 +190,7 @@ export default {
 			this.$refs.shortTerm.show()
 		},
 		onConfirmDeadLine(event){
-			let obj = this.taskInfo
-			obj.deadLine = event.result
-			this.taskInfo = obj
+			this.taskInfo.deadLine = event.result
 			console.log(this.taskInfo)
 		},
 		chooseCoverImg(){
@@ -201,7 +200,7 @@ export default {
 			    count: 1,
 			    success: (res) => {
 					let obj = this.taskInfo
-					obj.coverImg = res.tempFilePaths[0]
+					obj.coverImg = res.tempFilePaths
 					this.taskInfo = obj
 			        
 			    }

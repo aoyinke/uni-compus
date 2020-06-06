@@ -61,7 +61,7 @@
 					</view>
 				</view>
 				<view class="uni-tab-bar">
-					<view class="naviBar">
+					<view class="naviBar" style="height: 110vh;">
 						<block v-for="(item,index) in nav" :key="index">
 							<view class="nav-item"  @click="changePage(index)" :class="{'active': tapIndex==index}">
 								<text>{{item}}</text>
@@ -83,6 +83,8 @@
 									性别：{{userInfo.sex}}
 									恋爱：{{userInfo.love}}
 									职业：{{userInfo.job}}
+									生日：{{user.birthday}}
+									家乡：{{user.hometown}}
 								</text>
 							  </view>
 							</view>
@@ -106,16 +108,7 @@
 							  </view>
 							</view>
 							
-							<view class="classicActivity paragraph">
-								<view class="paragraph-title">
-									<kp-badge class="title-dot" dot bg-color="#1e90ff"/>
-									<h2>活动</h2>
-								</view>
-							  <view class="classicActivity content">
-							  	<text>{{userInfo.activity}}</text>
-							  </view>
-							</view>
-							
+						
 							<view class="labels paragraph">
 								<view class="paragraph-title">
 									<kp-badge class="title-dot" dot bg-color="#ff7f50"/>
@@ -228,10 +221,12 @@ export default {
 		})
 		
 		let userInfo = await this.request('v1/user/getUserInfo')
+		let userJoinedGroup = await this.request('v1/group/findUserGroup')
 		userInfo[1].data.tags = userInfo[1].data.tags.split(',')
-		userInfo[1].data.avatar =  baseConfig.host + baseConfig.port + '/'  + userInfo[1].data.avatar
+		
 		this.userInfo = userInfo[1].data
-		console.log(this.userInfo)
+		this.coverImgs = Object.assign(this.coverImgs,{gallery:this.userInfo.coverImgs})
+		
 	},
 	methods: {
 		joinGroup(){

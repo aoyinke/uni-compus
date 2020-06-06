@@ -21,16 +21,17 @@
 									<view class="manageMember" @click="changejoinedPeople($event, groupMembers[key])"><text class="eosfont">&#xe715;</text></view>
 								</view>
 								<view class="partMembers">
-									<block v-for="(partMember,id) in groupMembers[key]" :key="id">
+									<block v-for="(partMember, id) in groupMembers[key]" :key="id">
 										<view class="partMember">
-											<kp-avatar :image="partMember.avatar" size="large" mode="aspectFill" @tap="handleOpenCommunity(row)" />
-											<text>{{partMember.name}}</text>
+											<kp-avatar :image="partMember.avatar" size="large" mode="aspectFill" @tap="handleOpenManage(partMember,key,id)" />
+											<text>{{ partMember.nickName }}</text>
+											<text>{{ partMember.position }}</text>
 										</view>
 									</block>
 								</view>
 							</block>
 						</view>
-						<uni-compus-button width="100" content="确认修改" @click.native="confirmChangeMember" background="#fbc531"></uni-compus-button>
+						<uni-compus-button width="100" content="确认修改" @click.native="submitChangeMember" background="#fbc531"></uni-compus-button>
 					</swiper-item>
 					<swiper-item class="apply">
 						<view class="swiper-item">
@@ -82,19 +83,19 @@
 						<view class="joinedPeople-list">
 							<view class="joinedPeople-list-item" v-for="(row, index) in joinedPeopleList" :key="index">
 								<kp-avatar :image="row.avatar" size="large" mode="aspectFill" @tap="handleOpenCommunity(row)" />
-								<text>{{ row.name }}</text>
+								<text>{{ row.nickName }}</text>
+								<text>{{ row.position }}</text>
 								<view class="close-view" @click="removeJoined(index)">x</view>
 							</view>
 						</view>
 						<scroll-view scroll-y="true" class="list" :style="{ height: scrollHeight }">
-							<view class="">
-								<text>未分配的人</text>
-							</view>
+							<view class=""><text>未分配的人</text></view>
 							<view class="memberList">
 								<view class="memberList-item" v-for="(member, idx) in otherPeople" :key="idx">
 									<view class="memberList-item-left">
 										<kp-avatar :image="member.avatar" size="large" mode="aspectFill" @tap="handleOpenCommunity(row)" />
-										<text>{{ member.name }}</text>
+										<text>{{ member.nickName }}</text>
+										<text>{{ member.position }}</text>
 									</view>
 									<view class="memberList-item-right" @click="addJoinedMember(idx, member)"><text class="eosfont">&#xe715;</text></view>
 								</view>
@@ -104,6 +105,38 @@
 				</view>
 			</slot>
 		</uni-popup>
+		<uni-popup ref="updateMember" type="bottom">
+			<slot>
+				<view class="updateMemberInfo">
+					<view class="updateMemberInfo-left">
+						<view class="uni-list-cell uni-list-cell-pd" @click="updateMemberAuth">
+							<view class="uni-list-cell-db" style="font-weight: 500;">权限等级</view>
+							<text>{{member.auth}}</text>
+						</view>
+						 
+					</view>
+					<view class="updateMemberInfo-right">
+						<view class="uni-list-cell uni-list-cell-pd">
+							<view class="uni-list-cell-db" style="font-weight: 500;">职位名称</view>
+							<input type="text" v-model="member.position" style="text-align: right;"/>
+						</view>
+						
+					</view>
+				</view>
+				<uni-compus-button width="100" content="确认修改" @click.native="confirmChangeMemberInfo" background="#fbc531"></uni-compus-button>
+			</slot>
+		</uni-popup>
+		<w-picker
+		      :visible.sync="visible"
+		      mode="selector"
+		      :value="member.auth"
+		      default-type="auth"
+		      :default-props="defaultProps"
+		      :options="authList"
+		      @confirm="confirmChangeAuth($event,'selector')"
+		      
+		      ref="selector" 
+		  ></w-picker>
 	</view>
 </template>
 
@@ -111,9 +144,22 @@
 import lvSelect from '@/components/lv-select/lv-select.vue';
 import KpAvatar from '@/components/kp-avatar/index.vue';
 import uniPopup from '@/components/uni-popup/uni-popup.vue';
+
 export default {
+	async onLoad(){
+		let raw_members = await this.request('v1/group/getGroupByMember?groupId=1')
+		this.groupMembers = raw_members[1].data
+		
+		let raw_applicants = await this.request('v1/group/getApplicantList?groupId=1')
+		console.log(raw_applicants)
+	},
+	
 	data() {
 		return {
+			member:{},
+			authList:[{auth:'社长权限',value:16},{auth:'部长权限',value:8},{auth:'成员权限',value:4}],
+			defaultProps:{"label":"auth","value":"value"},
+			
 			applicantList: [{ avatar: 'https://lz.sinaimg.cn/osj1080/967d9727ly3gd46iout75j20vz1kw4qp.jpg', name: 'paradiseButcher', description: '最牛逼的人' }],
 			currentIndex: 0,
 			scrollHeight: '500rpx',
@@ -135,10 +181,7 @@ export default {
 				}
 			],
 
-			groupMembers: {
-				"宣传部": [{ name: '老王', avatar: 'https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/05aa72975372c0.jpg!1200w.jpg' }],
-				"外联部": [{ name: '老李', avatar: "https://img.pixbe.com/p47810601/24DB9644BE814AAB9CDD7CFE6D39A002_640.jpg" }],
-			},
+			groupMembers: {},
 			joinedPeopleList: [],
 			otherPeople: [{ name: '小白', avatar: 'https://img.pixbe.com/p47810601/E124CB219C59429A82FB9443D28EFF4C_640.jpg' }]
 		};
@@ -146,11 +189,37 @@ export default {
 	components: {
 		KpAvatar,
 		uniPopup,
-		lvSelect
+		lvSelect,
+		
 	},
 	methods: {
-		removeJoined(index){
-			this.joinedPeopleList.splice(index,1)
+		submitChangeMember(){
+			
+		},
+		updateMemberAuth(){
+			this.$refs.selector.show()
+		},
+		handleOpenManage(member,key,id){
+			
+			let targetMemeber = this.groupMembers[key][id]
+			this.member = {...member,index:id}
+			this.$refs.updateMember.open()
+		},
+		confirmChangeAuth(item){
+			console.log(item)
+			this.member.auth = item.result
+		},
+		confirmChangeMemberInfo(){
+			let {department,index} = this.member
+			
+			this.groupMembers[department][index] = this.member
+			this.request('v1/group/changeMemberAuth',this.member,'POST')
+			this.$refs.updateMember.close()
+		},
+		
+		
+		removeJoined(index) {
+			this.joinedPeopleList.splice(index, 1);
 		},
 		changejoinedPeople(e, part) {
 			this.joinedPeopleList = part;
@@ -194,18 +263,18 @@ export default {
 
 <style lang="scss" scoped>
 @import './index.scss';
-.partMembers{
+.partMembers {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
 	flex-wrap: wrap;
-	.partMember{
+	.partMember {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
 		margin-bottom: 10rpx;
-		text{
+		text {
 			color: #718093;
 			font-size: 24rpx;
 		}

@@ -267,7 +267,7 @@ var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);function _i
       showErr: false,
       errData: { title: '提示', content: '这是一个模态弹窗', cancelText: '取消', confirmColor: '#3CC51F' },
 
-      taskInfo: { belongActivity: "", taskName: '', deadLine: "", title: '', concernEvent: "", imageList: [] },
+      taskInfo: { imageList: [], coverImg: [], deadLine: "" },
       scrollHeight: "500rpx",
       showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
       searchValue: '',
@@ -297,31 +297,32 @@ var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);function _i
               _this.groupMembers = groupMembers;case 5:case "end":return _context.stop();}}}, _callee);}))();
   },
   methods: {
-    uploadTask: function uploadTask() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var errMsg, taskInfo, taskImgs, split_deadline, raw_task, task, taskId, obj;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+    uploadTask: function uploadTask() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var errMsg, taskInfo, taskImgs, coverImg, split_deadline, raw_task, task, taskId, obj;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
                 console.log(_this2.taskInfo);
                 errMsg = (0, _validator.publishTaskValidator)(_this2.taskInfo);if (
-                errMsg) {_context2.next = 16;break;}
+                errMsg) {_context2.next = 19;break;}
                 taskInfo = _this2.taskInfo;
                 taskImgs = taskInfo.imageList;
+                coverImg = taskInfo.coverImg;
 
                 if (taskInfo.deadLine) {
                   split_deadline = taskInfo.deadLine.split(' ');
 
-
                 }
-                taskInfo.joinedPeopleList = _this2.joinedPeopleList;_context2.next = 9;return (
-                  _this2.request('v1/task/addTask', taskInfo, 'POST'));case 9:raw_task = _context2.sent;
+                taskInfo.joinedPeopleList = _this2.joinedPeopleList;_context2.next = 10;return (
+                  _this2.request('v1/task/addTask', taskInfo, 'POST'));case 10:raw_task = _context2.sent;
                 task = raw_task[1].data;
+                taskId = task.id;
                 console.log("task", task);
 
+                _this2.uploadFile('v1/uploadFiles/taskCoverImg', coverImg, { taskId: taskId });
                 if (taskImgs.length) {
-                  taskId = task.id;
+
                   taskImgs.forEach(function (url) {
                     _this2.uploadFile('v1/uploadFiles/taskImgs', url, { taskId: taskId });
                   });
-
                 }
-                uni.navigateTo({});_context2.next = 20;break;case 16:
+                uni.navigateTo({});_context2.next = 23;break;case 19:
 
 
 
@@ -329,7 +330,7 @@ var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);function _i
                 obj = _this2.errData;
                 obj.content = errMsg;
                 _this2.errData = obj;
-                _this2.showErr = true;case 20:case "end":return _context2.stop();}}}, _callee2);}))();
+                _this2.showErr = true;case 23:case "end":return _context2.stop();}}}, _callee2);}))();
 
 
     },
@@ -337,9 +338,7 @@ var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);function _i
       this.$refs.shortTerm.show();
     },
     onConfirmDeadLine: function onConfirmDeadLine(event) {
-      var obj = this.taskInfo;
-      obj.deadLine = event.result;
-      this.taskInfo = obj;
+      this.taskInfo.deadLine = event.result;
       console.log(this.taskInfo);
     },
     chooseCoverImg: function chooseCoverImg() {var _this3 = this;
@@ -349,7 +348,7 @@ var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);function _i
         count: 1,
         success: function success(res) {
           var obj = _this3.taskInfo;
-          obj.coverImg = res.tempFilePaths[0];
+          obj.coverImg = res.tempFilePaths;
           _this3.taskInfo = obj;
 
         } });
