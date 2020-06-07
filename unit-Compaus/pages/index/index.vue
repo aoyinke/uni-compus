@@ -3,7 +3,7 @@
 		<uni-nav-bar>
 			<view slot="left" class="nav-bar-left" @tap="topublish"><image :src="leftIcon" mode=""></image></view>
 		</uni-nav-bar>
-		
+		{{communityListChanged[0].title}}
 		<view class="main">
 			<tapBar :tap-bars="tarBars" :tap-index="tapIndex" @taptab="tabtap"></tapBar>
 
@@ -12,7 +12,7 @@
 					<swiper-item v-for="(val,index) in tarBars" :key="index">
 						<scroll-view scroll-y class="list" @scroll="hideFavButton">
 							<mescroll-uni ref="mescrollRef" @init="mescrollInit" @down="downCallback" @up="upCallback" :down="downOption" :up="upOption" >
-									<activity :activityInfo="communityList"></activity>
+									<activity :activityInfo="communityListChanged"></activity>
 									
 							</mescroll-uni>					
 						</scroll-view>
@@ -54,9 +54,7 @@ export default {
 			
 			this._getResources(val)
 		},
-		activityType:function(val){
-			this._getResources()
-		},
+
 		contentIndex:function(){
 			this._getResources()
 		}
@@ -70,6 +68,15 @@ export default {
 		},
 		changeCommunityList(){
 			
+		},
+		communityListChanged:{
+			
+			get: function () {
+			        return this.communityList
+			     },
+			set: function (v) {
+			     this.communityList = v
+			}
 		}
 		
 	},
@@ -188,11 +195,11 @@ export default {
 
 			let url = `v1/ActivityInfo/community?currentPage=1&&category=`
 			let raw_community = await this.request(url + this.currentCategory)
-			console.log(raw_community)
 			switch(this.contentIndex){
 				case 0:
+					
 					this.communityList = raw_community[1].data.activities
-					console.log("communityListChanged",this.communityList)
+					console.log("communityListChanged",this.communityListChanged)
 				case 1:
 					this.communityList = raw_community[1].data.dynamic
 				case 2:
@@ -260,11 +267,9 @@ export default {
 		});
 		
 		let info = await this.request(`v1/ActivityInfo/userLiked?currentPage=${1}&&type=${100}`)
-		console.log("info",info)
-		this.communityList = info[1].data
 		
-	},
-	async onShow(){
+		this.communityList = info[1].data
+		console.log("onload-communityList",this.communityList)
 		
 	}
 };

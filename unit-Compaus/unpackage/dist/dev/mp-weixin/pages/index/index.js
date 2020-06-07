@@ -199,9 +199,7 @@ var timer;var _default =
 
       this._getResources(val);
     },
-    activityType: function activityType(val) {
-      this._getResources();
-    },
+
     contentIndex: function contentIndex() {
       this._getResources();
     } },
@@ -215,7 +213,16 @@ var timer;var _default =
     },
     changeCommunityList: function changeCommunityList() {
 
-    } }),
+    },
+    communityListChanged: {
+
+      get: function get() {
+        return this.communityList;
+      },
+      set: function set(v) {
+        this.communityList = v;
+      } } }),
+
 
 
   data: function data() {
@@ -333,15 +340,15 @@ var timer;var _default =
 
                 url = "v1/ActivityInfo/community?currentPage=1&&category=";_context2.next = 3;return (
                   _this2.request(url + _this2.currentCategory));case 3:raw_community = _context2.sent;
-                console.log(raw_community);
                 switch (_this2.contentIndex) {
                   case 0:
+
                     _this2.communityList = raw_community[1].data.activities;
-                    console.log("communityListChanged", _this2.communityList);
+                    console.log("communityListChanged", _this2.communityListChanged);
                   case 1:
                     _this2.communityList = raw_community[1].data.dynamic;
                   case 2:
-                    _this2.communityList = raw_community[1].data.knowledge;}case 6:case "end":return _context2.stop();}}}, _callee2);}))();
+                    _this2.communityList = raw_community[1].data.knowledge;}case 5:case "end":return _context2.stop();}}}, _callee2);}))();
 
 
 
@@ -405,11 +412,9 @@ var timer;var _default =
 
 
                 _this4.request("v1/ActivityInfo/userLiked?currentPage=".concat(1, "&&type=", 100)));case 3:info = _context4.sent;
-              console.log("info", info);
-              _this4.communityList = info[1].data;case 6:case "end":return _context4.stop();}}}, _callee4);}))();
 
-  },
-  onShow: function onShow() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee5() {return _regenerator.default.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:case "end":return _context5.stop();}}}, _callee5);}))();
+              _this4.communityList = info[1].data;
+              console.log("onload-communityList", _this4.communityList);case 6:case "end":return _context4.stop();}}}, _callee4);}))();
 
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

@@ -54,13 +54,14 @@ export default {
 		let groupInfo = raw_groupInfo[1].data
 		groupInfo.tags = groupInfo.tags.split(',')
 		this.groupInfo = groupInfo
+		this.raw_logo = groupInfo.logo
 		console.log(groupInfo)
 	},
 	data() {
 		return {
 			showErr:false,
 			errData:{title:'提示',content:'',cancelText:'取消',confirmColor:'#3CC51F'},
-			
+			raw_logo:"",
 			value:false,
 			groupInfo:{},
 			inputData:{
@@ -79,38 +80,39 @@ export default {
 	methods:{
 		async confirmChange(){
 			let groupInfo = this.groupInfo
-			console.log("groupInfo",groupInfo)
+			let groupId = groupInfo.id
+			console.log("raw_logo",this.raw_logo)
 			let errMsg = changeGroupInfoValidator(groupInfo)
-			console.log("errMsg",errMsg)
+			
 			if(!errMsg){
 				let logo = groupInfo.logo
 				let coverImgs = groupInfo.coverImgs
 				
+				
+				
 				groupInfo.tags  =  groupInfo.tags.toString()
-				console.log("logo",logo)
-				if(!logo.startsWith('http://localhost')){
-					let logo = await this.uploadFile('v1/uploadFiles/logo',logo)
-					groupInfo.logo = logo
-				}
-				
-				console.log("logo",logo)
-				
+
 				
 				
 				coverImgs.forEach(item=>{
-					this.uploadFile('v1/uploadFiles/groupCoverImgs',item,groupInfo.id)
+					this.uploadFile('v1/uploadFiles/groupCoverImgs',item,{groupId})
 				})
-				groupInfo.coverImgs = ""
+				
 				
 				this.request('v1/group/updateGroupInfo',groupInfo,'POST')
-				// uni.showToast({
-				// 	title:"修改成功",
-
-				// })
-				// uni.switchTab({
-				// 	url:"/pages/manage/manage",
-				// 	duration:3000
-				// })
+				if(logo != this.raw_logo){
+					this.uploadFile('v1/uploadFiles/logo',logo,{groupId})	
+					console.log("更改logo")
+				}
+				uni.showToast({
+					duration:2000,
+					title:"修改成功",
+					success: () => {
+						uni.reLaunch({
+							url:"/pages/manage/manage"
+						})
+					}
+				})
 
 			}else{
 					let obj = this.errData
@@ -119,7 +121,7 @@ export default {
 					this.showErr = true
 			}
 
-			console.log(this.groupInfo)
+			
 		},
 		changeGroupLogo(){
 			uni.chooseImage({
@@ -128,8 +130,10 @@ export default {
 				success: (res) => {
 
 					this.groupInfo.logo = res.tempFilePaths[0]
+					console.log(this.groupInfo.logo)
 				}
 			})
+			c
 		},
 
 		onConfirmTag(e){

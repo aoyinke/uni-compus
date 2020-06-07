@@ -208,13 +208,12 @@ export default {
 		KpAvatar
 	},
 	created() {
-		for (let i = 0; i < 10; i++) {}
+		
 	},
-	onLoad(option) {
-		const item = JSON.parse(decodeURIComponent(option.item));
-		this.type = item.type;
-		console.log(this.type);
-		console.log(this.user);
+	async onLoad(option) {
+		let raw_communityInfo = await this.request('v1/saved/UserSavedCommunity')
+		console.log(raw_communityInfo)
+		
 	}
 };
 </script>

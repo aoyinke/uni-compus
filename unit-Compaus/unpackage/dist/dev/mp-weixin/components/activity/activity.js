@@ -170,22 +170,28 @@ __webpack_require__.r(__webpack_exports__);
 
 var _index = __webpack_require__(/*! @/config/index.js */ 150);var userTopBar = function userTopBar() {__webpack_require__.e(/*! require.ensure | components/activity/userTopBar */ "components/activity/userTopBar").then((function () {return resolve(__webpack_require__(/*! @/components/activity/userTopBar.vue */ 409));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var mutation = function mutation() {__webpack_require__.e(/*! require.ensure | components/activity/mutation */ "components/activity/mutation").then((function () {return resolve(__webpack_require__(/*! @/components/activity/mutation.vue */ 423));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var goDetail = function goDetail() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-goDetail */ "components/uni-compus-components/uniCompus-goDetail").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-goDetail.vue */ 327));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
-  watch: {
-    activityInfo: {
-      handler: function handler(newValue, oldValue) {
-        console.log(newValue);
-        for (var i = 0; i < newValue.length; i++) {
-          if (oldValue[i] != newValue[i]) {
-            this.community = newValue;
-          }
-        }
-      },
-      deep: true } },
+  // watch:{
+  // 	activityInfo:{
+  // 		deep: true,
+  // 		handler(newValue, oldValue) {
+  // 			console.log("newValue",newValue)  
+  // 		　　for (let i = 0; i < newValue.length; i++) {  
+  // 		　　　　if (oldValue[i] != newValue[i]) {  
+  // 		　　　　　　this.community = newValue
 
+  // 		　　　　}  
+  // 		　　}  
+  // 		}　　　　
+  // 	}
+  // },
+  computed: {
+    activityInfoChanged: function activityInfoChanged() {
+      return this.activityInfo;
+    } },
 
   data: function data() {
-    return {
-      community: this.activityInfo };
+    return {};
+
 
   },
   props: {
@@ -199,7 +205,7 @@ var _index = __webpack_require__(/*! @/config/index.js */ 150);var userTopBar = 
 
   },
   updated: function updated() {
-    console.log("updated", this.activityInfo);
+    // console.log("updated",this.activityInfo)
   },
   components: {
     userTopBar: userTopBar,

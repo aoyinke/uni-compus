@@ -193,13 +193,14 @@ var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);function _i
               groupInfo = raw_groupInfo[1].data;
               groupInfo.tags = groupInfo.tags.split(',');
               _this.groupInfo = groupInfo;
-              console.log(groupInfo);case 7:case "end":return _context.stop();}}}, _callee);}))();
+              _this.raw_logo = groupInfo.logo;
+              console.log(groupInfo);case 8:case "end":return _context.stop();}}}, _callee);}))();
   },
   data: function data() {
     return {
       showErr: false,
       errData: { title: '提示', content: '', cancelText: '取消', confirmColor: '#3CC51F' },
-
+      raw_logo: "",
       value: false,
       groupInfo: {},
       inputData: {
@@ -216,49 +217,50 @@ var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);function _i
     KpTag: KpTag },
 
   methods: {
-    confirmChange: function confirmChange() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var groupInfo, errMsg, logo, coverImgs, _logo, obj;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+    confirmChange: function confirmChange() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var groupInfo, groupId, errMsg, logo, coverImgs, obj;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
                 groupInfo = _this2.groupInfo;
-                console.log("groupInfo", groupInfo);
+                groupId = groupInfo.id;
+                console.log("raw_logo", _this2.raw_logo);
                 errMsg = (0, _validator.changeGroupInfoValidator)(groupInfo);
-                console.log("errMsg", errMsg);if (
-                errMsg) {_context2.next = 20;break;}
-                logo = groupInfo.logo;
-                coverImgs = groupInfo.coverImgs;
 
-                groupInfo.tags = groupInfo.tags.toString();
-                console.log("logo", logo);if (
-                logo.startsWith('http://localhost')) {_context2.next = 14;break;}_context2.next = 12;return (
-                  _this2.uploadFile('v1/uploadFiles/logo', _logo));case 12:_logo = _context2.sent;
-                groupInfo.logo = _logo;case 14:
-
-
-                console.log("logo", logo);
+                if (!errMsg) {
+                  logo = groupInfo.logo;
+                  coverImgs = groupInfo.coverImgs;
 
 
 
-                coverImgs.forEach(function (item) {
-                  _this2.uploadFile('v1/uploadFiles/groupCoverImgs', item, groupInfo.id);
-                });
-                groupInfo.coverImgs = "";
-
-                _this2.request('v1/group/updateGroupInfo', groupInfo, 'POST');
-                // uni.showToast({
-                // 	title:"修改成功",
-
-                // })
-                // uni.switchTab({
-                // 	url:"/pages/manage/manage",
-                // 	duration:3000
-                // })
-                _context2.next = 24;break;case 20:
-
-                obj = _this2.errData;
-                obj.content = errMsg;
-                _this2.errData = obj;
-                _this2.showErr = true;case 24:
+                  groupInfo.tags = groupInfo.tags.toString();
 
 
-                console.log(_this2.groupInfo);case 25:case "end":return _context2.stop();}}}, _callee2);}))();
+
+                  coverImgs.forEach(function (item) {
+                    _this2.uploadFile('v1/uploadFiles/groupCoverImgs', item, { groupId: groupId });
+                  });
+
+
+                  _this2.request('v1/group/updateGroupInfo', groupInfo, 'POST');
+                  if (logo != _this2.raw_logo) {
+                    _this2.uploadFile('v1/uploadFiles/logo', logo, { groupId: groupId });
+                    console.log("更改logo");
+                  }
+                  uni.showToast({
+                    duration: 2000,
+                    title: "修改成功",
+                    success: function success() {
+                      uni.reLaunch({
+                        url: "/pages/manage/manage" });
+
+                    } });
+
+
+                } else {
+                  obj = _this2.errData;
+                  obj.content = errMsg;
+                  _this2.errData = obj;
+                  _this2.showErr = true;
+                }case 5:case "end":return _context2.stop();}}}, _callee2);}))();
+
+
     },
     changeGroupLogo: function changeGroupLogo() {var _this3 = this;
       uni.chooseImage({
@@ -267,8 +269,10 @@ var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);function _i
         success: function success(res) {
 
           _this3.groupInfo.logo = res.tempFilePaths[0];
+          console.log(_this3.groupInfo.logo);
         } });
 
+      c;
     },
 
     onConfirmTag: function onConfirmTag(e) {

@@ -11,25 +11,25 @@
 				<view class="uni-list-cell-db" style="font-weight: 500;">是否需要标题</view>
 				<switch :checked="needTitle" @change="isTitle" color="#12CBC4" />
 			</view>
-			<view class="publish-title" v-show="needTitle"><input type="text" v-model="title" class="uni-input" placeholder="标题（选填）" /></view>
+			<view class="publish-title" v-show="needTitle"><input style="margin: 20rpx 0;" type="text" v-model="info.title" class="uni-input" placeholder="标题（选填）" /></view>
 			<view class="uni-list-cell uni-list-cell-pd" @click="chooseCategory">
 				<view class="uni-list-cell-db" style="font-weight: 500;">选择类别吧</view>
-				<text>{{ choosedCategory }}</text>
+				<text>{{ info.category }}</text>
 			</view>
 			<view class="uni-list-cell uni-list-cell-pd" @click="chooseDeadLine">
 				<view class="uni-list-cell-db" style="font-weight: 500;">活动开始时间</view>
-				<text>{{deadLine}}</text>
+				<text>{{info.deadline}}</text>
 			</view>
 			
 			
 			<view class="uni-list-cell uni-list-cell-pd" >
 				<view class="uni-list-cell-db" style="font-weight: 500;">编辑内容简介</view>
 			</view>
-			<view class="uni-textarea"><textarea v-model="description" placeholder="编辑内容简介" style="height: 400upx;" /></view>
+			<view class="uni-textarea"><textarea v-model="info.description" placeholder="编辑内容简介" style="height: 400upx;" /></view>
 			<view class="uni-list-cell uni-list-cell-pd" >
 				<view class="uni-list-cell-db" style="font-weight: 500;">编辑正文内容</view>
 			</view>
-			<view class="uni-textarea"><textarea v-model="content" placeholder="编辑正文内容" style="height: 400upx;" /></view>
+			<view class="uni-textarea"><textarea v-model="info.content" placeholder="编辑正文内容" style="height: 400upx;" /></view>
 			
 
 			<view class="uni-list-cell uni-list-cell-pd" v-if="tapIndex === 2 || 3">
@@ -39,7 +39,7 @@
 				</view>
 				<switch :checked="isGroup" @change="showGroup" color="#12CBC4" />
 			</view>
-			<view class="choosedGroup" v-show="groupID">
+			<view class="choosedGroup" v-show="groupId">
 				<view class="choosedGroup-item">
 					<kp-avatar :image="userChoosedGroup.logo" size="large" mode="aspectFill" />
 					<text>{{ userChoosedGroup.name }}</text>
@@ -67,7 +67,7 @@
 				<uni-badge text="x" class="cancelChoose" type="error" size="small" @click="cancelChoose(imgId)"></uni-badge>
 			</view>
 		</view>
-		<view class="showVideoBar" v-if="videoSrc"><video :src="videoSrc" controls></video></view>
+		<view class="showVideoBar" v-if="info.videoSrc"><video :src="info.videoSrc" controls></video></view>
 		<view class="bottomBar" @click="sendActivity"><uniCompusButton background="#FFC312" content="发表" width="100" ></uniCompusButton></view>
 		<uni-popup ref="CategoryPopup" type="bottom">
 			<slot>
@@ -143,22 +143,24 @@ import { pathToBase64, base64ToPath } from '@/js_sdk/gsq-image-tools/image-tools
 import { mapMutations, mapState } from 'vuex';
 import {activityInoValidator} from '@/utils/validator.js'
 export default {
+	async onLoad(){
+		
+	},
 	computed: {
 		...mapState(['group'])
 	},
 	data() {
 		return {
-			deadLine:"",
 			showErr:false,
-			errData:{title:'提示',content:'这是一个模态弹窗',cancelText:'取消',confirmColor:'#3CC51F'},
-			content:"",
-			info: {type:100},
+			errData:{title:'提示',content:'',cancelText:'取消',confirmColor:'#3CC51F'},
+			
+			info: {type:100,title:"",description:"",category:"",groupId:"",content:"",deadline:"",videoSrc:""},
 			categoryList: [{category:'舞蹈',en:"dance"}, {category:'绘画',en:"draw"},
 			{category:'编程',en:"programming"},{category:'文学',en:"literature"},{category:'英语',en:"English"} ],
-			choosedCategory: '',
+			
 			scrollHeight: 500,
 			userChoosedGroup: {},
-			groupID: '',
+			groupId: '',
 			description: '',
 			isGroup: false,
 			needTitle: false,
@@ -167,7 +169,7 @@ export default {
 			groupActive: 0,
 			isSubmit: true,
 			ImgShow: false,
-			title: '',
+			
 			groupList: [],
 			videoSrc: '',
 			publishImgList: [],
@@ -207,17 +209,12 @@ export default {
 		},
 		onConfirmDeadLine(event){
 
-			this.deadLine = event.result
+			this.info.deadline = event.result
 		},
 		
 		async sendActivity() {
-			this.info.title = this.title;
-			this.info.description = this.description;
-			
-			this.info.groupId = this.groupID;
-			this.info.category = this.choosedCategory
-			this.info.content = this.content
-			
+
+			this.info.groupId = this.groupId
 			console.log(this.info)
 			let errMsg = activityInoValidator(this.info,this.publishImgList)
 			
@@ -226,21 +223,26 @@ export default {
 					title:"确认提交",
 					content:"请确认信息无误，审核后即将发表",
 					success:async result=>{
+						let videoSrc = ""
+						if(this.info.videoSrc){
+							
+							let res = await this.uploadFile('v1/uploadFiles/video',this.info.videoSrc)	
+							console.log(res[1].data)
+							videoSrc = JSON.parse(res[1].data).videoPath
+							this.info.videoSrc = videoSrc
+						}
 						let activityInfo = await this.request('v1/ActivityInfo/upLoadActivity',this.info,'POST')
 						activityInfo = activityInfo[1].data
-						console.log(activityInfo)
-						this.publishImgList.forEach(item=>{
-							this.uploadFile('v1/uploadFiles/files',item,{activity_id:activityInfo.activity_id,type:activityInfo.type})
+						console.log("activityInfo",activityInfo)
+						this.publishImgList.forEach(async item=>{
+							await this.uploadFile('v1/uploadFiles/files',item,{activity_id:activityInfo.activity_id,type:activityInfo.type})
 						})
-						if(this.videoSrc){
-							this.uploadFile('v1/uploadFiles/files',this.videoSrc,{activity_id:activityInfo.activity_id,type:activityInfo.type})
-				
-						}
+						
 						uni.showToast({
 							title:"提交成功",
 							duration:2500,
 							success: () => {
-								uni.switchTab({
+								uni.reLaunch({
 									url:"/pages/index/index"
 								})
 							}
@@ -260,14 +262,12 @@ export default {
 			this.$refs.CategoryPopup.open();
 		},
 		finishChooseCategory(item) {
-			
-			this.choosedCategory = item.category;
-			this.info.category = item.en
+			this.info.category = item.category
 			this.$refs.CategoryPopup.close();
 		},
 		chooseGroup(id, group) {
 			this.userChoosedGroup = group;
-			this.groupID = id;
+			this.groupId = id;
 			this.$refs.popup.close();
 		},
 		handleSearch() {
@@ -308,7 +308,7 @@ export default {
 			if (needGroup) {
 				this.$refs.popup.open();
 			} else {
-				this.groupID = '';
+				this.groupId = '';
 				this.userChoosedGroup = {};
 			}
 		},
@@ -330,17 +330,15 @@ export default {
 				count: 1,
 				sourceType: ['camera', 'album'],
 				success: function(res) {
-					self.videoSrc = res.tempFilePath;
-					console.log(self.videoSrc);
+					self.info.videoSrc = res.tempFilePath;
+					
+					console.log(self.info.videoSrc)
+					
 				}
 			});
 		}
 	},
-	async created() {
-		let groupList = await this.request('groups/');
-		this.groupList = groupList[1].data.data.records;
-		console.log(this.group);
-	},
+
 	components: {
 		uniCompusButton,
 		avatar,

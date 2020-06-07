@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<block v-for="(item,idx) in community" :key="idx">
+		<block v-for="(item,idx) in activityInfoChanged" :key="idx">
 			<view class="groupNotification">
 				<user-top-bar :groupInfo="item.groupInfo" :activityStartTime="item.deadline"
 				 ></user-top-bar>
@@ -54,22 +54,28 @@
 	import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue'
 	import {baseConfig} from '@/config/index.js'
 	export default {
-		watch:{
-			activityInfo:{
-				handler(newValue, oldValue) {
-					console.log(newValue)  
-				　　for (let i = 0; i < newValue.length; i++) {  
-				　　　　if (oldValue[i] != newValue[i]) {  
-				　　　　　　this.community = newValue
-				　　　　}  
-				　　}  
-				},  
-				　　　　deep: true  
+		// watch:{
+		// 	activityInfo:{
+		// 		deep: true,
+		// 		handler(newValue, oldValue) {
+		// 			console.log("newValue",newValue)  
+		// 		　　for (let i = 0; i < newValue.length; i++) {  
+		// 		　　　　if (oldValue[i] != newValue[i]) {  
+		// 		　　　　　　this.community = newValue
+						
+		// 		　　　　}  
+		// 		　　}  
+		// 		}　　　　
+		// 	}
+		// },
+		computed:{
+			activityInfoChanged(){
+				return this.activityInfo
 			}
 		},
 		data() {
 			return {
-				community:this.activityInfo
+				
 			}
 		},
 		props: {
@@ -83,7 +89,7 @@
 
 		},
 		updated(){
-			console.log("updated",this.activityInfo)
+			// console.log("updated",this.activityInfo)
 		},
 		components: {
 			userTopBar,

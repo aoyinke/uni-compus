@@ -320,9 +320,9 @@ var _mescrollMixins = _interopRequireDefault(__webpack_require__(/*! @/component
       // 与 mescroll-body 的处理方式一致 >
     },
 
-    gotoDetail: function gotoDetail() {
+    gotoDetail: function gotoDetail(groupId) {
       uni.navigateTo({
-        url: "/pages/groupDetail/groupDetail" });
+        url: "/pages/groupDetail/groupDetail?groupId=" + groupId });
 
     },
     checkAlreadyJoin: function checkAlreadyJoin() {
@@ -360,22 +360,25 @@ var _mescrollMixins = _interopRequireDefault(__webpack_require__(/*! @/component
       this.$refs.uniDrawer.close();
     } },
 
-  onLoad: function onLoad() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var swiperHeight, groupList, colleges;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+  onLoad: function onLoad() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var swiperHeight, colleges, groupList;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
               swiperHeight = uni.getSystemInfo({
                 success: function success(res) {
                   var height = res.windowHeight - uni.upx2px(230);
                   _this2.swiperHeight = height;
                 } });_context.next = 3;return (
 
-                _this2.request('v1/group/findGroupList?college=' + _this2.list[0].text));case 3:groupList = _context.sent;
-              _this2.groupList = groupList[1].data;
-              console.log(_this2.groupList);_context.next = 8;return (
-                _this2.request('v1/group/findGroupColleges'));case 8:colleges = _context.sent;
+
+                _this2.request('v1/group/findGroupColleges'));case 3:colleges = _context.sent;
               colleges = [].concat(colleges[1].data);
 
               _this2.list = colleges.map(function (item, index) {
                 return { text: item.college, value: index };
-              });case 11:case "end":return _context.stop();}}}, _callee);}))();
+              });_context.next = 8;return (
+
+                _this2.request('v1/group/findGroupList?college=' + _this2.list[0].text));case 8:groupList = _context.sent;
+              _this2.groupList = groupList[1].data;
+              console.log(_this2.groupList);case 11:case "end":return _context.stop();}}}, _callee);}))();
+
 
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

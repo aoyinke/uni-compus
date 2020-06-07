@@ -11,26 +11,26 @@
 								  circular
 								  class="gallery"
 								  interval="6000"
-								  :current="home.galleryIndex"
+								  :current="coverImgs.galleryIndex"
 								  @change="handleSwiperChange"
 								  @transition="handleSwiperTarget"
 								  @animationfinish="handleSwiperFinish"
 								>
-								  <swiper-item v-for="(item,index) in home.gallery" :key="index">
+								  <swiper-item v-for="(item,index) in coverImgs.gallery" :key="index">
 								    <image :src="item" lazy-load mode="aspectFill">
 								  </swiper-item>
 								</swiper>
 							
 							<view class="dots">
 							  <view class="dots-count">
-							    <text>{{ home.galleryIndex+1 }}</text>
-							    \{{ home.gallery.length }}
+							    <text>{{ coverImgs.galleryIndex+1 }}</text>
+							    \{{ coverImgs.gallery.length }}
 							  </view>
 							  <kp-swiper
-							    v-model="home.gallery"
-							    :dotsIndex="home.galleryIndex"
-							    :dotsDirection="home.galleryDirection"
-							    @update="val=>home.galleryIndex=val"
+							    v-model="coverImgs.gallery"
+							    :dotsIndex="coverImgs.galleryIndex"
+							    :dotsDirection="coverImgs.galleryDirection"
+							    @update="val=>coverImgs.galleryIndex=val"
 							  />
 							</view>
 							<view class="userBar">
@@ -186,7 +186,8 @@
 				
 			</scroll-view>
 		</view>
-		
+		<chunLei-modal  v-model="showJoin" :mData="inputData" type="input" @onConfirm="onConfirmJoin"  navMask>
+		    </chunLei-modal>
 	</view>
 </template>
 
@@ -203,28 +204,22 @@ import {baseConfig,collections} from '@/config/index.js'
 export default {
 	data() {
 		return {
-			
+			showJoin:false,
+			inputData:{
+			  title:'申请加入',
+			  content:[
+			  {title:'加入理由',content:'',placeholder:'请输入加入理由'}
+			  ]
+			},
 			groupInfo:{},
 			
 			collections:collections,
-			team:[
-				{avatar:"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg",role:"前端工程师"},
-				{avatar:"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg",role:"前端工程师"},
-				{avatar:"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg",role:"前端工程师"}],
+			team:[],
+
 			tapIndex:0,
 			nav:['主页','展示'],
-			home: {
-				gallery: [
-					'/orj1080/967d9727ly3gc0whyclfoj20sg0sge0a.jpg',
-					'/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg',
-					'/orj1080/967d9727ly3gc0whykstlj20sg0sgb29.jpg',
-					'/orj1080/967d9727ly3gc0whywdupj20sg0sgb0l.jpg',
-					'/orj1080/967d9727ly3gc0whysphij20sg0sgkcg.jpg',
-					'/orj1080/967d9727ly3gc0whyiy96j20sg0sg1jj.jpg',
-					'/orj1080/967d9727ly3gc0whz3i51j20sg0sgu0x.jpg',
-					'/orj1080/967d9727ly3gc0whz6qvlj20sg0sghdt.jpg',
-					'/orj1080/967d9727ly3gc0whz6yf1j20sg0sgkic.jpg'
-				].map(row => baseConfig.img_example + row),
+			coverImgs: {
+				gallery: [],
 				galleryIndex: 0, //相册初始化位置
 				galleryDirection: '' //滑动方向
 			},
@@ -247,31 +242,27 @@ export default {
 				this.scrollHeight = height
 			}
 		})
+		
 		let raw_groupInfo = await this.request('v1/group/detail?groupId=' + item.groupId)
 		let groupInfo = raw_groupInfo[1].data
-		groupInfo.logo = baseConfig.host + baseConfig.port + '/' + groupInfo.logo
+		
 		groupInfo.tags = groupInfo.tags.split(',')
 		this.groupInfo = groupInfo
-		console.log(groupInfo)
+		this.coverImgs = Object.assign(this.coverImgs,{gallery:groupInfo.coverImgs})
+		
+		
+		let raw_teamMembers = await this.request(`v1/group/groupMembers?groupId=${groupInfo.id}`)
+		this.team = raw_teamMembers[1].data
 	},
 	methods: {
+		async onConfirmJoin(item){
+			let reason = item[0].content
+			let groupId = this.groupInfo.id
+			let res = await this.request('v1/group/applicant',{groupId,reason},'POST')
+			console.log(res)
+		},
 		joinGroup(){
-			uni.showModal({
-				title:"申请加入",
-				content:"确定要申请加入吗？",
-				showCancel:true,
-				cancelColor:"#ff5e57",
-				confirmColor:"#0fbcf9",
-				success:(res)=>{
-					uni.showLoading()
-					uni.showToast({
-						title:"申请成功！",
-						success:(res)=>{
-							uni.hideLoading()
-						}
-					})
-				}
-			})
+			this.showJoin = true
 		},
 		gotoCollections(index){
 			
@@ -356,16 +347,16 @@ export default {
 		  // https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html
 		  // source为touch时由用户触摸引起
 		  if (e.detail.source === "touch") {
-		    this.home.galleryIndex = e.target.current;
+		    this.coverImgs.galleryIndex = e.target.current;
 		  }
 		},
 		handleSwiperTarget(e) {
-		  this.home.galleryDirection =
+		  this.coverImgs.galleryDirection =
 		    (e.detail.dx > 0 && "left") || (e.detail.dx < 0 && "right");
 		},
 		handleSwiperFinish(e) {
 		  if (!e.detail.source) {
-		    this.home.galleryDirection = "";
+		    this.coverImgs.galleryDirection = "";
 		  }
 		}
 		

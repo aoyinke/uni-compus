@@ -51,7 +51,7 @@
 								:groupName="group.groupName"
 								:intro="group.description"
 								:tag="group.tags"
-								@click.native="gotoDetail"
+								@click.native="gotoDetail(group.id)"
 							></group-item>
 						</block>
 					</mescroll-uni>
@@ -175,9 +175,9 @@ export default {
 			// 与 mescroll-body 的处理方式一致 >
 		},
 
-		gotoDetail(){
+		gotoDetail(groupId){
 			uni.navigateTo({
-				url:"/pages/groupDetail/groupDetail"
+				url:"/pages/groupDetail/groupDetail?groupId=" + groupId
 			})
 		},
 		checkAlreadyJoin() {
@@ -222,15 +222,18 @@ export default {
 				this.swiperHeight = height;
 			}
 		});
-		let groupList = await this.request('v1/group/findGroupList?college=' + this.list[0].text);
-		this.groupList = groupList[1].data
-		console.log(this.groupList)
+		
 		let colleges = await this.request('v1/group/findGroupColleges')
 		colleges = [].concat(colleges[1].data)
 		
 		this.list = colleges.map((item,index)=>{
 			return {text:item.college,value:index}
 		})
+		
+		let groupList = await this.request('v1/group/findGroupList?college=' + this.list[0].text);
+		this.groupList = groupList[1].data
+		console.log(this.groupList)
+		
 		
 	}
 };

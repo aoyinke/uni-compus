@@ -19,14 +19,6 @@
 					  bg-color="#f4dee0"
 					  class="left-star"
 					>{{groupInfo.college}}</kp-tag>
-					<kp-tag
-					  size="small"
-					  color="#fff"
-					  weight="500"
-					  bg-color="#4834d4"
-					  class="left-star"
-					  v-if="groupInfo.category"
-					>{{groupInfo.category}}</kp-tag>
 				</view>
 				
 				<text class="groupName-last">{{activityStartTime}}</text>
