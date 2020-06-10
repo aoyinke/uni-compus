@@ -152,6 +152,7 @@
 	import KpTag from "@/components/kp-tag";
 	import {mapState} from 'vuex'
 	import {changeUserInfoValidator} from '@/utils/validator.js'
+	import {arryDifferences} from '@/utils/index.js'
 	export default {
 		
 		async onLoad() {
@@ -159,7 +160,7 @@
 			
 			user[1].data.tags = user[1].data.tags.split(',')
 			this.userInfo = user[1].data
-			
+			this.raw_coverImgs = this.userInfo.coverImgs
 
 		},
 		data() {
@@ -167,6 +168,7 @@
 				showErr:false,
 				errData:{title:'提示',content:'这是一个模态弹窗',cancelText:'cancel',confirmColor:'#3CC51F'},
 				
+				raw_coverImgs:[],
 				inputData:{
 				  title:'定义标签',
 				  content:[
@@ -223,6 +225,8 @@
 				
 				let avatar = this.userInfo.avatar
 				let coverImgs = this.userInfo.coverImgs
+				coverImgs = arryDifferences(coverImgs,this.raw_coverImgs)
+				console.log(coverImgs)
 				this.userInfo.coverImgs = ""
 				console.log(this.userInfo)
 				if(coverImgs.length){
@@ -236,23 +240,21 @@
 					let avatarUrl = await this.uploadFile('v1/uploadFiles/avatar',avatar)
 					this.userInfo.avatar = avatarUrl[1].data
 					
-				}else{
-					this.userInfo.avatar = avatar.replace("http://localhost:3000/","")
 				}
 				
 				//将用户的个人标签转化形式
 				this.userInfo.tags = this.userInfo.tags.toString()
 				let res = changeUserInfoValidator(this.userInfo)
 				if(!res){
-					this.request('v1/user/update',this.userInfo,'POST')
-					uni.showToast({
-						title:"修改成功",
-						success: () => {
-							uni.reLaunch({
-								url:"/pages/personShow/personShow"
-							})
-						}
-					})
+					// this.request('v1/user/update',this.userInfo,'POST')
+					// uni.showToast({
+					// 	title:"修改成功",
+					// 	success: () => {
+					// 		uni.reLaunch({
+					// 			url:"/pages/self/self"
+					// 		})
+					// 	}
+					// })
 					
 				}else{
 					let obj = this.errData

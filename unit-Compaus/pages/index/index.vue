@@ -3,7 +3,7 @@
 		<uni-nav-bar>
 			<view slot="left" class="nav-bar-left" @tap="topublish"><image :src="leftIcon" mode=""></image></view>
 		</uni-nav-bar>
-		{{communityListChanged[0].title}}
+		
 		<view class="main">
 			<tapBar :tap-bars="tarBars" :tap-index="tapIndex" @taptab="tabtap"></tapBar>
 
@@ -12,7 +12,7 @@
 					<swiper-item v-for="(val,index) in tarBars" :key="index">
 						<scroll-view scroll-y class="list" @scroll="hideFavButton">
 							<mescroll-uni ref="mescrollRef" @init="mescrollInit" @down="downCallback" @up="upCallback" :down="downOption" :up="upOption" >
-									<activity :activityInfo="communityListChanged"></activity>
+									<activity :activityInfo="communityListChanged" :contentIndex="contentIndex"></activity>
 									
 							</mescroll-uni>					
 						</scroll-view>
@@ -63,8 +63,24 @@ export default {
 		...mapState([
 			'user'
 		]),
-		currentCategory(){
-			return this.tarBars[this.tapIndex].name
+		async currentCategory(){
+			if(this.tarBars[this.tapIndex].name == '关注'){
+				let type = 100
+				switch(this.contentIndex){
+					case 1:
+						type = 200
+						break;
+					case 2:
+						type = 400
+						break;
+				}
+				let concern = await this.request(`v1/ActivityInfo/userLiked?currentPage=${1}&type=${type}`)
+				this.communityListChanged = concern[1].data
+			}else{
+				let category = this.tarBars[this.tapIndex].name
+				return category
+			}
+			
 		},
 		changeCommunityList(){
 			
@@ -75,7 +91,8 @@ export default {
 			        return this.communityList
 			     },
 			set: function (v) {
-			     this.communityList = v
+				console.log("setnewVal",v)
+			    this.communityList = v
 			}
 		}
 		
@@ -187,23 +204,26 @@ export default {
 	},
 	methods: {
 		async _getConcern(){
-			let info = await this.request(`v1/ActivityInfo/userLiked?currentPage=${1}&&type=${100}`)
+			let info = await this.request(`v1/ActivityInfo/userLiked?currentPage=${1}&type=${100}`)
 			return info[1].data
 		},
 		
 		async _getResources(val){
-
-			let url = `v1/ActivityInfo/community?currentPage=1&&category=`
-			let raw_community = await this.request(url + this.currentCategory)
+			let category = await this.currentCategory
+			let raw_community = await this.request(`v1/ActivityInfo/community?currentPage=1&category=${category}`)
+			console.log("raw_community",raw_community)
 			switch(this.contentIndex){
 				case 0:
 					
-					this.communityList = raw_community[1].data.activities
-					console.log("communityListChanged",this.communityListChanged)
+					this.communityListChanged = raw_community[1].data[0].activities
+					console.log("communityListChanged",this.communityList)
+					break;
 				case 1:
-					this.communityList = raw_community[1].data.dynamic
+					this.communityListChanged = raw_community[1].data[1].dynamic
+					break;
 				case 2:
-					this.communityList = raw_community[1].data.knowledge
+					this.communityListChanged = raw_community[1].data[2].knowledge
+					break;
 			}
 			
 			
@@ -266,7 +286,7 @@ export default {
 			}
 		});
 		
-		let info = await this.request(`v1/ActivityInfo/userLiked?currentPage=${1}&&type=${100}`)
+		let info = await this.request(`v1/ActivityInfo/userLiked?currentPage=${1}&type=${100}`)
 		
 		this.communityList = info[1].data
 		console.log("onload-communityList",this.communityList)

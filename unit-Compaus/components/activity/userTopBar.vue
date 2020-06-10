@@ -6,7 +6,8 @@
 			</view>
 			<view class="groupName">
 				<view class="groupName-top">
-					<text class="groupName-first">{{groupInfo.groupName}}</text>
+					<text class="groupName-first" v-if="groupInfo.groupName">{{groupInfo.groupName}}</text>
+					<text class="groupName-first" v-else="groupInfo.nickName">{{groupInfo.nickName}}</text>
 					<kp-tag size="small" bg-color="#d1ebfd" weight="500" class="left-tag">
 					  <!-- <kp-icon size="24" type="male" color="#3bb2f3"/> -->
 					  <text class="eosfont category">&#xe602;</text>
@@ -63,10 +64,16 @@
 		methods:{
 
 			toUserDetail(){
+				if(this.groupInfo.logo){
+					uni.navigateTo({
+						url:"/pages/groupDetail/groupDetail?groupId=" + this.groupInfo.id
+					})
+				}else{
+					uni.navigateTo({
+						url:"/pages/personShow/personShow" + this.groupInfo.id	
+					})
+				}
 				
-				uni.navigateTo({
-					url:"/pages/groupDetail/groupDetail?groupId=" + this.groupInfo.id
-				})
 			},
 			followerUser(){
 				this.isdisabled = true

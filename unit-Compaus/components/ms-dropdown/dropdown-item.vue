@@ -71,8 +71,8 @@
 		methods: {
 			choose(item) {
 				this.selectItem = item
-				console.log(item)
-				this.$emit('input', item.value)
+				
+				this.$emit('choose', item.text)
 				this.closePopup()
 			},
 			changePopup() {

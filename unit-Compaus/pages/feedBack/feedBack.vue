@@ -6,7 +6,7 @@
             <text class="feedback-quick" @tap="chooseMsg">快速键入</text>
         </view>
         <view class="feedback-body">
-            <textarea placeholder="请详细描述你的问题和意见..." v-model="sendDate.content" class="feedback-textare" />
+            <textarea placeholder="请详细描述你的问题和意见..." v-model="sendData.content" class="feedback-textare" />
             </view>
         <view class='feedback-title'>
             <text>图片(选填,提供问题截图,总大小10M以下)</text>
@@ -36,12 +36,12 @@
             <text>QQ/邮箱</text>
         </view>
         <view class="feedback-body">
-            <input class="feedback-input" v-model="sendDate.contact" placeholder="(选填,方便我们联系你 )" />
+            <input class="feedback-input" v-model="sendData.contact" placeholder="(选填,方便我们联系你 )" />
         </view>
         <view class='feedback-title feedback-star-view'>
             <text>应用评分</text>
             <view class="feedback-star-view">
-                <text class="feedback-star" v-for="(value,key) in stars" :key="key" :class="key < sendDate.score ? 'active' : ''" @tap="chooseStar(value)"></text>
+                <text class="feedback-star" v-for="(value,key) in stars" :key="key" :class="key < sendData.score ? 'active' : ''" @tap="chooseStar(value)"></text>
             </view>
         </view>
 		<view class="submitBottom">
@@ -62,7 +62,7 @@
                 msgContents: ["界面显示错乱", "启动缓慢，卡出翔了", "UI无法直视，丑哭了", "偶发性崩溃"],
                 stars: [1, 2, 3, 4, 5],
                 imageList: [],
-                sendDate: {
+                sendData: {
                     score: 0,
                     content: "",
                     contact: ""
@@ -70,17 +70,17 @@
             }
         },
         onLoad() {
-            let deviceInfo = {
-                appid: plus.runtime.appid,
-                imei: plus.device.imei, //设备标识
-                p: plus.os.name === "Android" ? "a" : "i", //平台类型，i表示iOS平台，a表示Android平台。
-                md: plus.device.model, //设备型号
-                app_version: plus.runtime.version,
-                plus_version: plus.runtime.innerVersion, //基座版本号
-                os: plus.os.version,
-                net: "" + plus.networkinfo.getCurrentType()
-            }
-            this.sendDate = Object.assign(deviceInfo, this.sendDate);
+            // let deviceInfo = {
+            //     appid: plus.runtime.appid,
+            //     imei: plus.device.imei, //设备标识
+            //     p: plus.os.name === "Android" ? "a" : "i", //平台类型，i表示iOS平台，a表示Android平台。
+            //     md: plus.device.model, //设备型号
+            //     app_version: plus.runtime.version,
+            //     plus_version: plus.runtime.innerVersion, //基座版本号
+            //     os: plus.os.version,
+            //     net: "" + plus.networkinfo.getCurrentType()
+            // }
+            // this.sendData = Object.assign(deviceInfo, this.sendData);
         },
         methods: {
 			clickLeft() {
@@ -96,7 +96,7 @@
                 uni.showActionSheet({
                     itemList: this.msgContents,
                     success: (res) => {
-                        this.sendDate.content = this.msgContents[res.tapIndex];
+                        this.sendData.content = this.msgContents[res.tapIndex];
                     }
                 })
             },
@@ -111,46 +111,28 @@
                 })
             },
             chooseStar(e) { //点击评星
-                this.sendDate.score = e;
+                this.sendData.score = e;
             },
             previewImage() { //预览图片
                 uni.previewImage({
                     urls: this.imageList
                 });
             },
-            send() { //发送反馈
-                console.log(JSON.stringify(this.sendDate));
-                let imgs = this.imageList.map((value, index) => {
-                    return {
-                        name: "image" + index,
-                        uri: value
-                    }
-                })
-                uni.uploadFile({
-                    url: "https://service.dcloud.net.cn/feedback",
-                    files: imgs,
-                    formData: this.sendDate,
-                    success: (res) => {
-                        if (res.statusCode === 200) {
-                            uni.showToast({
-                                title: "反馈成功!"
-                            });
-                            this.imageList = [];
-                            this.sendDate = {
-                                score: 0,
-                                content: "",
-                                contact: ""
-                            }
-                        }
-                    },
-                    fail: (res) => {
-                        uni.showToast({
-                            title: "失败",
-                            icon:"none"
-                        });
-                        console.log(res)
-                    }
-                });
+            async send() { //发送反馈
+                console.log(JSON.stringify(this.sendData));
+				let raw_questionInfo = await this.request('v1/question/submitQuestion',this.sendData,'POST')
+				let question = raw_questionInfo[1].data
+				
+				if(this.imageList.length){
+					this.imageList.forEach(url=>{
+						this.uploadFile('v1/uploadFiles/userQuestionImg',url,{questionId:question.id})
+					})
+				}
+				uni.reLaunch({
+					url:"/pages/self/self"
+				})
+                
+                
             }
         }
     }

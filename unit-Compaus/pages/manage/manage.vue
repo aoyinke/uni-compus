@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<uni-nav-bar  title="社团" >
+		<uni-nav-bar  title="小组" >
 			<view class="selectGroup" slot="left">
 				<ms-dropdown-menu><ms-dropdown-item v-model="group" :list="list"></ms-dropdown-item></ms-dropdown-menu>
 			</view>
@@ -247,17 +247,7 @@ export default {
 			  liked: uni.getStorageSync(`${baseConfig.key}_liked`) //用户是否点过赞（点亮小红星）
 			},
 			coverImgs: {
-				gallery: [
-					'/orj1080/967d9727ly3gc0whyclfoj20sg0sge0a.jpg',
-					'/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg',
-					'/orj1080/967d9727ly3gc0whykstlj20sg0sgb29.jpg',
-					'/orj1080/967d9727ly3gc0whywdupj20sg0sgb0l.jpg',
-					'/orj1080/967d9727ly3gc0whysphij20sg0sgkcg.jpg',
-					'/orj1080/967d9727ly3gc0whyiy96j20sg0sg1jj.jpg',
-					'/orj1080/967d9727ly3gc0whz3i51j20sg0sgu0x.jpg',
-					'/orj1080/967d9727ly3gc0whz6qvlj20sg0sghdt.jpg',
-					'/orj1080/967d9727ly3gc0whz6yf1j20sg0sgkic.jpg'
-				].map(row => baseConfig.img_example + row),
+				gallery: [],
 				galleryIndex: 0, //相册初始化位置
 				galleryDirection: '' //滑动方向
 			},
@@ -285,8 +275,7 @@ export default {
 		})
 		let raw_userGroupInfo = await this.request('v1/group/findUserGroup')
 		let userGroupInfo = raw_userGroupInfo[1].data
-		
-		
+		console.log(userGroupInfo)
 		let raw_groupInfo = await this.request(`v1/group/detail?groupId=${userGroupInfo[0].groupId}`)
 		let groupInfo = raw_groupInfo[1].data
 		

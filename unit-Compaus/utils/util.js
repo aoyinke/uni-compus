@@ -8,6 +8,10 @@ function _encode(token){
 	return 'Basic ' +base64
 
 }
+function arryDifferences(arr1,arr2){
+	let res = arr1.concat(arr2).filter(v => !arr1.includes(v) || !arr2.includes(v))
+	return res
+}
 function confirmLogin(provider) {
 	uni.getSetting({
 			success(res) {
@@ -92,4 +96,4 @@ function debounce(fn, delay = 500) {
     }, delay);
   };
 }
-export {confirmLogin,wxLogin,deepClone,debounce,_encode}
+export {confirmLogin,wxLogin,deepClone,debounce,_encode,arryDifferences}

@@ -17,11 +17,7 @@
 		}, {
 			"path": "pages/group/group",
 			"style": {
-				"backgroundColor": "darkgray",
-				"disableScroll": true, // 禁止原生页面滚动, 解决Android小程序下拉卡顿的问题
-				"app-plus": {
-					"bounce": "none" // 取消APP端iOS回弹,避免与下拉刷新冲突,以及bounce边缘1秒卡顿
-				}
+				
 			}
 		}, {
 			"path": "pages/activityDetail/activityDetail",
@@ -112,6 +108,10 @@
             "path" : "pages/publishNeed/publishNeed",
             "style" : {}
         }
+        ,{
+            "path" : "pages/videoSlide/videoSlide",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -163,6 +163,11 @@
 				"name": "index", //模式名称
 				"path": "pages/index/index", //启动页面，必选
 				"query": "" //启动参数，在页面的onLoad函数里面得到
+				},
+				{
+					"name": "videoSlide", //模式名称
+					"path": "pages/videoSlide/videoSlide", //启动页面，必选
+					"query": "" //启动参数，在页面的onLoad函数里面得到
 				},
 				{
 					"name": "publishNeed", //模式名称

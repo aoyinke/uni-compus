@@ -88,6 +88,16 @@
 							  </view>
 							</view>
 							
+							<view class="Introduce paragraph">
+								<view class="paragraph-title">
+									<kp-badge class="title-dot" dot bg-color="#f5624f"/>
+									<h2>社团介绍</h2>
+								</view>
+							  <view class="Introduce content">
+							  	<text>{{groupInfo.description}}</text>
+							  </view>
+							</view>
+							
 							<view class="achievement paragraph">
 								<view class="paragraph-title">
 									<kp-badge class="title-dot" dot bg-color="#1e90ff"/>
@@ -107,8 +117,6 @@
 							  	<text>{{groupInfo.specialActivity}}</text>
 							  </view>
 							</view>
-							
-							
 							
 							<view class="labels paragraph">
 								<view class="paragraph-title">
@@ -140,7 +148,8 @@
 								    mode="aspectFill"
 								    @tap="handleOpenCommunity(row)"
 								  />
-								  <text>{{row.role}}</text>
+								  <text>{{row.nickName}}</text>
+								  <text>{{row.position}}</text>
 								</view>
 							  </view>
 							</view>

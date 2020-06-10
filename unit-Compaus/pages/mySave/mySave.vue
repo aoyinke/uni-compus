@@ -39,7 +39,7 @@
 					</template>
 
 					<template v-if="type == 1">
-						<block v-for="(item, index) in group.userSavedGroup" :key="index">
+						<block v-for="(item, index) in userSavedGroup" :key="index">
 							<view class="groupList">
 								
 								<group-item :needChat="false" :groupLogo="item.logo" :groupName="item.name" :intro="item.intro" :tag="item.tag"></group-item>
@@ -48,7 +48,7 @@
 						</block>
 					</template>
 					<template v-if="type == 2">
-						<block v-for="(item, index) in group.userJoinedGroup" :key="index">
+						<block v-for="(item, index) in userJoinedGroup" :key="index">
 							<view class="groupList">
 								
 								<group-item :needChat="false" :groupLogo="item.logo" :groupName="item.name" :intro="item.intro" :tag="item.tag"></group-item>
@@ -113,7 +113,9 @@ export default {
 					name: '吕星辰4'
 				}
 			],
-
+			communityInfo:[],
+			userSavedGroup:[],
+			userJoinedGroup:[],
 			contentIndex: 0,
 			content: [
 				{
@@ -149,16 +151,9 @@ export default {
 		};
 	},
 	computed: {
-		...mapState(['group', 'user']),
+		
 		communityList() {
-			switch (this.contentIndex) {
-				case 0:
-					return this.user.userLikedActivity.activityInfo;
-				case 1:
-					return this.user.userLikedActivity.groupDynamic;
-				case 2:
-					return this.user.userLikedActivity.knowledge;
-			}
+			return this.communityInfo
 		}
 	},
 	methods: {
@@ -212,7 +207,11 @@ export default {
 	},
 	async onLoad(option) {
 		let raw_communityInfo = await this.request('v1/saved/UserSavedCommunity')
-		console.log(raw_communityInfo)
+		let raw_userSavedGroup = await this.request('v1/saved/UserSavedGroup')
+		
+		this.communityInfo = raw_communityInfo[1].data
+		this.userSavedGroup = raw_userSavedGroup[1].data
+		console.log(this.communityList)
 		
 	}
 };

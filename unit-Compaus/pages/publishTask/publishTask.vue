@@ -119,6 +119,7 @@ export default {
 			showErr:false,
 			errData:{title:'提示',content:'这是一个模态弹窗',cancelText:'取消',confirmColor:'#3CC51F'},
 			
+			groupId:"",
 			taskInfo:{imageList:[],coverImg:[],deadLine:""},
 			scrollHeight:"500rpx",
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
@@ -143,7 +144,7 @@ export default {
 		};
 	},
 	async onLoad(option){
-		
+		this.groupId = option.groupId
 		let raw_teamMembers = await this.request(`v1/group/groupMembers?groupId=${option.groupId}`)
 		let groupMembers = raw_teamMembers[1].data
 		this.groupMembers = groupMembers
@@ -155,12 +156,14 @@ export default {
 			if(!errMsg){
 				let taskInfo = this.taskInfo
 				let taskImgs = taskInfo.imageList
-				let coverImg = taskInfo.coverImg
+				let coverImg = taskInfo.coverImg[0]
+				taskInfo.coverImg = ""
+				taskInfo.groupId = this.groupId
 				
 				if(taskInfo.deadLine){
 					let split_deadline = taskInfo.deadLine.split(' ')
-
 				}
+				
 				taskInfo.joinedPeopleList = this.joinedPeopleList
 				let raw_task = await this.request('v1/task/addTask',taskInfo,'POST')
 				let task = raw_task[1].data
@@ -169,9 +172,8 @@ export default {
 				
 				this.uploadFile('v1/uploadFiles/taskCoverImg',coverImg,{taskId})
 				if(taskImgs.length){
-					
-					taskImgs.forEach(url=>{
-						this.uploadFile('v1/uploadFiles/taskImgs',url,{taskId})
+					taskImgs.forEach(async url=>{
+						await this.uploadFile('v1/uploadFiles/taskImgs',url,{taskId})
 					})
 				}
 				uni.navigateTo({
@@ -219,6 +221,7 @@ export default {
 					let obj = this.taskInfo
 					obj.imageList = obj.imageList.concat(res.tempFilePaths)
 					this.taskInfo = obj
+					console.log(this.taskInfo.imageList)
 			        
 			    }
 			})

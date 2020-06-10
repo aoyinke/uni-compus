@@ -1,18 +1,24 @@
 <template>
 	<view>
-		<block v-for="(item,idx) in activityInfoChanged" :key="idx">
+		<block v-for="(item,idx) in activityInfo" :key="idx">
+			
 			<view class="groupNotification">
 				<user-top-bar :groupInfo="item.groupInfo" :activityStartTime="item.deadline"
 				 ></user-top-bar>
-				<goDetail detailUrl="/pages/activityDetail/activityDetail" :item="item">
+				
 					<view class="mainBar">
-						<template v-if="item.title">
-							<view class="activity-title">
+
+						<template v-if="item.title">							
+							<view class="activity-title" @click="goActivityDetail(item.id,item.type)">
 								<text>{{item.title}}</text>
-								
 							</view>
 						</template>
-						<template v-if="item.imgs.length">
+						<template v-if="item.videoSrc">
+							<view class="video">
+								<video :src="item.videoSrc" :page-gesture="true" controls></video>
+							</view>
+						</template>
+						<template v-else="item.imgs.length">
 							<swiper :indicator-dots="true" class="swiper">
 								<swiper-item v-for="(img,id) in item.imgs" :key="id" >
 									<view class="swiper-item">
@@ -21,13 +27,16 @@
 								</swiper-item>
 							</swiper>
 						</template>
+						
+						
 						<template v-if="item.description">
-							<view class="description text-line-4">
+							<view class="description text-line-4" @click="goActivityDetail(item.id)">
 								<text>{{item.description}}</text>
 							</view>
 						</template>
+						
 					</view>
-				</goDetail>
+				
 				<view class="footer">
 					<mutation></mutation>
 					<view class="commentDetail">
@@ -54,25 +63,21 @@
 	import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue'
 	import {baseConfig} from '@/config/index.js'
 	export default {
-		// watch:{
-		// 	activityInfo:{
-		// 		deep: true,
-		// 		handler(newValue, oldValue) {
-		// 			console.log("newValue",newValue)  
-		// 		　　for (let i = 0; i < newValue.length; i++) {  
-		// 		　　　　if (oldValue[i] != newValue[i]) {  
-		// 		　　　　　　this.community = newValue
+		watch:{
+			activityInfo:{
+				deep: true,
+				handler(newValue, oldValue) {
+					console.log("newValue",newValue)  
+				　　for (let i = 0; i < newValue.length; i++) {  
+				　　　　if (oldValue[i] != newValue[i]) {  
+				　　　　　　this.activityInfo = newValue
 						
-		// 		　　　　}  
-		// 		　　}  
-		// 		}　　　　
-		// 	}
-		// },
-		computed:{
-			activityInfoChanged(){
-				return this.activityInfo
+				　　　　}  
+				　　}  
+				}　　　　
 			}
 		},
+
 		data() {
 			return {
 				
@@ -82,6 +87,10 @@
 			activityInfo: {
 				type:Array,
 				default:[]
+			},
+			contentIndex:{
+				type:Number,
+				default:0
 			}
 		},
 		mounted() {
@@ -97,14 +106,21 @@
 			goDetail
 		},
 		methods: {
-			toDetail(groupLogo, groupName, activityStartTime) {
+			goActivityDetail(id){
+				let type = 100
+				switch(this.contentIndex){
+					case 0:
+						type = 100
+						break
+					case 1:
+						type = 200
+						break
+					case 2:
+						type = 400
+						break
+				}
 				uni.navigateTo({
-					url: '@/pages/activityDetail/activityDetail'
-				})
-				uni.$emit('getDetailInfo', {
-					groupLogo: groupLogo,
-					groupName: groupName,
-					activityStartTime: activityStartTime
+					url:`/pages/activityDetail/activityDetail?activityId=${id}&type=${type}`
 				})
 			}
 		},
@@ -113,6 +129,12 @@
 </script>
 
 <style lang="scss" scoped>
+	.video{
+		
+		video{
+			width: 100%;
+		}
+	}
 	.mainBar{
 		min-height: 300rpx;
 	}
@@ -235,7 +257,7 @@
 
 			.commentDetail {
 				margin-top: 30upx;
-
+				margin-left: 20rpx;
 				.activityInfo {
 					.activityInfo-left {
 						color: darkgray;
@@ -261,7 +283,7 @@
 	}
 
 	.description {
-		margin: 0 15upx;
+		margin: 0 20upx;
 		font-weight: 500;
 	}
 	

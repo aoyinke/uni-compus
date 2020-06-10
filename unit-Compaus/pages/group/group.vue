@@ -2,7 +2,7 @@
 	<view>
 		<uni-nav-bar>
 			<view class="selectSchool" slot="left">
-				<ms-dropdown-menu><ms-dropdown-item v-model="school" :list="list"></ms-dropdown-item></ms-dropdown-menu>
+				<ms-dropdown-menu><ms-dropdown-item @choose="chooseCollege" v-model="school" :list="list"></ms-dropdown-item></ms-dropdown-menu>
 			</view>
 		</uni-nav-bar>
 		<view style="">
@@ -174,7 +174,12 @@ export default {
 		upCallback(page) {
 			// 与 mescroll-body 的处理方式一致 >
 		},
-
+		
+		async chooseCollege(college){
+			
+			let groupList = await this.request('v1/group/findGroupList?college=' + college)
+			this.groupList = groupList[1].data
+		},
 		gotoDetail(groupId){
 			uni.navigateTo({
 				url:"/pages/groupDetail/groupDetail?groupId=" + groupId

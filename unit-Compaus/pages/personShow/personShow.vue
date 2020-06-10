@@ -83,8 +83,8 @@
 									性别：{{userInfo.sex}}
 									恋爱：{{userInfo.love}}
 									职业：{{userInfo.job}}
-									生日：{{user.birthday}}
-									家乡：{{user.hometown}}
+									生日：{{userInfo.birthday}}
+									家乡：{{userInfo.homeTown}}
 								</text>
 							  </view>
 							</view>
@@ -185,17 +185,7 @@ export default {
 			},
 
 			coverImgs: {
-				gallery: [
-					'/orj1080/967d9727ly3gc0whyclfoj20sg0sge0a.jpg',
-					'/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg',
-					'/orj1080/967d9727ly3gc0whykstlj20sg0sgb29.jpg',
-					'/orj1080/967d9727ly3gc0whywdupj20sg0sgb0l.jpg',
-					'/orj1080/967d9727ly3gc0whysphij20sg0sgkcg.jpg',
-					'/orj1080/967d9727ly3gc0whyiy96j20sg0sg1jj.jpg',
-					'/orj1080/967d9727ly3gc0whz3i51j20sg0sgu0x.jpg',
-					'/orj1080/967d9727ly3gc0whz6qvlj20sg0sghdt.jpg',
-					'/orj1080/967d9727ly3gc0whz6yf1j20sg0sgkic.jpg'
-				].map(row => baseConfig.img_example + row),
+				gallery: [],
 				galleryIndex: 0, //相册初始化位置
 				galleryDirection: '' //滑动方向
 			},
@@ -212,47 +202,35 @@ export default {
 		KpAvatar,
 		
 	},
-	async onLoad() {
+	async onLoad(option) {
+		let userInfo = {}
+		let userJoinedGroup = {}
 		uni.getSystemInfo({
 			success: (res) => {
 				let height = res.windowHeight - uni.upx2px(355)
 				this.scrollHeight = height
 			}
 		})
+		let {personShow,uid} = option
+		console.log(personShow)
+		if(personShow){
+			userInfo = await this.request('v1/user/visitOtherUser?uid=' + uid)
+			console.log("visitOtherUser")
+			userJoinedGroup = await this.request('v1/group/findOtherGroup?uid=' + uid)
+		}else{
+			userInfo = await this.request('v1/user/getUserInfo')
+			userJoinedGroup = await this.request('v1/group/findUserGroup')
+			console.log("getUserInfo")
+			userInfo[1].data.tags = userInfo[1].data.tags.split(',')
+		}
 		
-		let userInfo = await this.request('v1/user/getUserInfo')
-		let userJoinedGroup = await this.request('v1/group/findUserGroup')
-		userInfo[1].data.tags = userInfo[1].data.tags.split(',')
-		
+		this.groups = userJoinedGroup[1].data
 		this.userInfo = userInfo[1].data
 		this.coverImgs = Object.assign(this.coverImgs,{gallery:this.userInfo.coverImgs})
 		
 	},
 	methods: {
-		joinGroup(){
-			uni.showModal({
-				title:"申请加入",
-				content:"确定要申请加入吗？",
-				showCancel:true,
-				cancelColor:"#ff5e57",
-				confirmColor:"#0fbcf9",
-				success:(res)=>{
-					uni.showLoading()
-					uni.showToast({
-						title:"申请成功！",
-						success:(res)=>{
-							uni.hideLoading()
-						}
-					})
-				}
-			})
-		},
-		gotoCollections(index){
-			
-			uni.navigateTo({
-				url:"/pages/collectionsDetail/collectionsDetail?type=" + index
-			})
-		},
+
 		clickLeft() {
 			uni.navigateBack({
 				animationDuration: 300,

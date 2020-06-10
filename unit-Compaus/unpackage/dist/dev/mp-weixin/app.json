@@ -26,7 +26,8 @@
     "pages/personShow/personShow",
     "pages/publishCollection/publishCollection",
     "pages/needWall/needWall",
-    "pages/publishNeed/publishNeed"
+    "pages/publishNeed/publishNeed",
+    "pages/videoSlide/videoSlide"
   ],
   "subPackages": [],
   "window": {
@@ -81,5 +82,6 @@
     "mescroll-body": "/components/mescroll-uni/mescroll-body",
     "mescroll-uni": "/components/mescroll-uni/mescroll-uni",
     "lv-select": "/components/lv-select/lv-select"
-  }
+  },
+  "sitemapLocation": "sitemap28.json"
 }

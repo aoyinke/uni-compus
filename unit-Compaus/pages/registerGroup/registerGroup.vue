@@ -81,7 +81,7 @@ export default {
 				uni.showToast({
 					title:"成功注册社团~",
 					success: () => {
-						uni.switchTab({
+						uni.reLaunch({
 							url:"/pages/manage/manage"
 						})
 					}

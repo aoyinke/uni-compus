@@ -82,10 +82,13 @@
 			ygcComment,
 			uniCountdown
 		},
-		onLoad(option) {
-			const item = JSON.parse(decodeURIComponent(option.item));
-			this.activityDetail = item
-			console.log(this.activityDetail)
+		async onLoad(option) {
+			let {activityId,type} = option
+			let raw_community = await this.request(`v1/ActivityInfo/detail?activity_id=${activityId}&type=${type}`)
+			let community = raw_community[1].data
+			this.activityDetail = community
+			
+			
 		},
 		methods: {
 			clickLeft() {

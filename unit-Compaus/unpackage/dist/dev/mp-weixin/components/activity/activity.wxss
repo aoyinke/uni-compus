@@ -1,3 +1,6 @@
+.video video.data-v-4ea9ceb8 {
+  width: 100%;
+}
 .mainBar.data-v-4ea9ceb8 {
   min-height: 300rpx;
 }
@@ -122,6 +125,7 @@
 }
 .groupNotification .footer .commentDetail.data-v-4ea9ceb8 {
   margin-top: 30rpx;
+  margin-left: 20rpx;
 }
 .groupNotification .footer .commentDetail .activityInfo .activityInfo-left.data-v-4ea9ceb8 {
   color: darkgray;
@@ -136,7 +140,7 @@
   margin-left: 10rpx;
 }
 .description.data-v-4ea9ceb8 {
-  margin: 0 15rpx;
+  margin: 0 20rpx;
   font-weight: 500;
 }
 

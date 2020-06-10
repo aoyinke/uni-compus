@@ -155,8 +155,45 @@ export default {
 			errData:{title:'提示',content:'',cancelText:'取消',confirmColor:'#3CC51F'},
 			
 			info: {type:100,title:"",description:"",category:"",groupId:"",content:"",deadline:"",videoSrc:""},
-			categoryList: [{category:'舞蹈',en:"dance"}, {category:'绘画',en:"draw"},
-			{category:'编程',en:"programming"},{category:'文学',en:"literature"},{category:'英语',en:"English"} ],
+			categoryList: [
+
+				{
+					category: '志愿服务',
+					id: 'wudao'
+				},
+				{
+					category: '舞蹈',
+					id: 'wudao'
+				},
+				{
+					category: '学生组织',
+					id: 'dianjing'
+				},
+				{
+					category: '辩论类',
+					id: 'shufa'
+				},
+				{
+					category: '英语类',
+					id: 'dianying'
+				},
+				{
+					category: '体育类',
+					id: 'biancheng'
+				},
+				{
+					category: '电竞类',
+					id: 'biancheng'
+				},
+				{
+					category: '娱乐类',
+					id: 'biancheng'
+				},
+				{
+					category: '文化交流',
+					id: 'biancheng'
+				}
+			],
 			
 			scrollHeight: 500,
 			userChoosedGroup: {},

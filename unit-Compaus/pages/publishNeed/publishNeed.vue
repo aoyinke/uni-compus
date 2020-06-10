@@ -81,6 +81,7 @@ export default {
 		},
 		finishChooseCategory(item) {
 			this.needInfo.category = item;
+			this.$set(this.needInfo,'category')
 
 			this.$refs.CategoryPopup.close();
 		}

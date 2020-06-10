@@ -1,6 +1,4 @@
 {
-  "backgroundColor": "darkgray",
-  "disableScroll": true,
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "lv-select": "/components/lv-select/lv-select",

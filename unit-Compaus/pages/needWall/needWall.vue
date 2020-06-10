@@ -29,7 +29,7 @@
 						<view class="swiper-item">
 							<view class="need-List">
 								<view class="need-item" v-for="(needInfo, id) in needList" :key="id">
-									<user-top-bar :groupInfo="needInfo.userInfo"></user-top-bar>
+									<user-top-bar :groupInfo="needInfo.userInfo" @click.native="toUserDetail(needInfo.uid)"></user-top-bar>
 									<view class="need-item-main">
 										<view class="need-item-main-left">
 											<view class="need-item-main-left-title">
@@ -73,7 +73,7 @@ export default {
 		return {
 			needHeight: 0,
 			currentIndex: 0,
-			nav: ['众投活动', '大佬赞助', '技能需求'],
+			nav: ['众投活动', '梦想成真', '技能需求'],
 
 			needList: [],
 			
@@ -107,7 +107,7 @@ export default {
 				case '众投活动':
 					type = 100;
 					break
-				case '大佬赞助':
+				case '梦想成真':
 					type = 101;
 					break
 				case '技能需求':
@@ -117,6 +117,11 @@ export default {
 			let needList = await this.request(`v1/needWall/needList?currentPage=${1}&&category=${type}`);
 			this.needList = needList[1].data;
 			console.log(mm,needList);
+		},
+		toUserDetail(uid){
+			uni.navigateTo({
+				url:`/pages/personShow/personShow?uid=${uid}&personShow=${true}`
+			})
 		},
 		changeCurrentIndex(e) {
 			this.currentIndex = e.detail.current;
