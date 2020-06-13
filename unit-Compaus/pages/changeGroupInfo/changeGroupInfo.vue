@@ -163,7 +163,17 @@ export default {
 			})
 		},
 		close(e){
-			this.groupInfo.coverImgs.splice(e,1);
+			
+			uni.showModal({
+				title:"删除图片",
+				content:"你确认要删除该图片吗？",
+				success:()=>{
+					let res = this.groupInfo.coverImgs.splice(e,1);
+					this.request('v1/group/deleteCoverImg',{url:res[0],groupId:this.groupInfo.id},'POST')
+					
+				}
+			})
+			
 		},
 	}
 };

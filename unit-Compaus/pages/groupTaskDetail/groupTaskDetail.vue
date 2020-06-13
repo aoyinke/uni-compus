@@ -9,10 +9,10 @@
 		<view class="main">
 			<view class="uni-list-cell uni-list-cell-pd changeTaskName">
 				<view class="uni-list-cell-db" style="font-weight: 500;">任务的名称</view>
-				<input type="text" v-model="taskInfo.title" />
+				<input type="text" v-model="taskInfo.taskName" />
 			</view>
 			<uni-collapse :accordion="true">
-				<uni-collapse-item :title="taskInfo.title" :showAnimation="true" >
+				<uni-collapse-item :title="taskInfo.taskName" :showAnimation="true" >
 					<view class="task-progress">
 						<textarea v-model="taskInfo.progress" placeholder="更新个人任务进度" />
 					</view>
@@ -28,9 +28,9 @@
 				<text class="eosfont addConcernEvent">&#xe715;</text>
 			</view>
 			<view class="inputConcernEvent">
-				<textarea v-model="taskInfo.inputConcernEvent" placeholder="请输入任务注意事项" />
+				<textarea v-model="taskInfo.concernEvent" placeholder="请输入任务注意事项" />
 			</view>
-			<uni-compus-upload-img title="选择任务需要的图片(点击可预览)" :imageList="taskInfo.imageList" @close="close" @chooseImg="chooseImg"></uni-compus-upload-img>
+			<uni-compus-upload-img title="选择任务需要的图片(点击可预览)" :imageList="taskInfo.taskImgs" @close="close" @chooseImg="chooseImg"></uni-compus-upload-img>
 			<view class="joinedPeople">
 				<view class="joinedPeople-change">
 					<view class="joinedPeople-change-left">
@@ -69,7 +69,7 @@
 						<view class="joinedPeople-list">
 							<view class="joinedPeople-list-item" v-for="(row, index) in joinedPeopleList" :key="index">
 								<kp-avatar :image="row.avatar" size="large" mode="aspectFill" @tap="handleOpenCommunity(row)" />
-								<text>{{ row.name }}</text>
+								<text>{{ row.nickName }}</text>
 							</view>
 						</view>
 						<scroll-view scroll-y="true" class="list" :style="{height:scrollHeight}">
@@ -77,7 +77,7 @@
 								<view class="memberList-item" v-for="(member,idx) in groupMembers" :key="idx">
 									<view class="memberList-item-left">
 										<kp-avatar :image="member.avatar" size="large" mode="aspectFill" @tap="handleOpenCommunity(row)" />
-										<text>{{ member.name }}</text>
+										<text>{{ member.nickName }}</text>
 									</view>
 									<view class="memberList-item-right" @click="addJoinedMember(idx,member)"><text class="eosfont">&#xe715;</text></view>
 								</view>
@@ -110,9 +110,17 @@ import uniCompusUploadImg from '@/components/uni-compus-components/uniCompus-upl
 import uniCollapse from '@/components/uni-collapse/uni-collapse.vue';
 import uniCollapseItem from '@/components/uni-collapse-item/uni-collapse-item.vue';
 export default {
+	async onLoad(item){
+		let {taskId} = item
+		let taskInfo = await this.request('v1/task/getTaskInfo?taskId='+taskId)
+		taskInfo = taskInfo[1].data
+		console.log(taskInfo)
+		this.joinedPeopleList = taskInfo.joinedPeople
+		this.taskInfo = taskInfo
+	},
 	data() {
 		return {
-			taskInfo:{progress:"",taskName:'开发任务',deadLine:"2020-5-20",title:'开发任务',inputConcernEvent:"",imageList:[]},
+			taskInfo:{},
 			scrollHeight:"500rpx",
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
 			searchValue: '',
@@ -132,7 +140,7 @@ export default {
 				}
 			],
 			groupMembers:[{name:"老王",avatar:"https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/05aa72975372c0.jpg!1200w.jpg"}],
-			joinedPeopleList: [{ name: '小明', avatar: 'https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/15aa729753727f.jpg!1200w.jpg'}]
+			joinedPeopleList: []
 		};
 	},
 	methods: {
@@ -150,17 +158,17 @@ export default {
 			uni.chooseImage({
 			    sourceType: ["camera", "album"],
 			    sizeType: "compressed",
-			    count: 8 - this.taskInfo.imageList.length,
+			    count: 8 - this.taskInfo.taskImgs.length,
 			    success: (res) => {
 					let obj = this.taskInfo
-					obj.imageList = obj.imageList.concat(res.tempFilePaths)
+					obj.taskImgs = obj.taskImgs.concat(res.tempFilePaths)
 					this.taskInfo = obj
 			        
 			    }
 			})
 		},
 		close(e){
-			this.taskInfo.imageList.splice(e,1);
+			this.taskInfo.taskImgs.splice(e,1);
 		},
 		
 		addJoinedMember(index,member){

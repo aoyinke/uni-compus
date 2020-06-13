@@ -338,19 +338,27 @@ var _index = __webpack_require__(/*! @/utils/index.js */ 64);function _interopRe
     KpTag: KpTag },
 
   methods: {
-    close: function close(e) {
-      this.userInfo.coverImgs.splice(e, 1);
+    close: function close(e) {var _this2 = this;
+      uni.showModal({
+        title: "删除图片",
+        content: "你确认要删除该图片吗？",
+        success: function success() {
+          var res = _this2.userInfo.coverImgs.splice(e, 1);
+          _this2.request('v1/user/deleteCoverImg', { url: res[0] }, 'POST');
+
+        } });
+
     },
 
-    chooseImg: function chooseImg() {var _this2 = this;
+    chooseImg: function chooseImg() {var _this3 = this;
       uni.chooseImage({
         sourceType: ["camera", "album"],
         sizeType: "compressed",
         count: 8 - this.userInfo.coverImgs.length,
         success: function success(res) {
-          var obj = _this2.userInfo;
+          var obj = _this3.userInfo;
           obj.coverImgs = obj.coverImgs.concat(res.tempFilePaths);
-          _this2.userInfo = obj;
+          _this3.userInfo = obj;
 
         } });
 
@@ -363,30 +371,30 @@ var _index = __webpack_require__(/*! @/utils/index.js */ 64);function _interopRe
       this.value = true;
     },
 
-    submit: function submit() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var avatar, coverImgs, _iterator, _step, i, avatarUrl, res, obj;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+    submit: function submit() {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var avatar, coverImgs, _iterator, _step, i, avatarUrl, res, obj;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
 
-                avatar = _this3.userInfo.avatar;
-                coverImgs = _this3.userInfo.coverImgs;
-                coverImgs = (0, _index.arryDifferences)(coverImgs, _this3.raw_coverImgs);
+                avatar = _this4.userInfo.avatar;
+                coverImgs = _this4.userInfo.coverImgs;
+                coverImgs = (0, _index.arryDifferences)(coverImgs, _this4.raw_coverImgs);
                 console.log(coverImgs);
-                _this3.userInfo.coverImgs = "";
-                console.log(_this3.userInfo);
+                _this4.userInfo.coverImgs = "";
+                console.log(_this4.userInfo);
                 if (coverImgs.length) {_iterator = _createForOfIteratorHelper(
                   coverImgs);try {for (_iterator.s(); !(_step = _iterator.n()).done;) {i = _step.value;
-                      _this3.uploadFile('v1/uploadFiles/userCoverImgs', i);
+                      _this4.uploadFile('v1/uploadFiles/userCoverImgs', i);
                     }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
                 }
 
                 //设置用户修改信息头像
                 if (avatar.startsWith("http://localhost")) {_context2.next = 12;break;}_context2.next = 10;return (
-                  _this3.uploadFile('v1/uploadFiles/avatar', avatar));case 10:avatarUrl = _context2.sent;
-                _this3.userInfo.avatar = avatarUrl[1].data;case 12:
+                  _this4.uploadFile('v1/uploadFiles/avatar', avatar));case 10:avatarUrl = _context2.sent;
+                _this4.userInfo.avatar = avatarUrl[1].data;case 12:
 
 
 
                 //将用户的个人标签转化形式
-                _this3.userInfo.tags = _this3.userInfo.tags.toString();
-                res = (0, _validator.changeUserInfoValidator)(_this3.userInfo);
+                _this4.userInfo.tags = _this4.userInfo.tags.toString();
+                res = (0, _validator.changeUserInfoValidator)(_this4.userInfo);
                 if (!res) {
                   // this.request('v1/user/update',this.userInfo,'POST')
                   // uni.showToast({
@@ -399,10 +407,10 @@ var _index = __webpack_require__(/*! @/utils/index.js */ 64);function _interopRe
                   // })
 
                 } else {
-                  obj = _this3.errData;
+                  obj = _this4.errData;
                   obj.content = res;
-                  _this3.errData = obj;
-                  _this3.showErr = true;
+                  _this4.errData = obj;
+                  _this4.showErr = true;
                 }case 15:case "end":return _context2.stop();}}}, _callee2);}))();
 
 
@@ -428,17 +436,17 @@ var _index = __webpack_require__(/*! @/utils/index.js */ 64);function _interopRe
     },
 
 
-    changePerson_avatar: function changePerson_avatar() {var _this4 = this;
+    changePerson_avatar: function changePerson_avatar() {var _this5 = this;
       uni.chooseImage({
         count: 1,
         sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
         success: function success(res) {
 
-          _this4.userInfo.avatar = res.tempFilePaths[0];
+          _this5.userInfo.avatar = res.tempFilePaths[0];
         } });
 
     },
-    changePerson_sex: function changePerson_sex() {var _this5 = this;
+    changePerson_sex: function changePerson_sex() {var _this6 = this;
       this.chunLeiModal = {
         value: true,
         type: "select",
@@ -451,7 +459,7 @@ var _index = __webpack_require__(/*! @/utils/index.js */ 64);function _interopRe
 
 
       this.onConfirm = function (item) {
-        _this5.userInfo.sex = item.title;
+        _this6.userInfo.sex = item.title;
 
       };
     },
@@ -465,7 +473,7 @@ var _index = __webpack_require__(/*! @/utils/index.js */ 64);function _interopRe
       this.$refs.region.show();
 
     },
-    changePerson_job: function changePerson_job() {var _this6 = this;
+    changePerson_job: function changePerson_job() {var _this7 = this;
       this.chunLeiModal = {
         value: true,
         type: "select",
@@ -491,9 +499,9 @@ var _index = __webpack_require__(/*! @/utils/index.js */ 64);function _interopRe
 
 
 
-      this.onConfirm = function (item) {_this6.userInfo.job = item.title;};
+      this.onConfirm = function (item) {_this7.userInfo.job = item.title;};
     },
-    changePerson_loveState: function changePerson_loveState() {var _this7 = this;
+    changePerson_loveState: function changePerson_loveState() {var _this8 = this;
       this.chunLeiModal = {
         value: true,
         type: "select",
@@ -507,7 +515,7 @@ var _index = __webpack_require__(/*! @/utils/index.js */ 64);function _interopRe
           title: "呵~我不会让你知道的" }] };
 
 
-      this.onConfirm = function (item) {_this7.userInfo.love = item.title;};
+      this.onConfirm = function (item) {_this8.userInfo.love = item.title;};
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

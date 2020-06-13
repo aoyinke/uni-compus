@@ -124,6 +124,7 @@
 					</view>
 				</view>
 				<uni-compus-button width="100" content="确认修改" @click.native="confirmChangeMemberInfo" background="#fbc531"></uni-compus-button>
+				<uni-compus-button width="100" content="确认修改" @click.native="removeFromGroup" background="#eb4d4b"></uni-compus-button>
 			</slot>
 		</uni-popup>
 		<w-picker
@@ -146,11 +147,12 @@ import KpAvatar from '@/components/kp-avatar/index.vue';
 import uniPopup from '@/components/uni-popup/uni-popup.vue';
 
 export default {
-	async onLoad(){
-		let raw_members = await this.request('v1/group/getGroupByMember?groupId=1')
+	async onLoad(item){
+		let {groupId} = item
+		let raw_members = await this.request('v1/group/getGroupByMember?groupId=' + groupId)
 		this.groupMembers = raw_members[1].data
-		
-		let raw_applicants = await this.request('v1/group/getApplicantList?groupId=1')
+		console.log(raw_members)
+		let raw_applicants = await this.request('v1/group/getApplicantList?groupId=' + groupId)
 		console.log(raw_applicants)
 	},
 	
@@ -193,6 +195,9 @@ export default {
 		
 	},
 	methods: {
+		removeFromGroup(){
+			
+		},
 		submitChangeMember(){
 			
 		},

@@ -324,8 +324,8 @@ var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);function _i
                                 _this2.uploadFile('v1/uploadFiles/taskImgs', url, { taskId: taskId }));case 2:case "end":return _context2.stop();}}}, _callee2);}));return function (_x) {return _ref.apply(this, arguments);};}());
 
                 }
-                uni.navigateTo({});_context3.next = 25;break;case 21:
-
+                uni.reLaunch({
+                  url: '/pages/manage/manage' });_context3.next = 25;break;case 21:
 
 
 

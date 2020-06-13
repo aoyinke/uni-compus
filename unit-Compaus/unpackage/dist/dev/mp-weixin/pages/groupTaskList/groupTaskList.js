@@ -183,26 +183,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
 {
-  onLoad: function onLoad() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var raw_tasks, tasks;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                _this.request('v1/task/taskList?groupId=2'));case 2:raw_tasks = _context.sent;
+  onLoad: function onLoad(item) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var groupId, raw_tasks, tasks;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              groupId = item.groupId;_context.next = 3;return (
+                _this.request('v1/task/taskList?groupId=' + groupId));case 3:raw_tasks = _context.sent;
               tasks = raw_tasks[1].data;
               _this.groupTasks = tasks;
-              console.log(raw_tasks);case 6:case "end":return _context.stop();}}}, _callee);}))();
+              console.log(raw_tasks);case 7:case "end":return _context.stop();}}}, _callee);}))();
   },
   data: function data() {
     return {
-      groupTasks: [
-      {
-        title: '完成页面的开发任务',
-        deadLine: { day: 1, hour: 16, minute: 45, second: 0 },
-        coverImg: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/cbd.jpg',
-        content:
-        '那是一个秋意盎然、金风送爽的日子，我和父母一起来到了位于上师大旁的康健园。一踏进公园，一股浓郁的桂香扑鼻而来，泌人心脾,让我心旷神怡，只见一朵朵开得正烈的金色桂花，迎风而立，仿佛在向我招手。我们追着这桂香，走进了清幽的公园。',
-        time: 'Dcloud 2019-05-20 12:32:19',
-        note: 'Tips' }],
-
-
+      groupTasks: [],
       showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
       searchValue: '',
       infoList: [],
@@ -223,6 +220,11 @@ __webpack_require__.r(__webpack_exports__);
 
   },
   methods: {
+    gotoDetail: function gotoDetail(task) {
+      uni.navigateTo({
+        url: "/pages/groupTaskDetail/groupTaskDetail?taskId=".concat(task.id) });
+
+    },
     clickLeft: function clickLeft() {
       uni.navigateBack({
         animationDuration: 300,
@@ -239,7 +241,6 @@ __webpack_require__.r(__webpack_exports__);
     change: function change(val) {
       console.log(val);
     } },
-
 
 
   components: {

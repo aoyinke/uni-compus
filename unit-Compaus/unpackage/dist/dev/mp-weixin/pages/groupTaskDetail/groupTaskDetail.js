@@ -149,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {__webpack_require__.e(/*! require.ensure | components/w-picker/w-picker */ "components/w-picker/w-picker").then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 338));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 300));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 326));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 443));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusButton = function uniCompusButton() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/unicompus-button */ "components/uni-compus-components/unicompus-button").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/unicompus-button.vue */ 136));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusUploadImg = function uniCompusUploadImg() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-uploadImg */ "components/uni-compus-components/uniCompus-uploadImg").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-uploadImg.vue */ 345));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCollapse = function uniCollapse() {__webpack_require__.e(/*! require.ensure | components/uni-collapse/uni-collapse */ "components/uni-collapse/uni-collapse").then((function () {return resolve(__webpack_require__(/*! @/components/uni-collapse/uni-collapse.vue */ 513));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCollapseItem = function uniCollapseItem() {__webpack_require__.e(/*! require.ensure | components/uni-collapse-item/uni-collapse-item */ "components/uni-collapse-item/uni-collapse-item").then((function () {return resolve(__webpack_require__(/*! @/components/uni-collapse-item/uni-collapse-item.vue */ 520));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 34));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var wPicker = function wPicker() {__webpack_require__.e(/*! require.ensure | components/w-picker/w-picker */ "components/w-picker/w-picker").then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 338));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 300));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 326));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 443));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusButton = function uniCompusButton() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/unicompus-button */ "components/uni-compus-components/unicompus-button").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/unicompus-button.vue */ 136));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusUploadImg = function uniCompusUploadImg() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-uploadImg */ "components/uni-compus-components/uniCompus-uploadImg").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-uploadImg.vue */ 345));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCollapse = function uniCollapse() {__webpack_require__.e(/*! require.ensure | components/uni-collapse/uni-collapse */ "components/uni-collapse/uni-collapse").then((function () {return resolve(__webpack_require__(/*! @/components/uni-collapse/uni-collapse.vue */ 513));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCollapseItem = function uniCollapseItem() {__webpack_require__.e(/*! require.ensure | components/uni-collapse-item/uni-collapse-item */ "components/uni-collapse-item/uni-collapse-item").then((function () {return resolve(__webpack_require__(/*! @/components/uni-collapse-item/uni-collapse-item.vue */ 520));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -261,9 +261,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 {
+  onLoad: function onLoad(item) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var taskId, taskInfo;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              taskId = item.taskId;_context.next = 3;return (
+                _this.request('v1/task/getTaskInfo?taskId=' + taskId));case 3:taskInfo = _context.sent;
+              taskInfo = taskInfo[1].data;
+              console.log(taskInfo);
+              _this.joinedPeopleList = taskInfo.joinedPeople;
+              _this.taskInfo = taskInfo;case 8:case "end":return _context.stop();}}}, _callee);}))();
+  },
   data: function data() {
     return {
-      taskInfo: { progress: "", taskName: '开发任务', deadLine: "2020-5-20", title: '开发任务', inputConcernEvent: "", imageList: [] },
+      taskInfo: {},
       scrollHeight: "500rpx",
       showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
       searchValue: '',
@@ -283,7 +291,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
       groupMembers: [{ name: "老王", avatar: "https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/05aa72975372c0.jpg!1200w.jpg" }],
-      joinedPeopleList: [{ name: '小明', avatar: 'https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/15aa729753727f.jpg!1200w.jpg' }] };
+      joinedPeopleList: [] };
 
   },
   methods: {
@@ -297,32 +305,32 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.taskInfo);
     },
 
-    chooseImg: function chooseImg() {var _this = this;
+    chooseImg: function chooseImg() {var _this2 = this;
       uni.chooseImage({
         sourceType: ["camera", "album"],
         sizeType: "compressed",
-        count: 8 - this.taskInfo.imageList.length,
+        count: 8 - this.taskInfo.taskImgs.length,
         success: function success(res) {
-          var obj = _this.taskInfo;
-          obj.imageList = obj.imageList.concat(res.tempFilePaths);
-          _this.taskInfo = obj;
+          var obj = _this2.taskInfo;
+          obj.taskImgs = obj.taskImgs.concat(res.tempFilePaths);
+          _this2.taskInfo = obj;
 
         } });
 
     },
     close: function close(e) {
-      this.taskInfo.imageList.splice(e, 1);
+      this.taskInfo.taskImgs.splice(e, 1);
     },
 
     addJoinedMember: function addJoinedMember(index, member) {
       this.groupMembers.splice(index, 1);
       this.joinedPeopleList.push(member);
     },
-    handleSearch: function handleSearch() {var _this2 = this;
+    handleSearch: function handleSearch() {var _this3 = this;
       this.loading = true;
       setTimeout(function () {
-        _this2.loading = false;
-        _this2.infoList = _this2.infoLists;
+        _this3.loading = false;
+        _this3.infoList = _this3.infoLists;
       }, 2000);
     },
     change: function change(val) {

@@ -301,8 +301,18 @@ var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);function _i
         } });
 
     },
-    close: function close(e) {
-      this.groupInfo.coverImgs.splice(e, 1);
+    close: function close(e) {var _this5 = this;
+
+      uni.showModal({
+        title: "删除图片",
+        content: "你确认要删除该图片吗？",
+        success: function success() {
+          var res = _this5.groupInfo.coverImgs.splice(e, 1);
+          _this5.request('v1/group/deleteCoverImg', { url: res[0], groupId: _this5.groupInfo.id }, 'POST');
+
+        } });
+
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

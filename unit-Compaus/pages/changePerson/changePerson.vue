@@ -197,7 +197,15 @@
 		},
 		methods: {
 			close(e){
-				this.userInfo.coverImgs.splice(e,1);
+				uni.showModal({
+					title:"删除图片",
+					content:"你确认要删除该图片吗？",
+					success:()=>{
+						let res = this.userInfo.coverImgs.splice(e,1);
+						this.request('v1/user/deleteCoverImg',{url:res[0]},'POST')
+						
+					}
+				})
 			},
 			
 			chooseImg(){

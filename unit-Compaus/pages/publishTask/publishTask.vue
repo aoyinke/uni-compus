@@ -176,8 +176,8 @@ export default {
 						await this.uploadFile('v1/uploadFiles/taskImgs',url,{taskId})
 					})
 				}
-				uni.navigateTo({
-					
+				uni.reLaunch({
+					url:'/pages/manage/manage'
 				})
 				
 			}else{

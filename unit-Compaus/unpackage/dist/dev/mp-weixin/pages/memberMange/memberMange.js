@@ -290,13 +290,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-{
-  onLoad: function onLoad() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var raw_members, raw_applicants;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                _this.request('v1/group/getGroupByMember?groupId=1'));case 2:raw_members = _context.sent;
-              _this.groupMembers = raw_members[1].data;_context.next = 6;return (
 
-                _this.request('v1/group/getApplicantList?groupId=1'));case 6:raw_applicants = _context.sent;
-              console.log(raw_applicants);case 8:case "end":return _context.stop();}}}, _callee);}))();
+{
+  onLoad: function onLoad(item) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var groupId, raw_members, raw_applicants;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              groupId = item.groupId;_context.next = 3;return (
+                _this.request('v1/group/getGroupByMember?groupId=' + groupId));case 3:raw_members = _context.sent;
+              _this.groupMembers = raw_members[1].data;
+              console.log(raw_members);_context.next = 8;return (
+                _this.request('v1/group/getApplicantList?groupId=' + groupId));case 8:raw_applicants = _context.sent;
+              console.log(raw_applicants);case 10:case "end":return _context.stop();}}}, _callee);}))();
   },
 
   data: function data() {
@@ -338,6 +340,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
   methods: {
+    removeFromGroup: function removeFromGroup() {
+
+    },
     submitChangeMember: function submitChangeMember() {
 
     },

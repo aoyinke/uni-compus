@@ -328,7 +328,7 @@ export default {
 					url = "/pages/publishTask/publishTask?groupId=" + this.groupInfo.id
 					break;
 				case 1:
-					url = "/pages/groupTaskList/groupTaskList"
+					url = "/pages/groupTaskList/groupTaskList?groupId=" + this.groupInfo.id
 					break;
 				case 2:
 					url = "/pages/groupInfoConcat/groupInfoConcat"
@@ -337,10 +337,10 @@ export default {
 					url = "/pages/changeGroupInfo/changeGroupInfo?groupId=" + this.groupInfo.id
 					break;
 				case 4:
-					url="/pages/memberMange/memberMange"
+					url="/pages/memberMange/memberMange?groupId=" + this.groupInfo.id
 					break;
 				case 5:
-					url="/pages/publishCollection/publishCollection"
+					url="/pages/publishCollection/publishCollection=" + this.groupInfo.id
 					break;
 			}
 			uni.navigateTo({
