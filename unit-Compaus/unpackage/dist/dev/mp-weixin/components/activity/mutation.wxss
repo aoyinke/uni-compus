@@ -25,4 +25,20 @@
 .mutation .mutation-right .share.data-v-320a5b3e {
   margin-right: 30rpx;
 }
+.commentDetail.data-v-320a5b3e {
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+}
+.commentDetail .activityInfo .activityInfo-left.data-v-320a5b3e {
+  color: darkgray;
+  margin-left: 10rpx;
+}
+.commentDetail .activityInfo .activityInfo-right.data-v-320a5b3e {
+  color: darkgray;
+  margin-left: 15rpx;
+}
+.commentDetail .commentDetail-P .commentDetail-P-left.data-v-320a5b3e {
+  font-weight: 800;
+  margin-left: 10rpx;
+}
 

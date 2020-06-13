@@ -97,7 +97,7 @@ var components = {
     return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 270))
   },
   wPicker: function() {
-    return __webpack_require__.e(/*! import() | components/w-picker/w-picker */ "components/w-picker/w-picker").then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ 340))
+    return __webpack_require__.e(/*! import() | components/w-picker/w-picker */ "components/w-picker/w-picker").then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ 338))
   },
   chunLeiModal: function() {
     return Promise.all(/*! import() | components/chunLei-modal/chunLei-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/chunLei-modal/chunLei-modal")]).then(__webpack_require__.bind(null, /*! @/components/chunLei-modal/chunLei-modal.vue */ 277))
@@ -185,7 +185,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _config = __webpack_require__(/*! @/utils/config.js */ 9);
-var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var wPicker = function wPicker() {__webpack_require__.e(/*! require.ensure | components/w-picker/w-picker */ "components/w-picker/w-picker").then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 340));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var wPicker = function wPicker() {__webpack_require__.e(/*! require.ensure | components/w-picker/w-picker */ "components/w-picker/w-picker").then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 338));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   data: function data() {
     return {

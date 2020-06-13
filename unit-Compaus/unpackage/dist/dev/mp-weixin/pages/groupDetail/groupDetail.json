@@ -5,7 +5,7 @@
     "kp-swiper": "/components/kp-swiper/index",
     "kp-icon": "/components/kp-icon/index",
     "kp-tag": "/components/kp-tag/index",
-    "like-icon": "/components/common/commonIcon/likeIcon",
+    "like-icon": "/components/common/commonIcon/groupLike",
     "kp-badge": "/components/kp-badge/index",
     "kp-avatar": "/components/kp-avatar/index"
   }

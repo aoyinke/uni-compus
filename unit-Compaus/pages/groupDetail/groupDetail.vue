@@ -60,7 +60,8 @@
 								</view>
 								
 								<view class="heart">
-									<likeIcon></likeIcon>
+									<like-icon :groupInfo="groupInfo" @addSave="addSave" @cancelSave="cancelSave"></like-icon>
+									<text style="margin-top: -20rpx;">{{groupInfo.fav_nums}}</text>
 								</view>
 						</view>
 					</view>
@@ -205,7 +206,7 @@ import kpSwiper from '@/components/kp-swiper/index.vue';
 import config from '@/config/index.js';
 import KpIcon from "@/components/kp-icon";
 import KpTag from "@/components/kp-tag";
-import likeIcon from '@/components/common/commonIcon/likeIcon.vue';
+import likeIcon from '@/components/common/commonIcon/groupLike.vue';
 import kpBadge from '@/components/kp-badge/index.vue';
 import KpAvatar from '@/components/kp-avatar/index.vue';
 
@@ -273,6 +274,18 @@ export default {
 		joinGroup(){
 			this.showJoin = true
 		},
+		
+		addSave(){
+			let obj = this.groupInfo
+			obj.fav_nums++
+			this.groupInfo = obj
+		},
+		cancelSave(){
+			let obj = this.groupInfo
+			obj.fav_nums--
+			this.groupInfo = obj
+		},
+		
 		gotoCollections(index){
 			
 			uni.navigateTo({
@@ -594,6 +607,10 @@ export default {
 			}
 			.heart{
 				margin: 50upx;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
 			}
 			
 		}

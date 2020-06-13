@@ -41,7 +41,7 @@
 											</view>
 										</view>
 										<view class="need-item-main-right">
-											<like-icon></like-icon>
+											<good-icon :needInfo="needInfo" @addGood="addGood(id)" @cancelGood="cancelGood(id)"></good-icon>
 											<text>{{ needInfo.fav_nums }}</text>
 										</view>
 									</view>
@@ -58,7 +58,7 @@
 <script>
 import lvSelect from '@/components/lv-select/lv-select.vue';
 import userTopBar from '@/components/activity/userTopBar.vue';
-import likeIcon from '@/components/common/commonIcon/likeIcon.vue';
+import goodIcon from '@/components/common/commonIcon/needGood.vue';
 
 export default {
 	watch: {
@@ -67,13 +67,13 @@ export default {
 	components: {
 		lvSelect,
 		userTopBar,
-		likeIcon
+		goodIcon
 	},
 	data() {
 		return {
 			needHeight: 0,
 			currentIndex: 0,
-			nav: ['众投活动', '梦想成真', '技能需求'],
+			nav: ['技能需求', '梦想成真', '众投活动'],
 
 			needList: [],
 			
@@ -117,6 +117,18 @@ export default {
 			let needList = await this.request(`v1/needWall/needList?currentPage=${1}&&category=${type}`);
 			this.needList = needList[1].data;
 			console.log(mm,needList);
+		},
+		addGood(id){
+			let obj = this.needList
+			
+			console.log(obj[id],id)
+			obj[id].fav_nums++
+			this.needList = obj
+		},
+		cancelGood(id){
+			let obj = this.needList
+			obj[id].fav_nums--
+			this.needList = obj
 		},
 		toUserDetail(uid){
 			uni.navigateTo({

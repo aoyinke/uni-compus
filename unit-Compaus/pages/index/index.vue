@@ -91,7 +91,7 @@ export default {
 			        return this.communityList
 			     },
 			set: function (v) {
-				console.log("setnewVal",v)
+				
 			    this.communityList = v
 			}
 		}
@@ -211,12 +211,11 @@ export default {
 		async _getResources(val){
 			let category = await this.currentCategory
 			let raw_community = await this.request(`v1/ActivityInfo/community?currentPage=1&category=${category}`)
-			console.log("raw_community",raw_community)
+			
 			switch(this.contentIndex){
 				case 0:
-					
 					this.communityListChanged = raw_community[1].data[0].activities
-					console.log("communityListChanged",this.communityList)
+					
 					break;
 				case 1:
 					this.communityListChanged = raw_community[1].data[1].dynamic

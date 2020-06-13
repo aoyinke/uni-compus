@@ -97,10 +97,10 @@ var components = {
     return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 270))
   },
   uniCountdown: function() {
-    return __webpack_require__.e(/*! import() | components/uni-countdown/uni-countdown */ "components/uni-countdown/uni-countdown").then(__webpack_require__.bind(null, /*! @/components/uni-countdown/uni-countdown.vue */ 403))
+    return __webpack_require__.e(/*! import() | components/uni-countdown/uni-countdown */ "components/uni-countdown/uni-countdown").then(__webpack_require__.bind(null, /*! @/components/uni-countdown/uni-countdown.vue */ 401))
   },
   ygcComment: function() {
-    return __webpack_require__.e(/*! import() | components/ygc-comment/ygc-comment */ "components/ygc-comment/ygc-comment").then(__webpack_require__.bind(null, /*! @/components/ygc-comment/ygc-comment.vue */ 410))
+    return __webpack_require__.e(/*! import() | components/ygc-comment/ygc-comment */ "components/ygc-comment/ygc-comment").then(__webpack_require__.bind(null, /*! @/components/ygc-comment/ygc-comment.vue */ 408))
   }
 }
 var render = function() {
@@ -140,7 +140,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 34));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var userTopBar = function userTopBar() {__webpack_require__.e(/*! require.ensure | components/activity/userTopBar */ "components/activity/userTopBar").then((function () {return resolve(__webpack_require__(/*! @/components/activity/userTopBar.vue */ 417));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var commentItem = function commentItem() {__webpack_require__.e(/*! require.ensure | components/commentBar/commentBar */ "components/commentBar/commentBar").then((function () {return resolve(__webpack_require__(/*! @/components/commentBar/commentBar.vue */ 424));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var mutation = function mutation() {__webpack_require__.e(/*! require.ensure | components/activity/mutation */ "components/activity/mutation").then((function () {return resolve(__webpack_require__(/*! @/components/activity/mutation.vue */ 431));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var ygcComment = function ygcComment() {__webpack_require__.e(/*! require.ensure | components/ygc-comment/ygc-comment */ "components/ygc-comment/ygc-comment").then((function () {return resolve(__webpack_require__(/*! @/components/ygc-comment/ygc-comment.vue */ 410));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCountdown = function uniCountdown() {__webpack_require__.e(/*! require.ensure | components/uni-countdown/uni-countdown */ "components/uni-countdown/uni-countdown").then((function () {return resolve(__webpack_require__(/*! @/components/uni-countdown/uni-countdown.vue */ 403));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 34));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var userTopBar = function userTopBar() {__webpack_require__.e(/*! require.ensure | components/activity/userTopBar */ "components/activity/userTopBar").then((function () {return resolve(__webpack_require__(/*! @/components/activity/userTopBar.vue */ 415));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var commentItem = function commentItem() {__webpack_require__.e(/*! require.ensure | components/commentBar/commentBar */ "components/commentBar/commentBar").then((function () {return resolve(__webpack_require__(/*! @/components/commentBar/commentBar.vue */ 422));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var mutation = function mutation() {__webpack_require__.e(/*! require.ensure | components/activity/mutation */ "components/activity/mutation").then((function () {return resolve(__webpack_require__(/*! @/components/activity/mutation.vue */ 429));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var ygcComment = function ygcComment() {__webpack_require__.e(/*! require.ensure | components/ygc-comment/ygc-comment */ "components/ygc-comment/ygc-comment").then((function () {return resolve(__webpack_require__(/*! @/components/ygc-comment/ygc-comment.vue */ 408));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCountdown = function uniCountdown() {__webpack_require__.e(/*! require.ensure | components/uni-countdown/uni-countdown */ "components/uni-countdown/uni-countdown").then((function () {return resolve(__webpack_require__(/*! @/components/uni-countdown/uni-countdown.vue */ 401));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
 
 
 
@@ -208,7 +210,9 @@ __webpack_require__.r(__webpack_exports__);
       maskState: 0,
       activityId: "",
       activityDetail: {},
-      comments: [] };
+      comments: [],
+      type: 0,
+      scrollHeight: 0 };
 
 
   },
@@ -225,10 +229,19 @@ __webpack_require__.r(__webpack_exports__);
     uniCountdown: uniCountdown },
 
   onLoad: function onLoad(option) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var activityId, type, raw_community, community;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-              activityId = option.activityId, type = option.type;_context.next = 3;return (
-                _this.request("v1/ActivityInfo/detail?activity_id=".concat(activityId, "&type=").concat(type)));case 3:raw_community = _context.sent;
+              activityId = option.activityId, type = option.type;
+              _this.activityId = activityId;
+              _this.type = type;_context.next = 5;return (
+                _this.request("v1/ActivityInfo/detail?activity_id=".concat(activityId, "&type=").concat(type)));case 5:raw_community = _context.sent;
               community = raw_community[1].data;
-              _this.activityDetail = community;case 6:case "end":return _context.stop();}}}, _callee);}))();
+              _this.activityDetail = community;
+
+              uni.getSystemInfo({
+                success: function success(res) {
+                  var height = res.windowHeight - uni.upx2px(120);
+                  _this.scrollHeight = height;
+                } });case 9:case "end":return _context.stop();}}}, _callee);}))();
+
 
 
   },
@@ -239,16 +252,26 @@ __webpack_require__.r(__webpack_exports__);
         animationType: 'pop-out' });
 
     },
-    pubComment: function pubComment(item) {
-      console.log(item);
-      this.maskState = 0;
+    pubComment: function pubComment(item) {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var content, res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (!
+                item) {_context2.next = 6;break;}
+                content = item;_context2.next = 4;return (
+                  _this2.request('v1/ActivityInfo/addComment', { activity_id: _this2.activityId, type: _this2.type, content: content }, 'POST'));case 4:res = _context2.sent;
+                if (res[1].statusCode.toString().startsWith('2')) {
+                  uni.showToast({
+                    title: "发表评论成功！" });
+
+                }case 6:
+
+
+
+                _this2.$refs.ygcComment.toggleMask();case 7:case "end":return _context2.stop();}}}, _callee2);}))();
     },
     gocomment: function gocomment() {
-      this.maskState = 1;
+      this.$refs.ygcComment.toggleMask('show');
 
     },
     cancelComment: function cancelComment() {
-      this.maskState = 0;
+      this.$refs.ygcComment.toggleMask();
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

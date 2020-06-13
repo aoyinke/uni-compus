@@ -11,18 +11,57 @@
 
 <script>
 	export default {
+		inject:['activity'],
 		data() {
 			return {
-				isGood:false
+				isGood:this.activity.item.like_status,
+				activity_id:this.activity.item.id,
+				contentIndex:this.$props.contentIndex
+				
 			};
 		},
 		methods:{
-			Good(){
+			async Good(){
 				this.isGood = true
+				this.$emit("addGood")
+				
+				let type = 100
+				switch(this.contentIndex){
+					case 0:
+						type = 100
+						break;
+					case 1:
+						type = 200
+						break;
+					case 2:
+						type = 400
+						break;
+				}
+				await this.request('v1/like/activity',{activity_id:this.activity_id,type},'POST')
+
+				
 			},
-			notgood(){
+			async notgood(){
 				this.isGood = false
+				this.$emit("cancelGood")
+				let type = 100
+				switch(this.contentIndex){
+					case 0:
+						type = 100
+						break
+					case 1:
+						type = 200
+						break
+					case 2:
+						type = 400
+						break
+				}
+				await this.request('v1/like/cancelActivty',{activity_id:this.activity_id,type},'POST')
+				
 			}
+		},
+		props:{
+			
 		}
 	}
 </script>

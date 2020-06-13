@@ -97,7 +97,7 @@ var components = {
     return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 270))
   },
   uniPopup: function() {
-    return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 445))
+    return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 443))
   },
   chunLeiModal: function() {
     return Promise.all(/*! import() | components/chunLei-modal/chunLei-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/chunLei-modal/chunLei-modal")]).then(__webpack_require__.bind(null, /*! @/components/chunLei-modal/chunLei-modal.vue */ 277))
@@ -179,11 +179,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 445));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 443));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   data: function data() {
     return {
-      needInfo: {},
+      needInfo: { category: "" },
       categoryList: ['众投活动', '大佬赞助', '技能需求'],
       showErr: false,
       errData: { title: '提示', content: '这是一个模态弹窗', cancelText: '取消', confirmColor: '#3CC51F' } };
@@ -222,9 +222,10 @@ var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);var uniPopu
       this.$refs.CategoryPopup.open();
     },
     finishChooseCategory: function finishChooseCategory(item) {
-      this.needInfo.category = item;
-      this.$set(this.needInfo, 'category');
-
+      console.log(item);
+      var obj = this.needInfo;
+      obj.category = item;
+      this.needInfo = obj;
       this.$refs.CategoryPopup.close();
     } },
 

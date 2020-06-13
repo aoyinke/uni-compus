@@ -61,7 +61,8 @@
 									</view>
 								</view>
 								<view class="heart">
-									<likeIcon></likeIcon>
+									<like-icon :groupInfo="groupInfo" @addSave="addSave" @cancelSave="cancelSave"></like-icon>
+									<text style="margin-top: -20rpx;">{{groupInfo.fav_nums}}</text>
 								</view>
 						</view>
 					</view>
@@ -221,7 +222,7 @@ import kpSwiper from '@/components/kp-swiper/index.vue';
 import {baseConfig,cooperateItems,collections} from '@/config/index.js';
 import KpIcon from "@/components/kp-icon";
 import KpTag from "@/components/kp-tag";
-import likeIcon from '@/components/common/commonIcon/likeIcon.vue';
+import likeIcon from '@/components/common/commonIcon/groupLike.vue';
 import kpBadge from '@/components/kp-badge/index.vue';
 import KpAvatar from '@/components/kp-avatar/index.vue';
 import msDropdownMenu from '@/components/ms-dropdown/dropdown-menu.vue';
@@ -296,7 +297,16 @@ export default {
 		
 	},
 	methods: {
-
+		addSave(){
+			let obj = this.groupInfo
+			obj.fav_nums++
+			this.groupInfo = obj
+		},
+		cancelSave(){
+			let obj = this.groupInfo
+			obj.fav_nums--
+			this.groupInfo = obj
+		},
 		onConfirm(item) {
 			
 		},
@@ -346,42 +356,7 @@ export default {
 		changePage(index){
 			this.tapIndex = index
 		},
-		handleAuthorLike() {
-		  const { liked, likeClick } = this.user;
-		  let system = uni.getSystemInfoSync();
-		  const { brand, model } = system;
-		  let value = `${brand}-${model}-${Date.now()}=> ${likeClick + 1} times`;
-		  uni.setStorage({
-		    key: `${config.key}_liked`,
-		    data: value,
-		    success: () => {
-		      // 轻触震动小交互
-		      uni.vibrateShort({
-		        success: () => {
-		          // console.log("Thanks for your like！");
-		        }
-		      });
-		      //#ifdef MP-WEIXIN
-		      // 针对微信平台的埋点
-		      wx.reportAnalytics("click_home_confession", {
-		        love_count: likeClick + 1
-		      });
-		      //#endif
-		    }
-		  });
-		  this.user = {
-		    liked: value,
-		    likeClick: likeClick + 1,
-		    likeAnimate: true
-		  };
-		  if (liked) {
-		    debounce(
-		      setTimeout(() => {
-		        this.user.likeAnimate = false;
-		      }, 5000)
-		    );
-		  }
-		},
+		
 		handleSwiperChange(e) {
 		  // https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html
 		  // source为touch时由用户触摸引起
@@ -624,6 +599,10 @@ export default {
 			}
 			.heart{
 				margin: 50upx;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
 			}
 			
 		}

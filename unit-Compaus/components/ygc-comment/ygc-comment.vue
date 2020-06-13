@@ -1,8 +1,8 @@
 <template>
-	<view class="mask" :class="commentState===0 ? 'none' : commentState===1 ? 'show' : ''" @click="toggleMask">
+	<view class="mask" :class="maskState===0 ? 'none' : maskState===1 ? 'show' : ''" @click="toggleMask">
 		<view class="mask-content"  @click.stop.prevent="stopPrevent">
 			<view class="mask-content-topbar">
-				<view class="left" @click="cancelComment">取消</view>
+				<view class="left" @click="toggleMask">取消</view>
 				<view class="right" @click="pubComment">发布</view>
 			</view>
 			<view class="mask-content-input">
@@ -25,15 +25,12 @@
 		props: {
 			placeholder: {
 				type: String
-			},
-			maskState:{
-				type:Number
 			}
 		},
 		data() {
 			return {
+				maskState: 0,
 				content: '',
-				commentState:this.maskState,
 				focus: false
 			};
 		},
@@ -47,23 +44,20 @@
 				let	state = type === 'show' ? 1 : 0;
 				// this.maskState = 2;
 				setTimeout(()=>{
-					this.commentState = state;
+					this.maskState = state;
 					// #ifdef APP-PLUS
 					// 安卓app软键盘自动弹出有点问题，暂时还没有很好的解决方案，所以就禁止安卓app软键盘自动弹出，如果哪位朋友有好的解决方案可以在评论里告诉大家参考一下
 					if (uni.getSystemInfoSync().platform == "ios") {
-						this.focus = this.commentState ? true : false;
+						this.focus = this.maskState ? true : false;
 					}
 					// #endif
 					// #ifndef APP-PLUS
-					this.focus = this.commentState ? true : false;
+					this.focus = this.maskState ? true : false;
 					// #endif
 				}, timer)
 			},
 			pubComment() {
 				this.$emit('pubComment',this.content);
-			},
-			cancelComment(){
-				this.$emit('cancelComment')
 			}
 		}
 	}

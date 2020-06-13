@@ -137,7 +137,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 34));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 300));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var userTopBar = function userTopBar() {__webpack_require__.e(/*! require.ensure | components/activity/userTopBar */ "components/activity/userTopBar").then((function () {return resolve(__webpack_require__(/*! @/components/activity/userTopBar.vue */ 417));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var likeIcon = function likeIcon() {__webpack_require__.e(/*! require.ensure | components/common/commonIcon/likeIcon */ "components/common/commonIcon/likeIcon").then((function () {return resolve(__webpack_require__(/*! @/components/common/commonIcon/likeIcon.vue */ 494));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 34));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 300));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var userTopBar = function userTopBar() {__webpack_require__.e(/*! require.ensure | components/activity/userTopBar */ "components/activity/userTopBar").then((function () {return resolve(__webpack_require__(/*! @/components/activity/userTopBar.vue */ 415));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var goodIcon = function goodIcon() {__webpack_require__.e(/*! require.ensure | components/common/commonIcon/needGood */ "components/common/commonIcon/needGood").then((function () {return resolve(__webpack_require__(/*! @/components/common/commonIcon/needGood.vue */ 733));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -206,13 +206,13 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     lvSelect: lvSelect,
     userTopBar: userTopBar,
-    likeIcon: likeIcon },
+    goodIcon: goodIcon },
 
   data: function data() {
     return {
       needHeight: 0,
       currentIndex: 0,
-      nav: ['众投活动', '梦想成真', '技能需求'],
+      nav: ['技能需求', '梦想成真', '众投活动'],
 
       needList: [],
 
@@ -256,6 +256,18 @@ __webpack_require__.r(__webpack_exports__);
                   _this.request("v1/needWall/needList?currentPage=".concat(1, "&&category=", type)));case 13:needList = _context.sent;
                 _this.needList = needList[1].data;
                 console.log(mm, needList);case 16:case "end":return _context.stop();}}}, _callee);}))();
+    },
+    addGood: function addGood(id) {
+      var obj = this.needList;
+
+      console.log(obj[id], id);
+      obj[id].fav_nums++;
+      this.needList = obj;
+    },
+    cancelGood: function cancelGood(id) {
+      var obj = this.needList;
+      obj[id].fav_nums--;
+      this.needList = obj;
     },
     toUserDetail: function toUserDetail(uid) {
       uni.navigateTo({

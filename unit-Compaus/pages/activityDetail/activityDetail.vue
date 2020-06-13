@@ -7,49 +7,51 @@
 				<uni-compus-button content="报名参加" background="#3498db" width="100"></uni-compus-button>
 			</view>
 		</view>
-		<user-top-bar :groupInfo="activityDetail.groupInfo" :activityStartTime="activityDetail.activityStartTime" ></user-top-bar>
-		<template v-if="activityDetail.imgs.length > 1">
-			<swiper :indicator-dots="true" class="swiper-box">
-				<swiper-item v-for="(img,index) in activityDetail.imgs" :key="index">
-					<view class="swiper-item">
-						<image :src="img" mode=""></image>
-					</image>
-					</view>
-				</swiper-item>
-			</swiper>
-		</template>
-		<template v-if="activityDetail.imgs.length == 1">
-			<view class="imgShow">
-				<image :src="activityDetail.imgs[0]"></image>
-			</view>
-		</template>
-		<template v-if="activityDetail.description">
-			<view class="textarea">
-				<text>{{activityDetail.description}}</text>
-			</view>
-		</template>
-		<view class="mutation">
-			<mutation></mutation>
-			<text class="hotNum">{{activityDetail.fav_nums}}热度</text>
-			<text class="commentNum">{{activityDetail.comments.length}}评论</text>
-		</view>
-
-
-		<view class="commentArea">
-			<text>热门评论</text>
-
-			<block v-for="(commentor,commentId) in activityDetail.comments" :key="commentId">
-				<comment-item :commentorAvatar="commentor.avatar" :commentorName="commentor.nickName" :commentContent="commentor.content"
-				 :likeNum="commentor.likeNum"></comment-item>
-			</block>
-		</view>
 		
-		<view class="commentBottom">
-			<view class="commentView" @click="gocomment">
-				<text>发布评论...</text>
-			</view>
-			<ygc-comment ref="ygcComment" :placeholder="'发布评论'" @pubComment="pubComment" :maskState="maskState" @cancelComment="cancelComment"></ygc-comment>
-		</view>
+			<scroll-view scroll-y="true" :style="{height:scrollHeight + 'px' }" class="list">
+				<user-top-bar :groupInfo="activityDetail.groupInfo" :activityStartTime="activityDetail.activityStartTime" ></user-top-bar>
+				<template v-if="activityDetail.imgs.length > 1">
+					<swiper :indicator-dots="true" class="swiper-box">
+						<swiper-item v-for="(img,index) in activityDetail.imgs" :key="index">
+							<view class="swiper-item">
+								<image :src="img" mode=""></image>
+							</image>
+							</view>
+						</swiper-item>
+					</swiper>
+				</template>
+				<template v-if="activityDetail.imgs.length == 1">
+					<view class="imgShow">
+						<image :src="activityDetail.imgs[0]"></image>
+					</view>
+				</template>
+				<template v-if="activityDetail.description">
+					<view class="textarea">
+						<text>{{activityDetail.description}}</text>
+					</view>
+				</template>
+				<view class="mutation">
+					<mutation :fav_nums="activityDetail.fav_nums"></mutation>
+				</view>
+				
+				
+				<view class="commentArea">
+					<text>热门评论</text>
+				
+					<block v-for="(commentor,commentId) in activityDetail.comments" :key="commentId">
+						<comment-item :commentorAvatar="commentor.avatar" :commentorName="commentor.nickName" :commentContent="commentor.content"
+						 :likeNum="commentor.likeNum"></comment-item>
+					</block>
+				</view>
+				
+				<view class="commentBottom">
+					<view class="commentView" @click="gocomment">
+						<text>发布评论...</text>
+					</view>
+					<ygc-comment ref="ygcComment" :placeholder="'发布评论'" @pubComment="pubComment" ></ygc-comment>
+				</view>
+			</scroll-view>
+		
 		
 	</view>
 </template>
@@ -66,7 +68,9 @@
 				maskState:0,
 				activityId: "",
 				activityDetail: {},
-				comments:[]
+				comments:[],
+				type:0,
+				scrollHeight:0
 				
 			};
 		},
@@ -84,9 +88,18 @@
 		},
 		async onLoad(option) {
 			let {activityId,type} = option
+			this.activityId = activityId
+			this.type = type
 			let raw_community = await this.request(`v1/ActivityInfo/detail?activity_id=${activityId}&type=${type}`)
 			let community = raw_community[1].data
 			this.activityDetail = community
+			
+			uni.getSystemInfo({
+				success: res => {
+					let height = res.windowHeight - uni.upx2px(120);
+					this.scrollHeight = height;
+				}
+			});
 			
 			
 		},
@@ -97,16 +110,26 @@
 					animationType: 'pop-out'
 				})
 			},
-			pubComment(item){
-				console.log(item)
-				this.maskState = 0
+			async pubComment(item){
+				if(item){
+					let content = item
+					let res = await this.request('v1/ActivityInfo/addComment',{activity_id:this.activityId,type:this.type,content},'POST')
+					if(res[1].statusCode.toString().startsWith('2')){
+						uni.showToast({
+							title:"发表评论成功！"
+						})
+					}
+				}
+				
+				
+				this.$refs.ygcComment.toggleMask()
 			},
 			gocomment(){
-				this.maskState = 1
+				this.$refs.ygcComment.toggleMask('show')
 
 			},
 			cancelComment(){
-				this.maskState = 0
+				this.$refs.ygcComment.toggleMask()
 			}
 		},
 	}

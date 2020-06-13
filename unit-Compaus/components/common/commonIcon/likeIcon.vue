@@ -11,30 +11,68 @@
 
 <script>
 	export default {
+		inject:['activity'],
 		data() {
 			return {
-				isStore: false,
-				count: 0
+				isStore: this.activity.item.save_status,
+				activity_id:this.activity.item.id,
+				contentIndex:this.$props.contentIndex,
+				groupId:this.activity.item.groupId,
+				
 			};
 		},
+		
 		methods: {
-			store() {
+			async store() {
 				this.isStore = true
-// 				uni.request({
-// 					url:'https://smileapi.lililili.net/v1/likes/1/
-// '
-// 				})
+				let type = 100
+				switch(this.contentIndex){
+					case 0:
+						type = 100
+						break;
+					case 1:
+						type = 200
+						break;
+					case 2:
+						type = 400
+						break;
+				}
+				
+				await this.request(this.likeUrl,{activity_id:this.activity_id,type,groupId:this.groupId},'POST')
+				
 
 			},
 			cancelStore(){
 				this.isStore = false
+				let type = 100
+				switch(this.contentIndex){
+					case 0:
+						type = 100
+						break;
+					case 1:
+						type = 200
+						break;
+					case 2:
+						type = 400
+						break;
+				}
+				
+				this.request(this.dislikeUrl,{activity_id:this.activity_id,type,groupId:this.groupId},'POST')
 			}
 
 		},
 		props: {
 			activityId: {
 				type: Number,
-
+				
+			},
+			likeUrl:{
+				type:String,
+				default:'v1/saved/saveCommunity'
+			},
+			dislikeUrl:{
+				type:String,
+				default:'v1/saved/cancelSavedCommunity'
 			}
 		}
 	}

@@ -278,6 +278,19 @@
 }
 .detail-header .userBar .heart.data-v-4931c734 {
   margin: 50rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 .naviBar.data-v-4931c734 {
   display: -webkit-box;

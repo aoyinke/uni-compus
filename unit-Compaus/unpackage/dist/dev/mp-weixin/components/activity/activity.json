@@ -1,8 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "user-top-bar": "/components/activity/userTopBar",
-    "mutation": "/components/activity/mutation",
-    "go-detail": "/components/uni-compus-components/uniCompus-goDetail"
+    "activity-item": "/components/activity/activity-item"
   }
 }

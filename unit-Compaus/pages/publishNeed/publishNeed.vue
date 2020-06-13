@@ -41,7 +41,7 @@ import { publishNeedValidator } from '@/utils/validator.js';
 export default {
 	data() {
 		return {
-			needInfo: {},
+			needInfo: {category:""},
 			categoryList: ['众投活动', '大佬赞助', '技能需求'],
 			showErr: false,
 			errData: { title: '提示', content: '这是一个模态弹窗', cancelText: '取消', confirmColor: '#3CC51F' }
@@ -80,9 +80,10 @@ export default {
 			this.$refs.CategoryPopup.open();
 		},
 		finishChooseCategory(item) {
-			this.needInfo.category = item;
-			this.$set(this.needInfo,'category')
-
+			console.log(item)
+			let obj = this.needInfo
+			obj.category = item;
+			this.needInfo = obj
 			this.$refs.CategoryPopup.close();
 		}
 	},
