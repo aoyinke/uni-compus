@@ -21,12 +21,12 @@
 
 		<view class="groupInfo">
 			<view class="groupInfo-prepare" @click="checkAlreadySave">
-				<text class="first">{{ user.groupInfo.prepare }}</text>
+				<text class="first">{{ savedNum }}</text>
 				<text class="second">已经收藏的小组</text>
 			</view>
 
 			<view class="groupInfo-already" @click="checkAlreadyJoin">
-				<text class="first">{{ user.groupInfo.already }}</text>
+				<text class="first">{{ joinedNum }}</text>
 				<text class="second">已经加入的小组</text>
 			</view>
 			<view class="groupInfo-recommend" @click="openFilter">
@@ -84,6 +84,7 @@ import msDropdownMenu from '@/components/ms-dropdown/dropdown-menu.vue';
 import msDropdownItem from '@/components/ms-dropdown/dropdown-item.vue';
 
 import MescrollMixin from "@/components/mescroll-uni/mescroll-mixins.js";
+import { SAVE } from '@/utils/config.js';
 export default {
 	mixins: [MescrollMixin], // 使用mixin
 	data() {
@@ -107,7 +108,9 @@ export default {
 						name: '吕星辰4'
 					}
 			],
-
+			
+			joinedNum:0,
+			savedNum:0,
 			// 下拉刷新的配置
 			downOption: {
 
@@ -117,22 +120,8 @@ export default {
 
 			},
 
-			list: [
-				{
-					text: "上海海事大学",
-					value: 0
-				},
-				{
-					text: "上海交通大学",
-					value: 1
-				},
-				{
-					text: "复旦大学",
-					value: 2
-				}
-			],
+			list: [],
 			school: "上海海事大学",
-
 			filters: [
 				{
 					title: '类别',
@@ -188,13 +177,13 @@ export default {
 		checkAlreadyJoin() {
 			let item = { type: 2 };
 			uni.navigateTo({
-				url: `/pages/mySave/mySave?item=${encodeURIComponent(JSON.stringify(item))}`
+				url: `/pages/mySave/mySave?pageId=${SAVE.JOINEDGROUP}`
 			});
 		},
 		checkAlreadySave() {
 			let item = { type: 1 };
 			uni.navigateTo({
-				url: `/pages/mySave/mySave?item=${encodeURIComponent(JSON.stringify(item))}`
+				url: `/pages/mySave/mySave?pageId=${SAVE.SAVEDGROUP}`
 			});
 		},
 		handleSearch() {
@@ -227,6 +216,18 @@ export default {
 				this.swiperHeight = height;
 			}
 		});
+		this.request('v1/group/findUserGroup').then(res=>{
+			let userGroupInfo = res[1].data
+			console.log(userGroupInfo)
+			this.joinedNum = userGroupInfo.length
+		})
+		
+		this.request('v1/like/savedGroup').then(res=>{
+			this.savedNum = res[1].data
+			console.log(res[1].data)
+			
+		})
+		
 		
 		let colleges = await this.request('v1/group/findGroupColleges')
 		colleges = [].concat(colleges[1].data)

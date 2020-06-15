@@ -16,9 +16,9 @@
 						<view class="swiper-item">
 							<block v-for="(part, key, index) in groupMembers" :key="index">
 								<view class="uni-list-cell uni-list-cell-pd">
-									<view class="uni-list-cell-db"><input type="text" :value="key" /></view>
+									<view class="uni-list-cell-db"><input type="text" v-model="key" @input="changeDepartment" @blur="confirmChangeDeartment" @click="getOldKey(key)"/></view>
 
-									<view class="manageMember" @click="changejoinedPeople($event, groupMembers[key])"><text class="eosfont">&#xe715;</text></view>
+									<view class="manageMember" @click="changejoinedPeople($event, groupMembers[key],key)"><text class="eosfont">&#xe715;</text></view>
 								</view>
 								<view class="partMembers">
 									<block v-for="(partMember, id) in groupMembers[key]" :key="id">
@@ -36,26 +36,30 @@
 					<swiper-item class="apply">
 						<view class="swiper-item">
 							<view class="applicant-list">
-								<view class="applicant-list-item" v-for="(applicant, idx) in applicantList" :key="idx">
-									<view class="applicant-list-item-left">
-										<kp-avatar :image="applicant.avatar" size="large" mode="aspectFill" @tap="handleOpenCommunity(row)" />
-										<view class="applicant-list-item-left-info">
-											<view class="applicant-list-item-left-info-name">
-												<text>{{ applicant.name }}</text>
-											</view>
-											<view class="applicant-list-item-left-info-description">
-												<text>{{ applicant.description }}</text>
+								<block v-for="(applicant, idx) in applicantList" :key="idx">
+									<view class="applicant-list-item" >
+										<view class="applicant-list-item-left">
+											<kp-avatar :image="applicant.avatar" size="large" mode="aspectFill" @tap="handleOpenCommunity(row)" />
+											<view class="applicant-list-item-left-info">
+												<view class="applicant-list-item-left-info-name">
+													<text>{{ applicant.nickname }}</text>
+												</view>
 											</view>
 										</view>
-									</view>
-									<view class="applicant-list-item-right">
-										<view class="applicant-list-item-right-aprove">
-											<uni-compus-button background="#7ed6df" content="通过" width="100"></uni-compus-button>
-										</view>
+										<view class="applicant-list-item-right">
+											<view class="applicant-list-item-right-aprove">
+												<uni-compus-button background="#7ed6df" content="通过" width="100" @click.native="approveJoin"></uni-compus-button>
+											</view>
 
-										<text class="eosfont">&#xe60f;</text>
+											<text class="eosfont" @click="declineJoin">&#xe60f;</text>
+										</view>
 									</view>
-								</view>
+									<view class="applicant-reason">
+										
+										<text>{{applicant.reason}}</text>
+										
+									</view>
+							</block>
 							</view>
 						</view>
 					</swiper-item>
@@ -124,7 +128,7 @@
 					</view>
 				</view>
 				<uni-compus-button width="100" content="确认修改" @click.native="confirmChangeMemberInfo" background="#fbc531"></uni-compus-button>
-				<uni-compus-button width="100" content="确认修改" @click.native="removeFromGroup" background="#eb4d4b"></uni-compus-button>
+				<uni-compus-button width="100" content="移出小组" @click.native="removeFromGroup" background="#eb4d4b"></uni-compus-button>
 			</slot>
 		</uni-popup>
 		<w-picker
@@ -151,17 +155,26 @@ export default {
 		let {groupId} = item
 		let raw_members = await this.request('v1/group/getGroupByMember?groupId=' + groupId)
 		this.groupMembers = raw_members[1].data
-		console.log(raw_members)
+		console.log("raw_members",raw_members)
 		let raw_applicants = await this.request('v1/group/getApplicantList?groupId=' + groupId)
-		console.log(raw_applicants)
+		console.log("raw_applicants",raw_applicants)
 	},
-	
+	watch:{
+		groupMembers:function(oldValue,newValue){
+			Object.keys(newValue).forEach(key=>{
+				let members = newValue[key]
+				members.forEach()
+			})
+		},
+	},
 	data() {
 		return {
 			member:{},
 			authList:[{auth:'社长权限',value:16},{auth:'部长权限',value:8},{auth:'成员权限',value:4}],
 			defaultProps:{"label":"auth","value":"value"},
-			
+			currentAdujstDepatment:"",
+			oldKey:"",
+			newKey:"",
 			applicantList: [{ avatar: 'https://lz.sinaimg.cn/osj1080/967d9727ly3gd46iout75j20vz1kw4qp.jpg', name: 'paradiseButcher', description: '最牛逼的人' }],
 			currentIndex: 0,
 			scrollHeight: '500rpx',
@@ -199,7 +212,42 @@ export default {
 			
 		},
 		submitChangeMember(){
+			console.log(this.groupMembers)
+			this.request('v1/group/updateMember',this.groupMembers,'POST').then(res=>{
+				console.log(res)
+			})
+		},
+		
+		approveJoin(info){
 			
+		},
+		declineJoin(info){
+			
+		},
+		
+		changeDepartment(e){
+			
+			
+			this.newKey = e.detail.value
+			
+		},
+		confirmChangeDeartment(){
+			let oldKey = this.oldKey
+			let newKey = this.newKey
+			console.log(oldKey)
+			uni.showModal({
+				title:"修改部门名称",
+				content:"确认修改？",
+				success: () => {
+					this.groupMembers[newKey] = this.groupMembers[oldKey]
+					delete this.groupMembers[oldKey]
+					console.log(this.groupMembers)
+				}
+			})
+			
+		},
+		getOldKey(key){
+			this.oldKey = key
 		},
 		updateMemberAuth(){
 			this.$refs.selector.show()
@@ -224,16 +272,19 @@ export default {
 		
 		
 		removeJoined(index) {
-			this.joinedPeopleList.splice(index, 1);
+			this.otherPeople = [].concat(this.otherPeople,this.joinedPeopleList.splice(index, 1))
 		},
-		changejoinedPeople(e, part) {
+		changejoinedPeople(e, part,department) {
 			this.joinedPeopleList = part;
 			console.log(e);
 			console.log(part);
+			console.log(department)
+			this.currentAdujstDepatment = department
 			this.$refs.popup.open();
 		},
 		addJoinedMember(index, member) {
 			this.otherPeople.splice(index, 1);
+			member.department = this.currentAdujstDepatment
 			this.joinedPeopleList.push(member);
 		},
 		handleSearch() {
@@ -285,12 +336,18 @@ export default {
 		}
 	}
 }
+.applicant-reason{
+	padding: 20rpx;
+	box-shadow: 3px 2px 2px 2px #EEEEEE;
+	
+}
 .applicant-list {
 	&-item {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 20rpx;
+		border-bottom:1px solid #EEEEEE;
 		&-left {
 			display: flex;
 			&-info {
@@ -304,9 +361,6 @@ export default {
 						weight: 500;
 						size: 32rpx;
 					}
-				}
-				&-description {
-					color: #dcdde1;
 				}
 			}
 		}

@@ -264,15 +264,18 @@ export default {
 						if(this.info.videoSrc){
 							
 							let res = await this.uploadFile('v1/uploadFiles/video',this.info.videoSrc)	
-							console.log(res[1].data)
+							
 							videoSrc = JSON.parse(res[1].data).videoPath
 							this.info.videoSrc = videoSrc
 						}
 						let activityInfo = await this.request('v1/ActivityInfo/upLoadActivity',this.info,'POST')
 						activityInfo = activityInfo[1].data
 						console.log("activityInfo",activityInfo)
-						this.publishImgList.forEach(async item=>{
-							await this.uploadFile('v1/uploadFiles/files',item,{activity_id:activityInfo.activity_id,type:activityInfo.type})
+						this.publishImgList.forEach(item=>{
+							setTimeout(async ()=>{
+								await this.uploadFile('v1/uploadFiles/files',item,{activity_id:activityInfo.activity_id,type:activityInfo.type})
+							},1000)
+							
 						})
 						
 						uni.showToast({

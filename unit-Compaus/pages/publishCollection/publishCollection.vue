@@ -10,24 +10,24 @@
 			
 			<view class="uni-list-cell uni-list-cell-pd">
 				<view class="uni-list-cell-db" style="font-weight: 500;">标题</view>
-				<input type="text" v-model="title" class="uni-input" style="text-align: right;" placeholder="输入标题" />
+				<input type="text" v-model="info.title" class="uni-input" style="text-align: right;" placeholder="输入标题" />
 			</view>
 			
 			<view class="uni-list-cell uni-list-cell-pd" @click="chooseCategory">
 				<view class="uni-list-cell-db" style="font-weight: 500;">选择类别吧</view>
-				<text>{{ choosedCategory }}</text>
+				<text>{{ info.choosedCategory }}</text>
 			</view>
-			<view class="uni-list-cell uni-list-cell-pd" @click="chooseCategory">
+			<view class="uni-list-cell uni-list-cell-pd">
 				<view class="uni-list-cell-db" style="font-weight: 500;">合集描述</view>
 			</view>
 			<view class="uni-textarea">
-				<textarea v-model="description" placeholder="合集描述" style="height: 400upx;" />
+				<textarea v-model="info.description" placeholder="合集描述" style="height: 400upx;" />
 			</view>
-			<view class="uni-list-cell uni-list-cell-pd" @click="chooseCategory">
+			<view class="uni-list-cell uni-list-cell-pd" >
 				<view class="uni-list-cell-db" style="font-weight: 500;">正文内容</view>
 			</view>
 			<view class="uni-textarea">
-				<textarea v-model="description" placeholder="内容" style="height: 400upx;" />
+				<textarea v-model="info.content" placeholder="内容" style="height: 400upx;" />
 			</view>
 
 			
@@ -79,11 +79,52 @@ export default {
 	computed: {
 		...mapState(['group'])
 	},
+	async onLoad(item){
+		let {groupId} = item
+		
+	},
 	data() {
 		return {
 			info: {},
-			categoryList: [{category:'舞蹈',en:"dance"}, {category:'绘画',en:"draw"},
-			{category:'编程',en:"programming"},{category:'文学',en:"literature"},{category:'英语',en:"English"} ],
+			categoryList: [
+			
+				{
+					category: '志愿服务',
+					id: 'wudao'
+				},
+				{
+					category: '舞蹈',
+					id: 'wudao'
+				},
+				{
+					category: '学生组织',
+					id: 'dianjing'
+				},
+				{
+					category: '辩论类',
+					id: 'shufa'
+				},
+				{
+					category: '英语类',
+					id: 'dianying'
+				},
+				{
+					category: '体育类',
+					id: 'biancheng'
+				},
+				{
+					category: '电竞类',
+					id: 'biancheng'
+				},
+				{
+					category: '娱乐类',
+					id: 'biancheng'
+				},
+				{
+					category: '文化交流',
+					id: 'biancheng'
+				}
+			],
 			choosedCategory: '',
 			scrollHeight: 500,
 			userChoosedGroup: {},
@@ -110,17 +151,14 @@ export default {
 		};
 	},
 	methods: {
-		...mapMutations({
-			addActivity: 'ADD_ACTIVITYINFO'
-		}),
+
 		sendActivity() {
-			this.info.title = this.title;
-			this.info.description = this.description;
+			
 			this.info.img = this.publishImgList;
-			this.info.videoSrc = this.videoSrc;
-			this.info.groupID = this.groupID;
+			
+			
 			console.log(this.info);
-			this.addActivity(this.info);
+			
 			uni.showToast({
 				title:"提交成功"
 			})
@@ -129,8 +167,10 @@ export default {
 			this.$refs.CategoryPopup.open();
 		},
 		finishChooseCategory(item) {
-			this.choosedCategory = item.category;
-			this.info.category = item.en
+			let obj = this.info
+			console.log(item)
+			obj.choosedCategory = item.category;
+			this.info = obj
 			this.$refs.CategoryPopup.close();
 		},
 		chooseGroup(id, group) {
@@ -151,9 +191,7 @@ export default {
 		cancelChoose(index) {
 			this.publishImgList.splice(index, 1);
 		},
-		isTitle(e) {
-			this.needTitle = e.detail.value;
-		},
+
 		chooseType(index) {
 			if (index == 0) {
 				this.info.type = 100;
@@ -171,15 +209,7 @@ export default {
 				animationType: 'pop-out'
 			});
 		},
-		showGroup(e) {
-			let needGroup = e.target.value;
-			if (needGroup) {
-				this.$refs.popup.open();
-			} else {
-				this.groupID = '';
-				this.userChoosedGroup = {};
-			}
-		},
+
 		chooseImg() {
 			let self = this;
 			uni.chooseImage({
@@ -192,11 +222,6 @@ export default {
 				}
 			});
 		}
-	},
-	async created() {
-		let groupList = await this.request('groups/');
-		this.groupList = groupList[1].data.data.records;
-		console.log(this.group);
 	},
 	components: {
 		uniCompusButton,

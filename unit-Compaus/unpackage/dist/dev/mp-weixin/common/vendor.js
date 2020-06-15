@@ -757,7 +757,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1915,7 +1915,7 @@ var debugs = {};
 var debugEnviron;
 exports.debuglog = function(set) {
   if (isUndefined(debugEnviron))
-    debugEnviron = Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).NODE_DEBUG || '';
+    debugEnviron = Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).NODE_DEBUG || '';
   set = set.toUpperCase();
   if (!debugs[set]) {
     if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
@@ -2927,7 +2927,7 @@ if (typeof Object.create === 'function') {
 
 /***/ }),
 
-/***/ 151:
+/***/ 150:
 /*!*******************************************************************************************!*\
   !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/config/index.js ***!
   \*******************************************************************************************/
@@ -9748,7 +9748,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -9769,14 +9769,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9852,7 +9852,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -10792,7 +10792,7 @@ TabMask;exports.default = _default;
 
 /***/ }),
 
-/***/ 289:
+/***/ 288:
 /*!*******************************************************************************************************************!*\
   !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/components/mescroll-uni/mescroll-uni.js ***!
   \*******************************************************************************************************************/
@@ -11666,7 +11666,7 @@ MeScroll.prototype.setBounce = function (isBounce) {
 
 /***/ }),
 
-/***/ 290:
+/***/ 289:
 /*!**************************************************************************************************************************!*\
   !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/components/mescroll-uni/mescroll-uni-option.js ***!
   \**************************************************************************************************************************/
@@ -11739,6 +11739,169 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+
+/***/ 330:
+/*!******************************************************************************************!*\
+  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/utils/index.js ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.handleDateFactory = handleDateFactory;exports.handleToString = handleToString;exports.safeJsonStringInBrowser = safeJsonStringInBrowser;exports.throttle = throttle;exports.debounce = debounce;exports.deepClone = deepClone;exports.isUrl = isUrl;exports.isNumber = isNumber;exports.getTransformNumber = getTransformNumber;exports.getCurrentDate = getCurrentDate; /*
+                                                                                                                                                                                                                                                                                                                                                                                                                                                             * Copyright (c) 2019-Now Asako Studio. All rights reseved.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @fileoverview | 常用工具函数 utils
+                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @Author: mukuashi | mukuashi@icloud.com
+                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @version 0.1 | 2019-07-08 // Initial version.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @Date:   2019-07-08 10:20:27
+                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @Last Modified by: mukuashi
+                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @Last Modified time: 2020-03-26 22:53:00
+                                                                                                                                                                                                                                                                                                                                                                                                                                                             */
+function handleDateFactory(date) {
+  if (!date) return;
+  var today = new Date();
+  var mdate = new Date(date);
+  var intervalTime = today.getTime() - mdate.getTime();
+  var hours = parseInt(intervalTime / parseInt(1000 * 60 * 60));
+  if (hours > 24) {
+    return date.split("T")[0].replace(/\-/g, "/");
+  } else {
+    intervalTime = intervalTime % parseInt(1000 * 60 * 60);
+    var minutes = parseInt(intervalTime / parseInt(1000 * 60));
+    if (hours < 1) {
+      return "".concat(minutes, "\u5206\u949F\u524D");
+    } else {
+      return "".concat(hours, "\u5C0F\u65F6\u524D");
+    }
+  }
+}
+function handleToString(val) {
+  if (val) {
+    return val.toString();
+  } else {
+    return "";
+  }
+}
+function safeJsonStringInBrowser(str, removed) {
+  //四个特殊换行符会导致浏览器json解析出错，需要处理。see this: http://timelessrepo.com/json-isnt-a-javascript-subset
+  //如果 removed 为true，则将特殊字符删掉
+  return str.
+  replace(/\u2028/g, removed ? "" : "\\u2028").
+  replace(/\u2029/g, removed ? "" : "\\u2029").
+  replace(/\u000A/gi, removed ? "" : "\\n").
+  replace(/\u000D/gi, removed ? "" : "\\r");
+}
+/**
+   * @date 2019-09-17
+   * @desc 节流函数
+   * @param {Function} callBack
+   * @return {Function} fn
+   * @author   mukuashi | mukuashi@icloud.com
+   */
+function throttle(fn) {var delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
+  var prev = new Date();
+  return function () {for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {args[_key] = arguments[_key];}
+    var now = new Date();
+    if (prev && now < prev + delay) {
+      clearTimeout(timer);
+      // 保证在当前时间区间结束后，再执行一次 fn
+      timer = setTimeout(function () {
+        prev = now;
+        fn.apply(context, args);
+      }, delay);
+    } else {
+      prev = now;
+      fn.apply(context, args);
+    }
+  };
+}
+/**
+   * @date 2019-09-17
+   * @desc 防抖函数
+   * @param {Function} callBack
+   * @return {Function} fn
+   * @author   mukuashi | mukuashi@icloud.com
+   */
+function debounce(fn) {var delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
+  // 定时器，用来 setTimeout
+  var timer;
+  return function () {for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {args[_key2] = arguments[_key2];}
+    // 保存函数调用时的上下文和参数，传递给 fn
+    var context = this;
+    // 每次这个返回的函数被调用，就清除定时器，以保证不执行 fn
+    clearTimeout(timer);
+    // 当返回的函数被最后一次调用后（也就是用户停止了某个连续的操作），
+    // 再过 delay 毫秒就执行 fn
+    timer = setTimeout(function () {
+      fn.apply(context, args);
+    }, delay);
+  };
+}
+/**
+   * @date 2019-04-19
+   * @desc deeply copy object or arrays with nested attributes
+   * @param  {any} obj
+   * @return {any} a depply copied replica of arguement passed
+   * @author   mukuashi | mukuashi@icloud.com
+   */
+function deepClone(obj) {
+  if (!obj || typeof obj !== "object") {
+    return obj;
+  }
+  // 根据obj的类型判断是新建一个数组还是对象
+  var newObj = obj instanceof Array ? [] : {};
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      newObj[key] =
+      typeof obj[key] === "object" ? deepClone(obj[key]) : obj[key];
+    }
+  }
+  return newObj;
+}
+/**
+   * @date 2019-12-19
+   * @desc 正则匹配一段url
+   * @param  {any} string
+   * @return {any} Boolean
+   * @author   mukuashi | mukuashi@icloud.com
+   */
+function isUrl(param) {
+  var reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/g;
+  return reg.test(param);
+}
+/**
+   * @date 2020-01-05
+   * @desc 判断某字符是否为number类型
+   * @param  {any} string、number
+   * @return {any} Boolean
+   * @author   mukuashi | mukuashi@icloud.com
+   */
+function isNumber(param) {
+  return typeof param === "number" && isFinite(param);
+}
+// number单位数转换两位数
+function getTransformNumber(value) {
+  return value < 10 ? "0".concat(value) : value;
+}
+/**
+   * @date     2019-05-15
+   * @time     时间戳毫秒数
+   * @desc     获取日期，如20180705或指定格式间隔符
+   * @returns  String
+   * @author   mukuashi | mukuashi@icloud.com
+   */
+function getCurrentDate(time) {var insert = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+  var date = time ? new Date(time) : new Date(),
+  year = date.getFullYear(),
+  month = getTransformNumber(date.getMonth() + 1),
+  day = getTransformNumber(date.getDate()),
+  week = ["末", "一", "二", "三", "四", "五", "六"][date.getDay()];
+  return insert ?
+  [year, month, day, week].join(insert) :
+  [year, month, day, week];
+}
 
 /***/ }),
 
@@ -13108,169 +13271,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 64:
-/*!******************************************************************************************!*\
-  !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/utils/index.js ***!
-  \******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.handleDateFactory = handleDateFactory;exports.handleToString = handleToString;exports.safeJsonStringInBrowser = safeJsonStringInBrowser;exports.throttle = throttle;exports.debounce = debounce;exports.deepClone = deepClone;exports.isUrl = isUrl;exports.isNumber = isNumber;exports.getTransformNumber = getTransformNumber;exports.getCurrentDate = getCurrentDate; /*
-                                                                                                                                                                                                                                                                                                                                                                                                                                                             * Copyright (c) 2019-Now Asako Studio. All rights reseved.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @fileoverview | 常用工具函数 utils
-                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @Author: mukuashi | mukuashi@icloud.com
-                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @version 0.1 | 2019-07-08 // Initial version.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @Date:   2019-07-08 10:20:27
-                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @Last Modified by: mukuashi
-                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @Last Modified time: 2020-03-26 22:53:00
-                                                                                                                                                                                                                                                                                                                                                                                                                                                             */
-function handleDateFactory(date) {
-  if (!date) return;
-  var today = new Date();
-  var mdate = new Date(date);
-  var intervalTime = today.getTime() - mdate.getTime();
-  var hours = parseInt(intervalTime / parseInt(1000 * 60 * 60));
-  if (hours > 24) {
-    return date.split("T")[0].replace(/\-/g, "/");
-  } else {
-    intervalTime = intervalTime % parseInt(1000 * 60 * 60);
-    var minutes = parseInt(intervalTime / parseInt(1000 * 60));
-    if (hours < 1) {
-      return "".concat(minutes, "\u5206\u949F\u524D");
-    } else {
-      return "".concat(hours, "\u5C0F\u65F6\u524D");
-    }
-  }
-}
-function handleToString(val) {
-  if (val) {
-    return val.toString();
-  } else {
-    return "";
-  }
-}
-function safeJsonStringInBrowser(str, removed) {
-  //四个特殊换行符会导致浏览器json解析出错，需要处理。see this: http://timelessrepo.com/json-isnt-a-javascript-subset
-  //如果 removed 为true，则将特殊字符删掉
-  return str.
-  replace(/\u2028/g, removed ? "" : "\\u2028").
-  replace(/\u2029/g, removed ? "" : "\\u2029").
-  replace(/\u000A/gi, removed ? "" : "\\n").
-  replace(/\u000D/gi, removed ? "" : "\\r");
-}
-/**
-   * @date 2019-09-17
-   * @desc 节流函数
-   * @param {Function} callBack
-   * @return {Function} fn
-   * @author   mukuashi | mukuashi@icloud.com
-   */
-function throttle(fn) {var delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
-  var prev = new Date();
-  return function () {for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {args[_key] = arguments[_key];}
-    var now = new Date();
-    if (prev && now < prev + delay) {
-      clearTimeout(timer);
-      // 保证在当前时间区间结束后，再执行一次 fn
-      timer = setTimeout(function () {
-        prev = now;
-        fn.apply(context, args);
-      }, delay);
-    } else {
-      prev = now;
-      fn.apply(context, args);
-    }
-  };
-}
-/**
-   * @date 2019-09-17
-   * @desc 防抖函数
-   * @param {Function} callBack
-   * @return {Function} fn
-   * @author   mukuashi | mukuashi@icloud.com
-   */
-function debounce(fn) {var delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
-  // 定时器，用来 setTimeout
-  var timer;
-  return function () {for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {args[_key2] = arguments[_key2];}
-    // 保存函数调用时的上下文和参数，传递给 fn
-    var context = this;
-    // 每次这个返回的函数被调用，就清除定时器，以保证不执行 fn
-    clearTimeout(timer);
-    // 当返回的函数被最后一次调用后（也就是用户停止了某个连续的操作），
-    // 再过 delay 毫秒就执行 fn
-    timer = setTimeout(function () {
-      fn.apply(context, args);
-    }, delay);
-  };
-}
-/**
-   * @date 2019-04-19
-   * @desc deeply copy object or arrays with nested attributes
-   * @param  {any} obj
-   * @return {any} a depply copied replica of arguement passed
-   * @author   mukuashi | mukuashi@icloud.com
-   */
-function deepClone(obj) {
-  if (!obj || typeof obj !== "object") {
-    return obj;
-  }
-  // 根据obj的类型判断是新建一个数组还是对象
-  var newObj = obj instanceof Array ? [] : {};
-  for (var key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      newObj[key] =
-      typeof obj[key] === "object" ? deepClone(obj[key]) : obj[key];
-    }
-  }
-  return newObj;
-}
-/**
-   * @date 2019-12-19
-   * @desc 正则匹配一段url
-   * @param  {any} string
-   * @return {any} Boolean
-   * @author   mukuashi | mukuashi@icloud.com
-   */
-function isUrl(param) {
-  var reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/g;
-  return reg.test(param);
-}
-/**
-   * @date 2020-01-05
-   * @desc 判断某字符是否为number类型
-   * @param  {any} string、number
-   * @return {any} Boolean
-   * @author   mukuashi | mukuashi@icloud.com
-   */
-function isNumber(param) {
-  return typeof param === "number" && isFinite(param);
-}
-// number单位数转换两位数
-function getTransformNumber(value) {
-  return value < 10 ? "0".concat(value) : value;
-}
-/**
-   * @date     2019-05-15
-   * @time     时间戳毫秒数
-   * @desc     获取日期，如20180705或指定格式间隔符
-   * @returns  String
-   * @author   mukuashi | mukuashi@icloud.com
-   */
-function getCurrentDate(time) {var insert = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
-  var date = time ? new Date(time) : new Date(),
-  year = date.getFullYear(),
-  month = getTransformNumber(date.getMonth() + 1),
-  day = getTransformNumber(date.getDate()),
-  week = ["末", "一", "二", "三", "四", "五", "六"][date.getDay()];
-  return insert ?
-  [year, month, day, week].join(insert) :
-  [year, month, day, week];
-}
-
-/***/ }),
-
 /***/ 8:
 /*!*****************************************************************************************!*\
   !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/utils/util.js ***!
@@ -13381,7 +13381,7 @@ function debounce(fn) {var delay = arguments.length > 1 && arguments[1] !== unde
 
 /***/ }),
 
-/***/ 89:
+/***/ 88:
 /*!***********************************************************************************************************************!*\
   !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/js_sdk/gsq-image-tools/image-tools/index.js ***!
   \***********************************************************************************************************************/
@@ -13544,13 +13544,19 @@ function base64ToPath(base64) {
   !*** C:/Users/DELL/Desktop/winterHoliady_pratise/uni-compus/unit-Compaus/utils/config.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+module.exports = {
   host: "http://localhost",
   port: "3000",
-  fileHost: "http://localhost:3000/" };exports.default = _default;
+  fileHost: "http://localhost:3000/",
+  SAVE: {
+    SAVEDGROUP: 1,
+    JOINEDGROUP: 2,
+    SAVEDACTIVITY: 3,
+    MYCONCERNER: 4,
+    CONCERNED: 5,
+    MYNEED: 6 } };
 
 /***/ })
 

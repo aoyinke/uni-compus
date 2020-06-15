@@ -1,18 +1,19 @@
 <template>
 	<view class="container">
 		<uni-nav-bar title="我"></uni-nav-bar>
-		
-		
+
 		<view class="unLogin" v-if="!user.userInfo.hasLogin">
 			<view class="unLogin-item">
 				<image src="../../static/logo.jpg" mode=""></image>
-				<text>你是一只还没有登录的松鼠</text> 
+				<text>你是一只还没有登录的松鼠</text>
 			</view>
-			<view style="width: 100%;"><uni-compus-button open-type="getUserInfo" content="立即登录" background="#fbc531" @click.native="login" width="100"></uni-compus-button></view>
+			<view style="width: 100%;">
+				<uni-compus-button open-type="getUserInfo" content="立即登录" background="#fbc531" @click.native="login" width="100"></uni-compus-button>
+			</view>
 		</view>
 		<template v-if="user.userInfo.hasLogin">
 			<view class="header" @click="toDetail">
-				<view class="header-left"><kp-avatar :image="user.userInfo.avatar" size="large" mode=""  /></view>
+				<view class="header-left"><kp-avatar :image="user.userInfo.avatar" size="large" mode="" /></view>
 				<view class="header-center">
 					<view class="header-center-userName">
 						<text>{{ user.userInfo.nickName }}</text>
@@ -35,13 +36,13 @@
 						<text class="userActivityNum-detail-right">我的粉丝</text>
 					</view>
 					<view class="userActivityNum-detail">
-						<text class="userActivityNum-detail-first">{{ userActivityInfo.userActivityNum.num3 }}</text>
+						<text class="userActivityNum-detail-first">{{ user.userInfo.likeNums }}</text>
 						<text class="userActivityNum-detail-right">我的获赞</text>
 					</view>
 				</view>
 				<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
 					<swiper-item v-for="(item, idx) in advertisements" :key="idx">
-						<view class="swiper-item"><image :src="item" mode=""></image></view>
+						<view class="swiper-item"><image :src="item" mode="widthFix"></image></view>
 					</swiper-item>
 				</swiper>
 				<view class="navBar">
@@ -59,15 +60,22 @@
 						</view>
 						<view class="navBar-detail"><text class="eosfont">&#xe7df;</text></view>
 					</view>
-					<go-detail detailUrl="/pages/mySave/mySave" :item="item[0]">
-						<view class="userHis">
-							<view class="navBar-left">
-								<image src="../../static/self/eye.png" mode="" class="navIcon"></image>
-								<text>我的收藏</text>
-							</view>
-							<view class="navBar-detail"><text class="eosfont">&#xe7df;</text></view>
+
+					<view class="userHis" @click="toUserSavedCommunity">
+						<view class="navBar-left">
+							<image src="../../static/self/eye.png" mode="" class="navIcon"></image>
+							<text>我的收藏</text>
 						</view>
-					</go-detail>
+						<view class="navBar-detail"><text class="eosfont">&#xe7df;</text></view>
+					</view>
+					<view class="userGroup" @click="toNeedSave">
+						<view class="navBar-left">
+							<image src="../../static/self/partner.png" mode="" class="navIcon"></image>
+							<text>我的需求</text>
+						</view>
+						<view class="navBar-detail"><text class="eosfont">&#xe7df;</text></view>
+					</view>
+					
 					<goDetail detailUrl="/pages/feedBack/feedBack">
 						<view class="userConcern">
 							<view class="navBar-left">
@@ -77,13 +85,6 @@
 							<view class="navBar-detail"><text class="eosfont">&#xe7df;</text></view>
 						</view>
 					</goDetail>
-					<view class="userGroup">
-						<view class="navBar-left">
-							<image src="../../static/self/partner.png" mode="" class="navIcon"></image>
-							<text>加入我们</text>
-						</view>
-						<view class="navBar-detail"><text class="eosfont">&#xe7df;</text></view>
-					</view>
 					
 				</view>
 			</view>
@@ -94,12 +95,12 @@
 <script>
 import KpAvatar from '@/components/kp-avatar/index.vue';
 import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue';
-import { mapState,mapMutations } from 'vuex';
-
-const util = require('util')
+import { mapState, mapMutations } from 'vuex';
+import { SAVE } from '@/utils/config.js';
+const util = require('util');
 export default {
 	computed: {
-		...mapState(['user','host','port'])
+		...mapState(['user', 'host', 'port'])
 	},
 	data() {
 		return {
@@ -125,66 +126,70 @@ export default {
 	},
 	methods: {
 		...mapMutations({
-			storeLogin:"storeLogin",
-			updateUserInfo:"updateUserInfo"
+			storeLogin: 'storeLogin',
+			updateUserInfo: 'updateUserInfo'
 		}),
 		
-		navtoRegisterGroup(){
+		toNeedSave(){
 			uni.navigateTo({
-				url:'/pages/registerGroup/registerGroup'
+				url:"/pages/mySave/mySave?pageId=" + SAVE.MYNEED
 			})
 		},
-		login(){
-			uni.showLoading({
-				
+		
+		toUserSavedCommunity(){
+			uni.navigateTo({
+				url:"/pages/mySave/mySave?pageId=" + SAVE.SAVEDACTIVITY
 			})
-			
+		},
+		navtoRegisterGroup() {
+			uni.navigateTo({
+				url: '/pages/registerGroup/registerGroup'
+			});
+		},
+		login() {
+			uni.showLoading({});
+
 			wx.login({
-				success:(res)=>{
-					
-					if(res.code){
+				success: res => {
+					if (res.code) {
 						uni.request({
-							url:util.format('%s:%s/v1/user/token',this.host,this.port),
-							method:"POST",
-							data:{
-								type:100,
-								account:res.code,
-								
+							url: util.format('%s:%s/v1/user/token', this.host, this.port),
+							method: 'POST',
+							data: {
+								type: 100,
+								account: res.code
 							}
-						}).then(res=>{
-							
+						}).then(res => {
 							let item = {
-								token:res[1].data.token,
-								uid:res[1].data.uid
-								
-							}
-							
-							this.storeLogin(item)
+								token: res[1].data.token,
+								uid: res[1].data.uid
+							};
+
+							this.storeLogin(item);
 							uni.showToast({
-								title:"登录成功！",
-								duration:2000,
+								title: '登录成功！',
+								duration: 2000,
 								success: () => {
-									uni.hideLoading()
+									uni.hideLoading();
 									uni.reLaunch({
-										url:"/pages/self/self"
-									})
+										url: '/pages/self/self'
+									});
 								}
-							})
-							
-						})
+							});
+						});
 					}
 				}
-			})
+			});
 		},
 		goConcernDetail() {
 			let item = { type: 3 };
 			uni.navigateTo({
-				url: `/pages/mySave/mySave?item=${encodeURIComponent(JSON.stringify(item))}`
+				url: `/pages/mySave/mySave?pageId=${SAVE.CONCERNED}`
 			});
 		},
 		navtoChangePerson() {
 			uni.navigateTo({
-				url: '../changePerson/changePerson'
+				url: '/pages/changePerson/changePerson'
 			});
 		},
 		toDetail() {
@@ -194,12 +199,24 @@ export default {
 		}
 	},
 	async onLoad() {
-		let userInfo = await this.request('v1/user/getUserInfo')
-		
-		this.user.userInfo = Object.assign({},this.user.userInfo,userInfo[1].data)
-		
-		
-		console.log(this.user.userInfo)
+		let userInfo = await this.request('v1/user/getUserInfo');
+		userInfo = userInfo[1].data
+		console.log(userInfo)
+		if(!userInfo.interestsTag){
+			uni.showToast({
+				title:"选择感兴趣的吧！",
+				duration:2500,
+				success:()=>{
+					uni.navigateTo({
+						url:"/pages/interestsTag/interestsTag?uid=" + userInfo.id
+					})
+				}
+				
+			})
+		}
+		this.user.userInfo = Object.assign({}, this.user.userInfo, userInfo);
+
+		console.log(SAVE);
 	}
 };
 </script>
@@ -211,8 +228,8 @@ export default {
 	align-items: center;
 	flex-direction: column;
 }
-.registerGroup{
-	color: rgba(34, 166, 179,1.0);
+.registerGroup {
+	color: rgba(34, 166, 179, 1);
 }
 .unLogin {
 	@include unLoginLayOut;

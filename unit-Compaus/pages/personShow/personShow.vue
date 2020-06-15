@@ -55,7 +55,8 @@
 								</view>
 								
 								<view class="heart">
-									<likeIcon></likeIcon>
+									<like-icon :userInfo="userInfo" @addSave="addSave" @cancelSave="cancelSave"></like-icon>
+									<text style="margin-top: -20rpx;">{{userInfo.likeNums}}</text>
 								</view>
 						</view>
 					</view>
@@ -129,17 +130,17 @@
 							<view class="team paragraph">
 								<view class="paragraph-title">
 									<kp-badge class="title-dot" dot bg-color="#ff7f50"/>
-									<h2>社团</h2>
+									<h2>小组</h2>
 								</view>
 							  <view class="team content">
 								<view v-for="(row,index) in groups" :key="index" class="detail-team-item">
 								  <kp-avatar
-								    :image="row.avatar"
+								    :image="row.logo"
 								    size="large"
 								    mode="aspectFill"
 								    @tap="handleOpenCommunity(row)"
 								  />
-								  <text>{{row.role}}</text>
+								  <text>{{row.groupName}}</text>
 								</view>
 							  </view>
 							</view>
@@ -162,7 +163,7 @@ import kpSwiper from '@/components/kp-swiper/index.vue';
 import config from '@/config/index.js';
 import KpIcon from "@/components/kp-icon";
 import KpTag from "@/components/kp-tag";
-import likeIcon from '@/components/common/commonIcon/likeIcon.vue';
+import likeIcon from '@/components/common/commonIcon/userLike.vue';
 import kpBadge from '@/components/kp-badge/index.vue';
 import KpAvatar from '@/components/kp-avatar/index.vue';
 import {baseConfig} from '@/config/index.js'
@@ -170,10 +171,7 @@ export default {
 	data() {
 		return {
 			userInfo:{},
-			groups:[
-				{avatar:"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg",role:"前端工程师"},
-				{avatar:"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg",role:"前端工程师"},
-				{avatar:"https://img.pixbe.com/p47810601/BB381FBF431A489C96419E312E6494F3_640.jpg",role:"前端工程师"}],
+			groups:[],
 			tapIndex:0,
 			nav:['主页'],
 			owner:{
@@ -212,7 +210,7 @@ export default {
 			}
 		})
 		let {personShow,uid} = option
-		console.log(personShow)
+		
 		if(personShow){
 			userInfo = await this.request('v1/user/visitOtherUser?uid=' + uid)
 			console.log("visitOtherUser")
@@ -224,13 +222,24 @@ export default {
 			userInfo[1].data.tags = userInfo[1].data.tags.split(',')
 		}
 		
+		console.log(userJoinedGroup)
 		this.groups = userJoinedGroup[1].data
 		this.userInfo = userInfo[1].data
 		this.coverImgs = Object.assign(this.coverImgs,{gallery:this.userInfo.coverImgs})
 		
 	},
 	methods: {
-
+		addSave(){
+			let obj = this.userInfo
+			obj.likeNums++
+			this.userInfo = obj
+		},
+		cancelSave(){
+			let obj = this.userInfo
+			obj.likeNums--
+			this.userInfo = obj
+		},
+		
 		clickLeft() {
 			uni.navigateBack({
 				animationDuration: 300,
@@ -546,6 +555,10 @@ export default {
 			}
 			.heart{
 				margin: 50upx;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
 			}
 			
 		}

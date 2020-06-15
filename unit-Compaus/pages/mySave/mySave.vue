@@ -91,10 +91,6 @@ export default {
 	mixins: [MescrollMixin], // 使用mixin
 	data() {
 		return {
-			// 下拉刷新的配置
-			downOption: {},
-			// 上拉加载的常用配置
-			upOption: {},
 			type: 0,
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
 			searchValue: '',
@@ -147,7 +143,8 @@ export default {
 				buttonColor: '#1e90ff'
 			},
 			showPopButton: true,
-			ispopMenu: false
+			ispopMenu: false,
+			needList:[]
 		};
 	},
 	computed: {
@@ -157,14 +154,7 @@ export default {
 		}
 	},
 	methods: {
-		/*下拉刷新的回调*/
-		downCallback() {
-			// 与 mescroll-body 的处理方式一致 >
-		},
-		/*上拉加载的回调*/
-		upCallback(page) {
-			// 与 mescroll-body 的处理方式一致 >
-		},
+
 		handleOpenCommunity(row) {},
 		handleSearch() {
 			this.loading = true;
@@ -206,12 +196,31 @@ export default {
 		
 	},
 	async onLoad(option) {
-		let raw_communityInfo = await this.request('v1/saved/UserSavedCommunity')
-		let raw_userSavedGroup = await this.request('v1/saved/UserSavedGroup')
+		let pageId = option.pageId
+		console.log(pageId)
+		switch(pageId){
+			case 1:
+				let raw_userSavedGroup = await this.request('v1/saved/UserSavedGroup')
+				this.userSavedGroup = raw_userSavedGroup[1].data
+				console.log(this.userSavedGroup)
+				break;
+			case 2:
+				break;
+			case 3:
+				let raw_communityInfo = await this.request('v1/saved/UserSavedCommunity')
+				this.communityInfo = raw_communityInfo[1].data
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				let needList = await this.request('v1/needWall/findUserNeed')
+				console.log(needList)
+				break
+		}
+	
 		
-		this.communityInfo = raw_communityInfo[1].data
-		this.userSavedGroup = raw_userSavedGroup[1].data
-		console.log(this.communityList)
 		
 	}
 };

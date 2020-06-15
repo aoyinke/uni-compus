@@ -21,6 +21,16 @@
 					<text class="eosfont">&#xe611;</text>
 				</view>
 			</view>
+			
+			<view class="changePerson_name">
+				<view class="change_choice">
+					<text>所属学校</text>
+				</view>
+				<view class="changePerson_right">
+					<input type="text" v-model="userInfo.college" />
+					<text class="eosfont">&#xe611;</text>
+				</view>
+			</view>
 
 			<view class="changePerson_sex" @click="changePerson_sex">
 				<view class="change_choice">
@@ -152,7 +162,7 @@
 	import KpTag from "@/components/kp-tag";
 	import {mapState} from 'vuex'
 	import {changeUserInfoValidator} from '@/utils/validator.js'
-	import {arryDifferences} from '@/utils/index.js'
+	import {arryDifferences} from '@/utils/util.js'
 	export default {
 		
 		async onLoad() {
@@ -234,14 +244,13 @@
 				let avatar = this.userInfo.avatar
 				let coverImgs = this.userInfo.coverImgs
 				coverImgs = arryDifferences(coverImgs,this.raw_coverImgs)
-				console.log(coverImgs)
+
+				
 				this.userInfo.coverImgs = ""
-				console.log(this.userInfo)
-				if(coverImgs.length){
-					for(let i of coverImgs){
-						this.uploadFile('v1/uploadFiles/userCoverImgs',i)
-					}
-				}
+				coverImgs.forEach(item=>{
+					this.uploadFile('v1/uploadFiles/userCoverImgs',item)
+				})
+				
 				
 				//设置用户修改信息头像
 				if(!avatar.startsWith("http://localhost")){
@@ -254,15 +263,15 @@
 				this.userInfo.tags = this.userInfo.tags.toString()
 				let res = changeUserInfoValidator(this.userInfo)
 				if(!res){
-					// this.request('v1/user/update',this.userInfo,'POST')
-					// uni.showToast({
-					// 	title:"修改成功",
-					// 	success: () => {
-					// 		uni.reLaunch({
-					// 			url:"/pages/self/self"
-					// 		})
-					// 	}
-					// })
+					this.request('v1/user/update',this.userInfo,'POST')
+					uni.showToast({
+						title:"修改成功",
+						success: () => {
+							uni.reLaunch({
+								url:"/pages/self/self"
+							})
+						}
+					})
 					
 				}else{
 					let obj = this.errData

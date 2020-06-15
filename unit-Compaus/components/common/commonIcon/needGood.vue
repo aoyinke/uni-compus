@@ -41,7 +41,8 @@
 		},
 		props:{
 			needInfo:{
-				type:Object
+				type:Object,
+				default:{}
 			}
 		}
 	}

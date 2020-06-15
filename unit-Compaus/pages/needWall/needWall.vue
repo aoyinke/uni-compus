@@ -102,19 +102,19 @@ export default {
 		async _getList(mm,currentIndex){
 			let category = this.nav[currentIndex];
 					
-			let type = ''
+			let type = 100
 			switch (category) {
-				case '众投活动':
+				case '技能需求':
 					type = 100;
 					break
 				case '梦想成真':
 					type = 101;
 					break
-				case '技能需求':
+				case '众投活动':
 					type = 102;
 					break
 			}
-			let needList = await this.request(`v1/needWall/needList?currentPage=${1}&&category=${type}`);
+			let needList = await this.request(`v1/needWall/needList?currentPage=${1}&category=${type}`);
 			this.needList = needList[1].data;
 			console.log(mm,needList);
 		},
@@ -168,8 +168,9 @@ export default {
 				this.needHeight = height;
 			}
 		});
-		let needList = await this.request(`v1/needWall/needList?currentPage=${1}&&category=${100}`);
-		needList[1].data.logo = this.needList = needList[1].data;
+		let needList = await this.request(`v1/needWall/needList?currentPage=${1}&category=${100}`);
+		this.needList = needList[1].data;
+		console.log(this.needList)
 		
 	}
 };

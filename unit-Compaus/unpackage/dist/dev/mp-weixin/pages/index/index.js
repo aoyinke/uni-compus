@@ -94,16 +94,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   uniNavBar: function() {
-    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 270))
+    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 269))
   },
   mescrollUni: function() {
-    return Promise.all(/*! import() | components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/components/mescroll-uni/mescroll-uni.vue */ 293))
+    return Promise.all(/*! import() | components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/components/mescroll-uni/mescroll-uni.vue */ 292))
   },
   activity: function() {
-    return __webpack_require__.e(/*! import() | components/activity/activity */ "components/activity/activity").then(__webpack_require__.bind(null, /*! @/components/activity/activity.vue */ 307))
+    return __webpack_require__.e(/*! import() | components/activity/activity */ "components/activity/activity").then(__webpack_require__.bind(null, /*! @/components/activity/activity.vue */ 306))
   },
   uniFab: function() {
-    return __webpack_require__.e(/*! import() | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then(__webpack_require__.bind(null, /*! @/components/uni-fab/uni-fab.vue */ 312))
+    return __webpack_require__.e(/*! import() | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then(__webpack_require__.bind(null, /*! @/components/uni-fab/uni-fab.vue */ 311))
   }
 }
 var render = function() {
@@ -187,9 +187,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _wallpapers = _interopRequireDefault(__webpack_require__(/*! @/config/wallpapers.js */ 37));
-
 var _mescrollMixins = _interopRequireDefault(__webpack_require__(/*! @/components/mescroll-uni/mescroll-mixins.js */ 38));
-var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var activity = function activity() {__webpack_require__.e(/*! require.ensure | components/activity/activity */ "components/activity/activity").then((function () {return resolve(__webpack_require__(/*! @/components/activity/activity.vue */ 307));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tapBar = function tapBar() {__webpack_require__.e(/*! require.ensure | components/tapBar */ "components/tapBar").then((function () {return resolve(__webpack_require__(/*! @/components/tapBar.vue */ 319));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniFab = function uniFab() {__webpack_require__.e(/*! require.ensure | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then((function () {return resolve(__webpack_require__(/*! @/components/uni-fab/uni-fab.vue */ 312));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+
+var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var activity = function activity() {__webpack_require__.e(/*! require.ensure | components/activity/activity */ "components/activity/activity").then((function () {return resolve(__webpack_require__(/*! @/components/activity/activity.vue */ 306));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tapBar = function tapBar() {__webpack_require__.e(/*! require.ensure | components/tapBar */ "components/tapBar").then((function () {return resolve(__webpack_require__(/*! @/components/tapBar.vue */ 318));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniFab = function uniFab() {__webpack_require__.e(/*! require.ensure | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then((function () {return resolve(__webpack_require__(/*! @/components/uni-fab/uni-fab.vue */ 311));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 var timer;var _default =
 {
@@ -209,21 +209,24 @@ var timer;var _default =
   'user']), {
 
     currentCategory: function currentCategory() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var type, concern, category;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!(
-                _this.tarBars[_this.tapIndex].name == '关注')) {_context.next = 15;break;}
+                _this.tarBars[_this.tapIndex].name == '关注')) {_context.next = 17;break;}
                 type = 100;_context.t0 =
                 _this.contentIndex;_context.next = _context.t0 ===
-                1 ? 5 : _context.t0 ===
+                0 ? 5 : _context.t0 ===
 
 
-                2 ? 7 : 9;break;case 5:type = 200;return _context.abrupt("break", 9);case 7:
-                type = 400;return _context.abrupt("break", 9);case 9:_context.next = 11;return (
+                1 ? 7 : _context.t0 ===
 
 
-                  _this.request("v1/ActivityInfo/userLiked?currentPage=".concat(1, "&type=", type)));case 11:concern = _context.sent;
-                _this.communityListChanged = concern[1].data;_context.next = 17;break;case 15:
+                2 ? 9 : 11;break;case 5:type = 100;return _context.abrupt("break", 11);case 7:type = 200;return _context.abrupt("break", 11);case 9:
+                type = 400;return _context.abrupt("break", 11);case 11:_context.next = 13;return (
+
+
+                  _this.request("v1/ActivityInfo/userLiked?currentPage=".concat(1, "&type=", type)));case 13:concern = _context.sent;
+                _this.communityListChanged = concern[1].data;_context.next = 19;break;case 17:
 
                 category = _this.tarBars[_this.tapIndex].name;return _context.abrupt("return",
-                category);case 17:case "end":return _context.stop();}}}, _callee);}))();
+                category);case 19:case "end":return _context.stop();}}}, _callee);}))();
 
 
     },
@@ -244,17 +247,8 @@ var timer;var _default =
 
   data: function data() {
     return {
-
+      dataList: [],
       communityList: [],
-      // 下拉刷新的配置
-      downOption: {},
-
-
-      // 上拉加载的常用配置
-      upOption: {},
-
-
-
 
       contentIndex: 0,
       content: [
@@ -362,11 +356,13 @@ var timer;var _default =
 
 
 
-                1 ? 11 : _context3.t0 ===
+                1 ? 12 : _context3.t0 ===
 
 
-                2 ? 13 : 15;break;case 9:_this3.communityListChanged = raw_community[1].data[0].activities;return _context3.abrupt("break", 15);case 11:_this3.communityListChanged = raw_community[1].data[1].dynamic;return _context3.abrupt("break", 15);case 13:
-                _this3.communityListChanged = raw_community[1].data[2].knowledge;return _context3.abrupt("break", 15);case 15:case "end":return _context3.stop();}}}, _callee3);}))();
+
+                2 ? 15 : 18;break;case 9:_this3.communityListChanged = raw_community[1].data[0].activities;_this3.dataList = _this3.communityListChanged;return _context3.abrupt("break", 18);case 12:_this3.communityListChanged = raw_community[1].data[1].dynamic;_this3.dataList = _this3.communityListChanged;return _context3.abrupt("break", 18);case 15:
+                _this3.communityListChanged = raw_community[1].data[2].knowledge;
+                _this3.dataList = _this3.communityListChanged;return _context3.abrupt("break", 18);case 18:case "end":return _context3.stop();}}}, _callee3);}))();
 
 
 
@@ -374,11 +370,13 @@ var timer;var _default =
     },
     /*下拉刷新的回调*/
     downCallback: function downCallback() {
-      // 与 mescroll-body 的处理方式一致 > 
+
+
     },
     /*上拉加载的回调*/
     upCallback: function upCallback(page) {
       // 与 mescroll-body 的处理方式一致 > 
+      console.log(page);
     },
     hideFavButton: function hideFavButton() {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var that;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
                 that = _this4;
@@ -427,13 +425,20 @@ var timer;var _default =
                 success: function success(res) {
                   var height = res.windowHeight - uni.upx2px(161.4);
                   _this5.swiperHeight = height;
-                } });_context5.next = 3;return (
+                } });_context5.prev = 1;_context5.next = 4;return (
 
 
-                _this5.request("v1/ActivityInfo/userLiked?currentPage=".concat(1, "&type=", 100)));case 3:info = _context5.sent;
+                _this5.request("v1/ActivityInfo/userLiked?currentPage=".concat(1, "&type=", 100)));case 4:info = _context5.sent;
+              console.log(info);
+              _this5.communityList = info[1].data;_context5.next = 12;break;case 9:_context5.prev = 9;_context5.t0 = _context5["catch"](1);
 
-              _this5.communityList = info[1].data;
-              console.log("onload-communityList", _this5.communityList);case 6:case "end":return _context5.stop();}}}, _callee5);}))();
+
+              console.log(_context5.t0, "未获取到数据");case 12:case "end":return _context5.stop();}}}, _callee5, null, [[1, 9]]);}))();
+
+
+
+
+
 
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

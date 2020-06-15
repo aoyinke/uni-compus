@@ -157,7 +157,8 @@ var _default =
 
   props: {
     needInfo: {
-      type: Object } } };exports.default = _default;
+      type: Object,
+      default: {} } } };exports.default = _default;
 
 /***/ }),
 

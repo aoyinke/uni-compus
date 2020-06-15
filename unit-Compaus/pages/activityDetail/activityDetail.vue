@@ -2,7 +2,7 @@
 	<view class="contaier">
 		<uni-nav-bar left-icon="back" title="活动详情" @clickLeft="clickLeft"></uni-nav-bar>
 		<view class="countDown">
-			<uni-countdown color="#FFFFFF" background-color="#00B26A" border-color="#00B26A" :day="1" :hour="2" :minute="30" :second="0"></uni-countdown>
+			<!-- <uni-countdown color="#FFFFFF" background-color="#00B26A" border-color="#00B26A" :day="1" :hour="2" :minute="30" :second="0"></uni-countdown> -->
 			<view class="joinActivity">
 				<uni-compus-button content="报名参加" background="#3498db" width="100"></uni-compus-button>
 			</view>

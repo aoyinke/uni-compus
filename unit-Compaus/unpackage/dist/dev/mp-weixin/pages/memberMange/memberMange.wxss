@@ -103,6 +103,10 @@
   color: #718093;
   font-size: 24rpx;
 }
+.applicant-reason.data-v-465a1744 {
+  padding: 20rpx;
+  box-shadow: 3px 2px 2px 2px #EEEEEE;
+}
 .applicant-list-item.data-v-465a1744 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -114,6 +118,7 @@
   -webkit-align-items: center;
           align-items: center;
   padding: 20rpx;
+  border-bottom: 1px solid #EEEEEE;
 }
 .applicant-list-item-left.data-v-465a1744 {
   display: -webkit-box;
@@ -139,9 +144,6 @@
 .applicant-list-item-left-info-name.data-v-465a1744 {
   font-weight: 500;
   font-size: 32rpx;
-}
-.applicant-list-item-left-info-description.data-v-465a1744 {
-  color: #dcdde1;
 }
 .applicant-list-item-right.data-v-465a1744 {
   display: -webkit-box;

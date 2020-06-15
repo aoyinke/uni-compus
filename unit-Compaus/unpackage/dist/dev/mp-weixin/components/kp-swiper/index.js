@@ -155,7 +155,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _util = __webpack_require__(/*! @/utils/util.js */ 8); //
+var _utils = __webpack_require__(/*! @/utils */ 330); //
 //
 //
 //
@@ -210,7 +210,7 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 8); //
   watch: {
     dotsIndex: function dotsIndex(newVal, oldVal) {
       if (this.dotsDirection) {
-        (0, _util.debounce)(this.endMove(this.dotsDirection));
+        (0, _utils.debounce)(this.endMove(this.dotsDirection));
       }
     } },
 
@@ -250,7 +250,7 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 8); //
       this.slideNote.y = e.changedTouches[0] ? e.changedTouches[0].pageY : 0;
     },
     endMove: function endMove(e) {
-      var newList = (0, _util.deepClone)(this.itemStyle);
+      var newList = (0, _utils.deepClone)(this.itemStyle);
       var left = function left() {
         // 向左滑动
         var last = newList[newList.length - 1];

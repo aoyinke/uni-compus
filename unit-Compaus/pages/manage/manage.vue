@@ -2,7 +2,7 @@
 	<view>
 		<uni-nav-bar  title="小组" >
 			<view class="selectGroup" slot="left">
-				<ms-dropdown-menu><ms-dropdown-item v-model="group" :list="list"></ms-dropdown-item></ms-dropdown-menu>
+				<ms-dropdown-menu><ms-dropdown-item @choose="chooseManageGroup" v-model="group" :list="list"></ms-dropdown-item></ms-dropdown-menu>
 			</view>
 		</uni-nav-bar>
 		<view class="uni-tab-bar">
@@ -57,7 +57,7 @@
 										  size="large"
 										  mode="aspectFill"
 										  @tap="handleOpenCommunity(row)"
-										/>
+										/> 
 									</view>
 								</view>
 								<view class="heart">
@@ -241,12 +241,6 @@ export default {
 			tapIndex:0,
 			nav:['主页','管理','展示'],
 
-			user: {
-			  labels:['活泼','具有创造力','进取','优秀','舞蹈','音乐'],
-			  likeClick: 0, //点赞喜欢次数，默认为0
-			  likeAnimate: false,
-			  liked: uni.getStorageSync(`${baseConfig.key}_liked`) //用户是否点过赞（点亮小红星）
-			},
 			coverImgs: {
 				gallery: [],
 				galleryIndex: 0, //相册初始化位置
@@ -276,12 +270,12 @@ export default {
 		})
 		let raw_userGroupInfo = await this.request('v1/group/findUserGroup')
 		let userGroupInfo = raw_userGroupInfo[1].data
-		console.log(userGroupInfo)
+		
 		let raw_groupInfo = await this.request(`v1/group/detail?groupId=${userGroupInfo[0].groupId}`)
 		let groupInfo = raw_groupInfo[1].data
 		
 		this.coverImgs = Object.assign(this.coverImgs,{gallery:groupInfo.coverImgs})
-		
+		console.log("this.coverImgs",this.coverImgs)
 		let raw_teamMembers = await this.request(`v1/group/groupMembers?groupId=${userGroupInfo[0].groupId}`)
 		this.team = raw_teamMembers[1].data
 		
@@ -297,6 +291,12 @@ export default {
 		
 	},
 	methods: {
+		async chooseManageGroup(groupName){
+			
+			let groupInfo = await this.request('v1/group/changeGroup',{name:groupName})
+			groupInfo = groupInfo[1].data
+			this.groupInfo = groupInfo
+		},
 		addSave(){
 			let obj = this.groupInfo
 			obj.fav_nums++
@@ -340,7 +340,7 @@ export default {
 					url="/pages/memberMange/memberMange?groupId=" + this.groupInfo.id
 					break;
 				case 5:
-					url="/pages/publishCollection/publishCollection=" + this.groupInfo.id
+					url="/pages/publishCollection/publishCollection?groupId=" + this.groupInfo.id
 					break;
 			}
 			uni.navigateTo({

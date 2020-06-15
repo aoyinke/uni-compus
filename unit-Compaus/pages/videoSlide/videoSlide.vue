@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<uni-nav-bar left-icon="back" title="精彩视频" @clickLeft="clickLeft"></uni-nav-bar>
-		<view class="uni-padding-wrap" style="width: 780rpx;">
+		<view class="uni-padding-wrap" style="width: 780rpx;padding: 0;">
 			<view class="page-section swiper">
 				<view class="page-section-spacing">
 					<swiper class="swiper" @change="changefun" @animationfinish="animationfinishfun" :current="1" :circular="true"
@@ -37,30 +37,6 @@
 					</cover-view>
 				</cover-view>
 			</view>
-			<!-- <view class="right">
-				<cover-view class="right_box  ">
-					<cover-view class="top1">
-						<cover-image class="avatar_img" :src="PayVideo[index].avatar_url" mode=""></cover-image>
-						<cover-image class="add_img" src="../../static/video/1.png" mode=""></cover-image>
-					</cover-view>
-					<cover-view class="top2">
-						<cover-image class="t_img" src="../../static/video/2.png" mode=""></cover-image>
-						<cover-view class="font_t">397</cover-view>
-					</cover-view>
-					<cover-view class="top2">
-						<cover-image class="t_img" src="../../static/video/8.png" mode=""></cover-image>
-						<cover-view class="font_t">397</cover-view>
-					</cover-view>
-					<cover-view class="top2">
-						<cover-image class="t_img" src="../../static/video/3.png" mode=""></cover-image>
-						<cover-view class="font_t">397</cover-view>
-					</cover-view>
-					<cover-view class="top2">
-						<cover-image class="t_img" src="../../static/video/7.png" mode=""></cover-image>
-						<cover-view class="font_t">397</cover-view>
-					</cover-view>
-				</cover-view>
-			</view> -->
 		</view>
 
 	</view>
@@ -224,8 +200,12 @@
 
 			}
 		},
+		async onLoad(){
+			let activityVideos = await this.request('v1/ActivityInfo/getCommunityVideo?currentPage=1')
+			console.log(activityVideos)
+		},
 		mounted() {
-
+			
 			uni.setStorageSync('video', this.data);
 
 			let ind = 1

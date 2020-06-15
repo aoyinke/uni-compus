@@ -47,6 +47,7 @@ import uniCompusUploadImg from '@/components/uni-compus-components/uniCompus-upl
 import KpTag from "@/components/kp-tag";
 import KpAvatar from '@/components/kp-avatar/index.vue';
 import {changeGroupInfoValidator} from '@/utils/validator.js'
+import {arryDifferences} from '@/utils/util.js'
 export default {
 	async onLoad(item){
 		
@@ -55,6 +56,7 @@ export default {
 		groupInfo.tags = groupInfo.tags.split(',')
 		this.groupInfo = groupInfo
 		this.raw_logo = groupInfo.logo
+		this.raw_coverImgs = groupInfo.coverImgs
 		console.log(groupInfo)
 	},
 	data() {
@@ -64,6 +66,7 @@ export default {
 			raw_logo:"",
 			value:false,
 			groupInfo:{},
+			raw_coverImgs:[],
 			inputData:{
 			  title:'定义标签',
 			  content:[
@@ -87,16 +90,17 @@ export default {
 			if(!errMsg){
 				let logo = groupInfo.logo
 				let coverImgs = groupInfo.coverImgs
-				
+				coverImgs = arryDifferences(coverImgs,this.raw_coverImgs)
+				console.log(coverImgs)
 				
 				
 				groupInfo.tags  =  groupInfo.tags.toString()
 
-				
-				
 				coverImgs.forEach(item=>{
 					this.uploadFile('v1/uploadFiles/groupCoverImgs',item,{groupId})
 				})
+				
+				
 				
 				
 				this.request('v1/group/updateGroupInfo',groupInfo,'POST')

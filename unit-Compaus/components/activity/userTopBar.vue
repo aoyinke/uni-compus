@@ -26,10 +26,10 @@
 			</view>
 		</view>
 		<view class="groupTopBar-right">
-			<view class="notiDetail">
+			<!-- <view class="notiDetail">
 				<button type="primary" size="mini" :disabled="isdisabled" @click="followerUser" v-if="!isdisabled">关注</button>
 				
-			</view>
+			</view> -->
 		</view>
 	</view>
 </template>

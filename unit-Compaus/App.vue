@@ -10,14 +10,14 @@ const util = require('util');
 
 export default {
 	onLaunch: function(option) {
-		
+
 		let host = 'http://localhost';
 		let port = '3000';
-		
+
 		uni.getSystemInfo({
 			success: function(e) {
 				Vue.prototype.statusBar = e.statusBarHeight;
-				
+
 				// #ifndef MP
 				if (e.platform == 'android') {
 					Vue.prototype.customBar = e.statusBarHeight + 50;
@@ -70,19 +70,26 @@ export default {
 
 		//封装uni.request
 		Vue.prototype.request = function(route, data, method) {
-			console.log(data)
-			let token = JSON.parse(uni.getStorageSync('userInfo')).token
+
 			
+			let token = JSON.parse(uni.getStorageSync('userInfo')).token
 			let basic_token = _encode(token)
-			let result = uni.request({
+			let config = {
 				url: 'http://localhost:3000/' + route,
 				method: method || 'GET',
 				data: data,
 				header:{
 					Authorization:basic_token
-				}
-			});
-			return result;
+				},
+			}
+			return new Promise((resolve,reject)=>{
+				uni.request(config).then(res=>{
+					resolve(res)
+				}).catch(err=>{
+					reject(err)
+				})
+			})
+			
 		};
 		Vue.prototype.uploadFile = function(route,file,formData){
 			let token = JSON.parse(uni.getStorageSync('userInfo')).token
@@ -97,21 +104,20 @@ export default {
 				}
 			})
 			return result
-			
-			
-			
 		}
 		
 		
-		
+
+
+
 	},
 	onShow: function() {
-		
+
 		let adShowTime = 10 * 60 * 1000; // 10分钟（单位毫秒）
 		let nowTime = new Date().getTime();
 		let leaveTime = this.$store.state.leaveTime;
 		if (nowTime - leaveTime > adShowTime) {
-			
+
 			setTimeout(() => {
 				uni.navigateTo({
 					url: '/pages/account/ad'

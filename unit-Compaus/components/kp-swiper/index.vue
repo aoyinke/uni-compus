@@ -39,7 +39,7 @@
  * @Last Modified by: mukuashi
  * @Last Modified time: 2020-03-30 14:05:52
  */
-import { debounce, deepClone } from "@/utils/util.js";
+import { debounce, deepClone } from "@/utils";
 export default {
   props: {
     value: {

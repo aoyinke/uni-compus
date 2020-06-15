@@ -13,8 +13,8 @@
 						<scroll-view scroll-y class="list" @scroll="hideFavButton">
 							<mescroll-uni ref="mescrollRef" @init="mescrollInit" @down="downCallback" @up="upCallback" :down="downOption" :up="upOption" >
 									<activity :activityInfo="communityListChanged" :contentIndex="contentIndex"></activity>
-									
-							</mescroll-uni>					
+							</mescroll-uni>
+							
 						</scroll-view>
 					</swiper-item>
 				</swiper>
@@ -42,8 +42,8 @@ import activity from '@/components/activity/activity.vue';
 import tapBar from '@/components/tapBar.vue';
 import uniFab from '@/components/uni-fab/uni-fab.vue';
 import photoWall from '@/config/wallpapers.js';
-
 import MescrollMixin from "@/components/mescroll-uni/mescroll-mixins.js";
+
 import {mapState} from 'vuex'
 
 let timer;
@@ -67,6 +67,9 @@ export default {
 			if(this.tarBars[this.tapIndex].name == '关注'){
 				let type = 100
 				switch(this.contentIndex){
+					case 0:
+						type = 100
+						break;
 					case 1:
 						type = 200
 						break;
@@ -99,18 +102,9 @@ export default {
 	},
 	data() {
 		return {
-
+			dataList: [],
 			communityList:[],
-			// 下拉刷新的配置
-			downOption: { 
-				
-			},
-			// 上拉加载的常用配置
-			upOption: {
-				
-			},
-			
-					
+
 			contentIndex:0,
 			content: [
 				{
@@ -215,13 +209,15 @@ export default {
 			switch(this.contentIndex){
 				case 0:
 					this.communityListChanged = raw_community[1].data[0].activities
-					
+					this.dataList = this.communityListChanged
 					break;
 				case 1:
 					this.communityListChanged = raw_community[1].data[1].dynamic
+					this.dataList = this.communityListChanged
 					break;
 				case 2:
 					this.communityListChanged = raw_community[1].data[2].knowledge
+					this.dataList = this.communityListChanged
 					break;
 			}
 			
@@ -229,11 +225,13 @@ export default {
 		},
 		/*下拉刷新的回调*/
 		downCallback(){
-			// 与 mescroll-body 的处理方式一致 > 
+			
+			
 		},
 		/*上拉加载的回调*/
 		upCallback(page) {
 			// 与 mescroll-body 的处理方式一致 > 
+			console.log(page)
 		},
 		async hideFavButton() {
 			let that = this;
@@ -284,11 +282,18 @@ export default {
 				this.swiperHeight = height;
 			}
 		});
+		try{
+			let info = await this.request(`v1/ActivityInfo/userLiked?currentPage=${1}&type=${100}`)
+			console.log(info)
+			this.communityList = info[1].data
+			
+		}catch(err){
+			console.log(err,"未获取到数据")
+		}
 		
-		let info = await this.request(`v1/ActivityInfo/userLiked?currentPage=${1}&type=${100}`)
 		
-		this.communityList = info[1].data
-		console.log("onload-communityList",this.communityList)
+		
+		
 		
 	}
 };

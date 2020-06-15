@@ -18,7 +18,7 @@
 		<view class="uni-tab-bar">
 			<scroll-view scroll-y="true" class="list">
 				<view class="taskCard" v-for="(task, idx) in groupTasks" :key="idx">
-					<view class="deadLine">
+					<!-- <view class="deadLine">
 						<uni-countdown
 							color="#FFFFFF"
 							background-color="#00B26A"
@@ -28,7 +28,7 @@
 							:minute="task.deadLine.minute"
 							:second="task.deadLine.second"
 						></uni-countdown>
-					</view>
+					</view> -->
 
 					<uni-card :title="task.taskName" mode="style" :is-shadow="true" :thumbnail="task.coverImg" :extra="task.deadLine" :note="task.belongActivity" @click.native="gotoDetail(task)">
 						<text class="text-line-2">{{ task.content }}</text>
