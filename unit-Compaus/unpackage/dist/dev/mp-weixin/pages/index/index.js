@@ -99,9 +99,6 @@ var components = {
   mescrollUni: function() {
     return Promise.all(/*! import() | components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/components/mescroll-uni/mescroll-uni.vue */ 292))
   },
-  activity: function() {
-    return __webpack_require__.e(/*! import() | components/activity/activity */ "components/activity/activity").then(__webpack_require__.bind(null, /*! @/components/activity/activity.vue */ 306))
-  },
   uniFab: function() {
     return __webpack_require__.e(/*! import() | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then(__webpack_require__.bind(null, /*! @/components/uni-fab/uni-fab.vue */ 311))
   }
@@ -184,20 +181,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
 var _wallpapers = _interopRequireDefault(__webpack_require__(/*! @/config/wallpapers.js */ 37));
 var _mescrollMixins = _interopRequireDefault(__webpack_require__(/*! @/components/mescroll-uni/mescroll-mixins.js */ 38));
 
-var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var activity = function activity() {__webpack_require__.e(/*! require.ensure | components/activity/activity */ "components/activity/activity").then((function () {return resolve(__webpack_require__(/*! @/components/activity/activity.vue */ 306));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tapBar = function tapBar() {__webpack_require__.e(/*! require.ensure | components/tapBar */ "components/tapBar").then((function () {return resolve(__webpack_require__(/*! @/components/tapBar.vue */ 318));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniFab = function uniFab() {__webpack_require__.e(/*! require.ensure | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then((function () {return resolve(__webpack_require__(/*! @/components/uni-fab/uni-fab.vue */ 311));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var activityItem = function activityItem() {__webpack_require__.e(/*! require.ensure | components/activity/activity-item */ "components/activity/activity-item").then((function () {return resolve(__webpack_require__(/*! @/components/activity/activity-item.vue */ 576));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tapBar = function tapBar() {__webpack_require__.e(/*! require.ensure | components/tapBar */ "components/tapBar").then((function () {return resolve(__webpack_require__(/*! @/components/tapBar.vue */ 318));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniFab = function uniFab() {__webpack_require__.e(/*! require.ensure | components/uni-fab/uni-fab */ "components/uni-fab/uni-fab").then((function () {return resolve(__webpack_require__(/*! @/components/uni-fab/uni-fab.vue */ 311));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 var timer;var _default =
 {
   mixins: [_mescrollMixins.default], // 使用mixin
   watch: {
     tapIndex: function tapIndex(val) {
-
-      this._getResources(val);
+      if (val) {
+        this._getResources(val);
+      }
     },
 
     contentIndex: function contentIndex() {
@@ -205,11 +201,9 @@ var timer;var _default =
     } },
 
   computed: _objectSpread({},
-  (0, _vuex.mapState)([
-  'user']), {
-
+  (0, _vuex.mapState)(['user']), {
     currentCategory: function currentCategory() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var type, concern, category;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!(
-                _this.tarBars[_this.tapIndex].name == '关注')) {_context.next = 17;break;}
+                _this.tarBars[_this.tapIndex].name == '关注')) {_context.next = 18;break;}
                 type = 100;_context.t0 =
                 _this.contentIndex;_context.next = _context.t0 ===
                 0 ? 5 : _context.t0 ===
@@ -223,32 +217,26 @@ var timer;var _default =
 
 
                   _this.request("v1/ActivityInfo/userLiked?currentPage=".concat(1, "&type=", type)));case 13:concern = _context.sent;
-                _this.communityListChanged = concern[1].data;_context.next = 19;break;case 17:
+                console.log('concern', concern);
+                _this.communityListChanged = concern[1].data;_context.next = 20;break;case 18:
 
                 category = _this.tarBars[_this.tapIndex].name;return _context.abrupt("return",
-                category);case 19:case "end":return _context.stop();}}}, _callee);}))();
-
-
-    },
-    changeCommunityList: function changeCommunityList() {
+                category);case 20:case "end":return _context.stop();}}}, _callee);}))();
 
     },
+    changeCommunityList: function changeCommunityList() {},
     communityListChanged: {
-
       get: function get() {
-        return this.communityList;
+        return this.dataList;
       },
       set: function set(v) {
-
-        this.communityList = v;
+        this.dataList = v;
       } } }),
-
 
 
   data: function data() {
     return {
       dataList: [],
-      communityList: [],
 
       contentIndex: 0,
       content: [
@@ -334,7 +322,6 @@ var timer;var _default =
     var that = this;
     if (res.from === 'button') {
       // 来自页面内分享按钮
-
     }
     return {
       title: '轻松一校小程序',
@@ -342,49 +329,48 @@ var timer;var _default =
 
   },
   methods: {
-    _getConcern: function _getConcern() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var info;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
-                  _this2.request("v1/ActivityInfo/userLiked?currentPage=".concat(1, "&type=", 100)));case 2:info = _context2.sent;return _context2.abrupt("return",
-                info[1].data);case 4:case "end":return _context2.stop();}}}, _callee2);}))();
-    },
+    _getResources: function _getResources(val) {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var category, raw_community;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+                  _this2.currentCategory);case 2:category = _context2.sent;_context2.next = 5;return (
+                  _this2.request("v1/ActivityInfo/community?currentPage=1&category=".concat(category)));case 5:raw_community = _context2.sent;_context2.t0 =
 
-    _getResources: function _getResources(val) {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var category, raw_community;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
-                  _this3.currentCategory);case 2:category = _context3.sent;_context3.next = 5;return (
-                  _this3.request("v1/ActivityInfo/community?currentPage=1&category=".concat(category)));case 5:raw_community = _context3.sent;_context3.t0 =
-
-                _this3.contentIndex;_context3.next = _context3.t0 ===
-                0 ? 9 : _context3.t0 ===
+                _this2.contentIndex;_context2.next = _context2.t0 ===
+                0 ? 9 : _context2.t0 ===
 
 
 
-                1 ? 12 : _context3.t0 ===
+                1 ? 11 : _context2.t0 ===
 
 
 
-                2 ? 15 : 18;break;case 9:_this3.communityListChanged = raw_community[1].data[0].activities;_this3.dataList = _this3.communityListChanged;return _context3.abrupt("break", 18);case 12:_this3.communityListChanged = raw_community[1].data[1].dynamic;_this3.dataList = _this3.communityListChanged;return _context3.abrupt("break", 18);case 15:
-                _this3.communityListChanged = raw_community[1].data[2].knowledge;
-                _this3.dataList = _this3.communityListChanged;return _context3.abrupt("break", 18);case 18:case "end":return _context3.stop();}}}, _callee3);}))();
-
+                2 ? 13 : 15;break;case 9:_this2.communityListChanged = raw_community[1].data[0].activities;return _context2.abrupt("break", 15);case 11:_this2.communityListChanged = raw_community[1].data[1].dynamic;return _context2.abrupt("break", 15);case 13:
+                _this2.communityListChanged = raw_community[1].data[2].knowledge;return _context2.abrupt("break", 15);case 15:case "end":return _context2.stop();}}}, _callee2);}))();
 
 
 
     },
     /*下拉刷新的回调*/
-    downCallback: function downCallback() {
-
-
-    },
+    downCallback: function downCallback() {},
     /*上拉加载的回调*/
-    upCallback: function upCallback(page) {
-      // 与 mescroll-body 的处理方式一致 > 
-      console.log(page);
+    upCallback: function upCallback(mescroll) {
+      console.log(mescroll);
+      // 与 mescroll-body 的处理方式一致 >
+      var category = this.currentCategory;
+      this.request("v1/ActivityInfo/community?currentPage=".concat(num, "&category=").concat(category)).then(function (res) {
+        var currentPageData = res[1].data;
+        if (currentPageData.length) {
+
+        }
+      }).catch(function (err) {
+        mescroll.endErr();
+      });
     },
-    hideFavButton: function hideFavButton() {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var that;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
-                that = _this4;
+    hideFavButton: function hideFavButton() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var that;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+                that = _this3;
                 clearTimeout(timer); // 每次滚动前 清除一次
-                that.showPopButton = false;_context4.next = 5;return (
+                that.showPopButton = false;_context3.next = 5;return (
                   setTimeout(function () {
                     that.showPopButton = true;
-                  }, 500));case 5:timer = _context4.sent;case 6:case "end":return _context4.stop();}}}, _callee4);}))();
+                  }, 500));case 5:timer = _context3.sent;case 6:case "end":return _context3.stop();}}}, _callee3);}))();
     },
     showMenu: function showMenu() {
       this.ispopMenu = true;
@@ -398,17 +384,14 @@ var timer;var _default =
       this.contentIndex = index;
       this.content[index].active = true;
       this.ispopMenu = false;
-
     },
     tabChange: function tabChange(e) {
       this.tapIndex = e.detail.current;
     },
     tabtap: function tabtap(index) {
       this.tapIndex = index;
-
     },
     topublish: function topublish() {
-
       uni.navigateTo({
         url: '../publishActivity/publishActivity',
         animationType: 'slide-in-left' });
@@ -416,29 +399,23 @@ var timer;var _default =
     } },
 
   components: {
-    activity: activity,
+    activityItem: activityItem,
     tapBar: tapBar,
     uniFab: uniFab },
 
-  onLoad: function onLoad() {var _this5 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee5() {var info;return _regenerator.default.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:
+  onLoad: function onLoad() {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var info;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
               uni.getSystemInfo({
                 success: function success(res) {
                   var height = res.windowHeight - uni.upx2px(161.4);
-                  _this5.swiperHeight = height;
-                } });_context5.prev = 1;_context5.next = 4;return (
+                  _this4.swiperHeight = height;
+                } });_context4.prev = 1;_context4.next = 4;return (
 
 
-                _this5.request("v1/ActivityInfo/userLiked?currentPage=".concat(1, "&type=", 100)));case 4:info = _context5.sent;
+                _this4.request("v1/ActivityInfo/userLiked?currentPage=".concat(1, "&type=", 100)));case 4:info = _context4.sent;
               console.log(info);
-              _this5.communityList = info[1].data;_context5.next = 12;break;case 9:_context5.prev = 9;_context5.t0 = _context5["catch"](1);
+              _this4.dataList = info[1].data;_context4.next = 12;break;case 9:_context4.prev = 9;_context4.t0 = _context4["catch"](1);
 
-
-              console.log(_context5.t0, "未获取到数据");case 12:case "end":return _context5.stop();}}}, _callee5, null, [[1, 9]]);}))();
-
-
-
-
-
+              console.log(_context4.t0, '未获取到数据');case 12:case "end":return _context4.stop();}}}, _callee4, null, [[1, 9]]);}))();
 
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

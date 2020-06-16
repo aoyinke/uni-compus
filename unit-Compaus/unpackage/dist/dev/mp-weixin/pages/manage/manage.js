@@ -386,11 +386,18 @@ var _index = __webpack_require__(/*! @/config/index.js */ 150);function _interop
       nav: ['主页', '管理', '展示'],
 
       coverImgs: {
-        gallery: [],
+        gallery: ["https://images.mepai.me/app/works/38224/2019-03-07/w_5c80626e09d76/05c80626e0baef.jpg!1200w.jpg",
+        "https://images.mepai.me/app/works/38224/2018-12-20/w_5c1ae1ccd1bf6/05c1ae1ccd375f.jpg!1200w.jpg",
+        "https://images.mepai.me/app/works/38224/2018-12-18/w_5c18bc473ef0f/05c18bc47408ea.jpg!1200w.jpg",
+        "https://images.mepai.me/app/works/38224/2018-12-14/w_5c13419019d5b/85c134190627bc.jpg!1200w.jpg"],
+
         galleryIndex: 0, //相册初始化位置
         galleryDirection: '' //滑动方向
       },
-      scrollHeight: 0 };
+      scrollHeight: 0,
+      defaultGroupInfo: {
+        groupName: "还没有小组哦~",
+        tags: "皮皮虾我们走！" } };
 
 
   },
@@ -410,16 +417,17 @@ var _index = __webpack_require__(/*! @/config/index.js */ 150);function _interop
                 success: function success(res) {
                   var height = res.windowHeight - uni.upx2px(355);
                   _this.scrollHeight = height;
-                } });_context.next = 4;return (
+                } });_context.prev = 2;_context.next = 5;return (
 
-                _this.request('v1/group/findUserGroup'));case 4:raw_userGroupInfo = _context.sent;
-              userGroupInfo = raw_userGroupInfo[1].data;_context.next = 8;return (
 
-                _this.request("v1/group/detail?groupId=".concat(userGroupInfo[0].groupId)));case 8:raw_groupInfo = _context.sent;
+                _this.request('v1/group/findUserGroup'));case 5:raw_userGroupInfo = _context.sent;
+              userGroupInfo = raw_userGroupInfo[1].data;_context.next = 9;return (
+
+                _this.request("v1/group/detail?groupId=".concat(userGroupInfo[0].groupId)));case 9:raw_groupInfo = _context.sent;
               groupInfo = raw_groupInfo[1].data;
 
-              _this.coverImgs = Object.assign(_this.coverImgs, { gallery: groupInfo.coverImgs });
-              console.log("this.coverImgs", _this.coverImgs);_context.next = 14;return (
+              _this.coverImgs = Object.assign(_this.coverImgs, { gallery: groupInfo.coverImgs });_context.next = 14;return (
+
                 _this.request("v1/group/groupMembers?groupId=".concat(userGroupInfo[0].groupId)));case 14:raw_teamMembers = _context.sent;
               _this.team = raw_teamMembers[1].data;
 
@@ -427,10 +435,13 @@ var _index = __webpack_require__(/*! @/config/index.js */ 150);function _interop
                 return { text: item.groupName, value: item.groupId };
               });
 
-
               groupInfo.tags = groupInfo.tags.split(',');
               _this.groupInfo = groupInfo;
-              _this.list = list;case 20:case "end":return _context.stop();}}}, _callee);}))();
+              _this.list = list;_context.next = 25;break;case 22:_context.prev = 22;_context.t0 = _context["catch"](2);
+
+              _this.groupInfo = _this.defaultGroupInfo;case 25:case "end":return _context.stop();}}}, _callee, null, [[2, 22]]);}))();
+
+
 
 
   },

@@ -12,7 +12,8 @@ const store = new Vuex.Store({
     state: {
 		leaveTime: 0,
 		host:"http://localhost",
-		port:"3000"
+		port:"3000",
+		groupAuth:{}
 	},
 	modules:{
 		chatInfo,
@@ -21,7 +22,11 @@ const store = new Vuex.Store({
 		user
 	},
 	mutations:{
-		
+
+		changeGroupAuth(state,payload){
+			console.log(payload)
+			state.groupAuth = payload
+		}
 	}
 })
 export default store

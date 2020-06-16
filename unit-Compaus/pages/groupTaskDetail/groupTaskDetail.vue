@@ -6,7 +6,7 @@
 			<text class="TaskName-title">{{ taskInfo.taskName }}</text>
 			
 		</view>
-		<view class="main">
+		<view class="main" v-if="groupAuth">
 			<view class="uni-list-cell uni-list-cell-pd changeTaskName">
 				<view class="uni-list-cell-db" style="font-weight: 500;">任务的名称</view>
 				<input type="text" v-model="taskInfo.taskName" />
@@ -47,6 +47,33 @@
 				</view>
 			</view> 
 			<uni-compus-button content="确认修改" background="#fbc531" width="100"></uni-compus-button>
+		</view>
+		<view class="taskBar" v-else>
+			<view class="taskBar-img">
+				<swiper v-if="taskInfo.taskImgs.length" :indicator-dots="true"  class="swiper-box" :autoplay="true" :interval="3000" :duration="1000">
+					<swiper-item v-for="(img,idx) in taskInfo.taskImgs" :key="idx">
+						<view class="swiper-item">
+							<image :src="img" mode="" style="width: 100%;height: 100%;"></image>
+						</view>
+					</swiper-item>
+				</swiper>
+				<view class="uni-list-cell uni-list-cell-pd ">
+					<view class="uni-list-cell-db" style="font-weight: 500;">任务属于的活动</view>
+					<view class="uni-list-cell-db" style="font-weight: 500;">{{taskInfo.belongActivity}}</view>
+				</view>
+				<view class="uni-list-cell uni-list-cell-pd ">
+					<view class="uni-list-cell-db" style="font-weight: 500;">任务的内容</view>
+				</view>
+				<view class="taskBar-content item">
+					<text>{{taskInfo.content}}</text>
+				</view>
+				<view class="uni-list-cell uni-list-cell-pd ">
+					<view class="uni-list-cell-db" style="font-weight: 500;">任务的注意事项</view>
+				</view>
+				<view class="taskBar-concernEvent item">
+					<text>{{taskInfo.concernEvent}}</text>
+				</view>
+			</view>
 		</view>
 		<uni-popup ref="popup" type="bottom">
 			<slot>
@@ -120,7 +147,11 @@ export default {
 	},
 	data() {
 		return {
-			taskInfo:{},
+			groupAuth:"",
+			taskInfo:{"belongActivity":"轻松一校上线",taskName:"轻松一校","concernEvent":"asdsaddsa",content:"asdasdas",taskImgs:
+			["https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/75c11a89102357.jpg!1200w.jpg",
+  "https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/65c11a89102397.jpg!1200w.jpg",
+  "https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/45c11a8910240b.jpg!1200w.jpg",]},
 			scrollHeight:"500rpx",
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
 			searchValue: '',

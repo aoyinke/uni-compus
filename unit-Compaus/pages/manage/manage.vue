@@ -242,12 +242,19 @@ export default {
 			nav:['主页','管理','展示'],
 
 			coverImgs: {
-				gallery: [],
+				gallery: ["https://images.mepai.me/app/works/38224/2019-03-07/w_5c80626e09d76/05c80626e0baef.jpg!1200w.jpg",
+						  "https://images.mepai.me/app/works/38224/2018-12-20/w_5c1ae1ccd1bf6/05c1ae1ccd375f.jpg!1200w.jpg",
+						  "https://images.mepai.me/app/works/38224/2018-12-18/w_5c18bc473ef0f/05c18bc47408ea.jpg!1200w.jpg",
+						  "https://images.mepai.me/app/works/38224/2018-12-14/w_5c13419019d5b/85c134190627bc.jpg!1200w.jpg",
+						  ],
 				galleryIndex: 0, //相册初始化位置
 				galleryDirection: '' //滑动方向
 			},
 			scrollHeight:0,
-		
+			defaultGroupInfo:{
+				groupName:"还没有小组哦~",
+				tags:"皮皮虾我们走！"
+			}
 		};
 	},
 	components: {
@@ -268,25 +275,29 @@ export default {
 				this.scrollHeight = height
 			}
 		})
-		let raw_userGroupInfo = await this.request('v1/group/findUserGroup')
-		let userGroupInfo = raw_userGroupInfo[1].data
+		try{
+			let raw_userGroupInfo = await this.request('v1/group/findUserGroup')
+			let userGroupInfo = raw_userGroupInfo[1].data
+			
+			let raw_groupInfo = await this.request(`v1/group/detail?groupId=${userGroupInfo[0].groupId}`)
+			let groupInfo = raw_groupInfo[1].data
+			
+			this.coverImgs = Object.assign(this.coverImgs,{gallery:groupInfo.coverImgs})
+			
+			let raw_teamMembers = await this.request(`v1/group/groupMembers?groupId=${userGroupInfo[0].groupId}`)
+			this.team = raw_teamMembers[1].data
+			
+			let list = userGroupInfo.map(item=>{
+				return {text:item.groupName,value:item.groupId}
+			})
+			
+			groupInfo.tags = groupInfo.tags.split(',')
+			this.groupInfo = groupInfo
+			this.list = list
+		}catch(err){
+			this.groupInfo = this.defaultGroupInfo
+		}
 		
-		let raw_groupInfo = await this.request(`v1/group/detail?groupId=${userGroupInfo[0].groupId}`)
-		let groupInfo = raw_groupInfo[1].data
-		
-		this.coverImgs = Object.assign(this.coverImgs,{gallery:groupInfo.coverImgs})
-		console.log("this.coverImgs",this.coverImgs)
-		let raw_teamMembers = await this.request(`v1/group/groupMembers?groupId=${userGroupInfo[0].groupId}`)
-		this.team = raw_teamMembers[1].data
-		
-		let list = userGroupInfo.map(item=>{
-			return {text:item.groupName,value:item.groupId}
-		})
-		
-		
-		groupInfo.tags = groupInfo.tags.split(',')
-		this.groupInfo = groupInfo
-		this.list = list
 		
 		
 	},

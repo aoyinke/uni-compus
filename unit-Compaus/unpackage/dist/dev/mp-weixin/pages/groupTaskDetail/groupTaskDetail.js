@@ -260,6 +260,33 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   onLoad: function onLoad(item) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var taskId, taskInfo;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
               taskId = item.taskId;_context.next = 3;return (
@@ -271,7 +298,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      taskInfo: {},
+      groupAuth: "",
+      taskInfo: { "belongActivity": "轻松一校上线", taskName: "轻松一校", "concernEvent": "asdsaddsa", content: "asdasdas", taskImgs:
+        ["https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/75c11a89102357.jpg!1200w.jpg",
+        "https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/65c11a89102397.jpg!1200w.jpg",
+        "https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/45c11a8910240b.jpg!1200w.jpg"] },
       scrollHeight: "500rpx",
       showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
       searchValue: '',

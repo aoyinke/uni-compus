@@ -3974,7 +3974,8 @@ var store = new _vuex.default.Store({
   state: {
     leaveTime: 0,
     host: "http://localhost",
-    port: "3000" },
+    port: "3000",
+    groupAuth: {} },
 
   modules: {
     chatInfo: _chatInfo.default,
@@ -3982,8 +3983,12 @@ var store = new _vuex.default.Store({
     group: _index2.default,
     user: _index3.default },
 
-  mutations: {} });var _default =
+  mutations: {
 
+    changeGroupAuth: function changeGroupAuth(state, payload) {
+      console.log(payload);
+      state.groupAuth = payload;
+    } } });var _default =
 
 
 store;exports.default = _default;
