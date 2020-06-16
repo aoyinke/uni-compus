@@ -97,10 +97,13 @@ var components = {
     return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 269))
   },
   uniBadge: function() {
-    return __webpack_require__.e(/*! import() | components/uni-badge/uni-badge */ "components/uni-badge/uni-badge").then(__webpack_require__.bind(null, /*! @/components/uni-badge/uni-badge.vue */ 436))
+    return __webpack_require__.e(/*! import() | components/uni-badge/uni-badge */ "components/uni-badge/uni-badge").then(__webpack_require__.bind(null, /*! @/components/uni-badge/uni-badge.vue */ 438))
   },
   uniPopup: function() {
-    return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 443))
+    return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 445))
+  },
+  chunLeiModal: function() {
+    return Promise.all(/*! import() | components/chunLei-modal/chunLei-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/chunLei-modal/chunLei-modal")]).then(__webpack_require__.bind(null, /*! @/components/chunLei-modal/chunLei-modal.vue */ 276))
   }
 }
 var render = function() {
@@ -216,18 +219,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var uniCompusButton = function uniCompusButton() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/unicompus-button */ "components/uni-compus-components/unicompus-button").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/unicompus-button.vue */ 135));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var avatar = function avatar() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-avatar */ "components/uni-compus-components/uniCompus-avatar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-avatar.vue */ 450));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniBadge = function uniBadge() {__webpack_require__.e(/*! require.ensure | components/uni-badge/uni-badge */ "components/uni-badge/uni-badge").then((function () {return resolve(__webpack_require__(/*! @/components/uni-badge/uni-badge.vue */ 436));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 325));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 443));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _validator = __webpack_require__(/*! @/utils/validator.js */ 63);
+var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var uniCompusButton = function uniCompusButton() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/unicompus-button */ "components/uni-compus-components/unicompus-button").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/unicompus-button.vue */ 135));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var avatar = function avatar() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-avatar */ "components/uni-compus-components/uniCompus-avatar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-avatar.vue */ 452));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniBadge = function uniBadge() {__webpack_require__.e(/*! require.ensure | components/uni-badge/uni-badge */ "components/uni-badge/uni-badge").then((function () {return resolve(__webpack_require__(/*! @/components/uni-badge/uni-badge.vue */ 438));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 327));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 445));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   computed: _objectSpread({},
   (0, _vuex.mapState)(['group'])),
 
-  onLoad: function onLoad(item) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var groupId;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-              groupId = item.groupId;case 1:case "end":return _context.stop();}}}, _callee);}))();
-
+  onLoad: function onLoad(item) {var
+    groupId = item.groupId;
+    this.groupID = groupId;
   },
   data: function data() {
     return {
-      info: {},
+      info: { choosedCategory: "", type: 100 },
       categoryList: [
 
       {
@@ -267,7 +271,10 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
         id: 'biancheng' }],
 
 
-      choosedCategory: '',
+      errMsg: "",
+      showErr: false,
+      errData: { title: '提示', content: '', cancelText: '取消', confirmColor: '#3CC51F' },
+
       scrollHeight: 500,
       userChoosedGroup: {},
       groupID: '',
@@ -280,7 +287,7 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
       isSubmit: true,
       ImgShow: false,
       title: '',
-      groupList: [],
+
       publishImgList: [],
       iconList: [
       { imgSrc: '../../static/index/MyActivity.png', content: '活动' },
@@ -294,15 +301,36 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
   },
   methods: {
 
-    sendActivity: function sendActivity() {
+    sendActivity: function sendActivity() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var imgsList, errMsg, collection, obj;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                _this.info.groupId = _this.groupID;
+                imgsList = _this.publishImgList;
 
-      this.info.img = this.publishImgList;
 
 
-      console.log(this.info);
+                errMsg = (0, _validator.publishCollectionsValidator)(_this.info, imgsList);if (
+                errMsg) {_context2.next = 13;break;}_context2.next = 6;return (
+                  _this.request('v1/collection/publishCollections', _this.info, 'POST'));case 6:collection = _context2.sent;
+                collection = res[1].data;
+                console.log(collection, imgsList);
+                _this.uploadFile('v1/uploadFiles/collectionCoverImg', imgsList[0], { collectionId: collection.id, type: collection.type });
+                imgsList.forEach( /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(img) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                            _this.uploadFile('v1/uploadFiles/collectionImgs', img, { collectionId: collection.id, type: collection.type });case 1:case "end":return _context.stop();}}}, _callee);}));return function (_x) {return _ref.apply(this, arguments);};}());
 
-      uni.showToast({
-        title: "提交成功" });
+                // uni.showToast({
+                // 	title:"合集发布成功！",
+                // 	success:()=>{
+                // 		uni.reLaunch({
+                // 			url:"/pages/manage/manage"
+                // 		})
+                // 	}
+                // })
+                _context2.next = 17;break;case 13:
+
+                obj = _this.errData;
+                obj.content = errMsg;
+                _this.errData = obj;
+                _this.showErr = true;case 17:case "end":return _context2.stop();}}}, _callee2);}))();
+
 
     },
     chooseCategory: function chooseCategory() {
@@ -311,8 +339,10 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
     finishChooseCategory: function finishChooseCategory(item) {
       var obj = this.info;
       console.log(item);
+      this.$set(this.info, 'choosedCategory');
       obj.choosedCategory = item.category;
       this.info = obj;
+
       this.$refs.CategoryPopup.close();
     },
     chooseGroup: function chooseGroup(id, group) {
@@ -320,11 +350,11 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
       this.groupID = id;
       this.$refs.popup.close();
     },
-    handleSearch: function handleSearch() {var _this = this;
+    handleSearch: function handleSearch() {var _this2 = this;
       this.loading = true;
       setTimeout(function () {
-        _this.loading = false;
-        _this.infoList = _this.infoLists;
+        _this2.loading = false;
+        _this2.infoList = _this2.infoLists;
       }, 2000);
     },
     change: function change(val) {

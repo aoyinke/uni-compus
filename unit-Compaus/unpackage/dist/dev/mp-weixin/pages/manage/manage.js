@@ -363,7 +363,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _index = __webpack_require__(/*! @/config/index.js */ 150);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var kpSwiper = function kpSwiper() {Promise.all(/*! require.ensure | components/kp-swiper/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-swiper/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-swiper/index.vue */ 478));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpIcon = function KpIcon() {Promise.all(/*! require.ensure | components/kp-icon/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-icon/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-icon */ 485));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpTag = function KpTag() {Promise.all(/*! require.ensure | components/kp-tag/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-tag/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-tag */ 352));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var likeIcon = function likeIcon() {__webpack_require__.e(/*! require.ensure | components/common/commonIcon/groupLike */ "components/common/commonIcon/groupLike").then((function () {return resolve(__webpack_require__(/*! @/components/common/commonIcon/groupLike.vue */ 492));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var kpBadge = function kpBadge() {Promise.all(/*! require.ensure | components/kp-badge/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-badge/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-badge/index.vue */ 499));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 325));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownMenu = function msDropdownMenu() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-menu */ "components/ms-dropdown/dropdown-menu").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-menu.vue */ 387));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownItem = function msDropdownItem() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-item */ "components/ms-dropdown/dropdown-item").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-item.vue */ 394));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _index = __webpack_require__(/*! @/config/index.js */ 150);
 
 
 
@@ -371,7 +371,11 @@ var _index = __webpack_require__(/*! @/config/index.js */ 150);function _interop
 
 
 
+var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var kpSwiper = function kpSwiper() {Promise.all(/*! require.ensure | components/kp-swiper/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-swiper/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-swiper/index.vue */ 485));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpIcon = function KpIcon() {Promise.all(/*! require.ensure | components/kp-icon/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-icon/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-icon */ 492));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpTag = function KpTag() {Promise.all(/*! require.ensure | components/kp-tag/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-tag/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-tag */ 354));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var likeIcon = function likeIcon() {__webpack_require__.e(/*! require.ensure | components/common/commonIcon/groupLike */ "components/common/commonIcon/groupLike").then((function () {return resolve(__webpack_require__(/*! @/components/common/commonIcon/groupLike.vue */ 499));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var kpBadge = function kpBadge() {Promise.all(/*! require.ensure | components/kp-badge/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-badge/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-badge/index.vue */ 506));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 327));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownMenu = function msDropdownMenu() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-menu */ "components/ms-dropdown/dropdown-menu").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-menu.vue */ 389));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownItem = function msDropdownItem() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-item */ "components/ms-dropdown/dropdown-item").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-item.vue */ 396));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
+  computed: {},
+
+
   data: function data() {
     return {
       userGroupInfo: [],
@@ -379,6 +383,8 @@ var _index = __webpack_require__(/*! @/config/index.js */ 150);function _interop
       value: false,
       list: [],
       group: 0,
+      groupAuth: [],
+      currentGroupAuth: "",
       cooperateItems: _index.cooperateItems,
       collections: _index.collections,
       team: [],
@@ -411,7 +417,8 @@ var _index = __webpack_require__(/*! @/config/index.js */ 150);function _interop
     msDropdownMenu: msDropdownMenu,
     msDropdownItem: msDropdownItem },
 
-  onLoad: function onLoad() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var that, raw_userGroupInfo, userGroupInfo, raw_groupInfo, groupInfo, raw_teamMembers, list;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+  onLoad: function onLoad() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var that, raw_userGroupInfo, userGroupInfo, raw_groupInfo, groupInfo, raw_teamMembers, list, auth;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+
               that = _this;
               uni.getSystemInfo({
                 success: function success(res) {
@@ -437,9 +444,14 @@ var _index = __webpack_require__(/*! @/config/index.js */ 150);function _interop
 
               groupInfo.tags = groupInfo.tags.split(',');
               _this.groupInfo = groupInfo;
-              _this.list = list;_context.next = 25;break;case 22:_context.prev = 22;_context.t0 = _context["catch"](2);
+              _this.list = list;
 
-              _this.groupInfo = _this.defaultGroupInfo;case 25:case "end":return _context.stop();}}}, _callee, null, [[2, 22]]);}))();
+              _this.groupAuth = _this.$store.state.groupAuth;
+              auth = _this.groupAuth.find(function (item) {return item.groupName === _this.groupInfo.groupName;});
+              _this.currentGroupAuth = auth.auth;
+              console.log(_this.currentGroupAuth);_context.next = 29;break;case 26:_context.prev = 26;_context.t0 = _context["catch"](2);
+
+              _this.groupInfo = _this.defaultGroupInfo;case 29:case "end":return _context.stop();}}}, _callee, null, [[2, 26]]);}))();
 
 
 
@@ -466,9 +478,19 @@ var _index = __webpack_require__(/*! @/config/index.js */ 150);function _interop
 
     },
     gotoCollections: function gotoCollections(index) {
+      var type = 100;
+      switch (index) {
+
+        case 1:
+          type = 200;
+          break;
+        case 2:
+          type = 400;
+          break;}
+
 
       uni.navigateTo({
-        url: "/pages/collectionsDetail/collectionsDetail?type=" + index });
+        url: "/pages/collectionsDetail/collectionsDetail?type=".concat(type, "&groupId=").concat(this.groupInfo.id) });
 
     },
     gotoChatPage: function gotoChatPage() {
@@ -478,32 +500,54 @@ var _index = __webpack_require__(/*! @/config/index.js */ 150);function _interop
     },
     goDetail: function goDetail(id) {
       var url = "";
+
       switch (id) {
         case 0:
           url = "/pages/publishTask/publishTask?groupId=" + this.groupInfo.id;
+          this.judgeAuth(url);
           break;
         case 1:
           url = "/pages/groupTaskList/groupTaskList?groupId=" + this.groupInfo.id;
+          uni.navigateTo({
+            url: url });
+
           break;
         case 2:
           url = "/pages/groupInfoConcat/groupInfoConcat";
+          uni.navigateTo({
+            url: url });
+
           break;
         case 3:
           url = "/pages/changeGroupInfo/changeGroupInfo?groupId=" + this.groupInfo.id;
+          this.judgeAuth(url);
           break;
         case 4:
           url = "/pages/memberMange/memberMange?groupId=" + this.groupInfo.id;
+          this.judgeAuth(url);
           break;
         case 5:
           url = "/pages/publishCollection/publishCollection?groupId=" + this.groupInfo.id;
+          this.judgeAuth(url);
           break;}
 
-      uni.navigateTo({
-        url: url });
+
 
     },
-    handleOpenCommunity: function handleOpenCommunity(row) {
+    judgeAuth: function judgeAuth(url) {
+      if (this.currentGroupAuth >= 8) {
+        uni.navigateTo({
+          url: url });
 
+      } else {
+        uni.showToast({
+          title: "权限不足~",
+          icon: "none" });
+
+      }
+    },
+    handleOpenCommunity: function handleOpenCommunity(row) {
+      console.log("handleOpenCommunity", row);
     },
     pageSwiperChange: function pageSwiperChange(e) {
       this.tapIndex = e.detail.value;

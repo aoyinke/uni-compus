@@ -183,7 +183,10 @@ export default {
 			},
 
 			coverImgs: {
-				gallery: [],
+				gallery: ["https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/55aa7297537183.jpg!1200w.jpg",
+  "https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/45aa72975371c0.jpg!1200w.jpg",
+  "https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/35aa72975371ff.jpg!1200w.jpg",
+  "https://images.mepai.me/app/activity/211/38224/a_5aa7297480979/25aa729753723d.jpg!1200w.jpg",],
 				galleryIndex: 0, //相册初始化位置
 				galleryDirection: '' //滑动方向
 			},

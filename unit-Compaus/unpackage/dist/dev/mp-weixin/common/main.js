@@ -274,7 +274,10 @@ var util = __webpack_require__(/*! util */ 11);var _default =
       return result;
     };
 
-
+    this.request('v1/group/getUserAuth').then(function (res) {
+      console.log("userAuth", res);
+      _this.changeGroupAuth(res[1].data);
+    });
 
 
 
@@ -299,7 +302,7 @@ var util = __webpack_require__(/*! util */ 11);var _default =
     this.$store.commit('STORE_LEAVE_TIME');
   },
   methods: _objectSpread({},
-  (0, _vuex.mapMutations)(['storeLogin', 'storeLogout'])),
+  (0, _vuex.mapMutations)(['storeLogin', 'storeLogout', 'changeGroupAuth'])),
 
 
 

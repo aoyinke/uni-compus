@@ -13,7 +13,7 @@ export default {
 
 		let host = 'http://localhost';
 		let port = '3000';
-
+		
 		uni.getSystemInfo({
 			success: function(e) {
 				Vue.prototype.statusBar = e.statusBarHeight;
@@ -106,7 +106,10 @@ export default {
 			return result
 		}
 		
-		
+		this.request('v1/group/getUserAuth').then(res=>{
+			console.log("userAuth",res)
+			this.changeGroupAuth(res[1].data)
+		})
 
 
 
@@ -131,7 +134,7 @@ export default {
 		this.$store.commit('STORE_LEAVE_TIME');
 	},
 	methods: {
-		...mapMutations(['storeLogin', 'storeLogout']),
+		...mapMutations(['storeLogin', 'storeLogout','changeGroupAuth']),
 
 
 	},

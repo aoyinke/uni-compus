@@ -113,11 +113,34 @@ function publishTaskValidator(taskInfo){
 	
 	return errMsg
 }
+
+function publishCollectionsValidator(collecitonInfo,imgs){
+	let errMsg = ''
+	if(!collecitonInfo.content){
+		errMsg = "合集正文内容不能为空"
+	}
+	if(!collecitonInfo.title){
+		errMsg = "合集标题不能为空"
+	}
+	if(!collecitonInfo.description){
+		errMsg = "合集描述不能为空"
+	}
+	if(imgs.length < 2){
+		errMsg = "合集图片不能少于两张"
+	}
+	if(imgs.length > 9){
+		errMsg = "合集图片不能多于9张"
+	}
+		
+	return errMsg
+}
+
 export {
 	changeUserInfoValidator,
 	activityInoValidator,
 	groupRegisterValidator,
 	changeGroupInfoValidator,
 	publishNeedValidator,
-	publishTaskValidator
+	publishTaskValidator,
+	publishCollectionsValidator
 }

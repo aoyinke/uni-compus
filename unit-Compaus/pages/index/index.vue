@@ -213,14 +213,14 @@ export default {
 			console.log(mescroll)
 			// 与 mescroll-body 的处理方式一致 >
 			let category = this.currentCategory;
-			this.request(`v1/ActivityInfo/community?currentPage=${num}&category=${category}`).then(res => {
-				let currentPageData = res[1].data;
-				if(currentPageData.length){
+			// this.request(`v1/ActivityInfo/community?currentPage=${num}&category=${category}`).then(res => {
+			// 	let currentPageData = res[1].data;
+			// 	if(currentPageData.length){
 					
-				}
-			}).catch(err=>{
-				mescroll.endErr()
-			});
+			// 	}
+			// }).catch(err=>{
+			// 	mescroll.endErr()
+			// });
 		},
 		async hideFavButton() {
 			let that = this;

@@ -16,7 +16,7 @@
 						<view class="swiper-item">
 							<block v-for="(part, key, index) in groupMembers" :key="index">
 								<view class="uni-list-cell uni-list-cell-pd">
-									<view class="uni-list-cell-db"><input type="text" v-model="key" @input="changeDepartment" @blur="confirmChangeDeartment" @click="getOldKey(key)"/></view>
+									<view class="uni-list-cell-db"><text>{{key}}</text></view>
 
 									<view class="manageMember" @click="changejoinedPeople($event, groupMembers[key],key)"><text class="eosfont">&#xe715;</text></view>
 								</view>
@@ -70,7 +70,13 @@
 			<slot>
 				<view class="choosejoinedPeople">
 					<view class="uni-tab-bar">
-						<view class="choosejoinedPeople-title"><text>成员调整</text></view>
+						<view class="choosejoinedPeople-title">
+							<input type="text" v-model="currentAdujstDepatment" />
+							<view class="">
+								<uni-compus-button width="80" content="确认修改名称" @click.native="confirmChangeDeartment" background="#2ecc71"></uni-compus-button>
+							</view>
+							
+						</view>
 						<view style="">
 							<lv-select
 								@handleSearch="handleSearch"
@@ -160,12 +166,7 @@ export default {
 		console.log("raw_applicants",raw_applicants)
 	},
 	watch:{
-		groupMembers:function(oldValue,newValue){
-			Object.keys(newValue).forEach(key=>{
-				let members = newValue[key]
-				members.forEach()
-			})
-		},
+		
 	},
 	data() {
 		return {
@@ -174,7 +175,7 @@ export default {
 			defaultProps:{"label":"auth","value":"value"},
 			currentAdujstDepatment:"",
 			oldKey:"",
-			newKey:"",
+			
 			applicantList: [{ avatar: 'https://lz.sinaimg.cn/osj1080/967d9727ly3gd46iout75j20vz1kw4qp.jpg', name: 'paradiseButcher', description: '最牛逼的人' }],
 			currentIndex: 0,
 			scrollHeight: '500rpx',
@@ -209,6 +210,18 @@ export default {
 	},
 	methods: {
 		removeFromGroup(){
+			let {uid,groupId} = this.member
+			uni.showModal({
+				title:"移除成员",
+				content:"你确定要移除该成员吗？",
+				success: (res) => {
+					if(res.confirm){
+						this.request('v1/group/removeFromGroup',{groupId,uid},'POST').then(res=>{
+							this.joinedPeopleList.splice(this.member.index,1)
+						})
+					}
+				}
+			})
 			
 		},
 		submitChangeMember(){
@@ -226,36 +239,49 @@ export default {
 		},
 		
 		changeDepartment(e){
-			
-			
 			this.newKey = e.detail.value
 			
 		},
 		confirmChangeDeartment(){
-			let oldKey = this.oldKey
-			let newKey = this.newKey
-			console.log(oldKey)
-			uni.showModal({
-				title:"修改部门名称",
-				content:"确认修改？",
-				success: () => {
-					this.groupMembers[newKey] = this.groupMembers[oldKey]
-					delete this.groupMembers[oldKey]
-					console.log(this.groupMembers)
-				}
-			})
+			let members = this.groupMembers[this.oldKey]
+			console.log("this.oldKey",this.oldKey)
+			console.log("this.currentAdujstDepatment",this.currentAdujstDepatment)
+			if(this.oldKey == this.currentAdujstDepatment){
+				uni.showToast({
+					title:"并无修改",
+					icon:"none"
+				})
+			}else{
+				uni.showModal({
+					title:"修改部门名称",
+					content:"确认修改？",
+					success: (res) => {
+						console.log(this.currentAdujstDepatment)
+						if(res.confirm){
+							this.request('v1/group/updateMemberDepartment',members,'POST').then(res=>{
+								uni.showToast({
+									title:"修改成功"
+								})
+							})
+						}
+						
+					}
+				})
+			}
+			
 			
 		},
 		getOldKey(key){
-			this.oldKey = key
+			
 		},
 		updateMemberAuth(){
 			this.$refs.selector.show()
 		},
 		handleOpenManage(member,key,id){
-			
+			console.log(key)
 			let targetMemeber = this.groupMembers[key][id]
 			this.member = {...member,index:id}
+			this.oldKey = key
 			this.$refs.updateMember.open()
 		},
 		confirmChangeAuth(item){

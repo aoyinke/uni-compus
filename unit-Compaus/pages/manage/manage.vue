@@ -227,7 +227,11 @@ import kpBadge from '@/components/kp-badge/index.vue';
 import KpAvatar from '@/components/kp-avatar/index.vue';
 import msDropdownMenu from '@/components/ms-dropdown/dropdown-menu.vue';
 import msDropdownItem from '@/components/ms-dropdown/dropdown-item.vue';
+import { mapMutations, mapState } from 'vuex';
 export default {
+	computed:{
+		
+	},
 	data() {
 		return {
 			userGroupInfo:[],
@@ -235,6 +239,8 @@ export default {
 			value: false,
 			list: [],
 			group: 0,
+			groupAuth:[],
+			currentGroupAuth:"",
 			cooperateItems:cooperateItems,
 			collections:collections,
 			team:[],
@@ -268,6 +274,7 @@ export default {
 		msDropdownItem
 	},
 	async onLoad() {
+		
 		let that = this
 		uni.getSystemInfo({
 			success: (res) => {
@@ -294,6 +301,11 @@ export default {
 			groupInfo.tags = groupInfo.tags.split(',')
 			this.groupInfo = groupInfo
 			this.list = list
+			
+			this.groupAuth = this.$store.state.groupAuth
+			let auth = this.groupAuth.find(item=>item.groupName === this.groupInfo.groupName)
+			this.currentGroupAuth = auth.auth
+			console.log(this.currentGroupAuth)
 		}catch(err){
 			this.groupInfo = this.defaultGroupInfo
 		}
@@ -322,9 +334,19 @@ export default {
 			
 		},
 		gotoCollections(index){
-			
+			let type = 100
+			switch(index){
+				
+				case 1:
+					type = 200
+					break;
+				case 2:
+					type = 400
+					break;
+					
+			}
 			uni.navigateTo({
-				url:"/pages/collectionsDetail/collectionsDetail?type=" + index
+				url:`/pages/collectionsDetail/collectionsDetail?type=${type}&groupId=${this.groupInfo.id}`
 			})
 		},
 		gotoChatPage(){
@@ -334,32 +356,54 @@ export default {
 		},
 		goDetail(id){
 			let url = ""
+			
 			switch(id){
 				case 0:
 					url = "/pages/publishTask/publishTask?groupId=" + this.groupInfo.id
+					this.judgeAuth(url)
 					break;
 				case 1:
 					url = "/pages/groupTaskList/groupTaskList?groupId=" + this.groupInfo.id
+					uni.navigateTo({
+						url:url
+					})
 					break;
 				case 2:
 					url = "/pages/groupInfoConcat/groupInfoConcat"
+					uni.navigateTo({
+						url:url
+					})
 					break;
 				case 3:
 					url = "/pages/changeGroupInfo/changeGroupInfo?groupId=" + this.groupInfo.id
+					this.judgeAuth(url)
 					break;
 				case 4:
 					url="/pages/memberMange/memberMange?groupId=" + this.groupInfo.id
+					this.judgeAuth(url)
 					break;
 				case 5:
 					url="/pages/publishCollection/publishCollection?groupId=" + this.groupInfo.id
+					this.judgeAuth(url)
 					break;
 			}
-			uni.navigateTo({
-				url:url
-			})
+			
+			
+		},
+		judgeAuth(url){
+			if(this.currentGroupAuth >= 8){
+				uni.navigateTo({
+					url:url
+				})
+			}else{
+				uni.showToast({
+					title:"权限不足~",
+					icon:"none"
+				})
+			}
 		},
 		handleOpenCommunity(row){
-			
+			console.log("handleOpenCommunity",row)
 		},
 		pageSwiperChange(e){
 			this.tapIndex = e.detail.value

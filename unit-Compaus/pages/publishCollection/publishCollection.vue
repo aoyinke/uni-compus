@@ -62,7 +62,8 @@
 				</view>
 			</slot>
 		</uni-popup>
-		
+		<chunLei-modal v-model="showErr" type="default" :mData="errData" navMask>
+		</chunLei-modal>
 	</view>
 </template>
 
@@ -73,19 +74,19 @@ import uniBadge from '@/components/uni-badge/uni-badge.vue';
 
 import KpAvatar from '@/components/kp-avatar/index.vue';
 import uniPopup from '@/components/uni-popup/uni-popup.vue';
-
+import {publishCollectionsValidator} from '@/utils/validator.js'
 import { mapMutations, mapState } from 'vuex';
 export default {
 	computed: {
 		...mapState(['group'])
 	},
-	async onLoad(item){
+	onLoad(item){
 		let {groupId} = item
-		
+		this.groupID = groupId
 	},
 	data() {
 		return {
-			info: {},
+			info: {choosedCategory:"",type:100},
 			categoryList: [
 			
 				{
@@ -125,7 +126,10 @@ export default {
 					id: 'biancheng'
 				}
 			],
-			choosedCategory: '',
+			errMsg:"",
+			showErr:false,
+			errData:{title:'提示',content:'',cancelText:'取消',confirmColor:'#3CC51F'},
+			
 			scrollHeight: 500,
 			userChoosedGroup: {},
 			groupID: '',
@@ -138,7 +142,7 @@ export default {
 			isSubmit: true,
 			ImgShow: false,
 			title: '',
-			groupList: [],
+			
 			publishImgList: [],
 			iconList: [
 				{ imgSrc: '../../static/index/MyActivity.png', content: '活动' },
@@ -152,16 +156,37 @@ export default {
 	},
 	methods: {
 
-		sendActivity() {
+		async sendActivity() {
+			this.info.groupId = this.groupID
+			let imgsList = this.publishImgList
 			
-			this.info.img = this.publishImgList;
 			
 			
-			console.log(this.info);
+			let errMsg = publishCollectionsValidator(this.info,imgsList)
+			if(!errMsg){
+				let collection = await this.request('v1/collection/publishCollections',this.info,'POST')
+				collection = res[1].data
+				console.log(collection,imgsList)
+				this.uploadFile('v1/uploadFiles/collectionCoverImg',imgsList[0],{collectionId:collection.id,type:collection.type})
+				imgsList.forEach(async img=>{
+					this.uploadFile('v1/uploadFiles/collectionImgs',img,{collectionId:collection.id,type:collection.type})
+				})
+				// uni.showToast({
+				// 	title:"合集发布成功！",
+				// 	success:()=>{
+				// 		uni.reLaunch({
+				// 			url:"/pages/manage/manage"
+				// 		})
+				// 	}
+				// })
+				
+			}else{
+				let obj = this.errData
+				obj.content = errMsg
+				this.errData = obj
+				this.showErr = true
+			}
 			
-			uni.showToast({
-				title:"提交成功"
-			})
 		},
 		chooseCategory() {
 			this.$refs.CategoryPopup.open();
@@ -169,8 +194,10 @@ export default {
 		finishChooseCategory(item) {
 			let obj = this.info
 			console.log(item)
+			this.$set(this.info,'choosedCategory')
 			obj.choosedCategory = item.category;
 			this.info = obj
+
 			this.$refs.CategoryPopup.close();
 		},
 		chooseGroup(id, group) {

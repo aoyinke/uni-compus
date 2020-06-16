@@ -97,13 +97,13 @@ var components = {
     return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 269))
   },
   uniPopup: function() {
-    return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 443))
+    return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 445))
   },
   lvSelect: function() {
     return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 299))
   },
   wPicker: function() {
-    return __webpack_require__.e(/*! import() | components/w-picker/w-picker */ "components/w-picker/w-picker").then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ 338))
+    return __webpack_require__.e(/*! import() | components/w-picker/w-picker */ "components/w-picker/w-picker").then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ 340))
   }
 }
 var render = function() {
@@ -143,7 +143,13 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 34));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 299));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 325));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 443));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 34));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 299));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 327));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 445));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
 
 
 
@@ -304,13 +310,8 @@ __webpack_require__.r(__webpack_exports__);
                 _this.request('v1/group/getApplicantList?groupId=' + groupId));case 8:raw_applicants = _context.sent;
               console.log("raw_applicants", raw_applicants);case 10:case "end":return _context.stop();}}}, _callee);}))();
   },
-  watch: {
-    groupMembers: function groupMembers(oldValue, newValue) {
-      Object.keys(newValue).forEach(function (key) {
-        var members = newValue[key];
-        members.forEach();
-      });
-    } },
+  watch: {},
+
 
   data: function data() {
     return {
@@ -319,7 +320,7 @@ __webpack_require__.r(__webpack_exports__);
       defaultProps: { "label": "auth", "value": "value" },
       currentAdujstDepatment: "",
       oldKey: "",
-      newKey: "",
+
       applicantList: [{ avatar: 'https://lz.sinaimg.cn/osj1080/967d9727ly3gd46iout75j20vz1kw4qp.jpg', name: 'paradiseButcher', description: '最牛逼的人' }],
       currentIndex: 0,
       scrollHeight: '500rpx',
@@ -353,7 +354,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
   methods: {
-    removeFromGroup: function removeFromGroup() {
+    removeFromGroup: function removeFromGroup() {var _this2 = this;var _this$member =
+      this.member,uid = _this$member.uid,groupId = _this$member.groupId;
+      uni.showModal({
+        title: "移除成员",
+        content: "你确定要移除该成员吗？",
+        success: function success(res) {
+          if (res.confirm) {
+            _this2.request('v1/group/removeFromGroup', { groupId: groupId, uid: uid }, 'POST').then(function (res) {
+              _this2.joinedPeopleList.splice(_this2.member.index, 1);
+            });
+          }
+        } });
+
 
     },
     submitChangeMember: function submitChangeMember() {
@@ -371,44 +384,57 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     changeDepartment: function changeDepartment(e) {
-
-
       this.newKey = e.detail.value;
 
     },
-    confirmChangeDeartment: function confirmChangeDeartment() {var _this2 = this;
-      var oldKey = this.oldKey;
-      var newKey = this.newKey;
-      console.log(oldKey);
-      uni.showModal({
-        title: "修改部门名称",
-        content: "确认修改？",
-        success: function success() {
-          _this2.groupMembers[newKey] = _this2.groupMembers[oldKey];
-          delete _this2.groupMembers[oldKey];
-          console.log(_this2.groupMembers);
-        } });
+    confirmChangeDeartment: function confirmChangeDeartment() {var _this3 = this;
+      var members = this.groupMembers[this.oldKey];
+      console.log("this.oldKey", this.oldKey);
+      console.log("this.currentAdujstDepatment", this.currentAdujstDepatment);
+      if (this.oldKey == this.currentAdujstDepatment) {
+        uni.showToast({
+          title: "并无修改",
+          icon: "none" });
+
+      } else {
+        uni.showModal({
+          title: "修改部门名称",
+          content: "确认修改？",
+          success: function success(res) {
+            console.log(_this3.currentAdujstDepatment);
+            if (res.confirm) {
+              _this3.request('v1/group/updateMemberDepartment', members, 'POST').then(function (res) {
+                uni.showToast({
+                  title: "修改成功" });
+
+              });
+            }
+
+          } });
+
+      }
 
 
     },
     getOldKey: function getOldKey(key) {
-      this.oldKey = key;
+
     },
     updateMemberAuth: function updateMemberAuth() {
       this.$refs.selector.show();
     },
     handleOpenManage: function handleOpenManage(member, key, id) {
-
+      console.log(key);
       var targetMemeber = this.groupMembers[key][id];
       this.member = _objectSpread({}, member, { index: id });
+      this.oldKey = key;
       this.$refs.updateMember.open();
     },
     confirmChangeAuth: function confirmChangeAuth(item) {
       console.log(item);
       this.member.auth = item.result;
     },
-    confirmChangeMemberInfo: function confirmChangeMemberInfo() {var _this$member =
-      this.member,department = _this$member.department,index = _this$member.index;
+    confirmChangeMemberInfo: function confirmChangeMemberInfo() {var _this$member2 =
+      this.member,department = _this$member2.department,index = _this$member2.index;
 
       this.groupMembers[department][index] = this.member;
       this.request('v1/group/changeMemberAuth', this.member, 'POST');
@@ -432,11 +458,11 @@ __webpack_require__.r(__webpack_exports__);
       member.department = this.currentAdujstDepatment;
       this.joinedPeopleList.push(member);
     },
-    handleSearch: function handleSearch() {var _this3 = this;
+    handleSearch: function handleSearch() {var _this4 = this;
       this.loading = true;
       setTimeout(function () {
-        _this3.loading = false;
-        _this3.infoList = _this3.infoLists;
+        _this4.loading = false;
+        _this4.infoList = _this4.infoLists;
       }, 2000);
     },
     change: function change(val) {

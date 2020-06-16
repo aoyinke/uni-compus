@@ -15,18 +15,8 @@
 
 			<view class="hr"></view>
 			<view class="function">
-				<view class="good">
-					<like-icon></like-icon>
-					<view>{{cardinfo.goodNum}}</view>
-				</view>
-				<view class="good">
-					<like-icon></like-icon>
-					<view>{{cardinfo.likeNum}}</view>
-				</view>
-				<view class="good">
-					<like-icon></like-icon>
-					<view>{{cardinfo.commentNum}}</view>
-				</view>
+				<text>已阅读：</text>
+				<text>{{cardinfo.checkNums}}</text>
 			</view>
 		</view>
 	</view>
@@ -34,7 +24,7 @@
 </template>
 
 <script>
-	import likeIcon from '@/components/common/commonIcon/likeIcon.vue'
+	
 	export default {
 		name: 'card',
 		props: {
@@ -48,7 +38,7 @@
 			};
 		},
 		components:{
-			likeIcon
+			
 		}
 	}
 </script>

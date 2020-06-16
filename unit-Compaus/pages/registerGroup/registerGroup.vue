@@ -76,7 +76,7 @@ export default {
 				let logo = this.groupInfo.logo
 				
 				let group = await this.request('v1/group/register',this.groupInfo,'POST')
-				
+				console.log("group",group)
 				this.uploadFile('v1/uploadFiles/logo',logo,{groupId:group[1].data.id})
 				uni.showToast({
 					title:"成功注册社团~",
