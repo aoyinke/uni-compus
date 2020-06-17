@@ -287,17 +287,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
 {
-  onLoad: function onLoad(item) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var taskId, taskInfo;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-              taskId = item.taskId;_context.next = 3;return (
+  onLoad: function onLoad(item) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var taskId, groupAuth, taskInfo;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              taskId = item.taskId, groupAuth = item.groupAuth;_context.next = 3;return (
                 _this.request('v1/task/getTaskInfo?taskId=' + taskId));case 3:taskInfo = _context.sent;
               taskInfo = taskInfo[1].data;
-              console.log(taskInfo);
+              console.log("groupAuth", groupAuth);
+              _this.groupAuth = groupAuth;
               _this.joinedPeopleList = taskInfo.joinedPeople;
-              _this.taskInfo = taskInfo;case 8:case "end":return _context.stop();}}}, _callee);}))();
+              _this.taskInfo = taskInfo;case 9:case "end":return _context.stop();}}}, _callee);}))();
   },
   data: function data() {
     return {
+      progressMessage: "",
       groupAuth: "",
       taskInfo: { "belongActivity": "轻松一校上线", taskName: "轻松一校", "concernEvent": "asdsaddsa", content: "asdasdas", taskImgs:
         ["https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/75c11a89102357.jpg!1200w.jpg",
@@ -326,6 +337,14 @@ __webpack_require__.r(__webpack_exports__);
 
   },
   methods: {
+    submitProgress: function submitProgress() {
+      console.log(progressMessage);
+    },
+    previewTaskImg: function previewTaskImg(imgs) {
+      uni.previewImage({
+        urls: imgs });
+
+    },
     changeDeadLine: function changeDeadLine() {
       this.$refs.shortTerm.show();
     },

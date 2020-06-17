@@ -166,9 +166,6 @@ __webpack_require__.r(__webpack_exports__);
           authName: '张三',
           createTime: '2020-02-01',
           content: '已经从校团委那边借了十个话筒，十个手榴弹',
-          goodNum: '100',
-          likeNum: '200',
-          commentNum: '500',
           leave: 8,
           tag: '最新进度' } }] };
 

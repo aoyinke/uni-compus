@@ -6,18 +6,12 @@
 			<text class="TaskName-title">{{ taskInfo.taskName }}</text>
 			
 		</view>
-		<view class="main" v-if="groupAuth">
+		<view class="main" v-if="groupAuth >= 8">
 			<view class="uni-list-cell uni-list-cell-pd changeTaskName">
 				<view class="uni-list-cell-db" style="font-weight: 500;">任务的名称</view>
 				<input type="text" v-model="taskInfo.taskName" />
 			</view>
-			<uni-collapse :accordion="true">
-				<uni-collapse-item :title="taskInfo.taskName" :showAnimation="true" >
-					<view class="task-progress">
-						<textarea v-model="taskInfo.progress" placeholder="更新个人任务进度" />
-					</view>
-				</uni-collapse-item>
-			</uni-collapse>
+			
 			<view class="uni-list-cell uni-list-cell-pd" @tap="changeDeadLine">
 				<view class="uni-list-cell-db" style="font-weight: 500;">任务截止的时间</view>
 				
@@ -52,14 +46,29 @@
 			<view class="taskBar-img">
 				<swiper v-if="taskInfo.taskImgs.length" :indicator-dots="true"  class="swiper-box" :autoplay="true" :interval="3000" :duration="1000">
 					<swiper-item v-for="(img,idx) in taskInfo.taskImgs" :key="idx">
-						<view class="swiper-item">
-							<image :src="img" mode="" style="width: 100%;height: 100%;"></image>
-						</view>
+						<image :src="img" mode="" style="width: 100%;height: 100%;" @click="previewTaskImg(taskInfo.taskImgs)"></image>
 					</swiper-item>
 				</swiper>
+				<uni-collapse :accordion="true">
+					<uni-collapse-item :title="taskInfo.taskName" :showAnimation="true" >
+						<view class="task-progress">
+							<textarea v-model="progressMessage" placeholder="更新个人任务进度" />
+							<uni-compus-button content="汇报进度" background="#fbc531" width="100" @click.native="submitProgress"></uni-compus-button>
+						</view>
+					</uni-collapse-item>
+					
+				</uni-collapse>
 				<view class="uni-list-cell uni-list-cell-pd ">
 					<view class="uni-list-cell-db" style="font-weight: 500;">任务属于的活动</view>
-					<view class="uni-list-cell-db" style="font-weight: 500;">{{taskInfo.belongActivity}}</view>
+					<view class="uni-list-cell-db" style="font-weight: 500;">
+						<text>{{taskInfo.belongActivity}}</text>
+					</view>
+				</view>
+				<view class="uni-list-cell uni-list-cell-pd ">
+					<view class="uni-list-cell-db" style="font-weight: 500;">任务截止时间</view>
+					<view class="uni-list-cell-db" style="font-weight: 500;">
+						<text>{{taskInfo.deadLine}}</text>
+					</view>
 				</view>
 				<view class="uni-list-cell uni-list-cell-pd ">
 					<view class="uni-list-cell-db" style="font-weight: 500;">任务的内容</view>
@@ -138,15 +147,17 @@ import uniCollapse from '@/components/uni-collapse/uni-collapse.vue';
 import uniCollapseItem from '@/components/uni-collapse-item/uni-collapse-item.vue';
 export default {
 	async onLoad(item){
-		let {taskId} = item
+		let {taskId,groupAuth} = item
 		let taskInfo = await this.request('v1/task/getTaskInfo?taskId='+taskId)
 		taskInfo = taskInfo[1].data
-		console.log(taskInfo)
+		console.log("groupAuth",groupAuth)
+		this.groupAuth = groupAuth
 		this.joinedPeopleList = taskInfo.joinedPeople
 		this.taskInfo = taskInfo
 	},
 	data() {
 		return {
+			progressMessage:"",
 			groupAuth:"",
 			taskInfo:{"belongActivity":"轻松一校上线",taskName:"轻松一校","concernEvent":"asdsaddsa",content:"asdasdas",taskImgs:
 			["https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/75c11a89102357.jpg!1200w.jpg",
@@ -175,6 +186,14 @@ export default {
 		};
 	},
 	methods: {
+		submitProgress(){
+			console.log(progressMessage)
+		},
+		previewTaskImg(imgs){
+			uni.previewImage({
+			    urls: imgs
+			});
+		},
 		changeDeadLine(){
 			this.$refs.shortTerm.show()
 		},

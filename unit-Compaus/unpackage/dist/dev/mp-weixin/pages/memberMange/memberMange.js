@@ -305,10 +305,15 @@ __webpack_require__.r(__webpack_exports__);
   onLoad: function onLoad(item) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var groupId, raw_members, raw_applicants;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
               groupId = item.groupId;_context.next = 3;return (
                 _this.request('v1/group/getGroupByMember?groupId=' + groupId));case 3:raw_members = _context.sent;
-              _this.groupMembers = raw_members[1].data;
+              _this.groupMembers = raw_members[1].data.members;
               console.log("raw_members", raw_members);_context.next = 8;return (
                 _this.request('v1/group/getApplicantList?groupId=' + groupId));case 8:raw_applicants = _context.sent;
-              console.log("raw_applicants", raw_applicants);case 10:case "end":return _context.stop();}}}, _callee);}))();
+              raw_applicants = raw_applicants[1].data;
+              _this.applicantList = raw_applicants;
+
+              _this.otherPeople = raw_members[1].data.peopleWithNoDepartment;
+              console.log(_this.otherPeople);case 13:case "end":return _context.stop();}}}, _callee);}))();
+
   },
   watch: {},
 
@@ -321,7 +326,7 @@ __webpack_require__.r(__webpack_exports__);
       currentAdujstDepatment: "",
       oldKey: "",
 
-      applicantList: [{ avatar: 'https://lz.sinaimg.cn/osj1080/967d9727ly3gd46iout75j20vz1kw4qp.jpg', name: 'paradiseButcher', description: '最牛逼的人' }],
+      applicantList: [],
       currentIndex: 0,
       scrollHeight: '500rpx',
       showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
@@ -376,10 +381,33 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
 
-    approveJoin: function approveJoin(info) {
+    approveJoin: function approveJoin(info, index) {var _this3 = this;
+      uni.showModal({
+        title: "同意加入",
+        content: "您是否确认同意？",
+        success: function success(res) {
+          if (res.confirm) {
+            _this3.request('v1/group/approveJoin', info, 'POST').then(function (res) {
+              _this3.applicantList.splice(index, 1);
+              uni.showToast({
+                title: "成功加入！" });
+
+            });
+          }
+        } });
 
     },
-    declineJoin: function declineJoin(info) {
+    declineJoin: function declineJoin(info, index) {var _this4 = this;
+      uni.showModal({
+        title: "拒绝加入",
+        content: "您是否确认拒绝？",
+        success: function success(res) {
+          if (res.confirm) {
+            _this4.request('v1/group/declineJoin', info, 'POST').then(function (res) {
+              _this4.applicantList.splice(index, 1);
+            });
+          }
+        } });
 
     },
 
@@ -387,7 +415,7 @@ __webpack_require__.r(__webpack_exports__);
       this.newKey = e.detail.value;
 
     },
-    confirmChangeDeartment: function confirmChangeDeartment() {var _this3 = this;
+    confirmChangeDeartment: function confirmChangeDeartment() {var _this5 = this;
       var members = this.groupMembers[this.oldKey];
       console.log("this.oldKey", this.oldKey);
       console.log("this.currentAdujstDepatment", this.currentAdujstDepatment);
@@ -401,9 +429,9 @@ __webpack_require__.r(__webpack_exports__);
           title: "修改部门名称",
           content: "确认修改？",
           success: function success(res) {
-            console.log(_this3.currentAdujstDepatment);
+            console.log(_this5.currentAdujstDepatment);
             if (res.confirm) {
-              _this3.request('v1/group/updateMemberDepartment', members, 'POST').then(function (res) {
+              _this5.request('v1/group/updateMemberDepartment', members, 'POST').then(function (res) {
                 uni.showToast({
                   title: "修改成功" });
 
@@ -443,7 +471,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
     removeJoined: function removeJoined(index) {
-      this.otherPeople = [].concat(this.otherPeople, this.joinedPeopleList.splice(index, 1));
+
+      var memberInfo = this.joinedPeopleList.splice(index, 1);
+      this.request('v1/group/deleteFromDepartment', memberInfo[0], 'POST');
+      this.otherPeople = [].concat(this.otherPeople, memberInfo);
     },
     changejoinedPeople: function changejoinedPeople(e, part, department) {
       this.joinedPeopleList = part;
@@ -458,11 +489,11 @@ __webpack_require__.r(__webpack_exports__);
       member.department = this.currentAdujstDepatment;
       this.joinedPeopleList.push(member);
     },
-    handleSearch: function handleSearch() {var _this4 = this;
+    handleSearch: function handleSearch() {var _this6 = this;
       this.loading = true;
       setTimeout(function () {
-        _this4.loading = false;
-        _this4.infoList = _this4.infoLists;
+        _this6.loading = false;
+        _this6.infoList = _this6.infoLists;
       }, 2000);
     },
     change: function change(val) {

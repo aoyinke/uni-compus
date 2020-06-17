@@ -507,7 +507,7 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
           this.judgeAuth(url);
           break;
         case 1:
-          url = "/pages/groupTaskList/groupTaskList?groupId=" + this.groupInfo.id;
+          url = "/pages/groupTaskList/groupTaskList?groupId=".concat(this.groupInfo.id, "&groupAuth=").concat(this.currentGroupAuth);
           uni.navigateTo({
             url: url });
 

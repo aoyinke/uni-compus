@@ -42,16 +42,16 @@
 											<kp-avatar :image="applicant.avatar" size="large" mode="aspectFill" @tap="handleOpenCommunity(row)" />
 											<view class="applicant-list-item-left-info">
 												<view class="applicant-list-item-left-info-name">
-													<text>{{ applicant.nickname }}</text>
+													<text>{{ applicant.nickName }}</text>
 												</view>
 											</view>
 										</view>
 										<view class="applicant-list-item-right">
 											<view class="applicant-list-item-right-aprove">
-												<uni-compus-button background="#7ed6df" content="通过" width="100" @click.native="approveJoin"></uni-compus-button>
+												<uni-compus-button background="#7ed6df" content="通过" width="100" @click.native="approveJoin(applicant,idx)"></uni-compus-button>
 											</view>
 
-											<text class="eosfont" @click="declineJoin">&#xe60f;</text>
+											<text class="eosfont" @click="declineJoin(applicant,idx)">&#xe60f;</text>
 										</view>
 									</view>
 									<view class="applicant-reason">
@@ -160,10 +160,15 @@ export default {
 	async onLoad(item){
 		let {groupId} = item
 		let raw_members = await this.request('v1/group/getGroupByMember?groupId=' + groupId)
-		this.groupMembers = raw_members[1].data
+		this.groupMembers = raw_members[1].data.members
 		console.log("raw_members",raw_members)
 		let raw_applicants = await this.request('v1/group/getApplicantList?groupId=' + groupId)
-		console.log("raw_applicants",raw_applicants)
+		raw_applicants = raw_applicants[1].data
+		this.applicantList = raw_applicants
+		
+		this.otherPeople = raw_members[1].data.peopleWithNoDepartment
+		console.log(this.otherPeople)
+		
 	},
 	watch:{
 		
@@ -176,7 +181,7 @@ export default {
 			currentAdujstDepatment:"",
 			oldKey:"",
 			
-			applicantList: [{ avatar: 'https://lz.sinaimg.cn/osj1080/967d9727ly3gd46iout75j20vz1kw4qp.jpg', name: 'paradiseButcher', description: '最牛逼的人' }],
+			applicantList: [],
 			currentIndex: 0,
 			scrollHeight: '500rpx',
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
@@ -231,11 +236,34 @@ export default {
 			})
 		},
 		
-		approveJoin(info){
-			
+		approveJoin(info,index){
+			uni.showModal({
+				title:"同意加入",
+				content:"您是否确认同意？",
+				success:(res)=>{
+					if(res.confirm){
+						this.request('v1/group/approveJoin',info,'POST').then(res=>{
+							this.applicantList.splice(index,1)
+							uni.showToast({
+								title:"成功加入！"
+							})
+						})
+					}
+				}
+			})
 		},
-		declineJoin(info){
-			
+		declineJoin(info,index){
+			uni.showModal({
+				title:"拒绝加入",
+				content:"您是否确认拒绝？",
+				success:(res)=>{
+					if(res.confirm){
+						this.request('v1/group/declineJoin',info,'POST').then(res=>{
+							this.applicantList.splice(index,1)
+						})
+					}
+				}
+			})
 		},
 		
 		changeDepartment(e){
@@ -298,7 +326,10 @@ export default {
 		
 		
 		removeJoined(index) {
-			this.otherPeople = [].concat(this.otherPeople,this.joinedPeopleList.splice(index, 1))
+			
+			let memberInfo = this.joinedPeopleList.splice(index, 1)
+			this.request('v1/group/deleteFromDepartment',memberInfo[0],'POST')
+			this.otherPeople = [].concat(this.otherPeople,memberInfo)
 		},
 		changejoinedPeople(e, part,department) {
 			this.joinedPeopleList = part;

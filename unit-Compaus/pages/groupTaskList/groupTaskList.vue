@@ -46,14 +46,16 @@ import uniCountdown from '@/components/uni-countdown/uni-countdown.vue';
 import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue';
 export default {
 	async onLoad(item) {
-		let { groupId } = item;
+		let { groupId,groupAuth } = item;
 		let raw_tasks = await this.request('v1/task/taskList?groupId=' + groupId);
+		this.groupAuth = groupAuth
 		let tasks = raw_tasks[1].data;
 		this.groupTasks = tasks;
 		console.log(raw_tasks);
 	},
 	data() {
 		return {
+			groupAuth:"",
 			groupTasks: [],
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
 			searchValue: '',
@@ -77,7 +79,7 @@ export default {
 	methods: {
 		gotoDetail(task){
 			uni.navigateTo({
-				url:`/pages/groupTaskDetail/groupTaskDetail?taskId=${task.id}`
+				url:`/pages/groupTaskDetail/groupTaskDetail?taskId=${task.id}&groupAuth=${this.groupAuth}`
 			})
 		},
 		clickLeft() {

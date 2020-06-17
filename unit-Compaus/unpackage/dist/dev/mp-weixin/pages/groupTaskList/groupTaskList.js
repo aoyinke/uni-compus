@@ -187,15 +187,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 {
-  onLoad: function onLoad(item) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var groupId, raw_tasks, tasks;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-              groupId = item.groupId;_context.next = 3;return (
+  onLoad: function onLoad(item) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var groupId, groupAuth, raw_tasks, tasks;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              groupId = item.groupId, groupAuth = item.groupAuth;_context.next = 3;return (
                 _this.request('v1/task/taskList?groupId=' + groupId));case 3:raw_tasks = _context.sent;
+              _this.groupAuth = groupAuth;
               tasks = raw_tasks[1].data;
               _this.groupTasks = tasks;
-              console.log(raw_tasks);case 7:case "end":return _context.stop();}}}, _callee);}))();
+              console.log(raw_tasks);case 8:case "end":return _context.stop();}}}, _callee);}))();
   },
   data: function data() {
     return {
+      groupAuth: "",
       groupTasks: [],
       showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
       searchValue: '',
@@ -219,7 +221,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     gotoDetail: function gotoDetail(task) {
       uni.navigateTo({
-        url: "/pages/groupTaskDetail/groupTaskDetail?taskId=".concat(task.id) });
+        url: "/pages/groupTaskDetail/groupTaskDetail?taskId=".concat(task.id, "&groupAuth=").concat(this.groupAuth) });
 
     },
     clickLeft: function clickLeft() {

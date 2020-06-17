@@ -31,10 +31,10 @@
 									<!-- 内容 -->
 									<view class="info-content-topBar">
 										<view class="userAvatar">
-											<image src="../../static/logo.jpg" mode=""></image>
+											<image :src="item.avatar" mode=""></image>
 										</view>
 										<view class="userName">
-											天堂屠夫
+											<text>{{item.nickName}}</text>
 										</view>
 									</view>
 									<view class="info-txt">{{item.content}}</view>

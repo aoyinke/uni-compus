@@ -363,7 +363,7 @@ export default {
 					this.judgeAuth(url)
 					break;
 				case 1:
-					url = "/pages/groupTaskList/groupTaskList?groupId=" + this.groupInfo.id
+					url = `/pages/groupTaskList/groupTaskList?groupId=${this.groupInfo.id}&groupAuth=${this.currentGroupAuth}` 
 					uni.navigateTo({
 						url:url
 					})
