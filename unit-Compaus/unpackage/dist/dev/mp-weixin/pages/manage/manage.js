@@ -490,7 +490,7 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
 
 
       uni.navigateTo({
-        url: "/pages/collectionsDetail/collectionsDetail?type=".concat(type, "&groupId=").concat(this.groupInfo.id) });
+        url: "/pages/collectionsDetail/collectionsDetail?type=".concat(type, "&groupId=").concat(this.groupInfo.id, "&allowEdit=", true) });
 
     },
     gotoChatPage: function gotoChatPage() {
@@ -513,7 +513,7 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
 
           break;
         case 2:
-          url = "/pages/groupInfoConcat/groupInfoConcat";
+          url = "/pages/groupInfoConcat/groupInfoConcat?groupId=" + this.groupInfo.id;
           uni.navigateTo({
             url: url });
 

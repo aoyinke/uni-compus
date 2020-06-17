@@ -6,7 +6,7 @@
 				<view class="activity-title-left"> </view>
 				<view class="activity-title-right"><text>{{groupName}}</text></view>
 				<view class="changeCollection">
-					<uni-compus-button content="再编辑" background="rgba(255, 121, 121,1.0)" width="100"></uni-compus-button>
+					<uni-compus-button content="再编辑" background="rgba(255, 121, 121,1.0)" width="100" v-if="allowEdit"></uni-compus-button>
 				</view>
 			</view>
 			<swiper  class="swiper-box">
@@ -31,13 +31,14 @@
 	export default {
 		data() {
 			return {
+				allowEdit:false,
 				currentIndex:0,
 				groupName:"轻松一校",
 				bannerList: [{
 				            picture: 'http://image.mishi.cn/r/yry_h5_test/detail/3_1535359279285.png',
 				            title: '七夕将至：时光足够久，韧性也能炖出味',
 				            description: '一万年太久，就现在，给你爱',
-							images:[
+							images:[ 
 								"https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg",
 								"https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg",
 								"https://images.mepai.me/app/works/38224/2019-12-22/w_5dfecd711bb5a/05dfecd711bc6b.jpg!1200w.jpg",
@@ -125,11 +126,12 @@
 				})
 			},
 		},
-		created() {
-			
-		},
-		onLoad(option) {
-			console.log(option.index)
+		async onLoad(option) {
+			let {type,groupId,allowEdit} = option
+			this.allowEdit = allowEdit
+			let collecionts = await this.request(`v1/collection/getCollections?type=${type}&groupId=${groupId}`)
+			this.bannerList = collecionts[1].data
+			console.log(collecionts)
 		}
 	}
 </script>

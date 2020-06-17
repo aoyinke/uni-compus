@@ -308,28 +308,28 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
 
 
                 errMsg = (0, _validator.publishCollectionsValidator)(_this.info, imgsList);if (
-                errMsg) {_context2.next = 13;break;}_context2.next = 6;return (
+                errMsg) {_context2.next = 14;break;}_context2.next = 6;return (
                   _this.request('v1/collection/publishCollections', _this.info, 'POST'));case 6:collection = _context2.sent;
-                collection = res[1].data;
+                collection = collection[1].data;
                 console.log(collection, imgsList);
                 _this.uploadFile('v1/uploadFiles/collectionCoverImg', imgsList[0], { collectionId: collection.id, type: collection.type });
                 imgsList.forEach( /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(img) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
                             _this.uploadFile('v1/uploadFiles/collectionImgs', img, { collectionId: collection.id, type: collection.type });case 1:case "end":return _context.stop();}}}, _callee);}));return function (_x) {return _ref.apply(this, arguments);};}());
 
-                // uni.showToast({
-                // 	title:"合集发布成功！",
-                // 	success:()=>{
-                // 		uni.reLaunch({
-                // 			url:"/pages/manage/manage"
-                // 		})
-                // 	}
-                // })
-                _context2.next = 17;break;case 13:
+                uni.showToast({
+                  title: "合集发布成功！",
+                  success: function success() {
+                    uni.reLaunch({
+                      url: "/pages/manage/manage" });
+
+                  } });_context2.next = 18;break;case 14:
+
+
 
                 obj = _this.errData;
                 obj.content = errMsg;
                 _this.errData = obj;
-                _this.showErr = true;case 17:case "end":return _context2.stop();}}}, _callee2);}))();
+                _this.showErr = true;case 18:case "end":return _context2.stop();}}}, _callee2);}))();
 
 
     },

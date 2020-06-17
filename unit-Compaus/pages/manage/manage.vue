@@ -346,7 +346,7 @@ export default {
 					
 			}
 			uni.navigateTo({
-				url:`/pages/collectionsDetail/collectionsDetail?type=${type}&groupId=${this.groupInfo.id}`
+				url:`/pages/collectionsDetail/collectionsDetail?type=${type}&groupId=${this.groupInfo.id}&allowEdit=${true}`
 			})
 		},
 		gotoChatPage(){
@@ -369,7 +369,7 @@ export default {
 					})
 					break;
 				case 2:
-					url = "/pages/groupInfoConcat/groupInfoConcat"
+					url = "/pages/groupInfoConcat/groupInfoConcat?groupId=" + this.groupInfo.id
 					uni.navigateTo({
 						url:url
 					})

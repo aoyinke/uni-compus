@@ -2,21 +2,21 @@
 	<view class="box">
 		<view class="father-box">
 			<view class="header">
-				<image class="img" :src="cardinfo.authImg"></image>
-				<view class="auth">{{cardinfo.authName}}</view>
-				<view class="leave">LV{{cardinfo.leave}}</view>
-				<view class="tag">{{cardinfo.tag}}</view>
-				<view class="time">{{cardinfo.createTime}}</view>
+				<image class="img" :src="cardinfo.avatar"></image>
+				<view class="auth">{{cardinfo.nickName}}</view>
+				<!-- <view class="leave">LV{{cardinfo.leave}}</view> -->
+				<!-- <view class="tag">{{cardinfo.tag}}</view> -->
+				<view class="time">{{cardinfo.createdAt}}</view>
 
 			</view>
 			
-			<view class="content">{{cardinfo.content}}....<view class="show">点击阅读详细</view>
+			<view class="content">{{cardinfo.latestMessage.message}}....<view class="show">点击阅读详细</view>
 			</view>
 
 			<view class="hr"></view>
 			<view class="function">
 				<text>已阅读：</text>
-				<text>{{cardinfo.checkNums}}</text>
+				<text>{{cardinfo.click_nums}}</text>
 			</view>
 		</view>
 	</view>
@@ -36,6 +36,13 @@
 			return {
 
 			};
+		},
+		mounted(){
+			// let regex = /.*-.*-.*$/
+			// let time = this.cardinfo.createdAt
+			// time = JSON.stringify(time)
+			// this.cardinfo.createdAt = time.match(regex)
+			// console.log(time)
 		},
 		components:{
 			

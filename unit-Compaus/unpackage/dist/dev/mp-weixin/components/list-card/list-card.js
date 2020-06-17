@@ -153,6 +153,13 @@ var _default =
 
 
   },
+  mounted: function mounted() {
+    // let regex = /.*-.*-.*$/
+    // let time = this.cardinfo.createdAt
+    // time = JSON.stringify(time)
+    // this.cardinfo.createdAt = time.match(regex)
+    // console.log(time)
+  },
   components: {} };exports.default = _default;
 
 /***/ }),

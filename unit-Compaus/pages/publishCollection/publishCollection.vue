@@ -165,20 +165,20 @@ export default {
 			let errMsg = publishCollectionsValidator(this.info,imgsList)
 			if(!errMsg){
 				let collection = await this.request('v1/collection/publishCollections',this.info,'POST')
-				collection = res[1].data
+				collection = collection[1].data
 				console.log(collection,imgsList)
 				this.uploadFile('v1/uploadFiles/collectionCoverImg',imgsList[0],{collectionId:collection.id,type:collection.type})
 				imgsList.forEach(async img=>{
 					this.uploadFile('v1/uploadFiles/collectionImgs',img,{collectionId:collection.id,type:collection.type})
 				})
-				// uni.showToast({
-				// 	title:"合集发布成功！",
-				// 	success:()=>{
-				// 		uni.reLaunch({
-				// 			url:"/pages/manage/manage"
-				// 		})
-				// 	}
-				// })
+				uni.showToast({
+					title:"合集发布成功！",
+					success:()=>{
+						uni.reLaunch({
+							url:"/pages/manage/manage"
+						})
+					}
+				})
 				
 			}else{
 				let obj = this.errData

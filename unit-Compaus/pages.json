@@ -108,10 +108,10 @@
             "path" : "pages/publishNeed/publishNeed",
             "style" : {}
         }
-        ,{
-            "path" : "pages/videoSlide/videoSlide",
-            "style" : {}
-        }
+        // ,{
+        //     "path" : "pages/videoSlide/videoSlide",
+        //     "style" : {}
+        // }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

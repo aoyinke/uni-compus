@@ -32,6 +32,9 @@
 							</block>
 						</view>
 						<uni-compus-button width="100" content="确认修改" @click.native="submitChangeMember" background="#fbc531"></uni-compus-button>
+						<view class="">
+							<uni-compus-button width="100" content="添加部门" @click.native="addDepartment" background="#3498db"></uni-compus-button>
+						</view>
 					</swiper-item>
 					<swiper-item class="apply">
 						<view class="swiper-item">
@@ -64,6 +67,7 @@
 						</view>
 					</swiper-item>
 				</swiper>
+				
 			</scroll-view>
 		</view>
 		<uni-popup ref="popup" type="bottom">
@@ -148,6 +152,10 @@
 		      
 		      ref="selector" 
 		  ></w-picker>
+		  <chunLei-modal  v-model="showAddDepartment" :mData="inputData" type="input" @onConfirm="onConfirmAddDepartment"  navMask>
+		      </chunLei-modal>
+		
+		  
 	</view>
 </template>
 
@@ -161,13 +169,13 @@ export default {
 		let {groupId} = item
 		let raw_members = await this.request('v1/group/getGroupByMember?groupId=' + groupId)
 		this.groupMembers = raw_members[1].data.members
-		console.log("raw_members",raw_members)
+		
 		let raw_applicants = await this.request('v1/group/getApplicantList?groupId=' + groupId)
 		raw_applicants = raw_applicants[1].data
 		this.applicantList = raw_applicants
 		
 		this.otherPeople = raw_members[1].data.peopleWithNoDepartment
-		console.log(this.otherPeople)
+		
 		
 	},
 	watch:{
@@ -175,6 +183,14 @@ export default {
 	},
 	data() {
 		return {
+			showAddDepartment:false,
+			inputData:{
+			  title:'添加部门',
+			  content:[
+			  {title:'部门名称',content:'',placeholder:'10个中文字符以内'}
+			  ]
+			},
+			
 			member:{},
 			authList:[{auth:'社长权限',value:16},{auth:'部长权限',value:8},{auth:'成员权限',value:4}],
 			defaultProps:{"label":"auth","value":"value"},
@@ -229,6 +245,17 @@ export default {
 			})
 			
 		},
+		addDepartment(){
+			this.showAddDepartment = true
+		},
+		onConfirmAddDepartment(item){
+			let department = item[0].content
+			this.$set(this.groupMembers,department)
+			this.groupMembers[department] = {}
+			console.log(this.groupMembers)
+			
+			
+		},
 		submitChangeMember(){
 			console.log(this.groupMembers)
 			this.request('v1/group/updateMember',this.groupMembers,'POST').then(res=>{
@@ -272,8 +299,8 @@ export default {
 		},
 		confirmChangeDeartment(){
 			let members = this.groupMembers[this.oldKey]
-			console.log("this.oldKey",this.oldKey)
-			console.log("this.currentAdujstDepatment",this.currentAdujstDepatment)
+			console.log(this.currentAdujstDepatment)
+			let department = this.currentAdujstDepatment
 			if(this.oldKey == this.currentAdujstDepatment){
 				uni.showToast({
 					title:"并无修改",
@@ -284,9 +311,9 @@ export default {
 					title:"修改部门名称",
 					content:"确认修改？",
 					success: (res) => {
-						console.log(this.currentAdujstDepatment)
+						
 						if(res.confirm){
-							this.request('v1/group/updateMemberDepartment',members,'POST').then(res=>{
+							this.request('v1/group/updateMemberDepartment',{members,department},'POST').then(res=>{
 								uni.showToast({
 									title:"修改成功"
 								})
@@ -299,21 +326,20 @@ export default {
 			
 			
 		},
-		getOldKey(key){
-			
-		},
+
 		updateMemberAuth(){
 			this.$refs.selector.show()
 		},
 		handleOpenManage(member,key,id){
-			console.log(key)
+			
+			
 			let targetMemeber = this.groupMembers[key][id]
 			this.member = {...member,index:id}
-			this.oldKey = key
+			
 			this.$refs.updateMember.open()
 		},
 		confirmChangeAuth(item){
-			console.log(item)
+			
 			this.member.auth = item.result
 		},
 		confirmChangeMemberInfo(){
@@ -333,9 +359,10 @@ export default {
 		},
 		changejoinedPeople(e, part,department) {
 			this.joinedPeopleList = part;
-			console.log(e);
-			console.log(part);
-			console.log(department)
+			this.oldKey = department
+			console.log("this.oldKey",this.oldKey)
+			console.log("this.currentAdujstDepatment",this.currentAdujstDepatment)
+			
 			this.currentAdujstDepatment = department
 			this.$refs.popup.open();
 		},
@@ -352,7 +379,7 @@ export default {
 			}, 2000);
 		},
 		change(val) {
-			console.log(val);
+			
 		},
 
 		clickLeft() {

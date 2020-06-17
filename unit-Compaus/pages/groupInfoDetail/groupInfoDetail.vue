@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<uni-nav-bar left-icon="back" title="我的工作" @clickLeft="clickLeft"></uni-nav-bar>
-		<time-line ref="timeline" location="left" title="my works"></time-line>
+		<time-line ref="timeline" location="left" title="my works" :messageList="messageList"></time-line>
 	</view>
 </template>
 
@@ -10,10 +10,19 @@
 	import card from '@/components/list-card/list-card.vue'
 	
 	export default {
+		onLoad(option) {
+			let {taskId,groupId} = option
+			this.request(`v1/task/getTaskMessages?taskId=${taskId}&groupId=${groupId}`).then(res=>{
+				let info = res[1].data
+				console.log(info)
+				this.messageList = info
+			})
+		},
 		data() {
 			return {
 				time: 0,
 				isclick: true,
+				messageList:[],
 				cardinfo: {
 					"authImg": '图片地址',
 					"authName": "张三",

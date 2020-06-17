@@ -104,6 +104,9 @@ var components = {
   },
   wPicker: function() {
     return __webpack_require__.e(/*! import() | components/w-picker/w-picker */ "components/w-picker/w-picker").then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ 340))
+  },
+  chunLeiModal: function() {
+    return Promise.all(/*! import() | components/chunLei-modal/chunLei-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/chunLei-modal/chunLei-modal")]).then(__webpack_require__.bind(null, /*! @/components/chunLei-modal/chunLei-modal.vue */ 276))
   }
 }
 var render = function() {
@@ -301,18 +304,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
 {
   onLoad: function onLoad(item) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var groupId, raw_members, raw_applicants;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
               groupId = item.groupId;_context.next = 3;return (
                 _this.request('v1/group/getGroupByMember?groupId=' + groupId));case 3:raw_members = _context.sent;
-              _this.groupMembers = raw_members[1].data.members;
-              console.log("raw_members", raw_members);_context.next = 8;return (
-                _this.request('v1/group/getApplicantList?groupId=' + groupId));case 8:raw_applicants = _context.sent;
+              _this.groupMembers = raw_members[1].data.members;_context.next = 7;return (
+
+                _this.request('v1/group/getApplicantList?groupId=' + groupId));case 7:raw_applicants = _context.sent;
               raw_applicants = raw_applicants[1].data;
               _this.applicantList = raw_applicants;
 
-              _this.otherPeople = raw_members[1].data.peopleWithNoDepartment;
-              console.log(_this.otherPeople);case 13:case "end":return _context.stop();}}}, _callee);}))();
+              _this.otherPeople = raw_members[1].data.peopleWithNoDepartment;case 11:case "end":return _context.stop();}}}, _callee);}))();
+
 
   },
   watch: {},
@@ -320,6 +331,14 @@ __webpack_require__.r(__webpack_exports__);
 
   data: function data() {
     return {
+      showAddDepartment: false,
+      inputData: {
+        title: '添加部门',
+        content: [
+        { title: '部门名称', content: '', placeholder: '10个中文字符以内' }] },
+
+
+
       member: {},
       authList: [{ auth: '社长权限', value: 16 }, { auth: '部长权限', value: 8 }, { auth: '成员权限', value: 4 }],
       defaultProps: { "label": "auth", "value": "value" },
@@ -374,6 +393,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
     },
+    addDepartment: function addDepartment() {
+      this.showAddDepartment = true;
+    },
+    onConfirmAddDepartment: function onConfirmAddDepartment(item) {
+      var department = item[0].content;
+      this.$set(this.groupMembers, department);
+      this.groupMembers[department] = {};
+      console.log(this.groupMembers);
+
+
+    },
     submitChangeMember: function submitChangeMember() {
       console.log(this.groupMembers);
       this.request('v1/group/updateMember', this.groupMembers, 'POST').then(function (res) {
@@ -417,8 +447,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     confirmChangeDeartment: function confirmChangeDeartment() {var _this5 = this;
       var members = this.groupMembers[this.oldKey];
-      console.log("this.oldKey", this.oldKey);
-      console.log("this.currentAdujstDepatment", this.currentAdujstDepatment);
+      console.log(this.currentAdujstDepatment);
+      var department = this.currentAdujstDepatment;
       if (this.oldKey == this.currentAdujstDepatment) {
         uni.showToast({
           title: "并无修改",
@@ -429,9 +459,9 @@ __webpack_require__.r(__webpack_exports__);
           title: "修改部门名称",
           content: "确认修改？",
           success: function success(res) {
-            console.log(_this5.currentAdujstDepatment);
+
             if (res.confirm) {
-              _this5.request('v1/group/updateMemberDepartment', members, 'POST').then(function (res) {
+              _this5.request('v1/group/updateMemberDepartment', { members: members, department: department }, 'POST').then(function (res) {
                 uni.showToast({
                   title: "修改成功" });
 
@@ -444,21 +474,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
     },
-    getOldKey: function getOldKey(key) {
 
-    },
     updateMemberAuth: function updateMemberAuth() {
       this.$refs.selector.show();
     },
     handleOpenManage: function handleOpenManage(member, key, id) {
-      console.log(key);
+
+
       var targetMemeber = this.groupMembers[key][id];
       this.member = _objectSpread({}, member, { index: id });
-      this.oldKey = key;
+
       this.$refs.updateMember.open();
     },
     confirmChangeAuth: function confirmChangeAuth(item) {
-      console.log(item);
+
       this.member.auth = item.result;
     },
     confirmChangeMemberInfo: function confirmChangeMemberInfo() {var _this$member2 =
@@ -478,9 +507,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     changejoinedPeople: function changejoinedPeople(e, part, department) {
       this.joinedPeopleList = part;
-      console.log(e);
-      console.log(part);
-      console.log(department);
+      this.oldKey = department;
+      console.log("this.oldKey", this.oldKey);
+      console.log("this.currentAdujstDepatment", this.currentAdujstDepatment);
+
       this.currentAdujstDepatment = department;
       this.$refs.popup.open();
     },
@@ -497,7 +527,7 @@ __webpack_require__.r(__webpack_exports__);
       }, 2000);
     },
     change: function change(val) {
-      console.log(val);
+
     },
 
     clickLeft: function clickLeft() {

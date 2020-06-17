@@ -52,9 +52,10 @@
 				<uni-collapse :accordion="true">
 					<uni-collapse-item :title="taskInfo.taskName" :showAnimation="true" >
 						<view class="task-progress">
-							<textarea v-model="progressMessage" placeholder="更新个人任务进度" />
-							<uni-compus-button content="汇报进度" background="#fbc531" width="100" @click.native="submitProgress"></uni-compus-button>
+							<textarea v-model="progressMessage" style="width: 100%;height: 100%;" placeholder="更新个人任务进度" />
+							
 						</view>
+						<uni-compus-button content="汇报进度" background="#fbc531" width="100" @click.native="submitProgress"></uni-compus-button>
 					</uni-collapse-item>
 					
 				</uni-collapse>
@@ -187,7 +188,32 @@ export default {
 	},
 	methods: {
 		submitProgress(){
-			console.log(progressMessage)
+			if(this.progressMessage){
+				let {id,groupId} = this.taskInfo
+				let messageInfo = {taskId:id,groupId,message:this.progressMessage}
+				uni.showModal({
+					title:"汇总进度",
+					content:"是否提交进度？",
+					success: (res) => {
+						if(res.confirm){
+							this.request('v1/task/uploadTaskMessage',messageInfo,"POST").then(res=>{
+								uni.showToast({
+									title:"汇总成功"
+								})
+								this.progressMessage = ""
+							})
+						}
+					}
+				})
+			}else{
+				uni.showToast({
+					title:"不能为空",
+					icon:"none"
+				})
+			}
+			
+			console.log(this.taskInfo)
+			console.log(this.progressMessage)
 		},
 		previewTaskImg(imgs){
 			uni.previewImage({

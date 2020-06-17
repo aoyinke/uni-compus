@@ -144,10 +144,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+  onLoad: function onLoad(option) {var _this = this;var
+    taskId = option.taskId,groupId = option.groupId;
+    this.request("v1/task/getTaskMessages?taskId=".concat(taskId, "&groupId=").concat(groupId)).then(function (res) {
+      var info = res[1].data;
+      console.log(info);
+      _this.messageList = info;
+    });
+  },
   data: function data() {
     return {
       time: 0,
       isclick: true,
+      messageList: [],
       cardinfo: {
         "authImg": '图片地址',
         "authName": "张三",

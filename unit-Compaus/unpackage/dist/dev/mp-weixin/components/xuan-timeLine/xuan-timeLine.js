@@ -185,7 +185,7 @@ var _default =
 {
   data: function data() {
     return {
-      // 数据
+      //数据
       time_line_list: [
       {
         title: '2015.11.11',
@@ -263,9 +263,16 @@ var _default =
 
     title: {
       type: String,
-      default: '时间轴' } },
+      default: '时间轴' },
+
+    messageList: {
+      type: Array,
+      default: [] } },
 
 
+  created: function created() {
+
+  },
   computed: {
     addTypeClass: function addTypeClass() {
       var _class = "";
@@ -277,7 +284,9 @@ var _default =
     } },
 
   mounted: function mounted() {
+    this.time_line_list = this.messageList;
     this.init();
+    console.log(this.time_line_list);
   },
   methods: {
     init: function init() {

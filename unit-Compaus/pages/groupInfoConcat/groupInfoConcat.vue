@@ -3,8 +3,8 @@
 		<uni-nav-bar title="信息交流" left-icon="back" @clickLeft="clickLeft"></uni-nav-bar>
 		<!-- 手风琴效果 -->
 		<uni-collapse :accordion="true">
-			<uni-collapse-item :title="task.title" :showAnimation="true" v-for="(task,index) in tasks" :key="index">
-				<view style="padding: 30rpx;" @click="goDetail"><card :cardinfo="task.cardinfo"></card></view>
+			<uni-collapse-item :title="task.taskName" :showAnimation="true" v-for="(task,index) in tasks" :key="index">
+				<view style="padding: 30rpx;" @click="goDetail(task)"><card :cardinfo="task"></card></view>
 			</uni-collapse-item>
 			
 		</uni-collapse>
@@ -32,11 +32,13 @@ export default {
 			] 
 		};
 	},
-	onLoad() {
+	async onLoad(item) {
+		let {groupId} = item
 		
-		for(let i = 0;i<4;i++){
-			this.tasks.push(this.tasks[0])
-		}
+		let raw_tasks = await this.request('v1/task/getLatestMessage?groupId=' + groupId);
+		raw_tasks = raw_tasks[1].data
+		this.tasks = raw_tasks
+		console.log(raw_tasks)
 	},
 	methods: {
 		clickLeft() {
@@ -45,9 +47,11 @@ export default {
 				animationType: 'pop-out'
 			});
 		},
-		goDetail(){
+		goDetail(task){
+			let {id,groupId} = task
+			this.request('v1/task/addCheckNums',{groupId,taskId:id},'POST')
 			uni.navigateTo({
-				url:"/pages/groupInfoDetail/groupInfoDetail"
+				url:`/pages/groupInfoDetail/groupInfoDetail?taskId=${id}&groupId=${groupId}`
 			})
 		}
 	},

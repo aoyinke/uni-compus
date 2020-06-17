@@ -134,7 +134,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var gallerySwiper = function gallerySwiper() {__webpack_require__.e(/*! require.ensure | components/QS-gallery-swiper/QS-gallery-swiper */ "components/QS-gallery-swiper/QS-gallery-swiper").then((function () {return resolve(__webpack_require__(/*! @/components/QS-gallery-swiper/QS-gallery-swiper */ 534));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var specialBanner = function specialBanner() {__webpack_require__.e(/*! require.ensure | components/EtherealWheat-banner/specialBanner */ "components/EtherealWheat-banner/specialBanner").then((function () {return resolve(__webpack_require__(/*! @/components/EtherealWheat-banner/specialBanner */ 541));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 34));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var gallerySwiper = function gallerySwiper() {__webpack_require__.e(/*! require.ensure | components/QS-gallery-swiper/QS-gallery-swiper */ "components/QS-gallery-swiper/QS-gallery-swiper").then((function () {return resolve(__webpack_require__(/*! @/components/QS-gallery-swiper/QS-gallery-swiper */ 534));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var specialBanner = function specialBanner() {__webpack_require__.e(/*! require.ensure | components/EtherealWheat-banner/specialBanner */ "components/EtherealWheat-banner/specialBanner").then((function () {return resolve(__webpack_require__(/*! @/components/EtherealWheat-banner/specialBanner */ 541));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -167,6 +167,7 @@ __webpack_require__.r(__webpack_exports__);
 {
   data: function data() {
     return {
+      allowEdit: false,
       currentIndex: 0,
       groupName: "轻松一校",
       bannerList: [{
@@ -261,11 +262,12 @@ __webpack_require__.r(__webpack_exports__);
 
     } },
 
-  created: function created() {
-
-  },
-  onLoad: function onLoad(option) {
-    console.log(option.index);
+  onLoad: function onLoad(option) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var type, groupId, allowEdit, collecionts;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              type = option.type, groupId = option.groupId, allowEdit = option.allowEdit;
+              _this.allowEdit = allowEdit;_context.next = 4;return (
+                _this.request("v1/collection/getCollections?type=".concat(type, "&groupId=").concat(groupId)));case 4:collecionts = _context.sent;
+              _this.bannerList = collecionts[1].data;
+              console.log(collecionts);case 7:case "end":return _context.stop();}}}, _callee);}))();
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

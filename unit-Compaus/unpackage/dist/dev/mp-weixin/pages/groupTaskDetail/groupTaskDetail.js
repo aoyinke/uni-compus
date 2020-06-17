@@ -296,6 +296,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 {
   onLoad: function onLoad(item) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var taskId, groupAuth, taskInfo;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
               taskId = item.taskId, groupAuth = item.groupAuth;_context.next = 3;return (
@@ -337,8 +338,33 @@ __webpack_require__.r(__webpack_exports__);
 
   },
   methods: {
-    submitProgress: function submitProgress() {
-      console.log(progressMessage);
+    submitProgress: function submitProgress() {var _this2 = this;
+      if (this.progressMessage) {var _this$taskInfo =
+        this.taskInfo,id = _this$taskInfo.id,groupId = _this$taskInfo.groupId;
+        var messageInfo = { taskId: id, groupId: groupId, message: this.progressMessage };
+        uni.showModal({
+          title: "汇总进度",
+          content: "是否提交进度？",
+          success: function success(res) {
+            if (res.confirm) {
+              _this2.request('v1/task/uploadTaskMessage', messageInfo, "POST").then(function (res) {
+                uni.showToast({
+                  title: "汇总成功" });
+
+                _this2.progressMessage = "";
+              });
+            }
+          } });
+
+      } else {
+        uni.showToast({
+          title: "不能为空",
+          icon: "none" });
+
+      }
+
+      console.log(this.taskInfo);
+      console.log(this.progressMessage);
     },
     previewTaskImg: function previewTaskImg(imgs) {
       uni.previewImage({
@@ -355,15 +381,15 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.taskInfo);
     },
 
-    chooseImg: function chooseImg() {var _this2 = this;
+    chooseImg: function chooseImg() {var _this3 = this;
       uni.chooseImage({
         sourceType: ["camera", "album"],
         sizeType: "compressed",
         count: 8 - this.taskInfo.taskImgs.length,
         success: function success(res) {
-          var obj = _this2.taskInfo;
+          var obj = _this3.taskInfo;
           obj.taskImgs = obj.taskImgs.concat(res.tempFilePaths);
-          _this2.taskInfo = obj;
+          _this3.taskInfo = obj;
 
         } });
 
@@ -376,11 +402,11 @@ __webpack_require__.r(__webpack_exports__);
       this.groupMembers.splice(index, 1);
       this.joinedPeopleList.push(member);
     },
-    handleSearch: function handleSearch() {var _this3 = this;
+    handleSearch: function handleSearch() {var _this4 = this;
       this.loading = true;
       setTimeout(function () {
-        _this3.loading = false;
-        _this3.infoList = _this3.infoLists;
+        _this4.loading = false;
+        _this4.infoList = _this4.infoLists;
       }, 2000);
     },
     change: function change(val) {

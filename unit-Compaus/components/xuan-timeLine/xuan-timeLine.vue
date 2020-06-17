@@ -23,7 +23,7 @@
 							<view class="info-content-wrap" :style="{ opacity: current[index]&&current[index].is=='ok'?1:0}" :class="current[index]&&current[index].is=='ok'?comeani:''">
 								<!-- 标题 -->
 								<view class="info-title">
-									{{item.title}}<span>{{item.title_span}}</span>
+									{{item.createdAt}}
 								</view>
 								
 								<!-- 内容 -->
@@ -37,7 +37,7 @@
 											<text>{{item.nickName}}</text>
 										</view>
 									</view>
-									<view class="info-txt">{{item.content}}</view>
+									<view class="info-txt">{{item.message}}</view>
 								</view>
 							</view>
 							
@@ -53,7 +53,7 @@
 	export default{
 		data(){
 			return{
-				// 数据
+				//数据
 				time_line_list:[
 					{
 						title:'2015.11.11',
@@ -133,6 +133,13 @@
 				type:String,
 				default:'时间轴'
 			},
+			messageList:{
+				type:Array,
+				default:[]
+			}
+		},
+		created() {
+			
 		},
 		computed:{
 			addTypeClass(){
@@ -145,7 +152,9 @@
 			}
 		},
 		mounted() {
+			this.time_line_list = this.messageList
 			this.init();
+			console.log(this.time_line_list)
 		},
 		methods:{
 			init(){
