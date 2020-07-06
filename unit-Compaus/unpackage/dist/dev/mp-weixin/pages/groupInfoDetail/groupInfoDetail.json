@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
-    "card": "/components/list-card/list-card",
-    "time-line": "/components/xuan-timeLine/xuan-timeLine"
-  }
-}

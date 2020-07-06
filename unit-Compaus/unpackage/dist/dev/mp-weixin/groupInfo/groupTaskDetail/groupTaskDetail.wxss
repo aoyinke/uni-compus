@@ -1,0 +1,132 @@
+.item.data-v-dd1d500a {
+  box-shadow: 2px 2px 2px 2px #EEEEEE;
+  height: 400rpx;
+  margin: 20rpx;
+}
+.task-progress.data-v-dd1d500a {
+  background-color: #fff;
+  height: 200rpx;
+  margin: 20rpx;
+}
+.choosejoinedPeople.data-v-dd1d500a {
+  background-color: #fff;
+  height: 70vh;
+}
+.choosejoinedPeople-title.data-v-dd1d500a {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.memberList-item.data-v-dd1d500a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  padding: 15rpx;
+  width: 100%;
+}
+.memberList-item-right.data-v-dd1d500a {
+  color: #70a1ff;
+}
+.joinedPeople-list.data-v-dd1d500a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+          justify-content: space-evenly;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin: 15rpx;
+}
+.joinedPeople-list-item.data-v-dd1d500a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.addConcernEvent.data-v-dd1d500a {
+  color: #00a8ff;
+}
+.changeTaskName input.data-v-dd1d500a {
+  text-align: right;
+}
+.inputConcernEvent.data-v-dd1d500a {
+  background-color: #dcdde1;
+  margin: 20rpx 20rpx 20rpx 20rpx;
+  border: 1px solid #eee;
+}
+.TaskName.data-v-dd1d500a {
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+.TaskName-title.data-v-dd1d500a {
+  font-size: 36rpx;
+  font-font-weight: 600;
+}
+.main .joinedPeople.data-v-dd1d500a {
+  box-shadow: 3px 3px 3px 5px rgba(223, 228, 234, 0.7);
+}
+.main .joinedPeople-change.data-v-dd1d500a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  padding: 15rpx;
+  border-radius: 1px solid #f1f2f6;
+}
+.main .joinedPeople-change-right.data-v-dd1d500a {
+  color: #70a1ff;
+}
+.main .joinedPeople-list.data-v-dd1d500a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+          justify-content: space-evenly;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin: 15rpx;
+}
+.main .joinedPeople-list-item.data-v-dd1d500a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+

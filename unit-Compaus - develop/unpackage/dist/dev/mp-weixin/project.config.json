@@ -1,0 +1,215 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": false,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "",
+	"appid": "wx131bfaf6cc027e18",
+	"projectname": "unit-Compaus",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"name": "index",
+					"query": "",
+					"id": 0,
+					"pathName": "pages/index/index"
+				},
+				{
+					"name": "videoSlide",
+					"query": "",
+					"id": 1,
+					"pathName": "pages/videoSlide/videoSlide"
+				},
+				{
+					"name": "publishNeed",
+					"query": "",
+					"id": 2,
+					"pathName": "pages/publishNeed/publishNeed"
+				},
+				{
+					"name": "needWall",
+					"query": "",
+					"id": 3,
+					"pathName": "pages/needWall/needWall"
+				},
+				{
+					"name": "collectionsDetail",
+					"query": "",
+					"id": 4,
+					"pathName": "pages/collectionsDetail/collectionsDetail"
+				},
+				{
+					"name": "personShow",
+					"query": "",
+					"id": 5,
+					"pathName": "pages/personShow/personShow"
+				},
+				{
+					"name": "registerGroup",
+					"query": "",
+					"id": 6,
+					"pathName": "pages/registerGroup/registerGroup"
+				},
+				{
+					"name": "memberMange",
+					"query": "",
+					"id": 7,
+					"pathName": "pages/memberMange/memberMange"
+				},
+				{
+					"name": "manage",
+					"query": "",
+					"id": 8,
+					"pathName": "pages/manage/manage"
+				},
+				{
+					"name": "changeGroupInfo",
+					"query": "",
+					"id": 9,
+					"pathName": "pages/changeGroupInfo/changeGroupInfo"
+				},
+				{
+					"name": "groupTaskDetail",
+					"query": "",
+					"id": 10,
+					"pathName": "pages/groupTaskDetail/groupTaskDetail"
+				},
+				{
+					"name": "startPage",
+					"query": "",
+					"id": 11,
+					"pathName": "pages/startPage/startPage"
+				},
+				{
+					"name": "groupTaskList",
+					"query": "",
+					"id": 12,
+					"pathName": "pages/groupTaskList/groupTaskList"
+				},
+				{
+					"name": "groupConcat",
+					"query": "",
+					"id": 13,
+					"pathName": "pages/groupInfoConcat/groupInfoConcat"
+				},
+				{
+					"name": "PublishTask",
+					"query": "groupId=1",
+					"id": 14,
+					"pathName": "pages/publishTask/publishTask"
+				},
+				{
+					"name": "groupDetail",
+					"query": "",
+					"id": 15,
+					"pathName": "pages/groupDetail/groupDetail"
+				},
+				{
+					"name": "feedBack",
+					"query": "",
+					"id": 16,
+					"pathName": "pages/feedBack/feedBack"
+				},
+				{
+					"name": "mySave",
+					"query": "",
+					"id": 17,
+					"pathName": "pages/mySave/mySave"
+				},
+				{
+					"name": "groupInfoDetail",
+					"query": "",
+					"id": 18,
+					"pathName": "pages/groupInfoDetail/groupInfoDetail"
+				},
+				{
+					"name": "interestTag",
+					"query": "",
+					"id": 19,
+					"pathName": "pages/interestsTag/interestsTag"
+				},
+				{
+					"name": "activityDetail",
+					"query": "",
+					"id": 20,
+					"pathName": "pages/activityDetail/activityDetail"
+				},
+				{
+					"name": "publish",
+					"query": "",
+					"id": 21,
+					"pathName": "pages/publishActivity/publishActivity"
+				},
+				{
+					"name": "findPeople",
+					"query": "",
+					"id": 22,
+					"pathName": "pages/findPeople/findPeople"
+				},
+				{
+					"name": "login",
+					"query": "",
+					"id": 23,
+					"pathName": "pages/login/login"
+				},
+				{
+					"name": "self",
+					"query": "",
+					"id": 24,
+					"pathName": "pages/self/self"
+				},
+				{
+					"name": "changePerson",
+					"query": "",
+					"id": 25,
+					"pathName": "pages/changePerson/changePerson"
+				},
+				{
+					"name": "group",
+					"query": "",
+					"id": 26,
+					"pathName": "pages/group/group"
+				}
+			]
+		}
+	}
+}

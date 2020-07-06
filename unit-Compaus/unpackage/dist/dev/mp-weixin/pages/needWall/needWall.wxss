@@ -1,3 +1,17 @@
+.nextPage.data-v-da391e74 {
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+.nextPage .line.data-v-da391e74 {
+  display: inline-block;
+  width: 25%;
+  border-top: 3px solid #82b3d5;
+}
+.nextPage .txt.data-v-da391e74 {
+  color: #555;
+  vertical-align: middle;
+}
 .pencil.data-v-da391e74 {
   color: #fd9644;
   font-size: 2.5em;

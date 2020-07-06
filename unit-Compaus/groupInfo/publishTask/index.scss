@@ -1,0 +1,38 @@
+.choosejoinedPeople {
+	background-color: #fff;
+	height: 70vh;
+}
+.choosejoinedPeople-title {
+	text-align: center;
+	font-size: 32upx;
+	font-weight: 500;
+}
+
+.memberList {
+	&-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 15upx;
+		width: 100%;
+		&-left {
+		}
+		&-right {
+			color: #70a1ff;
+		}
+	}
+}
+
+.joinedPeople-list {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	margin: 15rpx;
+	&-item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+}

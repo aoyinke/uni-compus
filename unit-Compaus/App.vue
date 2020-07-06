@@ -11,7 +11,8 @@ const util = require('util');
 export default {
 	onLaunch: function(option) {
 
-		let host = 'http://localhost';
+		let host = 'https://www.unicompus.com';
+		// let host = 'https://114.55.251.105';
 		let port = '3000';
 		
 		uni.getSystemInfo({
@@ -75,7 +76,8 @@ export default {
 			let token = JSON.parse(uni.getStorageSync('userInfo')).token
 			let basic_token = _encode(token)
 			let config = {
-				url: 'http://localhost:3000/' + route,
+				url: 'https://www.unicompus.com:3000/' + route,
+				
 				method: method || 'GET',
 				data: data,
 				header:{
@@ -95,7 +97,8 @@ export default {
 			let token = JSON.parse(uni.getStorageSync('userInfo')).token
 			let basic_token = _encode(token)
 			let result = uni.uploadFile({
-				url:"http://localhost:3000/" + route,
+				url:"https://www.unicompus.com:3000/" + route,
+				
 				filePath:file,
 				name:"file",
 				formData:formData,

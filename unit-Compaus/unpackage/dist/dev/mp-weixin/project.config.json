@@ -7,6 +7,7 @@
 		"urlCheck": false,
 		"es6": false,
 		"postcss": true,
+		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
@@ -21,12 +22,12 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.2",
-	"appid": "wx9a27842ce15e1186",
+	"appid": "wx131bfaf6cc027e18",
 	"projectname": "unit-Compaus",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
@@ -44,7 +45,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"name": "index",

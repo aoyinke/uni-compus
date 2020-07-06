@@ -1,5 +1,5 @@
 let baseConfig = {
-	host: "http://localhost:",
+	host: "http://114.55.251.105:",
 	port: "3000",
 	img_example: "https://lz.sinaimg.cn",
 

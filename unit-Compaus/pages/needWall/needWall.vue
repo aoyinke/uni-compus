@@ -25,7 +25,7 @@
 		<view class="uni-tab-bar" :style="{ height: needHeight + 'px' }">
 			<scroll-view scroll-y="true" class="list">
 				<swiper :current="currentIndex" class="swiper-box" @change="changeCurrentIndex">
-					<swiper-item v-for="(tag,index) in nav" :key="index">
+					<swiper-item v-for="(tag, index) in nav" :key="index">
 						<view class="swiper-item">
 							<view class="need-List">
 								<view class="need-item" v-for="(needInfo, id) in needList" :key="id">
@@ -48,8 +48,14 @@
 								</view>
 							</view>
 						</view>
+						<view class="nextPage" v-show="!nextPage">
+							<span style="white-space:pre">   </span><span class="line"></span>
+							<span style="white-space:pre">   </span><span class="txt">没有了哦~(●'◡'●)</span>
+							<span style="white-space:pre">   </span><span class="line"></span>
+						</view>
 					</swiper-item>
 				</swiper>
+				
 			</scroll-view>
 		</view>
 	</view>
@@ -61,7 +67,30 @@ import userTopBar from '@/components/activity/userTopBar.vue';
 import goodIcon from '@/components/common/commonIcon/needGood.vue';
 
 export default {
-	watch: {
+	watch: {},
+	async onReachBottom() {
+		this.currentPage+=1;
+		let category = this.nav[this.currentIndex];
+		
+		let type = 100;
+		switch (category) {
+			case '技能需求':
+				type = 100;
+				break;
+			case '梦想成真':
+				type = 101;
+				break;
+			case '众投活动':
+				type = 102;
+				break;
+		}
+		let needList = await this.request(`v1/needWall/needList?currentPage=${this.currentPage}&category=${type}`);
+		needList = needList[1].data
+		if(needList.length){
+			this.needList = this.needList.concat(needList);
+		}else{
+			this.nextPage = false
+		}
 		
 	},
 	components: {
@@ -71,12 +100,13 @@ export default {
 	},
 	data() {
 		return {
+			nextPage: true,
+			currentPage: 1,
 			needHeight: 0,
 			currentIndex: 0,
 			nav: ['技能需求', '梦想成真', '众投活动'],
 
 			needList: [],
-			
 
 			loading: false,
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
@@ -99,56 +129,57 @@ export default {
 		};
 	},
 	methods: {
-		async _getList(mm,currentIndex){
+		async _getList(mm, currentIndex, currentPage = 1) {
 			let category = this.nav[currentIndex];
-					
-			let type = 100
+
+			let type = 100;
 			switch (category) {
 				case '技能需求':
 					type = 100;
-					break
+					break;
 				case '梦想成真':
 					type = 101;
-					break
+					break;
 				case '众投活动':
 					type = 102;
-					break
+					break;
 			}
-			let needList = await this.request(`v1/needWall/needList?currentPage=${1}&category=${type}`);
+			let needList = await this.request(`v1/needWall/needList?currentPage=${currentPage}&category=${type}`);
 			this.needList = needList[1].data;
-			console.log(mm,needList);
+			this.nextPage = true
+			console.log(mm, needList);
 		},
-		addGood(id){
-			let obj = this.needList
-			
-			console.log(obj[id],id)
-			obj[id].fav_nums++
-			this.needList = obj
+		addGood(id) {
+			let obj = this.needList;
+
+			console.log(obj[id], id);
+			obj[id].fav_nums++;
+			this.needList = obj;
 		},
-		cancelGood(id){
-			let obj = this.needList
-			obj[id].fav_nums--
-			this.needList = obj
+		cancelGood(id) {
+			let obj = this.needList;
+			obj[id].fav_nums--;
+			this.needList = obj;
 		},
-		toUserDetail(uid){
+		toUserDetail(uid) {
 			uni.navigateTo({
-				url:`/pages/personShow/personShow?uid=${uid}&personShow=${true}`
-			})
+				url: `/user/personShow/personShow?uid=${uid}&personShow=${true}`
+			});
 		},
 		changeCurrentIndex(e) {
 			this.currentIndex = e.detail.current;
-			console.log(this.currentIndex)
-			this._getList("changeCurrentIndex",this.currentIndex)
+			console.log(this.currentIndex);
+			this._getList('changeCurrentIndex', this.currentIndex);
 		},
 		changeNav(id) {
 			this.currentIndex = id;
-			
-			this._getList("changeNav",id)
+
+			this._getList('changeNav', id);
 		},
 		gotoPublishNeed() {
 			uni.navigateTo({
-				url:'/pages/publishNeed/publishNeed'
-			})
+				url: '/need/publishNeed/publishNeed'
+			});
 		},
 		handleSearch() {
 			this.loading = true;
@@ -157,9 +188,7 @@ export default {
 				this.infoList = this.infoLists;
 			}, 2000);
 		},
-		change(val) {
-			
-		}
+		change(val) {}
 	},
 	async onLoad() {
 		uni.getSystemInfo({
@@ -168,15 +197,33 @@ export default {
 				this.needHeight = height;
 			}
 		});
-		let needList = await this.request(`v1/needWall/needList?currentPage=${1}&category=${100}`);
-		this.needList = needList[1].data;
-		console.log(this.needList)
+		
+		let needList = this.request(`v1/needWall/needList?currentPage=${1}&category=${100}`).then(res=>{
+			this.needList = res[1].data;
+		}).catch(err=>{
+			console.log(err)
+		})
+		
 		
 	}
 };
 </script>
 
 <style lang="scss" scoped>
+.nextPage {
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	.line {
+		display: inline-block;
+		width: 25%;
+		border-top: 3px solid #82b3d5;
+	}
+	.txt {
+		color: #555;
+		vertical-align: middle;
+	}
+}
 .pencil {
 	color: rgba(253, 150, 68, 1);
 	font-size: 2.5em;

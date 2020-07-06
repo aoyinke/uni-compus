@@ -1,35 +1,52 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/self/self",
-    "pages/changePerson/changePerson",
-    "pages/group/group",
-    "pages/activityDetail/activityDetail",
-    "pages/publishActivity/publishActivity",
-    "pages/findPeople/findPeople",
-    "pages/login/login",
-    "pages/interestsTag/interestsTag",
-    "pages/groupInfoDetail/groupInfoDetail",
-    "pages/mySave/mySave",
-    "pages/feedBack/feedBack",
-    "pages/groupDetail/groupDetail",
-    "pages/groupTaskList/groupTaskList",
-    "pages/groupInfoConcat/groupInfoConcat",
-    "pages/publishTask/publishTask",
-    "pages/groupTaskDetail/groupTaskDetail",
-    "pages/startPage/startPage",
     "pages/manage/manage",
-    "pages/collectionsDetail/collectionsDetail",
-    "pages/changeGroupInfo/changeGroupInfo",
-    "pages/memberMange/memberMange",
-    "pages/registerGroup/registerGroup",
-    "pages/personShow/personShow",
-    "pages/publishCollection/publishCollection",
-    "pages/needWall/needWall",
-    "pages/publishNeed/publishNeed",
-    "pages/videoSlide/videoSlide"
+    "pages/self/self",
+    "pages/group/group",
+    "pages/needWall/needWall"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "groupInfo",
+      "pages": [
+        "groupInfoDetail/groupInfoDetail",
+        "groupDetail/groupDetail",
+        "groupTaskList/groupTaskList",
+        "groupInfoConcat/groupInfoConcat",
+        "publishTask/publishTask",
+        "groupTaskDetail/groupTaskDetail",
+        "changeGroupInfo/changeGroupInfo",
+        "memberMange/memberMange",
+        "publishCollection/publishCollection"
+      ]
+    },
+    {
+      "root": "user",
+      "pages": [
+        "changePerson/changePerson",
+        "interestsTag/interestsTag",
+        "mySave/mySave",
+        "feedBack/feedBack",
+        "registerGroup/registerGroup",
+        "personShow/personShow",
+        "login/login"
+      ]
+    },
+    {
+      "root": "need",
+      "pages": [
+        "publishNeed/publishNeed"
+      ]
+    },
+    {
+      "root": "activity",
+      "pages": [
+        "activityDetail/activityDetail",
+        "publishActivity/publishActivity"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
@@ -79,8 +96,6 @@
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
     "uni-compus-button": "/components/uni-compus-components/unicompus-button",
-    "mescroll-body": "/components/mescroll-uni/mescroll-body",
-    "mescroll-uni": "/components/mescroll-uni/mescroll-uni",
     "lv-select": "/components/lv-select/lv-select"
   }
 }

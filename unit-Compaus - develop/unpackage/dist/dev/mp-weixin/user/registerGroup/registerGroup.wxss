@@ -1,0 +1,30 @@
+input.data-v-a929319a {
+  text-align: right;
+}
+.logo.data-v-a929319a {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #95a5a6;
+}
+.group-description.data-v-a929319a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  background-color: #dff9fb;
+  height: 300rpx;
+}
+.group-description textarea.data-v-a929319a {
+  margin: 50rpx 20rpx;
+  height: 200rpx;
+  border-radius: 20rpx;
+  background: rgba(248, 239, 186, 0.5);
+  padding: 20rpx;
+}
+

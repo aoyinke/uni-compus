@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "kp-swiper": "/components/kp-swiper/index",
+    "kp-icon": "/components/kp-icon/index",
+    "kp-tag": "/components/kp-tag/index",
+    "like-icon": "/components/common/commonIcon/userLike",
+    "kp-badge": "/components/kp-badge/index",
+    "kp-avatar": "/components/kp-avatar/index"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "kp-icon": "/components/kp-icon/index",
+    "kp-tag": "/components/kp-tag/index"
+  }
+}

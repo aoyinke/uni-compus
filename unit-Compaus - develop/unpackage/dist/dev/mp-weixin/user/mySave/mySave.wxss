@@ -1,0 +1,88 @@
+.need-List .need-item.data-v-35b8fbce {
+  border-bottom: 2rpx solid #eeeeee;
+  padding-bottom: 5rpx;
+}
+.need-List .need-item-main.data-v-35b8fbce {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  min-height: 300rpx;
+}
+.need-List .need-item-main-left.data-v-35b8fbce {
+  height: 250rpx;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  background-color: #ccae62;
+}
+.need-List .need-item-main-left-title.data-v-35b8fbce {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.need-List .need-item-main-left-title text.data-v-35b8fbce {
+  font-weight: 600;
+  font-size: 1.2em;
+}
+.need-List .need-item-main-left-content.data-v-35b8fbce {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.need-List .need-item-main-right.data-v-35b8fbce {
+  height: 250rpx;
+  width: 15%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.concernedPerson-item.data-v-35b8fbce {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  margin-bottom: 20rpx;
+}
+.concernedPerson-item-left.data-v-35b8fbce {
+  width: 20%;
+  padding: 20rpx;
+}
+.concernedPerson-item-right.data-v-35b8fbce {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.concernedPerson-item-right-name.data-v-35b8fbce {
+  font-size: 32rpx;
+}
+.concernedPerson-item-right-intro.data-v-35b8fbce {
+  color: gray;
+}
+

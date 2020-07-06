@@ -1,3 +1,17 @@
+.nextPage.data-v-4a70592c {
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+.nextPage .line.data-v-4a70592c {
+  display: inline-block;
+  width: 35%;
+  border-top: 3px solid #82B3D5;
+}
+.nextPage .txt.data-v-4a70592c {
+  color: #555;
+  vertical-align: middle;
+}
 .nav-bar-left.data-v-4a70592c {
   margin-left: 80rpx;
 }

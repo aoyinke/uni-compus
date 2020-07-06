@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "go-detail": "/components/uni-compus-components/uniCompus-goDetail",
+    "kp-avatar": "/components/kp-avatar/index"
+  }
+}

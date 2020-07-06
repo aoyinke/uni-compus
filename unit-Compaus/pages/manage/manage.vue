@@ -2,7 +2,7 @@
 	<view>
 		<uni-nav-bar  title="小组" >
 			<view class="selectGroup" slot="left">
-				<ms-dropdown-menu><ms-dropdown-item @choose="chooseManageGroup" v-model="group" :list="list"></ms-dropdown-item></ms-dropdown-menu>
+				<ms-dropdown-menu><ms-dropdown-item @choose="chooseManageGroup" v-model="groupIndex" :list="list"></ms-dropdown-item></ms-dropdown-menu>
 			</view>
 		</uni-nav-bar>
 		<view class="uni-tab-bar">
@@ -56,7 +56,7 @@
 										  :image="groupInfo.logo"
 										  size="large"
 										  mode="aspectFill"
-										  @tap="handleOpenCommunity(row)"
+										  
 										/> 
 									</view>
 								</view>
@@ -220,6 +220,7 @@
 <script>
 import kpSwiper from '@/components/kp-swiper/index.vue';
 import {baseConfig,cooperateItems,collections} from '@/config/index.js';
+import { mapState} from 'vuex';
 import KpIcon from "@/components/kp-icon";
 import KpTag from "@/components/kp-tag";
 import likeIcon from '@/components/common/commonIcon/groupLike.vue';
@@ -227,10 +228,9 @@ import kpBadge from '@/components/kp-badge/index.vue';
 import KpAvatar from '@/components/kp-avatar/index.vue';
 import msDropdownMenu from '@/components/ms-dropdown/dropdown-menu.vue';
 import msDropdownItem from '@/components/ms-dropdown/dropdown-item.vue';
-import { mapMutations, mapState } from 'vuex';
 export default {
-	computed:{
-		
+	computed: {
+		...mapState(['group'])
 	},
 	data() {
 		return {
@@ -238,7 +238,7 @@ export default {
 			groupInfo:{},
 			value: false,
 			list: [],
-			group: 0,
+			groupIndex: 0,
 			groupAuth:[],
 			currentGroupAuth:"",
 			cooperateItems:cooperateItems,
@@ -274,7 +274,7 @@ export default {
 		msDropdownItem
 	},
 	async onLoad() {
-		
+		console.log(this.group)
 		let that = this
 		uni.getSystemInfo({
 			success: (res) => {
@@ -282,12 +282,28 @@ export default {
 				this.scrollHeight = height
 			}
 		})
-		try{
+		
 			let raw_userGroupInfo = await this.request('v1/group/findUserGroup')
 			let userGroupInfo = raw_userGroupInfo[1].data
-			
-			let raw_groupInfo = await this.request(`v1/group/detail?groupId=${userGroupInfo[0].groupId}`)
-			let groupInfo = raw_groupInfo[1].data
+			console.log("userGroupInfo",userGroupInfo)
+			let groupInfo = await this.request(`v1/group/detail?groupId=${userGroupInfo[0].groupId}`)
+			if(groupInfo[1].data){
+				groupInfo = groupInfo[1].data
+			}else{
+				groupInfo = {}
+			}
+			console.log("groupInfo",groupInfo)
+			if(groupInfo.tags){
+				groupInfo.tags = groupInfo.tags.split(',')
+			}else{
+				groupInfo.tags = ['优秀','精神小伙']
+			}
+			let res = groupInfo
+			Object.keys(groupInfo).forEach(key=>{
+				if(!groupInfo[key]){
+					res[key] = this.group.defaultGroup[key]
+				}
+			})
 			
 			this.coverImgs = Object.assign(this.coverImgs,{gallery:groupInfo.coverImgs})
 			
@@ -297,18 +313,17 @@ export default {
 			let list = userGroupInfo.map(item=>{
 				return {text:item.groupName,value:item.groupId}
 			})
-			
-			groupInfo.tags = groupInfo.tags.split(',')
+
 			this.groupInfo = groupInfo
+			console.log("this.groupInfo",this.groupInfo)
 			this.list = list
 			
 			this.groupAuth = this.$store.state.groupAuth
+			console.log(this.$store.state.groupAuth)
 			let auth = this.groupAuth.find(item=>item.groupName === this.groupInfo.groupName)
 			this.currentGroupAuth = auth.auth
 			console.log(this.currentGroupAuth)
-		}catch(err){
-			this.groupInfo = this.defaultGroupInfo
-		}
+		
 		
 		
 		
@@ -346,7 +361,7 @@ export default {
 					
 			}
 			uni.navigateTo({
-				url:`/pages/collectionsDetail/collectionsDetail?type=${type}&groupId=${this.groupInfo.id}&allowEdit=${true}`
+				url:`/groupInfo/collectionsDetail/collectionsDetail?type=${type}&groupId=${this.groupInfo.id}&allowEdit=${true}`
 			})
 		},
 		gotoChatPage(){
@@ -359,31 +374,31 @@ export default {
 			
 			switch(id){
 				case 0:
-					url = "/pages/publishTask/publishTask?groupId=" + this.groupInfo.id
+					url = "/groupInfo/publishTask/publishTask?groupId=" + this.groupInfo.id
 					this.judgeAuth(url)
 					break;
 				case 1:
-					url = `/pages/groupTaskList/groupTaskList?groupId=${this.groupInfo.id}&groupAuth=${this.currentGroupAuth}` 
+					url = `/groupInfo/groupTaskList/groupTaskList?groupId=${this.groupInfo.id}&groupAuth=${this.currentGroupAuth}` 
 					uni.navigateTo({
 						url:url
 					})
 					break;
 				case 2:
-					url = "/pages/groupInfoConcat/groupInfoConcat?groupId=" + this.groupInfo.id
+					url = "/groupInfo/groupInfoConcat/groupInfoConcat?groupId=" + this.groupInfo.id
 					uni.navigateTo({
 						url:url
 					})
 					break;
 				case 3:
-					url = "/pages/changeGroupInfo/changeGroupInfo?groupId=" + this.groupInfo.id
+					url = "/groupInfo/changeGroupInfo/changeGroupInfo?groupId=" + this.groupInfo.id
 					this.judgeAuth(url)
 					break;
 				case 4:
-					url="/pages/memberMange/memberMange?groupId=" + this.groupInfo.id
+					url="/groupInfo/memberMange/memberMange?groupId=" + this.groupInfo.id
 					this.judgeAuth(url)
 					break;
 				case 5:
-					url="/pages/publishCollection/publishCollection?groupId=" + this.groupInfo.id
+					url="/groupInfo/publishCollection/publishCollection?groupId=" + this.groupInfo.id
 					this.judgeAuth(url)
 					break;
 			}
@@ -404,6 +419,9 @@ export default {
 		},
 		handleOpenCommunity(row){
 			console.log("handleOpenCommunity",row)
+			uni.navigateTo({
+				url:`/user/personShow/personShow?uid=${row.id}&personShow=${true}`
+			})
 		},
 		pageSwiperChange(e){
 			this.tapIndex = e.detail.value

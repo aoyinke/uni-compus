@@ -11,7 +11,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
 		leaveTime: 0,
-		host:"http://localhost",
+		host:"https://www.unicompus.com",
 		port:"3000",
 		groupAuth:{}
 	},

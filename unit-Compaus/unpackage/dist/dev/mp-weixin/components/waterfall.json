@@ -1,8 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "random-color-tag": "/components/common/randomColorTag",
-    "go-detail": "/components/uni-compus-components/uniCompus-goDetail",
-    "like": "/components/common/commonIcon/likeIcon"
-  }
-}

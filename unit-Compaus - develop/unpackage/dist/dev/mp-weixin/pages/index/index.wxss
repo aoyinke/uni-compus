@@ -1,0 +1,26 @@
+.nextPage.data-v-57280228 {
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+.nextPage .line.data-v-57280228 {
+  display: inline-block;
+  width: 35%;
+  border-top: 3px solid #82B3D5;
+}
+.nextPage .txt.data-v-57280228 {
+  color: #555;
+  vertical-align: middle;
+}
+.nav-bar-left.data-v-57280228 {
+  margin-left: 80rpx;
+}
+.nav-bar-left image.data-v-57280228 {
+  width: 70rpx;
+  height: 70rpx;
+  margin: auto;
+}
+.default.data-v-57280228 {
+  width: 100%;
+}
+
