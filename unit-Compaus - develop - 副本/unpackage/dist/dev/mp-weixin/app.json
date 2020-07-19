@@ -1,0 +1,102 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/manage/manage",
+    "pages/self/self",
+    "pages/group/group",
+    "pages/needWall/needWall"
+  ],
+  "subPackages": [
+    {
+      "root": "groupInfo",
+      "pages": [
+        "groupInfoDetail/groupInfoDetail",
+        "groupDetail/groupDetail",
+        "groupTaskList/groupTaskList",
+        "groupInfoConcat/groupInfoConcat",
+        "publishTask/publishTask",
+        "groupTaskDetail/groupTaskDetail",
+        "changeGroupInfo/changeGroupInfo",
+        "memberMange/memberMange",
+        "publishCollection/publishCollection",
+        "collectionsDetail/collectionsDetail"
+      ]
+    },
+    {
+      "root": "user",
+      "pages": [
+        "changePerson/changePerson",
+        "interestsTag/interestsTag",
+        "mySave/mySave",
+        "feedBack/feedBack",
+        "registerGroup/registerGroup",
+        "personShow/personShow",
+        "login/login"
+      ]
+    },
+    {
+      "root": "need",
+      "pages": [
+        "publishNeed/publishNeed"
+      ]
+    },
+    {
+      "root": "activity",
+      "pages": [
+        "activityDetail/activityDetail",
+        "publishActivity/publishActivity"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tarBar/index.png",
+        "selectedIconPath": "static/tarBar/selecetdIndex.png",
+        "text": "社区"
+      },
+      {
+        "pagePath": "pages/needWall/needWall",
+        "iconPath": "static/findPeople/1.jpg",
+        "selectedIconPath": "static/findPeople/2.jpg",
+        "text": "需求墙"
+      },
+      {
+        "pagePath": "pages/manage/manage",
+        "iconPath": "static/tarBar/cooperate.png",
+        "selectedIconPath": "static/tarBar/cooperate.png",
+        "text": "管理"
+      },
+      {
+        "pagePath": "pages/group/group",
+        "iconPath": "static/tarBar/partner.png",
+        "selectedIconPath": "static/tarBar/partner_icon.png",
+        "text": "小组"
+      },
+      {
+        "pagePath": "pages/self/self",
+        "iconPath": "static/tarBar/self.png",
+        "selectedIconPath": "static/tarBar/self.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
+    "uni-compus-button": "/components/uni-compus-components/unicompus-button",
+    "lv-select": "/components/lv-select/lv-select"
+  }
+}

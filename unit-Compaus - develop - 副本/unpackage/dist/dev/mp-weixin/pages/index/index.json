@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "uni-app",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "uni-fab": "/components/uni-fab/uni-fab",
+    "activity-item": "/components/activity/activity-item",
+    "tap-bar": "/components/tapBar"
+  }
+}

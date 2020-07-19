@@ -165,24 +165,19 @@
 						<view class="collections-title">
 							<text>Previous collections</text>
 						</view>
-						<view class="collectionsBar" v-for="(collection,idx) in collections" :key="idx" @click="gotoCollections(idx)">
-							<view class="collections-item">
-								<view class="collections-item-left">
-									<view class="collections-item-left-coverImg">
-										<image :src="collection.coverImg" mode=""></image>
-									</view>
-									
-								</view>
-								<view class="collections-item-right">
-									<view class="collections-item-right-top" :style="{backgroundImage:collection.backgroundImage}">
-										{{collection.type}}
-									</view>
-									<view class="collections-item-right-bottom">
-										<text>{{collection.nums}}+</text>
-										<text>More</text>
-									</view>
-								</view>
-							</view>
+						<hj3-display-images
+							:images="img"
+							:vertical="false"
+							:vtouch="true"
+							@itap="tap"
+							:autoplay="true"
+							:clockwise="true"
+							:interval="3000"
+							:titleBottom="true"
+							:background="back"
+						></hj3-display-images>
+						<view class="total-collection">
+							<text> 回忆：{{ current }}/{{totalNums}}</text>
 						</view>
 						<view class="bottom">
 							<uniCompusButton content="申请加入" background="#ff6b81" width="100" style="width: 100%;" @click.native="joinGroup"></uniCompusButton>
@@ -202,6 +197,7 @@
 </template>
 
 <script>
+import hj3DisplayImages from '@/components/hj3-display-images/hj3-display-images.vue';
 import kpSwiper from '@/components/kp-swiper/index.vue';
 import config from '@/config/index.js';
 import KpIcon from "@/components/kp-icon";
@@ -217,6 +213,18 @@ export default {
 	},
 	data() {
 		return {
+			totalNums:0,
+			img: [
+				// {src:'http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg',title:"mm1"}, {src:'http://image.zhangxinxu.com/image/study/s/s128/mm8.jpg',title:"mm2"},
+			    //只是为了演示，不推荐这种混合方式，不一致不太好
+					"https://images.mepai.me/app/works/38224/2019-12-11/w_5df03f532c12d/05df03f532c285.jpg!1200w.jpg",
+					"https://images.mepai.me/app/works/38224/2019-12-08/w_5dec4ca4a2700/05dec4ca4a2878.jpg!1200w.jpg",
+			        "https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg",
+			        "https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg",
+			        "https://images.mepai.me/app/works/38224/2019-12-22/w_5dfecd711bb5a/05dfecd711bc6b.jpg!1200w.jpg",
+			   ],
+			current:0,
+			back:'#fff',
 			showJoin:false,
 			inputData:{
 			  title:'申请加入',
@@ -244,6 +252,7 @@ export default {
 		};
 	},
 	components: {
+		hj3DisplayImages,
 		kpSwiper,
 		KpIcon,
 		KpTag,
@@ -281,6 +290,10 @@ export default {
 		this.team = raw_teamMembers[1].data
 	},
 	methods: {
+		tap:function (e) {
+				
+				this.current = e
+		},
 		async onConfirmJoin(item){
 			let reason = item[0].content
 			let groupId = this.groupInfo.id
@@ -305,7 +318,7 @@ export default {
 		gotoCollections(index){
 			
 			uni.navigateTo({
-				url:"/pages/collectionsDetail/collectionsDetail?type=" + index
+				url:"/groupInfo/collectionsDetail/collectionsDetail?type=" + index
 			})
 		},
 		clickLeft() {
@@ -404,6 +417,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+	.total-collection{
+		text-align: center;
+		color:rgba(52, 152, 219,0.8);
+		font:{
+			size: 1.3em;
+			weight:bold;
+		}
+	}
 	.cooperate{
 		.cooperateBar{
 			display: flex;
@@ -582,7 +603,7 @@ export default {
 				display: flex;
 				align-items: center;
 				.userInfo{
-					margin: 10upx 0 0 50upx;
+					margin: 10upx 0 0 40upx;
 					display: flex;
 					justify-content: center;
 					align-items: flex-start;
@@ -595,7 +616,7 @@ export default {
 						align-items: center;
 						width: 100%;
 						font: {
-							size: 36upx;
+							size: 32upx;
 							font-weight: 500;
 						};
 						& :first-child{

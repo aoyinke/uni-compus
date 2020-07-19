@@ -92,7 +92,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   uniNavBar: function() {
-    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 246))
+    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 244))
   }
 }
 var render = function() {
@@ -132,7 +132,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var timeLine = function timeLine() {Promise.all(/*! require.ensure | groupInfo/components/xuan-timeLine/xuan-timeLine */[__webpack_require__.e("common/vendor"), __webpack_require__.e("groupInfo/components/xuan-timeLine/xuan-timeLine")]).then((function () {return resolve(__webpack_require__(/*! ../components/xuan-timeLine/xuan-timeLine.vue */ 392));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var card = function card() {__webpack_require__.e(/*! require.ensure | groupInfo/components/list-card/list-card */ "groupInfo/components/list-card/list-card").then((function () {return resolve(__webpack_require__(/*! ../components/list-card/list-card.vue */ 399));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = _defineProperty({
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var timeLine = function timeLine() {Promise.all(/*! require.ensure | groupInfo/components/xuan-timeLine/xuan-timeLine */[__webpack_require__.e("common/vendor"), __webpack_require__.e("groupInfo/components/xuan-timeLine/xuan-timeLine")]).then((function () {return resolve(__webpack_require__(/*! ../components/xuan-timeLine/xuan-timeLine.vue */ 397));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var card = function card() {__webpack_require__.e(/*! require.ensure | groupInfo/components/list-card/list-card */ "groupInfo/components/list-card/list-card").then((function () {return resolve(__webpack_require__(/*! ../components/list-card/list-card.vue */ 404));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = _defineProperty({
 
 
 

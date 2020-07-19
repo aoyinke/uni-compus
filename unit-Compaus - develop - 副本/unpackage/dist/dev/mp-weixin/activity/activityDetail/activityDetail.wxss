@@ -1,0 +1,58 @@
+.imgShow image.data-v-7474c67d {
+  width: 100%;
+}
+.joinActivity.data-v-7474c67d {
+  width: 35%;
+  margin-left: 50rpx;
+}
+.countDown.data-v-7474c67d {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  margin-bottom: 20rpx;
+}
+.swiper-item image.data-v-7474c67d {
+  width: 100%;
+}
+.textarea.data-v-7474c67d {
+  margin-top: 20rpx;
+}
+.mutation .hotNum.data-v-7474c67d {
+  color: darkgray;
+  font-size: 26rpx;
+  margin-left: 10rpx;
+  margin-right: 30rpx;
+}
+.mutation .commentNum.data-v-7474c67d {
+  color: darkgray;
+  font-size: 26rpx;
+}
+.commentBottom.data-v-7474c67d {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-align-content: center;
+          align-content: center;
+  border: 1px solid #EEEEEE;
+}
+.commentBottom .commentView.data-v-7474c67d {
+  margin: 20rpx 0;
+  width: 80%;
+  background-color: lightgray;
+  border-radius: 20rpx;
+  text-align: center;
+}
+

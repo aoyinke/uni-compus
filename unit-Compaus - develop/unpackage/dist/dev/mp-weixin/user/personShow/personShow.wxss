@@ -234,7 +234,7 @@
           align-items: center;
 }
 .detail-header .userBar-left .userInfo.data-v-21778d0e {
-  margin: 10rpx 0 0 50rpx;
+  margin: 10rpx 0 0 40rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -260,7 +260,7 @@
   -webkit-align-items: center;
           align-items: center;
   width: 100%;
-  font-size: 36rpx;
+  font-size: 32rpx;
   font-font-weight: 500;
 }
 .detail-header .userBar-left .userInfo-top.data-v-21778d0e :first-child {

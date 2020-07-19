@@ -18,8 +18,7 @@
         "groupTaskDetail/groupTaskDetail",
         "changeGroupInfo/changeGroupInfo",
         "memberMange/memberMange",
-        "publishCollection/publishCollection",
-        "collectionsDetail/collectionsDetail"
+        "publishCollection/publishCollection"
       ]
     },
     {
@@ -44,7 +43,8 @@
       "root": "activity",
       "pages": [
         "activityDetail/activityDetail",
-        "publishActivity/publishActivity"
+        "publishActivity/publishActivity",
+        "changeCommunityInfo/changeCommunityInfo"
       ]
     }
   ],

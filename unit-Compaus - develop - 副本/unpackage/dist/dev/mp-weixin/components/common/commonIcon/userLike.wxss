@@ -1,0 +1,16 @@
+.like.data-v-dfbc1cf8 {
+  font-size: 50rpx !important;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+.like.data-v-dfbc1cf8:hover {
+  width: 60rpx;
+  height: 60rpx;
+}
+.icon-active.data-v-dfbc1cf8 {
+  width: 50rpx;
+  height: 50rpx;
+  -webkit-transform: scale3d(1.1);
+          transform: scale3d(1.1);
+}
+

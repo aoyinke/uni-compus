@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "uni-badge": "/components/uni-badge/uni-badge",
+    "uni-popup": "/components/uni-popup/uni-popup",
+    "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
+    "uni-compus-button": "/components/uni-compus-components/unicompus-button",
+    "avatar": "/components/uni-compus-components/uniCompus-avatar",
+    "kp-avatar": "/components/kp-avatar/index"
+  }
+}

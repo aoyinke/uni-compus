@@ -19,53 +19,17 @@
 			></lv-select>
 		</view>
 
-		<view class="groupInfo">
-			<view class="groupInfo-prepare" @click="checkAlreadySave">
-				<text class="first">{{ savedNum }}</text>
-				<text class="second">已经收藏的小组</text>
-			</view>
+		<waterfall :peopleList="arr"></waterfall>
+		
 
-			<view class="groupInfo-already" @click="checkAlreadyJoin">
-				<text class="first">{{ joinedNum }}</text>
-				<text class="second">已经加入的小组</text>
-			</view>
-			<view class="groupInfo-recommend" @click="openFilter">
-				<text class="eosfont">&#xe69e;</text>
-				<text class="second">爱好偏向</text>
-			</view>
+		<view class="nextPage" v-show="!nextPage">
+			<span style="white-space:pre"></span>
+			<span class="line"></span>
+			<span style="white-space:pre"></span>
+			<span class="txt">没有了哦~(●'◡'●)</span>
+			<span style="white-space:pre"></span>
+			<span class="line"></span>
 		</view>
-		<view class="group-detail-tab">
-			<block v-for="(nav, id) in nav" :key="id">
-				<view class="group-detail-ownGroup tab" :class="tapIndex == id ? 'active' : ''" @tap="tap(id)">
-					<text>{{ nav }}</text>
-				</view>
-			</block>
-		</view>
-		<swiper class="swiper-box" :current="tapIndex" :style="{ height: swiperHeight + 'px' }" @change="tabChange">
-			<swiper-item v-for="(item, index) in nav" :key="index">
-				<scroll-view scroll-y class="list" :style="{ height: swiperHeight + 'px' }">
-					<block v-for="(group, groupId) in groupList" :key="groupId">
-						<group-item
-							:needChat="false"
-							:groupLogo="group.logo"
-							:groupName="group.groupName"
-							:intro="group.description"
-							:tag="group.tags"
-							@click.native="gotoDetail(group.id)"
-						></group-item>
-					</block>
-					<view class="nextPage" v-show="!nextPage">
-						<span style="white-space:pre"></span>
-						<span class="line"></span>
-						<span style="white-space:pre"></span>
-						<span class="txt">没有了哦~(●'◡'●)</span>
-						<span style="white-space:pre"></span>
-						<span class="line"></span>
-					</view>
-				</scroll-view>
-			</swiper-item>
-		</swiper>
-
 		<uni-drawer ref="uniDrawer" mode="right" width="320">
 			<view style="padding:30rpx;" class="filter-container">
 				<view class="filter-content" v-for="(filter, index) in filters" :key="index"><filterBar :title="filter.title" :choices="filter.choices"></filterBar></view>
@@ -84,8 +48,7 @@ import uniSearchBar from '@/components/uni-search-bar/uni-search-bar.vue';
 import groupItem from '@/components/group/group-item.vue';
 import uniDrawer from '@/components/uni-drawer/uni-drawer.vue';
 import filterBar from '@/components/uni-compus-components/uniCompus-filter.vue';
-import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue';
-import goDetail from '@/components/uni-compus-components/uniCompus-goDetail.vue';
+import waterfall from '@/components/waterfall/waterfall.vue'
 import msDropdownMenu from '@/components/ms-dropdown/dropdown-menu.vue';
 import msDropdownItem from '@/components/ms-dropdown/dropdown-item.vue';
 
@@ -112,7 +75,24 @@ export default {
 			searchValue: '',
 			infoList: [],
 			infoLists: [],
-
+			arr:[
+				{ cover: "https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg", 
+				id: "1084", isLiked: "0", likeCount: 20, name: "笑饮孤鸿", 
+				photo: "https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg",
+				 title: "虽然你我会下落不明", },
+				 { cover: "https://images.mepai.me/app/works/38224/2019-12-03/w_5de5ad262f86a/05de5ad262fa17.jpg!1200w.jpg",
+				 id: "1084", isLiked: "0", likeCount: 20, name: "笑饮孤鸿", 
+				 photo: "https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg",
+				  title: "虽然你我会下落不明", },
+				 { cover: "https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg",
+				 id: "1084", isLiked: "0", likeCount: 20, name: "笑饮孤鸿", 
+				 photo: "https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg",
+				  title: "虽然你我会下落不明", },
+				 { cover: "https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg",
+				 id: "1084", isLiked: "0", likeCount: 20, name: "笑饮孤鸿", 
+				 photo: "https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg",
+				  title: "虽然你我会下落不明", },
+				],
 			joinedNum: 0,
 			savedNum: 0,
 
@@ -125,7 +105,7 @@ export default {
 					choices: ['志愿服务', '学生组织', '辩论类', '英语类', '体育类', '电竞类', '文娱类', '文化交流', '舞蹈类']
 				}
 			],
-			swiperHeight: 0,
+			scrollHeight: 0,
 			tapIndex: 0,
 			user: {
 				groupInfo: {
@@ -141,9 +121,9 @@ export default {
 		groupItem,
 		uniDrawer,
 		filterBar,
-		uniCompusButton,
+		waterfall,
 		lvSelect,
-		goDetail,
+		
 		msDropdownMenu,
 		msDropdownItem
 	},
@@ -202,10 +182,12 @@ export default {
 		}
 	},
 	async onLoad() {
-		let swiperHeight = uni.getSystemInfo({
+		
+		
+		uni.getSystemInfo({
 			success: res => {
 				let height = res.windowHeight - uni.upx2px(230);
-				this.swiperHeight = height;
+				this.scrollHeight = height;
 			}
 		});
 		this.request('v1/group/findUserGroup').then(res => {

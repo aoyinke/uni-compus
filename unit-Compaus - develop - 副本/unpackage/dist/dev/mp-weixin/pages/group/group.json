@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "lv-select": "/components/lv-select/lv-select",
+    "uni-drawer": "/components/uni-drawer/uni-drawer",
+    "uni-search-bar": "/components/uni-search-bar/uni-search-bar",
+    "group-item": "/components/group/group-item",
+    "filter-bar": "/components/uni-compus-components/uniCompus-filter",
+    "uni-compus-button": "/components/uni-compus-components/unicompus-button",
+    "go-detail": "/components/uni-compus-components/uniCompus-goDetail",
+    "ms-dropdown-menu": "/components/ms-dropdown/dropdown-menu",
+    "ms-dropdown-item": "/components/ms-dropdown/dropdown-item"
+  }
+}

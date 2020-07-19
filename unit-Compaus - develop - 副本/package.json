@@ -1,0 +1,17 @@
+{
+  "name": "unit-Compaus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "js-base64": "^2.5.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dev:mp-weixin": "cross-env NODE_ENV=development ZHICHI_ENV=develop UNI_PLATFORM=mp-weixin vue-cli-service uni-build --watch --minimize",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

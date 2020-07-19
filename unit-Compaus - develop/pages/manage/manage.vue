@@ -184,26 +184,21 @@
 						<view class="collections-title">
 							<text>Previous collections</text>
 						</view>
-						<view class="collectionsBar" v-for="(collection,idx) in collections" :key="idx" @click="gotoCollections(idx)">
-							<view class="collections-item">
-								<view class="collections-item-left">
-									<view class="collections-item-left-coverImg">
-										<image :src="collection.coverImg" mode=""></image>
-									</view>
-									
-								</view>
-								<view class="collections-item-right">
-									<view class="collections-item-right-top" :style="{backgroundImage:collection.backgroundImage}">
-										{{collection.type}}
-									</view>
-									<view class="collections-item-right-bottom">
-										<text>{{collection.nums}}+</text>
-										<text>More</text>
-									</view>
-								</view>
-							</view>
-						</view>
 						
+						<hj3-display-images
+							:images="img"
+							:vertical="false"
+							:vtouch="true"
+							@itap="tap"
+							:autoplay="true"
+							:clockwise="true"
+							:interval="3000"
+							:titleBottom="true"
+							:background="back"
+						></hj3-display-images>
+						<view class="total-collection">
+							<text> 回忆：{{ current }}/{{totalNums}}</text>
+						</view>
 					</swiper-item>
 					
 				</swiper>
@@ -221,6 +216,7 @@
 <script>
 import kpSwiper from '@/components/kp-swiper/index.vue';
 import {baseConfig,cooperateItems,collections} from '@/config/index.js';
+import hj3DisplayImages from '@/components/hj3-display-images/hj3-display-images.vue';
 import { mapState} from 'vuex';
 import KpIcon from "@/components/kp-icon";
 import KpTag from "@/components/kp-tag";
@@ -235,6 +231,7 @@ export default {
 	},
 	data() {
 		return {
+			
 			userGroupInfo:[],
 			groupInfo:{},
 			value: false,
@@ -247,7 +244,19 @@ export default {
 			team:[],
 			tapIndex:0,
 			nav:['主页','管理','展示'],
-
+			totalNums:0,
+			img: [
+				// {src:'http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg',title:"mm1"}, {src:'http://image.zhangxinxu.com/image/study/s/s128/mm8.jpg',title:"mm2"},
+			    //只是为了演示，不推荐这种混合方式，不一致不太好
+					"https://images.mepai.me/app/works/38224/2019-12-11/w_5df03f532c12d/05df03f532c285.jpg!1200w.jpg",
+					"https://images.mepai.me/app/works/38224/2019-12-08/w_5dec4ca4a2700/05dec4ca4a2878.jpg!1200w.jpg",
+			        "https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg",
+			        "https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg",
+			        "https://images.mepai.me/app/works/38224/2019-12-22/w_5dfecd711bb5a/05dfecd711bc6b.jpg!1200w.jpg",
+			   ],
+			current:0,
+			back:'#fff',
+			// back:'http://picm.bbzhi.com/fengjingbizhi/wubianyuzhoumeilixingkong/wubianyuzhoumeilixingkong_450321_m.jpg',
 			coverImgs: {
 				gallery: ["https://images.mepai.me/app/works/38224/2019-03-07/w_5c80626e09d76/05c80626e0baef.jpg!1200w.jpg",
 						  "https://images.mepai.me/app/works/38224/2018-12-20/w_5c1ae1ccd1bf6/05c1ae1ccd375f.jpg!1200w.jpg",
@@ -265,6 +274,7 @@ export default {
 		};
 	},
 	components: {
+		hj3DisplayImages,
 		kpSwiper,
 		KpIcon,
 		KpTag,
@@ -275,7 +285,7 @@ export default {
 		msDropdownItem
 	},
 	async onLoad() {
-		console.log(this.group)
+		this.totalNums = this.img.length
 		let that = this
 		uni.getSystemInfo({
 			success: (res) => {
@@ -330,11 +340,35 @@ export default {
 		
 	},
 	methods: {
+		tap:function (e) {
+				
+				this.current = e
+		},
 		async chooseManageGroup(groupName){
 			
 			let groupInfo = await this.request('v1/group/changeGroup',{name:groupName})
-			groupInfo = groupInfo[1].data
+			
+			if(groupInfo[1].data){
+				groupInfo = groupInfo[1].data
+			}else{
+				groupInfo = {}
+			}
+			console.log("groupInfo",groupInfo)
+			if(groupInfo.tags){
+				groupInfo.tags = groupInfo.tags.split(',')
+			}else{
+				groupInfo.tags = ['优秀','精神小伙']
+			}
+			let res = groupInfo
+			Object.keys(groupInfo).forEach(key=>{
+				if(!groupInfo[key]){
+					res[key] = this.group.defaultGroup[key]
+				}
+			})
 			this.groupInfo = groupInfo
+			this.coverImgs = Object.assign(this.coverImgs,{gallery:groupInfo.coverImgs})
+			
+			
 		},
 		addSave(){
 			let obj = this.groupInfo
@@ -348,22 +382,6 @@ export default {
 		},
 		onConfirm(item) {
 			
-		},
-		gotoCollections(index){
-			let type = 100
-			switch(index){
-				
-				case 1:
-					type = 200
-					break;
-				case 2:
-					type = 400
-					break;
-					
-			}
-			uni.navigateTo({
-				url:`/groupInfo/collectionsDetail/collectionsDetail?type=${type}&groupId=${this.groupInfo.id}&allowEdit=${true}&groupName=${this.groupInfo.groupName}`
-			})
 		},
 		gotoChatPage(){
 			uni.navigateTo({
@@ -385,20 +403,20 @@ export default {
 					})
 					break;
 				case 2:
-					url = "/groupInfo/groupInfoConcat/groupInfoConcat?groupId=" + this.groupInfo.id
+					url = "/activity/changeCommunityInfo/changeCommunityInfo?groupId=" + this.groupInfo.id
 					uni.navigateTo({
 						url:url
 					})
 					break;
-				case 3:
+				case 2:
 					url = "/groupInfo/changeGroupInfo/changeGroupInfo?groupId=" + this.groupInfo.id
 					this.judgeAuth(url)
 					break;
-				case 4:
+				case 3:
 					url="/groupInfo/memberMange/memberMange?groupId=" + this.groupInfo.id
 					this.judgeAuth(url)
 					break;
-				case 5:
+				case 4:
 					url="/groupInfo/publishCollection/publishCollection?groupId=" + this.groupInfo.id
 					this.judgeAuth(url)
 					break;
@@ -454,6 +472,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+	.total-collection{
+		text-align: center;
+		color:rgba(52, 152, 219,0.8);
+		font:{
+			size: 1.3em;
+			weight:bold;
+		}
+	}
 	.cooperate{
 		.cooperateBar{
 			display: flex;
@@ -632,7 +658,7 @@ export default {
 				display: flex;
 				align-items: center;
 				.userInfo{
-					margin: 10upx 0 0 50upx;
+					margin: 10upx 0 0 40upx;
 					display: flex;
 					justify-content: center;
 					align-items: flex-start;
@@ -645,7 +671,7 @@ export default {
 						align-items: center;
 						width: 100%;
 						font: {
-							size: 36upx;
+							size: 32upx;
 							font-weight: 500;
 						};
 						& :first-child{

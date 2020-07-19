@@ -107,7 +107,7 @@ function publishTaskValidator(taskInfo){
 		errMsg = "任务类别不能为空"
 	}
 	if(!taskInfo.concernEvent){
-		errMsg = "任务类别不能为空"
+		errMsg = "注意事项不能为空"
 	}
 		
 	

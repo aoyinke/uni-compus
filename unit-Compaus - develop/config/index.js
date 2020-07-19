@@ -1,7 +1,6 @@
 let baseConfig = {
-	// host: "http://localhost",
-	// port: "3000",
-	host: "https://www.uniCompus.com",
+	host: "http://localhost",
+	// host: "https://www.uniCompus.com",
 	port: "3000",
 	img_example: "https://lz.sinaimg.cn",
 
@@ -19,7 +18,7 @@ let cooperateItems = [{
 	},
 	{
 		icon: "../../static/self/eye.png",
-		choice: "信息交流",
+		choice: "兴趣社区",
 		backgroundImage: "linear-gradient(rgba(205, 132, 241,0.7),rgba(197, 108, 240,1.0))"
 	},
 	{

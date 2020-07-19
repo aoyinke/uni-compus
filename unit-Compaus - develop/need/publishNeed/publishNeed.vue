@@ -10,6 +10,11 @@
 			
 			<text>{{needInfo.category}}</text>
 		</view>
+		<view class="uni-list-cell uni-list-cell-pd">
+			<view class="uni-list-cell-db" style="font-weight: 500;">联系方式（wx,qq,email）</view>
+			
+			<input type="text" v-model="needInfo.concatWay" style="text-align: right;" maxlength="30"/>
+		</view>
 
 		<view class="uni-list-cell uni-list-cell-pd"><view class="uni-list-cell-db" style="font-weight: 500;">编辑需求</view></view>
 		<view class="uni-textarea"><textarea v-model="needInfo.content" placeholder="内容" style="height: 400rpx;" /></view>

@@ -1,0 +1,52 @@
+.con.data-v-f5298738 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.con .stage.data-v-f5298738 {
+  display: block;
+  position: absolute;
+  -webkit-perspective: 800rpx;
+          perspective: 800rpx;
+  background-color: blue;
+}
+.con .back.data-v-f5298738 {
+  position: absolute;
+  width: 100%;
+}
+.con .box.data-v-f5298738 {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: relative;
+  width: 240rpx;
+}
+.con .box .title.data-v-f5298738 {
+  position: absolute;
+  width: 240rpx;
+  height: 36rpx;
+  font-size: 28rpx;
+}
+.con .box image.data-v-f5298738 {
+  z-index: 0;
+  position: absolute;
+  width: 240rpx;
+  box-shadow: -3rpx 5rpx 3rpx rgba(0, 0, 0, 0.3);
+}
+.con .box .vrect-image.data-v-f5298738 {
+  height: 416rpx;
+}
+.con .box .hrect-image.data-v-f5298738 {
+  height: 135rpx;
+}
+.con .slow.data-v-f5298738 {
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+}
+

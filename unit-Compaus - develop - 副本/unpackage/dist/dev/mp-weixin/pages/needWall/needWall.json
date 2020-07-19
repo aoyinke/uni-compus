@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "lv-select": "/components/lv-select/lv-select",
+    "user-top-bar": "/components/activity/userTopBar",
+    "good-icon": "/components/common/commonIcon/needGood"
+  }
+}

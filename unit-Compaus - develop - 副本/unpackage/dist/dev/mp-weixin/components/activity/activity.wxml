@@ -1,0 +1,1 @@
+<view class="data-v-18a25ae4"><block wx:for="{{activityInfo}}" wx:for-item="item" wx:for-index="idx" wx:key="idx"><block class="data-v-18a25ae4"><activity-item vue-id="{{'08acfabc-1-'+idx}}" item="{{item}}" contentIndex="{{contentIndex}}" class="data-v-18a25ae4" bind:__l="__l"></activity-item></block></block></view>

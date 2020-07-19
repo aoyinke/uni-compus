@@ -1,0 +1,80 @@
+@font-face {font-family: "eosfont";
+  src:url('https://at.alicdn.com/t/font_1686590_4uvnrend9i8.ttf') format('truetype');
+}
+
+.eosfont {
+  font-family: "eosfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-pencil-:before {
+  content: "\e669";
+}
+
+.icon-user:before {
+  content: "\e602";
+}
+
+.icon-password-:before {
+  content: "\e608";
+}
+
+.icon-cangshujun:before {
+  content: "\e601";
+}
+
+.icon-partner:before {
+  content: "\e6c3";
+}
+
+.icon-partner_icon:before {
+  content: "\e610";
+}
+
+.icon-icon-test6:before {
+  content: "\e63f";
+}
+
+.icon-pencil:before {
+  content: "\e662";
+}
+
+.icon-right:before {
+  content: "\e7df";
+}
+
+.icon-cangshu:before {
+  content: "\e616";
+}
+
+.icon-icon-test:before {
+  content: "\e64e";
+}
+
+.icon-icon-test1:before {
+  content: "\e657";
+}
+
+.icon-icon-test2:before {
+  content: "\e658";
+}
+
+.icon-icon-test3:before {
+  content: "\e659";
+}
+
+.icon-icon-test4:before {
+  content: "\e65a";
+}
+
+.icon-icon-test5:before {
+  content: "\e665";
+}
+
+.icon-zhuanfa-copy:before {
+  content: "\e600";
+}
+

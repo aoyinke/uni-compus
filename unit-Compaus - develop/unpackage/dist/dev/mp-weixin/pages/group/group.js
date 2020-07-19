@@ -94,13 +94,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   uniNavBar: function() {
-    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 246))
+    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 244))
   },
   lvSelect: function() {
-    return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 260))
+    return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 258))
+  },
+  waterfall: function() {
+    return __webpack_require__.e(/*! import() | components/waterfall/waterfall */ "components/waterfall/waterfall").then(__webpack_require__.bind(null, /*! @/components/waterfall/waterfall.vue */ 681))
   },
   uniDrawer: function() {
-    return __webpack_require__.e(/*! import() | components/uni-drawer/uni-drawer */ "components/uni-drawer/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/uni-drawer/uni-drawer.vue */ 350))
+    return __webpack_require__.e(/*! import() | components/uni-drawer/uni-drawer */ "components/uni-drawer/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/uni-drawer/uni-drawer.vue */ 355))
   }
 }
 var render = function() {
@@ -194,44 +197,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var _config = __webpack_require__(/*! @/utils/config.js */ 9);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 260));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSearchBar = function uniSearchBar() {__webpack_require__.e(/*! require.ensure | components/uni-search-bar/uni-search-bar */ "components/uni-search-bar/uni-search-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-search-bar/uni-search-bar.vue */ 357));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var groupItem = function groupItem() {__webpack_require__.e(/*! require.ensure | components/group/group-item */ "components/group/group-item").then((function () {return resolve(__webpack_require__(/*! @/components/group/group-item.vue */ 364));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniDrawer = function uniDrawer() {__webpack_require__.e(/*! require.ensure | components/uni-drawer/uni-drawer */ "components/uni-drawer/uni-drawer").then((function () {return resolve(__webpack_require__(/*! @/components/uni-drawer/uni-drawer.vue */ 350));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var filterBar = function filterBar() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-filter */ "components/uni-compus-components/uniCompus-filter").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-filter.vue */ 371));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniCompusButton = function uniCompusButton() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/unicompus-button */ "components/uni-compus-components/unicompus-button").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/unicompus-button.vue */ 188));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var goDetail = function goDetail() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-goDetail */ "components/uni-compus-components/uniCompus-goDetail").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-goDetail.vue */ 345));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownMenu = function msDropdownMenu() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-menu */ "components/ms-dropdown/dropdown-menu").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-menu.vue */ 331));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownItem = function msDropdownItem() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-item */ "components/ms-dropdown/dropdown-item").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-item.vue */ 338));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _config = __webpack_require__(/*! @/utils/config.js */ 9);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! @/components/lv-select/lv-select.vue */ 258));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSearchBar = function uniSearchBar() {__webpack_require__.e(/*! require.ensure | components/uni-search-bar/uni-search-bar */ "components/uni-search-bar/uni-search-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-search-bar/uni-search-bar.vue */ 362));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var groupItem = function groupItem() {__webpack_require__.e(/*! require.ensure | components/group/group-item */ "components/group/group-item").then((function () {return resolve(__webpack_require__(/*! @/components/group/group-item.vue */ 369));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniDrawer = function uniDrawer() {__webpack_require__.e(/*! require.ensure | components/uni-drawer/uni-drawer */ "components/uni-drawer/uni-drawer").then((function () {return resolve(__webpack_require__(/*! @/components/uni-drawer/uni-drawer.vue */ 355));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var filterBar = function filterBar() {__webpack_require__.e(/*! require.ensure | components/uni-compus-components/uniCompus-filter */ "components/uni-compus-components/uniCompus-filter").then((function () {return resolve(__webpack_require__(/*! @/components/uni-compus-components/uniCompus-filter.vue */ 376));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var waterfall = function waterfall() {__webpack_require__.e(/*! require.ensure | components/waterfall/waterfall */ "components/waterfall/waterfall").then((function () {return resolve(__webpack_require__(/*! @/components/waterfall/waterfall.vue */ 681));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownMenu = function msDropdownMenu() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-menu */ "components/ms-dropdown/dropdown-menu").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-menu.vue */ 336));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownItem = function msDropdownItem() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-item */ "components/ms-dropdown/dropdown-item").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-item.vue */ 343));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   onReachBottom: function onReachBottom() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var groupList;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
               _this.currentPage += 1;_context.next = 3;return (
@@ -254,6 +220,23 @@ var _config = __webpack_require__(/*! @/utils/config.js */ 9);function _interopR
       searchValue: '',
       infoList: [],
       infoLists: [],
+      arr: [
+      { cover: "https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg",
+        id: "1084", isLiked: "0", likeCount: 20, name: "笑饮孤鸿",
+        photo: "https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg",
+        title: "虽然你我会下落不明" },
+      { cover: "https://images.mepai.me/app/works/38224/2019-12-03/w_5de5ad262f86a/05de5ad262fa17.jpg!1200w.jpg",
+        id: "1084", isLiked: "0", likeCount: 20, name: "笑饮孤鸿",
+        photo: "https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg",
+        title: "虽然你我会下落不明" },
+      { cover: "https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg",
+        id: "1084", isLiked: "0", likeCount: 20, name: "笑饮孤鸿",
+        photo: "https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg",
+        title: "虽然你我会下落不明" },
+      { cover: "https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg",
+        id: "1084", isLiked: "0", likeCount: 20, name: "笑饮孤鸿",
+        photo: "https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg",
+        title: "虽然你我会下落不明" }],
 
       joinedNum: 0,
       savedNum: 0,
@@ -267,7 +250,7 @@ var _config = __webpack_require__(/*! @/utils/config.js */ 9);function _interopR
         choices: ['志愿服务', '学生组织', '辩论类', '英语类', '体育类', '电竞类', '文娱类', '文化交流', '舞蹈类'] }],
 
 
-      swiperHeight: 0,
+      scrollHeight: 0,
       tapIndex: 0,
       user: {
         groupInfo: {
@@ -283,9 +266,9 @@ var _config = __webpack_require__(/*! @/utils/config.js */ 9);function _interopR
     groupItem: groupItem,
     uniDrawer: uniDrawer,
     filterBar: filterBar,
-    uniCompusButton: uniCompusButton,
+    waterfall: waterfall,
     lvSelect: lvSelect,
-    goDetail: goDetail,
+
     msDropdownMenu: msDropdownMenu,
     msDropdownItem: msDropdownItem },
 
@@ -343,11 +326,13 @@ var _config = __webpack_require__(/*! @/utils/config.js */ 9);function _interopR
       this.$refs.uniDrawer.close();
     } },
 
-  onLoad: function onLoad() {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var swiperHeight, colleges, groupList;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
-              swiperHeight = uni.getSystemInfo({
+  onLoad: function onLoad() {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var colleges, groupList;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
+
+
+              uni.getSystemInfo({
                 success: function success(res) {
                   var height = res.windowHeight - uni.upx2px(230);
-                  _this4.swiperHeight = height;
+                  _this4.scrollHeight = height;
                 } });
 
               _this4.request('v1/group/findUserGroup').then(function (res) {

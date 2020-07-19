@@ -222,7 +222,7 @@ export default {
 			}
 		})
 		let {personShow,uid} = option
-		console.log("personShow,uid",personShow,uid)
+		
 		if(personShow){
 			userInfo = await this.request('v1/user/visitOtherUser?uid=' + uid)
 			userInfo = userInfo[1].data
@@ -238,7 +238,7 @@ export default {
 			userJoinedGroup = await this.request('v1/group/findOtherGroup?uid=' + uid)
 			this.groups = userJoinedGroup[1].data
 			if(userInfo.tags){
-				console.log("this.userInfo.tags",this.userInfo)
+				
 				userInfo.tags = userInfo.tags.split(',')
 			}else{
 				userInfo.tags = ['优秀','腹黑']
@@ -314,7 +314,7 @@ export default {
 			})
 		},
 		handleOpenCommunity(row){
-			console.log(row)
+			
 			uni.navigateTo({
 				url:"/groupInfo/groupDetail/groupDetail?groupId=" + row.groupId
 			})
@@ -562,7 +562,7 @@ export default {
 				display: flex;
 				align-items: center;
 				.userInfo{
-					margin: 10upx 0 0 50upx;
+					margin: 10upx 0 0 40upx;
 					display: flex;
 					justify-content: center;
 					align-items: flex-start;
@@ -575,7 +575,7 @@ export default {
 						align-items: center;
 						width: 100%;
 						font: {
-							size: 36upx;
+							size: 32upx;
 							font-weight: 500;
 						};
 						& :first-child{

@@ -11,9 +11,9 @@
 				</view>
 			</view>
 			<view class="mutation-right">
-				<view class="share tag">
+				<!-- <view class="share tag">
 					<share-icon></share-icon>
-				</view>
+				</view> -->
 			</view>
 		</view>
 		<view class="commentDetail">

@@ -176,7 +176,7 @@ export default {
 						await this.uploadFile('v1/uploadFiles/taskImgs',url,{taskId})
 					})
 				}
-				uni.reLaunch({
+				uni.switchTab({
 					url:'/pages/manage/manage'
 				})
 				

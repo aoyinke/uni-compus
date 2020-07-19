@@ -66,7 +66,7 @@ export default {
 					break;
 			}
 			let concern = await this.request(`v1/ActivityInfo/userLiked?currentPage=${this.currentPage}&type=${type}`);
-			console.log("concern",concern)
+			
 			if(concern[1].data.length){
 				this.communityListChanged = this.communityListChanged.concat(concern[1].data) 
 			}
@@ -123,7 +123,7 @@ export default {
 						break;
 				}
 				let concern = await this.request(`v1/ActivityInfo/userLiked?currentPage=${1}&type=${type}`);
-				console.log('concern', concern);
+				
 				this.communityListChanged = concern[1].data;
 			} else {
 				let category = this.tarBars[this.tapIndex].name;
@@ -239,7 +239,7 @@ export default {
 		async _getResources(val) {
 			let category = await this.currentCategory;
 			let raw_community = await this.request(`v1/ActivityInfo/community?currentPage=1&category=${category}`);
-			console.log("raw_community",raw_community)
+			
 			switch (this.contentIndex) {
 				case 0:
 					this.communityListChanged = raw_community[1].data.activities;
@@ -310,7 +310,7 @@ export default {
 		});
 		try {
 			let info = await this.request(`v1/ActivityInfo/userLiked?currentPage=${1}&type=${100}`);
-			console.log(info);
+			
 			this.dataList = info[1].data;
 		} catch (err) {
 			console.log(err, '未获取到数据');

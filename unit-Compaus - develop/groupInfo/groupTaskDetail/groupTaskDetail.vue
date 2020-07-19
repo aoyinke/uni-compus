@@ -40,7 +40,7 @@
 					</view>
 				</view>
 			</view> 
-			<uni-compus-button content="确认修改" background="#fbc531" width="100"></uni-compus-button>
+			<uni-compus-button content="确认修改" background="#fbc531" width="100" @click.native ="confirmChangeTaskDetail"></uni-compus-button>
 		</view>
 		<view class="taskBar" v-else>
 			<view class="taskBar-img">
@@ -134,6 +134,8 @@
 		        ref="shortTerm" 
 		    >
 		</w-picker>
+		<chunLei-modal v-model="showErr" type="default" :mData="errData" navMask>
+		</chunLei-modal>
 	</view>
 </template>
 
@@ -142,10 +144,11 @@ import wPicker from "@/components/w-picker/w-picker.vue"
 import lvSelect from '@/components/lv-select/lv-select.vue';
 import KpAvatar from '@/components/kp-avatar/index.vue';
 import uniPopup from '@/components/uni-popup/uni-popup.vue';
-import uniCompusButton from '@/components/uni-compus-components/unicompus-button.vue';
+import {arryDifferences} from '@/utils/util.js'
 import uniCompusUploadImg from '@/components/uni-compus-components/uniCompus-uploadImg.vue'
 import uniCollapse from '@/components/uni-collapse/uni-collapse.vue';
 import uniCollapseItem from '@/components/uni-collapse-item/uni-collapse-item.vue';
+import {publishTaskValidator} from '@/utils/validator.js'
 export default {
 	async onLoad(item){
 		let {taskId,groupAuth} = item
@@ -155,15 +158,19 @@ export default {
 		this.groupAuth = groupAuth
 		this.joinedPeopleList = taskInfo.joinedPeople
 		this.taskInfo = taskInfo
+		this.raw_taskImgs = taskInfo.taskImgs
 	},
 	data() {
 		return {
+			raw_taskImgs:[],
+			showErr:false,
+			errData:{title:'提示',content:'这是一个模态弹窗',cancelText:'取消',confirmColor:'#3CC51F'},
 			progressMessage:"",
 			groupAuth:"",
 			taskInfo:{"belongActivity":"轻松一校上线",taskName:"轻松一校","concernEvent":"asdsaddsa",content:"asdasdas",taskImgs:
-			["https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/75c11a89102357.jpg!1200w.jpg",
-  "https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/65c11a89102397.jpg!1200w.jpg",
-  "https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/45c11a8910240b.jpg!1200w.jpg",]},
+				["https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/75c11a89102357.jpg!1200w.jpg",
+			  "https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/65c11a89102397.jpg!1200w.jpg",
+			  "https://images.mepai.me/app/works/38224/2018-12-13/w_5c11a8909399c/45c11a8910240b.jpg!1200w.jpg",]},
 			scrollHeight:"500rpx",
 			showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
 			searchValue: '',
@@ -187,6 +194,40 @@ export default {
 		};
 	},
 	methods: {
+		confirmChangeTaskDetail(){
+			let taskImgs = this.taskInfo.taskImgs
+			let submitTaskImgs = arryDifferences(taskImgs,this.raw_taskImgs)
+			let errMsg = publishTaskValidator(this.taskInfo)
+			if(!errMsg){
+				this.request('v1/task/changeTask',this.taskInfo,'POST').then(res=>{
+					if(submitTaskImgs.length){
+						submitTaskImgs.forEach((item)=>{
+							this.uploadFile('v1/uploadFiles/taskImgs',item,{taskId:this.taskInfo.id})
+						})
+					}
+					uni.showToast({
+						title:"修改成功！",
+						duration:2000,
+						complete: () => {
+							uni.navigateBack({
+								animationDuration: 300,
+								animationType: 'pop-out'
+							});
+						}
+					})
+					
+				}).catch(err=>{
+					console.log(err)
+				})
+			}else{
+				let obj = this.errData
+				obj.content = errMsg
+				this.errData = obj
+				this.showErr = true
+			}
+			console.log(this.taskInfo)
+			console.log(submitTaskImgs)
+		},
 		submitProgress(){
 			if(this.progressMessage){
 				let {id,groupId} = this.taskInfo
@@ -212,8 +253,7 @@ export default {
 				})
 			}
 			
-			console.log(this.taskInfo)
-			console.log(this.progressMessage)
+			
 		},
 		previewTaskImg(imgs){
 			uni.previewImage({
@@ -279,7 +319,6 @@ export default {
 		KpAvatar,
 		uniPopup,
 		lvSelect,
-		uniCompusButton,
 		wPicker,
 		uniCompusUploadImg,
 		uniCollapse,

@@ -94,10 +94,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   uniNavBar: function() {
-    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 246))
+    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 244))
+  },
+  hj3DisplayImages: function() {
+    return __webpack_require__.e(/*! import() | components/hj3-display-images/hj3-display-images */ "components/hj3-display-images/hj3-display-images").then(__webpack_require__.bind(null, /*! @/components/hj3-display-images/hj3-display-images.vue */ 286))
   },
   chunLeiModal: function() {
-    return Promise.all(/*! import() | components/chunLei-modal/chunLei-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/chunLei-modal/chunLei-modal")]).then(__webpack_require__.bind(null, /*! @/components/chunLei-modal/chunLei-modal.vue */ 253))
+    return Promise.all(/*! import() | components/chunLei-modal/chunLei-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/chunLei-modal/chunLei-modal")]).then(__webpack_require__.bind(null, /*! @/components/chunLei-modal/chunLei-modal.vue */ 251))
   }
 }
 var render = function() {
@@ -359,13 +362,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
 var _index = __webpack_require__(/*! @/config/index.js */ 23);
-var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var kpSwiper = function kpSwiper() {Promise.all(/*! require.ensure | components/kp-swiper/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-swiper/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-swiper/index.vue */ 288));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpIcon = function KpIcon() {Promise.all(/*! require.ensure | components/kp-icon/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-icon/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-icon */ 296));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpTag = function KpTag() {Promise.all(/*! require.ensure | components/kp-tag/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-tag/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-tag */ 303));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var likeIcon = function likeIcon() {__webpack_require__.e(/*! require.ensure | components/common/commonIcon/groupLike */ "components/common/commonIcon/groupLike").then((function () {return resolve(__webpack_require__(/*! @/components/common/commonIcon/groupLike.vue */ 310));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var kpBadge = function kpBadge() {Promise.all(/*! require.ensure | components/kp-badge/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-badge/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-badge/index.vue */ 317));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 324));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownMenu = function msDropdownMenu() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-menu */ "components/ms-dropdown/dropdown-menu").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-menu.vue */ 331));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownItem = function msDropdownItem() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-item */ "components/ms-dropdown/dropdown-item").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-item.vue */ 338));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var kpSwiper = function kpSwiper() {Promise.all(/*! require.ensure | components/kp-swiper/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-swiper/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-swiper/index.vue */ 293));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var hj3DisplayImages = function hj3DisplayImages() {__webpack_require__.e(/*! require.ensure | components/hj3-display-images/hj3-display-images */ "components/hj3-display-images/hj3-display-images").then((function () {return resolve(__webpack_require__(/*! @/components/hj3-display-images/hj3-display-images.vue */ 286));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpIcon = function KpIcon() {Promise.all(/*! require.ensure | components/kp-icon/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-icon/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-icon */ 301));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpTag = function KpTag() {Promise.all(/*! require.ensure | components/kp-tag/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-tag/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-tag */ 308));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var likeIcon = function likeIcon() {__webpack_require__.e(/*! require.ensure | components/common/commonIcon/groupLike */ "components/common/commonIcon/groupLike").then((function () {return resolve(__webpack_require__(/*! @/components/common/commonIcon/groupLike.vue */ 315));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var kpBadge = function kpBadge() {Promise.all(/*! require.ensure | components/kp-badge/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-badge/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-badge/index.vue */ 322));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var KpAvatar = function KpAvatar() {Promise.all(/*! require.ensure | components/kp-avatar/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/kp-avatar/index")]).then((function () {return resolve(__webpack_require__(/*! @/components/kp-avatar/index.vue */ 329));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownMenu = function msDropdownMenu() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-menu */ "components/ms-dropdown/dropdown-menu").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-menu.vue */ 336));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var msDropdownItem = function msDropdownItem() {__webpack_require__.e(/*! require.ensure | components/ms-dropdown/dropdown-item */ "components/ms-dropdown/dropdown-item").then((function () {return resolve(__webpack_require__(/*! @/components/ms-dropdown/dropdown-item.vue */ 343));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -379,6 +378,7 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
 
   data: function data() {
     return {
+
       userGroupInfo: [],
       groupInfo: {},
       value: false,
@@ -391,7 +391,19 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
       team: [],
       tapIndex: 0,
       nav: ['主页', '管理', '展示'],
+      totalNums: 0,
+      img: [
+      // {src:'http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg',title:"mm1"}, {src:'http://image.zhangxinxu.com/image/study/s/s128/mm8.jpg',title:"mm2"},
+      //只是为了演示，不推荐这种混合方式，不一致不太好
+      "https://images.mepai.me/app/works/38224/2019-12-11/w_5df03f532c12d/05df03f532c285.jpg!1200w.jpg",
+      "https://images.mepai.me/app/works/38224/2019-12-08/w_5dec4ca4a2700/05dec4ca4a2878.jpg!1200w.jpg",
+      "https://lz.sinaimg.cn/orj1080/967d9727ly3gc0whyfofkj20sg0sg4av.jpg",
+      "https://images.mepai.me/app/works/38224/2019-12-25/w_5e02b44081594/05e02b440816c9.jpg",
+      "https://images.mepai.me/app/works/38224/2019-12-22/w_5dfecd711bb5a/05dfecd711bc6b.jpg!1200w.jpg"],
 
+      current: 0,
+      back: '#fff',
+      // back:'http://picm.bbzhi.com/fengjingbizhi/wubianyuzhoumeilixingkong/wubianyuzhoumeilixingkong_450321_m.jpg',
       coverImgs: {
         gallery: ["https://images.mepai.me/app/works/38224/2019-03-07/w_5c80626e09d76/05c80626e0baef.jpg!1200w.jpg",
         "https://images.mepai.me/app/works/38224/2018-12-20/w_5c1ae1ccd1bf6/05c1ae1ccd375f.jpg!1200w.jpg",
@@ -409,6 +421,7 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
 
   },
   components: {
+    hj3DisplayImages: hj3DisplayImages,
     kpSwiper: kpSwiper,
     KpIcon: KpIcon,
     KpTag: KpTag,
@@ -419,7 +432,7 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
     msDropdownItem: msDropdownItem },
 
   onLoad: function onLoad() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var that, raw_userGroupInfo, userGroupInfo, groupInfo, res, raw_teamMembers, list, auth;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-              console.log(_this.group);
+              _this.totalNums = _this.img.length;
               that = _this;
               uni.getSystemInfo({
                 success: function success(res) {
@@ -474,11 +487,35 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
 
   },
   methods: {
-    chooseManageGroup: function chooseManageGroup(groupName) {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var groupInfo;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+    tap: function tap(e) {
+
+      this.current = e;
+    },
+    chooseManageGroup: function chooseManageGroup(groupName) {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var groupInfo, res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
 
                   _this2.request('v1/group/changeGroup', { name: groupName }));case 2:groupInfo = _context2.sent;
-                groupInfo = groupInfo[1].data;
-                _this2.groupInfo = groupInfo;case 5:case "end":return _context2.stop();}}}, _callee2);}))();
+
+                if (groupInfo[1].data) {
+                  groupInfo = groupInfo[1].data;
+                } else {
+                  groupInfo = {};
+                }
+                console.log("groupInfo", groupInfo);
+                if (groupInfo.tags) {
+                  groupInfo.tags = groupInfo.tags.split(',');
+                } else {
+                  groupInfo.tags = ['优秀', '精神小伙'];
+                }
+                res = groupInfo;
+                Object.keys(groupInfo).forEach(function (key) {
+                  if (!groupInfo[key]) {
+                    res[key] = _this2.group.defaultGroup[key];
+                  }
+                });
+                _this2.groupInfo = groupInfo;
+                _this2.coverImgs = Object.assign(_this2.coverImgs, { gallery: groupInfo.coverImgs });case 10:case "end":return _context2.stop();}}}, _callee2);}))();
+
+
     },
     addSave: function addSave() {
       var obj = this.groupInfo;
@@ -491,22 +528,6 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
       this.groupInfo = obj;
     },
     onConfirm: function onConfirm(item) {
-
-    },
-    gotoCollections: function gotoCollections(index) {
-      var type = 100;
-      switch (index) {
-
-        case 1:
-          type = 200;
-          break;
-        case 2:
-          type = 400;
-          break;}
-
-
-      uni.navigateTo({
-        url: "/groupInfo/collectionsDetail/collectionsDetail?type=".concat(type, "&groupId=").concat(this.groupInfo.id, "&allowEdit=", true, "&groupName=").concat(this.groupInfo.groupName) });
 
     },
     gotoChatPage: function gotoChatPage() {
@@ -529,20 +550,20 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _interopRequireDefault(
 
           break;
         case 2:
-          url = "/groupInfo/groupInfoConcat/groupInfoConcat?groupId=" + this.groupInfo.id;
+          url = "/activity/changeCommunityInfo/changeCommunityInfo?groupId=" + this.groupInfo.id;
           uni.navigateTo({
             url: url });
 
           break;
-        case 3:
+        case 2:
           url = "/groupInfo/changeGroupInfo/changeGroupInfo?groupId=" + this.groupInfo.id;
           this.judgeAuth(url);
           break;
-        case 4:
+        case 3:
           url = "/groupInfo/memberMange/memberMange?groupId=" + this.groupInfo.id;
           this.judgeAuth(url);
           break;
-        case 5:
+        case 4:
           url = "/groupInfo/publishCollection/publishCollection?groupId=" + this.groupInfo.id;
           this.judgeAuth(url);
           break;}

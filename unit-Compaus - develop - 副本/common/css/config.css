@@ -1,0 +1,9 @@
+.config-unactive-text{
+	color:darkgray;
+	font-size: 30upx;
+	
+}
+
+.config-block-bottom{
+	border-bottom: 1upx solid lightgray;
+}

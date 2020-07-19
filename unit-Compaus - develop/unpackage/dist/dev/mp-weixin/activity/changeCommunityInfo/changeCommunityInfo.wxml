@@ -1,0 +1,1 @@
+<view><uni-nav-bar vue-id="6a097a4e-1" left-icon="back" title="小组的社区" data-event-opts="{{[['^clickLeft',[['clickLeft']]]]}}" bind:clickLeft="__e" bind:__l="__l"></uni-nav-bar></view>

@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "hj3-display-images": "/components/hj3-display-images/hj3-display-images",
     "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
     "kp-swiper": "/components/kp-swiper/index",
     "kp-icon": "/components/kp-icon/index",

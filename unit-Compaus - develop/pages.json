@@ -63,10 +63,6 @@
 			{
 				"path": "publishCollection/publishCollection",
 				"style": {}
-			},
-			{
-				"path": "collectionsDetail/collectionsDetail",
-				"style": {}
 			}
 		]
 
@@ -116,7 +112,11 @@
 		}, {
 			"path": "publishActivity/publishActivity",
 			"style": {}
-		}]
+		}    ,{
+                    "path" : "changeCommunityInfo/changeCommunityInfo",
+                    "style" : {}
+                }
+            ]
 	}],
 	
 	

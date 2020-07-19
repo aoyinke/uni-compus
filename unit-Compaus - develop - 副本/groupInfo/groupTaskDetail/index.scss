@@ -1,0 +1,49 @@
+.item{
+	box-shadow: 2px 2px 2px 2px #EEEEEE;
+	height: 400rpx;
+	margin: 20rpx;
+}
+
+.task-progress{
+	background-color: #fff;
+	height: 200rpx;
+	margin: 20rpx;
+}
+.choosejoinedPeople {
+	background-color: #fff;
+	height: 70vh;
+}
+.choosejoinedPeople-title {
+	text-align: center;
+	font-size: 32upx;
+	font-weight: 500;
+}
+
+.memberList {
+	&-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 15upx;
+		width: 100%;
+		&-left {
+		}
+		&-right {
+			color: #70a1ff;
+		}
+	}
+}
+
+.joinedPeople-list {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	margin: 15rpx;
+	&-item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+}

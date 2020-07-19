@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "refresh-view": "/components/Refresh/Refresh",
+    "like-icon": "/components/common/commonIcon/groupLike"
+  }
+}

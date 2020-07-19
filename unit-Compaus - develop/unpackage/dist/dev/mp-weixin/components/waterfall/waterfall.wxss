@@ -1,0 +1,66 @@
+.peopleFall.data-v-85451a2c {
+  position: relative;
+}
+.peopleFall-item.data-v-85451a2c {
+  position: absolute;
+  width: 45%;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  box-shadow: 2rpx 2rpx 8rpx 8rpx #eeeeee;
+  margin: 20rpx;
+}
+.peopleFall-item-img.data-v-85451a2c {
+  width: 100%;
+}
+.peopleFall-item-tag.data-v-85451a2c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.peopleFall-item-groupName.data-v-85451a2c {
+  font-weight: bold;
+}
+.footer.data-v-85451a2c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  border-bottom: 3px solid #eeeeee;
+}
+.footer-left.data-v-85451a2c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.footer-left image.data-v-85451a2c {
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 50%;
+}
+.footer-right.data-v-85451a2c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+

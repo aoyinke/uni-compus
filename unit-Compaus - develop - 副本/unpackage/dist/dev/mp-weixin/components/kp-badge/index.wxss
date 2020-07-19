@@ -1,0 +1,46 @@
+/*
+ * Copyright (c) 2019-Now Asako Studio. All rights reseved.
+ * @fileoverview | less minxin 配置项目中公共处理的mixin
+ * @Author: mukuashi | mukuashi@icloud.com
+ * @version 0.1 | 2019-03-08 // Initial version.
+ * @Date: 2019-03-08 15:59:03 
+ * @Last Modified by: mukuashi
+ * @Last Modified time: 2020-02-23 01:21:05
+*/
+/*
+ * Copyright (c) 2019-Now Asako Studio. All rights reseved.
+ * @fileoverview | 定义小程序内部统一的主题及全局变量
+ * @Author: mukuashi | mukuashi@icloud.com
+ * @version 0.1 | 2019-07-08 // Initial version.
+ * @Date: 2019-07-08 14:41:58 
+ * @Last Modified by: mukuashi
+ * @Last Modified time: 2020-03-30 12:40:32
+ */
+.k-badge.data-v-626771f9 {
+  font-size: 24rpx;
+  line-height: 1;
+  padding: 4rpx 12rpx;
+  border-radius: 100rpx;
+  color: #fff;
+  background-color: #623bff;
+  display: inherit;
+}
+.k-badge-dot.data-v-626771f9 {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 8rpx;
+  line-height: 1;
+}
+.k-badge-small.data-v-626771f9 {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+.k-badge-primary.data-v-626771f9 {
+  background-color: #623bff;
+}
+.k-badge-error.data-v-626771f9 {
+  background-color: #ed4014;
+}
+

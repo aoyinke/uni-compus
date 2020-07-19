@@ -6,8 +6,8 @@
     "uni-popup": "/components/uni-popup/uni-popup",
     "lv-select": "/components/lv-select/lv-select",
     "w-picker": "/components/w-picker/w-picker",
+    "chun-lei-modal": "/components/chunLei-modal/chunLei-modal",
     "kp-avatar": "/components/kp-avatar/index",
-    "uni-compus-button": "/components/uni-compus-components/unicompus-button",
     "uni-compus-upload-img": "/components/uni-compus-components/uniCompus-uploadImg"
   }
 }

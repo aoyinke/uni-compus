@@ -1,0 +1,146 @@
+.video video.data-v-0c53968c {
+  width: 100%;
+}
+.mainBar.data-v-0c53968c {
+  min-height: 300rpx;
+}
+.activity-title.data-v-0c53968c {
+  margin: 20rpx;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.groupNotification.data-v-0c53968c {
+  border-bottom: 10rpx solid #eeeeee;
+}
+.groupNotification .groupTopBar.data-v-0c53968c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  height: 100rpx;
+  border: 0.5px solid #eeeeee;
+}
+.groupNotification .groupTopBar .groupTopBar-left.data-v-0c53968c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  margin: 20rpx;
+}
+.groupNotification .groupTopBar .groupTopBar-left .groupLogo image.data-v-0c53968c {
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 50%;
+}
+.groupNotification .groupTopBar .groupTopBar-left .groupName.data-v-0c53968c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  margin-left: 10rpx;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+}
+.groupNotification .groupTopBar .groupTopBar-left .groupName .groupName-first.data-v-0c53968c {
+  font-weight: bold;
+}
+.groupNotification .groupTopBar .groupTopBar-left .groupName .groupName-last.data-v-0c53968c {
+  color: darkgray;
+  font-size: 20rpx;
+}
+.groupNotification .groupTopBar .groupTopBar-right .notiDetail button.data-v-0c53968c {
+  color: #fff;
+  background-color: #191970;
+}
+.groupNotification .groupTopBar .groupTopBar-right .notiDetail image.data-v-0c53968c {
+  width: 60rpx;
+  height: 60rpx;
+}
+.groupNotification .swiper-item image.data-v-0c53968c {
+  width: 100%;
+}
+.groupNotification .footer.data-v-0c53968c {
+  border-top: 0.5rpx solid #eeeeee;
+}
+.groupNotification .footer .mutation.data-v-0c53968c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  margin-top: 10rpx;
+}
+.groupNotification .footer .mutation .mutation-left.data-v-0c53968c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.groupNotification .footer .mutation .mutation-left .like.data-v-0c53968c {
+  margin-left: 10rpx !important;
+}
+.groupNotification .footer .mutation .mutation-right .share.data-v-0c53968c {
+  margin-right: 10rpx;
+}
+.groupNotification .footer .mutation .mutation-left .tag.data-v-0c53968c,
+.groupNotification .footer .mutation .mutation-right .tag.data-v-0c53968c {
+  margin-left: 30rpx;
+}
+.groupNotification .footer .mutation .mutation-left .tag image.data-v-0c53968c,
+.groupNotification .footer .mutation .mutation-right .tag image.data-v-0c53968c {
+  width: 50rpx;
+  height: 50rpx;
+}
+.groupNotification .footer .commentDetail.data-v-0c53968c {
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+}
+.groupNotification .footer .commentDetail .activityInfo .activityInfo-left.data-v-0c53968c {
+  color: darkgray;
+  margin-left: 10rpx;
+}
+.groupNotification .footer .commentDetail .activityInfo .activityInfo-right.data-v-0c53968c {
+  color: darkgray;
+  margin-left: 15rpx;
+}
+.groupNotification .footer .commentDetail .commentDetail-P .commentDetail-P-left.data-v-0c53968c {
+  font-weight: 800;
+  margin-left: 10rpx;
+}
+.description.data-v-0c53968c {
+  margin: 0 20rpx;
+  font-weight: 500;
+}
+
